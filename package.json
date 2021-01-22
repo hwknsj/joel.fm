@@ -1,0 +1,136 @@
+{
+  "name": "joel.fm",
+  "private": true,
+  "description": "moving on",
+  "version": "1.0.0",
+  "author": "joél <joel@joel.fm>",
+  "dependencies": {
+    "fluent-ffmpeg": "^2.1.2",
+    "gatsby": "^2.28.2",
+    "gatsby-image": "^2.7.0",
+    "gatsby-plugin-feed": "^2.9.0",
+    "gatsby-plugin-ffmpeg": "^0.3.1",
+    "gatsby-plugin-google-analytics": "^2.7.0",
+    "gatsby-plugin-manifest": "^2.8.0",
+    "gatsby-plugin-offline": "^3.6.0",
+    "gatsby-plugin-postcss": "^3.3.0",
+    "gatsby-plugin-purgecss": "^5.0.0",
+    "gatsby-plugin-react-helmet": "^3.6.0",
+    "gatsby-plugin-sharp": "^2.10.1",
+    "gatsby-remark-copy-linked-files": "^2.6.0",
+    "gatsby-remark-images": "^3.7.1",
+    "gatsby-remark-prismjs": "^3.9.0",
+    "gatsby-remark-responsive-iframe": "^2.7.0",
+    "gatsby-remark-smartypants": "^2.6.0",
+    "gatsby-source-filesystem": "^2.7.0",
+    "gatsby-transformer-ffmpeg": "^0.3.8",
+    "gatsby-transformer-remark": "^2.12.0",
+    "gatsby-transformer-sharp": "^2.8.0",
+    "gatsby-video": "^0.2.0",
+    "postcss": "^8.2.1",
+    "prismjs": "^1.22.0",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-helmet": "^6.1.0",
+    "styled-components": "^5.2.1",
+    "stylus": "^0.54.8",
+    "typeface-alegreya": "^1.1.13",
+    "typeface-merriweather": "1.1.13",
+    "typeface-montserrat": "1.1.13",
+    "typeface-nunito": "^1.1.13",
+    "url-join": "^4.0.1"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.1.0",
+    "babel-eslint": "^10.1.0",
+    "cross-env": "^7.0.3",
+    "eslint": "^7.15.0",
+    "eslint-config-prettier": "^7.0.0",
+    "eslint-config-react-app": "^6.0.0",
+    "eslint-plugin-flowtype": "^5.2.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^3.2.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-react": "^7.21.5",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "esm": "^3.2.25",
+    "husky": "^4.3.5",
+    "import-sort-cli": "^6.0.0",
+    "import-sort-parser-babylon": "^6.0.0",
+    "import-sort-style-module": "^6.0.0",
+    "lint-staged": "^10.5.3",
+    "npm-run-all": "^4.1.5",
+    "postcss-color-function": "^4.1.0",
+    "postcss-custom-properties": "^10.0.0",
+    "postcss-easy-import": "^3.0.0",
+    "postcss-loader": "^4.1.0",
+    "prettier": "^2.2.1",
+    "pretty-quick": "^3.1.0"
+  },
+  "homepage": "https://joel.fm/",
+  "keywords": [
+    "react",
+    "gatsby",
+    "pay me plz",
+    "portfolio",
+    "@joel.biz"
+  ],
+  "license": "MIT",
+  "main": "n/a",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "scripts": {
+    "build": "cross-env NODE_OPTIONS=\"-r esm\" gatsby build",
+    "develop": "cross-env NODE_OPTIONS=\"-r esm\" gatsby develop",
+    "format": "run-s format:sort-imports format:prettier",
+    "format:prettier": "prettier --loglevel warn --single-quote --write './**/*.{js,jsx,ts,tsx,json,scss,css}'",
+    "format:sort-imports": "import-sort --write './**/*.{js,jsx,ts,tsx}'",
+    "lint": "eslint --max-warnings 0 'src/**/*.{js,jsx,ts,tsx}'",
+    "clean": "gatsby clean",
+    "start": "yarn run develop",
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
+  },
+  "prettier": {
+    "semi": false,
+    "singleQuote": true,
+    "arrowParens": "avoid",
+    "bracketSpacing": true,
+    "jsxBracketSameLine": false,
+    "trailingComma": "none",
+    "jsxSingleQuote": true,
+    "useTabs": false,
+    "tabWidth": 2
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "importSort": {
+    ".js, .jsx, .ts, .tsx": {
+      "style": "module"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx,ts,tsx}": [
+      "eslint --max-warnings 0",
+      "import-sort --write",
+      "prettier --write",
+      "git add"
+    ],
+    "src/**/*.{scss,css}": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
+}
