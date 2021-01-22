@@ -81,7 +81,7 @@
   "main": "n/a",
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/hwknsj/joel.fm"
   },
   "scripts": {
     "build": "cross-env NODE_OPTIONS=\"-r esm\" gatsby build",
