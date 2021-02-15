@@ -1,19 +1,12 @@
-User-agent:ia_archiver
-Disallow: /
-Disallow: /wp-admin/
-Disallow: /wp-content/
-Disallow: /wp-includes/
-Disallow: /data/
+# User-agent:ia_archiver
+# Disallow: /
+# Disallow: /wp-admin/
+# Disallow: /wp-content/
+# Disallow: /wp-includes/
+# Disallow: /data/
 
-User-agent: archive.org_bot
-Disallow: /
-
-User-agent: *
-Disallow: /
-Disallow: /wp-admin/
-Disallow: /wp-content/
-Disallow: /wp-includes/
-Disallow: /data/
+# User-agent: archive.org_bot
+# Disallow: /
 
 User-agent: Rogerbot
 User-agent: Exabot
@@ -23,7 +16,7 @@ User-agent: Gigabot
 User-agent: Baiduspider
 User-agent: Ezooms
 User-agent: Nutch
-User-agent: archive.org_bot
+# User-agent: archive.org_bot
 User-agent: MJ12bot
 User-agent: YandexBot
 User-agent: AhrefsBot
@@ -67,3 +60,5 @@ User-agent: UniverseBot
 User-agent: SlySearch
 Disallow: /
 
+User-Agent: *
+Allow: /
