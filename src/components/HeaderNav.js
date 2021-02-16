@@ -15,7 +15,7 @@ export const socialLinks = [
 const HeaderNavSocial = ({ toggleNav }) => {
   return (
     <div className={`${toggleNav && `site-head-open`} site-head-right`} style={{ display: 'flex' }}>
-      <div className='social-links' style={{ display: 'flex' }}>
+      <div className='nav-right-links' style={{ display: 'flex' }}>
         {socialLinks.map(({ name, url }) => (
           <a key={url} href={url} title={name} target='_blank' rel='noopener noreferrer'>
             {name}
