@@ -2,14 +2,14 @@ import {
   IoLogoBehance,
   IoLogoGithub,
   IoLogoInstagram,
-  IoLogoLinkedIn
-} from 'react-icons/io'
+  IoLogoLinkedin
+} from 'react-icons/io5'
 
 const socialLinks = [
   {
     name: 'LinkedIn',
     url: 'https://www.linkedin.com/in/hwknsj/',
-    icon: <IoLogoLinkedIn />
+    icon: <IoLogoLinkedin />
   },
   { name: 'Github', url: 'https://github.com/hwknsj', icon: <IoLogoGithub /> },
   {

@@ -1,8 +1,11 @@
+import { ThemeProvider } from '@emotion/react'
 import { graphql, useStaticQuery } from 'gatsby'
 import React, { useState } from 'react'
 
 import Footer from './Footer'
 import HeaderNav from './HeaderNav'
+import { LayoutStyles } from './styles/LayoutStyles'
+import GlobalStyles, { theme } from './styles/Theme'
 
 const Layout = ({ children }) => {
   const query = graphql`
@@ -44,21 +47,24 @@ const Layout = ({ children }) => {
   const [toggleNav, setToggleNav] = useState(false)
 
   return (
-    <div className={`site-wrapper ${toggleNav ? `site-head-open` : ``}`}>
-      <HeaderNav
-        toggleNav={toggleNav}
-        setToggleNav={setToggleNav}
-        logo={logo}
-        title={title}
-        headerImgs={headerImgs}
-      />
-      <main id='site-main' className='site-main'>
-        <div id='swup' className='transition-fade'>
-          {children}
-        </div>
-      </main>
-      <Footer toggleNav={toggleNav} title={title} />
-    </div>
+    <ThemeProvider theme={theme}>
+      <GlobalStyles />
+      <LayoutStyles className={`${toggleNav ? `site-head-open` : ``}`}>
+        <HeaderNav
+          toggleNav={toggleNav}
+          setToggleNav={setToggleNav}
+          logo={logo}
+          title={title}
+          headerImgs={headerImgs}
+        />
+        <main id='site-main' className='site-main'>
+          <div id='swup' className='transition-fade'>
+            {children}
+          </div>
+        </main>
+        <Footer toggleNav={toggleNav} title={title} />
+      </LayoutStyles>
+    </ThemeProvider>
   )
 }
 

@@ -190,7 +190,7 @@ export const NavBarStyles = styled.div`
     align-items: flex-start;
   }
 
-  .social-links {
+  .nav-right-links {
     /* flex-shrink: 0; */
     display: flex;
     align-items: flex-start;

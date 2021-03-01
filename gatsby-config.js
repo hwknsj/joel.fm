@@ -69,14 +69,25 @@ module.exports = {
         ]
       }
     },
-    // {
-    //   resolve: `gatsby-plugin-purgecss`,
-    //   options: {
-    //     printRejected: true, // Print removed selectors and processed file names
-    //     develop: true, // Enable while using `gatsby develop`
-    //     whitelist: ['whitelist'] // Don't remove this selector
-    //   }
-    // },
+    {
+      resolve: `gatsby-plugin-purgecss`,
+      options: {
+        printRejected: true, // Print removed selectors and processed file names
+        develop: true, // Enable while using `gatsby develop`
+        whitelist: ['whitelist'] // Don't remove this selector
+      }
+    },
+    {
+      resolve: `gatsby-plugin-emotion`,
+      options: {
+        // Accepts the following options, all of which are defined by `@emotion/babel-plugin` plugin.
+        // The values for each key in this example are the defaults the plugin uses.
+        sourceMap: true,
+        autoLabel: `dev-only`,
+        labelFormat: `[local]`,
+        cssPropOptimization: true
+      }
+    },
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {

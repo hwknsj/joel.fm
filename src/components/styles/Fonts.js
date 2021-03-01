@@ -1,5 +1,5 @@
 // For code splitting purposes, separate font-face definitions
-const fonts = () => String.raw`
+const fonts = String.raw`
   @font-face {
     font-family: 'EskapadeFraktur';
     src: url('../../lib/fonts/EskapadeFraktur-Regular.otf');

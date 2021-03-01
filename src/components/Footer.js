@@ -1,7 +1,7 @@
 import { Link } from 'gatsby'
 import React from 'react'
 
-import { socialLinks } from './HeaderNav'
+import socialLinks from './socialLinks'
 
 const Footer = ({ toggleNav, title }) => {
   return (
@@ -13,7 +13,7 @@ const Footer = ({ toggleNav, title }) => {
       </div>
       <div className='center'>
         <ul className='inline center'>
-          {socialLinks.map(({ name, url }) => (
+          {socialLinks.map(({ name, url, icon }) => (
             <li key={url}>
               <a
                 href={url}
@@ -21,7 +21,7 @@ const Footer = ({ toggleNav, title }) => {
                 target='_blank'
                 rel='noopener noreferrer'
               >
-                {name}
+                {icon}
               </a>
             </li>
           ))}
