@@ -1,17 +1,12 @@
 
 # Old version of normalize.css
-src/utils/normalize_.css
-./src/utils/normalize_.css
-/src/utils/normalize_.css
+src/lib/normalize_.css
+./src/lib/normalize_.css
+/src/lib/normalize_.css
 # failed attempt to use stylus, ignoring for cleanliness
-src/utils/styl/
-./src/utils/styl/
-/src/utils/styl
-
-# patch
-*.patch
-*.zip
-
+src/lib/styl/
+./src/lib/styl/
+/src/lib/styl
 # Logs
 logs
 *.log
