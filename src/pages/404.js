@@ -27,8 +27,8 @@ const NotFoundPage = ({ data, location }) => {
         <div className='post-content-body'>
           <h2>404: no page {location.toString() || `here`}, cuz</h2>
           <p className='center-text'>
-            you're in the wrong place <br />
-            i'd just <Link to='/'>go home</Link>
+            you{`&apos;`}re in the wrong place <br />i{`&apos;`}d just{' '}
+            <Link to='/'>go home</Link>
           </p>
         </div>
       </article>
