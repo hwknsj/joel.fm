@@ -1,7 +1,7 @@
+import styled from '@emotion/styled'
 import { graphql, useStaticQuery } from 'gatsby'
 import Img from 'gatsby-image'
 import React from 'react'
-import styled from 'styled-components'
 
 const ImageGridStyles = styled.div`
   display: grid;
@@ -40,11 +40,6 @@ const ImageGrid = () => {
       }
     }
   `
-  // TODO: can't get videos to work. tried too hard and too long and nothing is worth it.
-  // 1) just query nodes, use if (node.childImageSharp) then <Img ... />
-  // else if (node.childVideoFfmpeg...) then <Video sources={[...]} />
-  // 2) use two queries, slice array up until file number of video, map videos,
-  // then continue mapping the rest of the sliced images.
   const data = useStaticQuery(query)
   const images = data.images.nodes || []
 

@@ -49,8 +49,12 @@ const IndexPage = (props, location) => {
           'blog',
           'joel',
           'hawkins',
+          'torres',
           'joel hawkins',
+          'joel hawkins torres',
           'joel.biz',
+          '@joel.biz',
+          'joel.fm',
           'gatsby',
           'javascript',
           'react'
@@ -58,14 +62,21 @@ const IndexPage = (props, location) => {
       />
       {data.site.siteMetadata.description && (
         <header className='page-head'>
-          <h2 className='page-head-title'>{data.site.siteMetadata.description}</h2>
+          <h2 className='page-head-title'>
+            {data.site.siteMetadata.description}
+          </h2>
         </header>
       )}
       <div className='post-feed'>
         {posts.map(({ node }) => {
           postCounter++
           return (
-            <PostCard key={node.fields.slug} count={postCounter} node={node} postClass={'post'} />
+            <PostCard
+              key={node.fields.slug}
+              count={postCounter}
+              node={node}
+              postClass={'post'}
+            />
           )
         })}
       </div>

@@ -1,26 +1,19 @@
 import { Link } from 'gatsby'
+import PropTypes from 'prop-types'
 import React from 'react'
 
 import HeaderImage from './HeaderImage'
 import HeaderLogo from './HeaderLogo'
+import SocialLinks from './SocialLinks'
 
-export const socialLinks = [
-  { name: 'LinkedIn', url: 'https://www.linkedin.com/in/hwknsj/' },
-  { name: 'Github', url: 'https://github.com/hwknsj' },
-  { name: 'Instagram', url: 'https://www.instagram.com/joel.biz/' },
-  { name: 'Behance', url: 'https://www.behance.net/hwknsj' }
-]
-
-// FIXME: this is hidden by uBlock origin cosmetic filtering which renders the logo and left nav off-center
 const HeaderNavSocial = ({ toggleNav }) => {
   return (
-    <div className={`${toggleNav && `site-head-open`} site-head-right`} style={{ display: 'flex' }}>
+    <div
+      className={`${toggleNav ? `site-head-open ` : ``}site-head-right`}
+      style={{ display: 'flex' }}
+    >
       <div className='nav-right-links' style={{ display: 'flex' }}>
-        {socialLinks.map(({ name, url }) => (
-          <a key={url} href={url} title={name} target='_blank' rel='noopener noreferrer'>
-            {name}
-          </a>
-        ))}
+        <SocialLinks />
       </div>
     </div>
   )
@@ -37,12 +30,18 @@ const HeaderNav = ({ toggleNav, setToggleNav, logo, title, headerImgs }) => {
   ]
 
   const randomIndex = (Math.random() * headerImgs.totalCount) | 0
-  const randomHeaderImg = headerImgs.edges[randomIndex].node.childImageSharp.fluid
+  const randomHeaderImg =
+    headerImgs.edges[randomIndex].node.childImageSharp.fluid
   return (
     <header className='site-head'>
       <div className='site-head-container'>
-        {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-        <a className='nav-burger' href={'#'} onClick={() => setToggleNav(!toggleNav)}>
+        <a
+          className='nav-burger'
+          href={'#'}
+          onClick={() => setToggleNav(!toggleNav)}
+          alt='navigation'
+          aria-label='navigation'
+        >
           <div
             className='hamburger hamburger--collapse'
             aria-label='Menu'
@@ -54,7 +53,10 @@ const HeaderNav = ({ toggleNav, setToggleNav, logo, title, headerImgs }) => {
             </div>
           </div>
         </a>
-        <nav id='swup' className={`${toggleNav && `site-head-open`} site-head-left`}>
+        <nav
+          id='swup'
+          className={`${toggleNav ? `site-head-open ` : ``}site-head-left`}
+        >
           <ul className='nav' role='menu'>
             {navLinks.map(({ text, slug }) => (
               <li className={`nav-${slug}`} role='menuitem' key={slug}>
@@ -72,5 +74,15 @@ const HeaderNav = ({ toggleNav, setToggleNav, logo, title, headerImgs }) => {
     </header>
   )
 }
+
+HeaderNav.propTypes = {
+  toggleNav: PropTypes.bool.isRequired,
+  setToggleNav: PropTypes.func.isRequired,
+  logo: PropTypes.object,
+  title: PropTypes.string,
+  headerImgs: PropTypes.object
+}
+
+HeaderNavSocial.propTypes = HeaderNav.propTypes.toggleNav
 
 export default HeaderNav

@@ -4,7 +4,7 @@ import React from 'react'
 import PostCard from '../components/PostCard'
 import SEO from '../components/SEO'
 
-const MusicPage = (props, location) => {
+const MusicPage = () => {
   let postCounter = 0
   const indexQuery = graphql`
     query {
@@ -52,7 +52,10 @@ const MusicPage = (props, location) => {
           'joel',
           'hawkins',
           'joel hawkins',
+          'joel hawkins torres',
+          'joel.fm',
           'joel.biz',
+          '@joel.biz',
           'gatsby',
           'javascript',
           'react',
@@ -107,5 +110,7 @@ const MusicPage = (props, location) => {
     </div>
   )
 }
+
+MusicPage.propTypes = {}
 
 export default MusicPage

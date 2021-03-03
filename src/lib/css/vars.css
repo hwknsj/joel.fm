@@ -1,0 +1,84 @@
+/* Variables
+/* ---------------------------------------------------------- */
+
+/* @import url('https://fonts.googleapis.com/css?family=Muli:400,400i,600,700,700i,800&display=swap'); */
+
+@font-face {
+  font-family: 'EskapadeFraktur';
+  src: url('../fonts/EskapadeFraktur-Regular.otf');
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'EskapadeFraktur';
+  src: url('../fonts/EskapadeFraktur-Italic.otf');
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'CorporateS';
+  src: url('../fonts/CorporateS-ProRegular.ttf');
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'CorporateS';
+  src: url('../fonts/CorporateSBold.ttf');
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: 'CorporateS';
+  src: url('../fonts/CorporateSItalic.ttf');
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'CorporateS';
+  src: url('../fonts/CorporateSLight.ttf');
+  font-weight: 200;
+}
+
+@font-face {
+  font-family: 'CorporateS';
+  src: url('../fonts/CorporateSMedium.ttf');
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: 'CorporateA';
+  src: url('../fonts/CorporateARegular.ttf');
+  font-weight: 400;
+}
+
+:root {
+  /* Colours */
+  --color-primary: rgb(10, 72, 221);
+  --color-base: #131313;
+  --color-border: #ddd;
+  /* --color-bg: #f8f8f8; */
+  --color-bg: #ffffff;
+  --color-light: #9e9e9e;
+
+  /* Fonts */
+  --font-fraktur: 'EskapadeFraktur', serif;
+  --font-sans-serif: 'CorporateS', sans-serif;
+  --font-serif: 'CorporateA', Georgia, Times, serif;
+  --font-mono: 'CorporateS', Menlo, Courier, monospace;
+  --font-light: 200;
+  --font-normal: 400;
+  --font-bold: 700;
+  --font-heavy: 800;
+
+  /* Breakpoints */
+  --xlarge: 1680px;
+  --large: 1280px;
+  --medium: 980px;
+  --small: 740px;
+  --xsmall: 480px;
+
+  /* Sizes */
+  --height: 4rem;
+  --margin: 2rem;
+  --radius: 0.5rem;
+}

@@ -18,7 +18,6 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        // path: `${__dirname}/content/projects`,
         path: path.resolve(__dirname, 'content', 'projects'),
         name: `projects`
       }
@@ -59,24 +58,22 @@ module.exports = {
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
-      resolve: `gatsby-plugin-postcss`,
+      resolve: `gatsby-plugin-purgecss`,
       options: {
-        postCssPlugins: [
-          require('postcss-easy-import')(),
-          require('postcss-custom-properties')({ preserve: false }),
-          require('postcss-color-function')(),
-          require('autoprefixer')()
-        ]
+        printRejected: true,
+        develop: true,
+        whitelist: ['whitelist'] // Don't remove this selector
       }
     },
-    // {
-    //   resolve: `gatsby-plugin-purgecss`,
-    //   options: {
-    //     printRejected: true, // Print removed selectors and processed file names
-    //     develop: true, // Enable while using `gatsby develop`
-    //     whitelist: ['whitelist'] // Don't remove this selector
-    //   }
-    // },
+    {
+      resolve: `gatsby-plugin-emotion`,
+      options: {
+        sourceMap: true,
+        autoLabel: `dev-only`,
+        labelFormat: `[local]`,
+        cssPropOptimization: true
+      }
+    },
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
@@ -96,7 +93,6 @@ module.exports = {
         icon: siteConfig.favicon.png
       }
     },
-    // `gatsby-plugin-netlify`,
     `gatsby-plugin-offline`,
     `gatsby-plugin-react-helmet`
   ]

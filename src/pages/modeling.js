@@ -73,6 +73,7 @@ const ModelingPage = (props, location) => {
               href='https://www.instagram.com/joel.biz/'
               rel='noreferrer noopener'
               target='_blank'
+              alt='@joel.biz'
             >
               @joel.biz
             </a>{' '}
@@ -83,6 +84,7 @@ const ModelingPage = (props, location) => {
               href='https://estebanschimpf.com/home.html'
               rel='noreferrer noopener'
               target='_blank'
+              alt='Esteban Schimpf'
             >
               Esteban Schimpf
             </a>{' '}
@@ -91,6 +93,7 @@ const ModelingPage = (props, location) => {
               href='https://www.instagram.com/ordinary_america/'
               rel='noreferrer noopener'
               target='_blank'
+              alt='@ordinary_america'
             >
               @ordinary_america
             </a>
@@ -99,16 +102,26 @@ const ModelingPage = (props, location) => {
               href='https://www.instagram.com/agvstin'
               rel='noreferrer noopener'
               target='_blank'
+              alt='@agvstin'
             >
               @agvstin
             </a>
             , and
-            <a href='https://www.instagram.com/caesyoney'>@caesyoney</a>, for
-            purely artistic purposes as well as fashion designers including
+            <a
+              href='https://www.instagram.com/caesyoney'
+              rel='noreferrer noopener'
+              target='_blank'
+              alt='@caesyoney'
+            >
+              @caesyoney
+            </a>
+            , for purely artistic purposes as well as fashion designers
+            including
             <a
               href='https://www.instagram.com/vetements_official/'
               rel='noreferrer noopener'
               target='_blank'
+              alt='Vetements'
             >
               Vetements
             </a>{' '}
@@ -117,11 +130,12 @@ const ModelingPage = (props, location) => {
               href='https://www.instagram.com/lastheavy/'
               rel='noreferrer noopener'
               target='_blank'
+              alt='@lastheavy'
             >
               @lastheavy
             </a>
-            ). I've also appeared in various look-books, magazines, and other
-            print and online publications.
+            ). I&apos;ve also appeared in various look-books, magazines, and
+            other print and online publications.
           </p>
         </div>
       </article>

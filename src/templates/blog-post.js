@@ -1,16 +1,17 @@
+import styled from '@emotion/styled'
 import { graphql } from 'gatsby'
 import Img from 'gatsby-image'
+import PropTypes from 'prop-types'
 import React from 'react'
-import styled from 'styled-components'
 
 import SEO from '../components/SEO'
 
 const BlogPostTemplateStyles = styled.div`
   max-width: 90vw;
-  @media (max-width: 1400px) {
-    max-width: 1200px;
+  @media (max-width: ${({ theme }) => theme.maxWidthLg}) {
+    max-width: ${({ theme }) => theme.maxWidthLg};
   }
-  @media (max-width: 900px) {
+  @media (max-width: ${({ theme }) => theme.maxWidthMd}) {
     .post-content-image {
       max-width: 100vw;
       width: 100vw;
@@ -64,6 +65,10 @@ const BlogPostTemplate = props => {
 }
 
 export default BlogPostTemplate
+
+BlogPostTemplate.propTypes = {
+  data: PropTypes.object
+}
 
 export const pageQuery = graphql`
   query BlogPostBySlug($slug: String!) {

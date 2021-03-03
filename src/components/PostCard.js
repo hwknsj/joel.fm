@@ -1,4 +1,5 @@
 import { Link } from 'gatsby'
+import PropTypes from 'prop-types'
 import React from 'react'
 
 const PostCard = ({ count, postClass, node }) => {
@@ -22,6 +23,12 @@ const PostCard = ({ count, postClass, node }) => {
       </Link>
     </article>
   )
+}
+
+PostCard.propTypes = {
+  count: PropTypes.number,
+  postClass: PropTypes.string,
+  node: PropTypes.object
 }
 
 export default PostCard

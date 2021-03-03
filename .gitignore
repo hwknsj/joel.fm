@@ -1,12 +1,11 @@
+# htaccess
+.htaccess
 
-# Old version of normalize.css
-src/utils/normalize_.css
-./src/utils/normalize_.css
-/src/utils/normalize_.css
-# failed attempt to use stylus, ignoring for cleanliness
-src/utils/styl/
-./src/utils/styl/
-/src/utils/styl
+.dropboxignore
+
+# old junk
+src/utils
+
 # Logs
 logs
 *.log

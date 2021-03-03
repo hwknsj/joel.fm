@@ -1,4 +1,5 @@
 import { Link, graphql } from 'gatsby'
+import PropTypes from 'prop-types'
 import React from 'react'
 
 import SEO from '../components/SEO'
@@ -24,7 +25,7 @@ const NotFoundPage = ({ data, location }) => {
 
       <article className='post-content page-template no-image'>
         <div className='post-content-body'>
-          <h2>404: no page here, cuz</h2>
+          <h2>404: no page {location.toString() || `here`}, cuz</h2>
           <p className='center-text'>
             you're in the wrong place <br />
             i'd just <Link to='/'>go home</Link>
@@ -36,6 +37,11 @@ const NotFoundPage = ({ data, location }) => {
 }
 
 export default NotFoundPage
+
+NotFoundPage.propTypes = {
+  data: PropTypes.object,
+  location: PropTypes.string
+}
 
 export const pageQuery = graphql`
   query {

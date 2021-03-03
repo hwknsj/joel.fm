@@ -81,7 +81,7 @@ const SEO = ({ description, lang, meta, keywords, title }) => {
       <link rel='alternate icon' href='/favicon.ico' />
       <meta name='viewport' content='width=device-width, initial-scale=1.0' />
       <meta charSet='utf-8' />
-      <meta http-equiv='Content-Type' content='text/html;charset=UTF-8' />
+      <meta httpEquiv='Content-Type' content='text/html;charset=UTF-8' />
     </Helmet>
   )
 }
@@ -95,7 +95,11 @@ SEO.defaultProps = {
     'joel',
     'hawkins',
     'joel hawkins',
+    'joél hawkins torres',
+    'hwknsj',
+    'joel.fm',
     'joel.biz',
+    '@joel.biz',
     'gatsby',
     'javascript',
     'react'

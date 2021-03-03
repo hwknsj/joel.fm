@@ -25,7 +25,7 @@ const MetaGramIndex = () => {
   people.`
 
   return (
-    <div>
+    <>
       <SEO
         title={`${title} | ${pageTitle}`}
         keywords={[
@@ -71,7 +71,7 @@ const MetaGramIndex = () => {
           <ImageGrid />
         </div>
       </article>
-    </div>
+    </>
   )
 }
 

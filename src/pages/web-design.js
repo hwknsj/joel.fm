@@ -80,8 +80,20 @@ const WebDesignIndexPage = (props, location) => {
               not own the codebase for such applications and could not share it
               even if I were to violate the non-disclosure agreement. Without
               explicitly providing the source code, the server-side applications
-              I've developed are unfortunately quite difficult to demonstrate in
-              any satisfying way.
+              I&apos;ve developed are unfortunately quite difficult to
+              demonstrate in any satisfying way.{' '}
+              <span className='text-light center-text'>
+                My my{' '}
+                <a
+                  href='https://github.com/hwknsj'
+                  target='_blank'
+                  rel='noopener noreferrer'
+                  alt='Github @hwknsj'
+                >
+                  Github (@hwknsj)
+                </a>{' '}
+                has more recent works-in-progress.
+              </span>
             </p>
             <p className='serif'>
               However, I can share some information about the technologies used

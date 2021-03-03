@@ -1,8 +1,16 @@
 module.exports = {
   globals: {
-    __PATH_PREFIX__: true
+    __PATH_PREFIX__: true,
+    document: 'readonly',
+    navigator: 'readonly',
+    window: 'readonly'
   },
-  extends: 'react-app',
+  extends: [
+    'eslint:recommended',
+    'plugin:react/recommended',
+    'plugin:prettier/recommended'
+  ],
+  parser: '@babel/eslint-parser',
   parserOptions: {
     ecmaVersion: 2021,
     ecmaFeatures: {
@@ -14,13 +22,9 @@ module.exports = {
     es2021: true,
     node: true
   },
-  plugins: ['import', 'node', 'promise'],
-  globals: {
-    document: 'readonly',
-    navigator: 'readonly',
-    window: 'readonly'
-  },
+  plugins: ['import', 'node', 'promise', '@emotion'],
   rules: {
+    '@emotion/jsx-import': 'error',
     'no-var': 'warn',
     'accessor-pairs': [
       'error',

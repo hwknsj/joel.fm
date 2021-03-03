@@ -1,5 +1,6 @@
 import { Link } from 'gatsby'
 import Img from 'gatsby-image'
+import PropTypes from 'prop-types'
 import React from 'react'
 
 const HeaderLogo = ({ logo, title }) => {
@@ -22,6 +23,11 @@ const HeaderLogo = ({ logo, title }) => {
       </div>
     </div>
   )
+}
+
+HeaderLogo.propTypes = {
+  logo: PropTypes.object,
+  title: PropTypes.string
 }
 
 export default HeaderLogo
