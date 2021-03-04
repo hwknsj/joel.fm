@@ -31,7 +31,7 @@ const HeaderNav = ({ toggleNav, setToggleNav, logo, title, headerImgs }) => {
 
   const randomIndex = (Math.random() * headerImgs.totalCount) | 0
   const randomHeaderImg =
-    headerImgs.edges[randomIndex].node.childImageSharp.fluid
+    headerImgs.edges[randomIndex].node.childImageSharp.gatsbyImageData
   return (
     <header className='site-head'>
       <div className='site-head-container'>

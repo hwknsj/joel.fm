@@ -12,41 +12,6 @@ const MusicPage = ({
   }
 }) => {
   let postCounter = 0
-  // const indexQuery = graphql`
-  //   query {
-  //     site {
-  //       siteMetadata {
-  //         title
-  //       }
-  //     }
-  //     allMarkdownRemark(
-  //       filter: { fileAbsolutePath: { regex: "/music/" } }
-  //       sort: { fields: [frontmatter___date], order: DESC }
-  //     ) {
-  //       edges {
-  //         node {
-  //           excerpt
-  //           fields {
-  //             slug
-  //           }
-  //           frontmatter {
-  //             date(formatString: "MMMM DD, YYYY")
-  //             title
-  //             description
-  //             thumbnail {
-  //               childImageSharp {
-  //                 fluid(maxWidth: 1600, quality: 100) {
-  //                   ...GatsbyImageSharpFluid
-  //                 }
-  //               }
-  //             }
-  //           }
-  //         }
-  //       }
-  //     }
-  //   }
-  // `
-  // const { site, allMarkdownRemark } = useStaticQuery(indexQuery)
 
   const { title } = site.siteMetadata
 
@@ -127,7 +92,7 @@ const MusicPage = ({
 }
 
 export const musicPageQuery = graphql`
-  query {
+  {
     site: site {
       siteMetadata {
         title
@@ -149,9 +114,7 @@ export const musicPageQuery = graphql`
             description
             thumbnail {
               childImageSharp {
-                fluid(maxWidth: 1600, quality: 100) {
-                  ...GatsbyImageSharpFluid
-                }
+                gatsbyImageData(quality: 100, layout: FULL_WIDTH)
               }
             }
           }
@@ -173,8 +136,6 @@ MusicPage.propTypes = {
       posts: PropTypes.object
     })
   })
-  // slug: PropTypes.string,
-  // frontmatter: PropTypes.object
 }
 
 export default MusicPage

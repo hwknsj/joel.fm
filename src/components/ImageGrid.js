@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
 import { graphql, useStaticQuery } from 'gatsby'
-import Img from 'gatsby-image'
+import { GatsbyImage } from 'gatsby-plugin-image'
 import React from 'react'
 
 const ImageGridStyles = styled.div`
@@ -22,7 +22,7 @@ const ImageGridStyles = styled.div`
 
 const ImageGrid = () => {
   const query = graphql`
-    query {
+    {
       images: allFile(
         filter: {
           relativeDirectory: { eq: "ig" }
@@ -32,9 +32,7 @@ const ImageGrid = () => {
       ) {
         nodes {
           childImageSharp {
-            fixed(width: 400) {
-              ...GatsbyImageSharpFixed
-            }
+            gatsbyImageData(width: 400, layout: FIXED)
           }
         }
       }
@@ -49,9 +47,9 @@ const ImageGrid = () => {
         images.map(
           node =>
             node.childImageSharp && (
-              <Img
+              <GatsbyImage
+                image={node.childImageSharp.gatsbyImageData}
                 key={`${Date.now() * Math.random()}`}
-                fixed={node.childImageSharp.fixed}
               />
             )
         )}

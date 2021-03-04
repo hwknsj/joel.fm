@@ -110,7 +110,7 @@ IndexPage.propTypes = {
 }
 
 export const indexPageQuery = graphql`
-  query {
+  {
     site {
       siteMetadata {
         title
@@ -130,9 +130,7 @@ export const indexPageQuery = graphql`
             description
             thumbnail {
               childImageSharp {
-                fluid(maxWidth: 1360) {
-                  ...GatsbyImageSharpFluid
-                }
+                gatsbyImageData(layout: FULL_WIDTH)
               }
             }
           }

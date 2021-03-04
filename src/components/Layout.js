@@ -1,16 +1,15 @@
 import { ThemeProvider } from '@emotion/react'
 import { graphql, useStaticQuery } from 'gatsby'
 import PropTypes from 'prop-types'
-import React, { useState } from 'react'
+import React, { useMemo, useState } from 'react'
 
 import Footer from './Footer'
 import HeaderNav from './HeaderNav'
-// import { globalCss, theme } from './styles/Theme'
 import GlobalStylesMemo, { theme } from './styles/Theme'
 
 const Layout = ({ children }) => {
   const query = graphql`
-    query {
+    {
       site {
         siteMetadata {
           title
@@ -18,10 +17,13 @@ const Layout = ({ children }) => {
       }
       logo: file(relativePath: { eq: "jhlogo.png" }) {
         childImageSharp {
-          fixed(height: 100, quality: 80) {
-            ...GatsbyImageSharpFixed
-          }
+          gatsbyImageData(height: 100, quality: 80, layout: FIXED)
         }
+      }
+      resumePublicUrl: file(
+        relativePath: { eq: "files/joel-hawkins-resume.pdf" }
+      ) {
+        publicURL
       }
       headerImgs: allFile(
         filter: {
@@ -33,23 +35,23 @@ const Layout = ({ children }) => {
         edges {
           node {
             childImageSharp {
-              fluid(quality: 80, maxWidth: 1380) {
-                ...GatsbyImageSharpFluid
-              }
+              gatsbyImageData(quality: 80, layout: FULL_WIDTH)
             }
           }
         }
       }
     }
   `
+  const memoizedQuery = useMemo(() => useStaticQuery(query))
   const {
     logo,
     headerImgs,
     site: {
       siteMetadata: { title }
-    }
-  } = useStaticQuery(query)
-
+    },
+    resumePublicUrl: { publicURL }
+  } = memoizedQuery
+  const resumeUrl = publicURL
   const [toggleNav, setToggleNav] = useState(false)
 
   return (
@@ -63,13 +65,14 @@ const Layout = ({ children }) => {
           logo={logo}
           title={title}
           headerImgs={headerImgs}
+          resumeUrl={resumeUrl}
         />
         <main id='site-main' className='site-main'>
           <div id='swup' className='transition-fade'>
             {children}
           </div>
         </main>
-        <Footer toggleNav={toggleNav} title={title} />
+        <Footer toggleNav={toggleNav} title={title} resumeUrl={resumeUrl} />
       </div>
     </ThemeProvider>
   )

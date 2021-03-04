@@ -113,7 +113,7 @@ ArtworkPage.propTypes = {
 }
 
 export const artworkPageQuery = graphql`
-  query {
+  {
     site {
       siteMetadata {
         title
@@ -121,9 +121,7 @@ export const artworkPageQuery = graphql`
     }
     metagramImage: file(relativePath: { eq: "metagram.jpg" }) {
       childImageSharp {
-        fluid(maxWidth: 1360) {
-          ...GatsbyImageSharpFluid
-        }
+        gatsbyImageData(layout: FULL_WIDTH)
       }
     }
     allMarkdownRemark(
@@ -142,9 +140,7 @@ export const artworkPageQuery = graphql`
             description
             thumbnail {
               childImageSharp {
-                fluid(maxWidth: 1360) {
-                  ...GatsbyImageSharpFluid
-                }
+                gatsbyImageData(layout: FULL_WIDTH)
               }
             }
           }

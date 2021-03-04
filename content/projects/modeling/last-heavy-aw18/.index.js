@@ -4,21 +4,16 @@ import React from 'react'
 import Layout from '../../../../src/components/Layout'
 
 const LastHeavyModelingPage = props => {
-  const query = graphql`
-    query {
-      images: allFile(
-        filter: { relativePath: { eq: "./" }, extension: { eq: "jpg" } }
-      ) {
-        nodes {
-          childImageSharp {
-            fluid {
-              src
-            }
-          }
-        }
+  const query = graphql`{
+  images: allFile(filter: {relativePath: {eq: "./"}, extension: {eq: "jpg"}}) {
+    nodes {
+      childImageSharp {
+        gatsbyImageData(placeholder: BLURRED, layout: FULL_WIDTH)
       }
     }
-  `
+  }
+}
+`
   const data = useStaticQuery(query)
   return (
     <Layout>
@@ -63,10 +58,10 @@ const LastHeavyModelingPage = props => {
         average rendering time from over 20s to as low as 300ms.
       </p>
       {data.images.nodes.map(node => (
-        <img src={node.childImageSharp.fluid.src} />
+        <img src={node.childImageSharp.gatsbyImageData.src} />
       ))}
     </Layout>
-  )
+  );
 }
 
 export default LastHeavyModelingPage

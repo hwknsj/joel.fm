@@ -11,44 +11,7 @@ const ModelingPage = ({
     allMarkdownRemark: { posts }
   }
 }) => {
-  // const indexQuery = graphql`
-  //   query {
-  //     site {
-  //       siteMetadata {
-  //         title
-  //       }
-  //     }
-  //     allMarkdownRemark(
-  //       filter: { fileAbsolutePath: { regex: "/modeling/" } }
-  //       sort: { fields: [frontmatter___date], order: DESC }
-  //     ) {
-  //       edges {
-  //         node {
-  //           excerpt
-  //           fields {
-  //             slug
-  //           }
-  //           frontmatter {
-  //             date(formatString: "MMMM DD, YYYY")
-  //             title
-  //             description
-  //             thumbnail {
-  //               childImageSharp {
-  //                 fluid(maxWidth: 1360) {
-  //                   ...GatsbyImageSharpFluid
-  //                 }
-  //               }
-  //             }
-  //           }
-  //         }
-  //       }
-  //     }
-  //   }
-  // `
-
-  // const { site, allMarkdownRemark } = data
   const { title } = site.siteMetadata
-  // const posts = allMarkdownRemark.edges
   let postCounter = 0
 
   return (
@@ -175,7 +138,7 @@ const ModelingPage = ({
 }
 
 export const modelingPageQuery = graphql`
-  query {
+  {
     site {
       siteMetadata {
         title
@@ -197,9 +160,7 @@ export const modelingPageQuery = graphql`
             description
             thumbnail {
               childImageSharp {
-                fluid(maxWidth: 1360) {
-                  ...GatsbyImageSharpFluid
-                }
+                gatsbyImageData(layout: FULL_WIDTH)
               }
             }
           }
@@ -224,21 +185,3 @@ ModelingPage.propTypes = {
 }
 
 export default ModelingPage
-
-//   node: PropTypes.shape({
-//     excerpt: PropTypes.string,
-//     fields: PropTypes.shape({
-//       slug: PropTypes.string
-//     }),
-//     frontmatter: PropTypes.shape({
-//       date: PropTypes.string,
-//       title: PropTypes.string,
-//       description: PropTypes.string,
-//       thumbnail: PropTypes.shape({
-//         childImageSharp: PropTypes.shape({
-//           fluid: PropTypes.object.isRequired
-//         })
-//       })
-//     })
-//   })
-// })

@@ -4,22 +4,18 @@ import { IoLogoGithub } from '@react-icons/all-files/io5/IoLogoGithub'
 import { IoLogoInstagram } from '@react-icons/all-files/io5/IoLogoInstagram'
 import { IoLogoLinkedin } from '@react-icons/all-files/io5/IoLogoLinkedin'
 import { graphql, useStaticQuery } from 'gatsby'
-import React, { useMemo } from 'react'
+import React from 'react'
 
 const SocialLinks = () => {
-  const indexQuery = graphql`
-    query {
-      resumeUrl: file(relativePath: { eq: "files/joel-hawkins-resume.pdf" }) {
+  const query = graphql`
+    {
+      file(relativePath: { eq: "files/joel-hawkins-resume.pdf" }) {
         publicURL
       }
     }
   `
-  // const {
-  //   resumeUrl: { publicURL }
-  // } = useStaticQuery(indexQuery)
 
-  const { resumeUrl } = useMemo(() => useStaticQuery(indexQuery))
-  const resumePublicUrlMemo = resumeUrl.publicURL
+  const resumePublicUrl = useStaticQuery(query)
 
   const links = [
     {
@@ -44,7 +40,7 @@ const SocialLinks = () => {
     },
     {
       name: 'Résumé',
-      url: resumePublicUrlMemo,
+      url: resumePublicUrl,
       icon: <IoDocumentAttachSharp />
     }
   ]
@@ -69,4 +65,5 @@ const SocialLinks = () => {
     </ul>
   )
 }
+
 export default SocialLinks

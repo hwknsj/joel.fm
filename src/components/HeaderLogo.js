@@ -1,5 +1,5 @@
 import { Link } from 'gatsby'
-import Img from 'gatsby-image'
+import { GatsbyImage } from 'gatsby-plugin-image'
 import PropTypes from 'prop-types'
 import React from 'react'
 
@@ -7,9 +7,9 @@ const HeaderLogo = ({ logo, title }) => {
   return (
     <div className='center center-el-x site-head-center'>
       <div className='site-head-logo'>
-        <Img
+        <GatsbyImage
+          image={logo.childImageSharp.gatsbyImageData}
           className='site-head-logo-image'
-          fixed={logo.childImageSharp.fixed}
           alt='jh logo'
           imgStyle={{
             overflow: 'visible',

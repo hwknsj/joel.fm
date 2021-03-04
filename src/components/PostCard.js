@@ -1,4 +1,5 @@
 import { Link } from 'gatsby'
+import { getSrc } from 'gatsby-plugin-image'
 import PropTypes from 'prop-types'
 import React from 'react'
 
@@ -10,7 +11,7 @@ const PostCard = ({ count, postClass, frontmatter, slug }) => {
       } ${postClass} ${frontmatter.thumbnail ? `with-image` : `no-image`}`}
       style={
         frontmatter.thumbnail && {
-          backgroundImage: `url(${frontmatter.thumbnail.childImageSharp.fluid.src})`
+          backgroundImage: `url(${getSrc(frontmatter.thumbnail)})`
         }
       }
     >
@@ -30,6 +31,7 @@ PostCard.propTypes = {
     title: PropTypes.string,
     thumbnail: PropTypes.shape({
       childImageSharp: PropTypes.shape({
+        gatsbyImageData: PropTypes.object,
         fluid: PropTypes.shape({
           src: PropTypes.string
         })

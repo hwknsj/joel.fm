@@ -7,18 +7,12 @@ import SEO from '../components/SEO'
 
 const WebDesignPage = ({
   data: {
-    site: {
-      siteMetadata: { title, description }
-    },
+    site,
     allMarkdownRemark: { posts }
   }
 }) => {
   let postCounter = 0
-
-  // const { site, allMarkdownRemark } = useStaticQuery(indexQuery)
-  // const { title, description } = site.siteMetadata
-  // const posts = edges
-
+  const { title, description } = site.siteMetadata
   return (
     <>
       <SEO
@@ -84,16 +78,18 @@ const WebDesignPage = ({
 
       {description && (
         <header className='page-head'>
-          <h2 className='page-head-title'>{description}</h2>
+          <h2 className='page-head-title'>{title}</h2>
         </header>
       )}
       <div className='post-feed'>
-        {posts.map(({ fields: { slug }, frontmatter }) => {
-          postCounter++
-          if (
-            typeof frontmatter.thumbnail !== 'undefined' &&
-            !slug.includes('swiderhaver')
-          ) {
+        {posts.map(
+          ({
+            node: {
+              frontmatter,
+              fields: { slug }
+            }
+          }) => {
+            postCounter++
             return (
               <ProjectItem
                 key={slug}
@@ -103,18 +99,16 @@ const WebDesignPage = ({
                 postClass={'post'}
               />
             )
-          } else {
-            return ''
           }
-        })}
+        )}
       </div>
     </>
   )
 }
 
 export const webDesignPageQuery = graphql`
-  query {
-    site {
+  {
+    site: site {
       siteMetadata {
         title
       }
@@ -135,9 +129,7 @@ export const webDesignPageQuery = graphql`
             description
             thumbnail {
               childImageSharp {
-                fluid(maxWidth: 1600, quality: 100) {
-                  ...GatsbyImageSharpFluid
-                }
+                gatsbyImageData(quality: 100, layout: FULL_WIDTH)
               }
             }
           }
@@ -156,14 +148,7 @@ WebDesignPage.propTypes = {
       })
     }),
     allMarkdownRemark: PropTypes.shape({
-      posts: PropTypes.arrayOf(PropTypes.object),
-      // wrong, but don't know what it wants from me!!
-      node: PropTypes.shape({
-        fields: PropTypes.shape({
-          slug: PropTypes.string.isRequired
-        }),
-        frontmatter: PropTypes.object
-      })
+      posts: PropTypes.object
     })
   })
 }

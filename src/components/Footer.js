@@ -6,7 +6,7 @@ import SocialLinks from './SocialLinks'
 
 const rose = String(`இـــڰ-ۣڰڿ`)
 
-const Footer = ({ toggleNav, title }) => {
+const Footer = ({ toggleNav, title, resumeUrl }) => {
   return (
     <footer className={`site-foot${toggleNav ? ` hidden` : ``}`}>
       <p>
@@ -15,7 +15,7 @@ const Footer = ({ toggleNav, title }) => {
         copyright, no nothing
       </p>
       <div className='center'>
-        <SocialLinks />
+        <SocialLinks resumeUrl={resumeUrl} />
       </div>
       <p className='mb-0 pb-0'>
         <small className='rose'>{`${rose}`}</small>
@@ -26,7 +26,8 @@ const Footer = ({ toggleNav, title }) => {
 
 Footer.propTypes = {
   toggleNav: PropTypes.bool.isRequired,
-  title: PropTypes.string.isRequired
+  title: PropTypes.string.isRequired,
+  resumeUrl: PropTypes.string.isRequired
 }
 
 export default Footer

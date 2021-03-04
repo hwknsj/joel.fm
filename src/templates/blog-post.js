@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
 import { graphql } from 'gatsby'
-import Img from 'gatsby-image'
+import { GatsbyImage } from 'gatsby-plugin-image'
 import PropTypes from 'prop-types'
 import React from 'react'
 
@@ -44,9 +44,11 @@ const BlogPostTemplate = props => {
 
           {post.frontmatter.thumbnail && (
             <div className='post-content-image'>
-              <Img
+              <GatsbyImage
+                image={
+                  post.frontmatter.thumbnail.childImageSharp.gatsbyImageData
+                }
                 className='kg-image'
-                fluid={post.frontmatter.thumbnail.childImageSharp.fluid}
                 alt={post.frontmatter.title}
               />
             </div>
@@ -88,9 +90,7 @@ export const pageQuery = graphql`
         description
         thumbnail {
           childImageSharp {
-            fluid(maxWidth: 1360, quality: 100) {
-              ...GatsbyImageSharpFluid
-            }
+            gatsbyImageData(quality: 100, layout: FULL_WIDTH)
           }
         }
       }

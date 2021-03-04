@@ -1,20 +1,11 @@
-import { graphql, useStaticQuery } from 'gatsby'
+import { graphql } from 'gatsby'
+import PropTypes from 'prop-types'
 import React from 'react'
 
 import SEO from '../components/SEO'
 import SocialLinks from '../components/SocialLinks'
 
-const AboutPage = () => {
-  const indexQuery = graphql`
-    query {
-      resumeUrl: file(relativePath: { eq: "files/joel-hawkins-resume.pdf" }) {
-        publicURL
-      }
-    }
-  `
-  const data = useStaticQuery(indexQuery)
-  const resumeUrl = data.resumeUrl.publicURL
-
+const AboutPage = ({ data: { resumeUrl } }) => {
   return (
     <>
       <SEO
@@ -60,9 +51,7 @@ const AboutPage = () => {
             </h4>
             <hr />
             <p>Also find me on the socials:</p>
-            {/* <span> */}
-            <SocialLinks />
-            {/* </span> */}
+            <SocialLinks resumeUrl={resumeUrl} />
           </div>
           <div>
             <h4>Introduction</h4>
@@ -121,7 +110,7 @@ const AboutPage = () => {
           <hr />
           <div>
             <h3>About this site</h3>
-            <p className='serif'>
+            <p>
               I developed this website using the following technologies and
               tools:
               <ul>
@@ -133,7 +122,7 @@ const AboutPage = () => {
                     alt='Gatsby.js'
                     title='Gatsby.js'
                   >
-                    Gatsby.js
+                    Gatsby.js v3
                   </a>
                 </li>
                 <li>
@@ -235,6 +224,20 @@ const AboutPage = () => {
       </article>
     </>
   )
+}
+
+export const resumeUrlQuery = graphql`
+  query {
+    resumeUrl: file(relativePath: { eq: "files/joel-hawkins-resume.pdf" }) {
+      publicURL
+    }
+  }
+`
+
+AboutPage.propTypes = {
+  data: PropTypes.shape({
+    resumeUrl: PropTypes.string.isRequired
+  })
 }
 
 export default AboutPage

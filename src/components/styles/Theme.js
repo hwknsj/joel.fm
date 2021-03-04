@@ -1,6 +1,5 @@
 import { Global, css } from '@emotion/react'
 import { darken } from 'polished'
-
 import React, { memo } from 'react'
 
 import actions from './css/actions'
