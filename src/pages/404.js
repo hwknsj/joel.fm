@@ -8,7 +8,7 @@ const NotFoundPage = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata.title
 
   return (
-    <div>
+    <>
       <SEO
         title={`${siteTitle} | 404: Not Found`}
         keywords={[
@@ -32,7 +32,7 @@ const NotFoundPage = ({ data, location }) => {
           </p>
         </div>
       </article>
-    </div>
+    </>
   )
 }
 

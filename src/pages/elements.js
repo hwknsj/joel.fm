@@ -1,6 +1,5 @@
-/* eslint-disable */
+// This page is a showcase/reference for various elements/styles available via emotion
 import { graphql } from 'gatsby'
-// import Img from 'gatsby-image'
 import { GatsbyImage } from 'gatsby-plugin-image'
 import PropTypes from 'prop-types'
 import React from 'react'
