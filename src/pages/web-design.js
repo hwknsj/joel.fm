@@ -1,53 +1,26 @@
-import { graphql, useStaticQuery } from 'gatsby'
+import { graphql } from 'gatsby'
+import PropTypes from 'prop-types'
 import React from 'react'
 
 import ProjectItem from '../components/ProjectItem'
 import SEO from '../components/SEO'
 
-const WebDesignIndexPage = (props, location) => {
+const WebDesignPage = ({
+  data: {
+    site: {
+      siteMetadata: { title, description }
+    },
+    allMarkdownRemark: { posts }
+  }
+}) => {
   let postCounter = 0
 
-  const indexQuery = graphql`
-    query {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-      allMarkdownRemark(
-        filter: { fileAbsolutePath: { regex: "/web-design/" } }
-        sort: { fields: [frontmatter___date], order: DESC }
-      ) {
-        edges {
-          node {
-            excerpt
-            fields {
-              slug
-            }
-            frontmatter {
-              date(formatString: "MMMM DD, YYYY")
-              title
-              description
-              thumbnail {
-                childImageSharp {
-                  fluid(maxWidth: 1600, quality: 100) {
-                    ...GatsbyImageSharpFluid
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  `
-
-  const { site, allMarkdownRemark } = useStaticQuery(indexQuery)
-  // const siteTitle = site.siteMetadata.title
-  const posts = allMarkdownRemark.edges
+  // const { site, allMarkdownRemark } = useStaticQuery(indexQuery)
+  // const { title, description } = site.siteMetadata
+  // const posts = edges
 
   return (
-    <div>
+    <>
       <SEO
         title='Web Design'
         keywords={[
@@ -109,23 +82,24 @@ const WebDesignIndexPage = (props, location) => {
         </div>
       </article>
 
-      {site.siteMetadata.description && (
+      {description && (
         <header className='page-head'>
-          <h2 className='page-head-title'>{site.siteMetadata.description}</h2>
+          <h2 className='page-head-title'>{description}</h2>
         </header>
       )}
       <div className='post-feed'>
-        {posts.map(({ node }) => {
+        {posts.map(({ fields: { slug }, frontmatter }) => {
           postCounter++
           if (
-            typeof node.frontmatter.thumbnail !== 'undefined' &&
-            !node.fields.slug.includes('swiderhaver')
+            typeof frontmatter.thumbnail !== 'undefined' &&
+            !slug.includes('swiderhaver')
           ) {
             return (
               <ProjectItem
-                key={node.fields.slug}
+                key={slug}
                 count={postCounter}
-                node={node}
+                slug={slug}
+                frontmatter={frontmatter}
                 postClass={'post'}
               />
             )
@@ -134,8 +108,64 @@ const WebDesignIndexPage = (props, location) => {
           }
         })}
       </div>
-    </div>
+    </>
   )
 }
 
-export default WebDesignIndexPage
+export const webDesignPageQuery = graphql`
+  query {
+    site {
+      siteMetadata {
+        title
+      }
+    }
+    allMarkdownRemark(
+      filter: { fileAbsolutePath: { regex: "/web-design/" } }
+      sort: { fields: [frontmatter___date], order: DESC }
+    ) {
+      posts: edges {
+        node {
+          excerpt
+          fields {
+            slug
+          }
+          frontmatter {
+            date(formatString: "MMMM DD, YYYY")
+            title
+            description
+            thumbnail {
+              childImageSharp {
+                fluid(maxWidth: 1600, quality: 100) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`
+
+WebDesignPage.propTypes = {
+  data: PropTypes.shape({
+    site: PropTypes.shape({
+      siteMetadata: PropTypes.shape({
+        title: PropTypes.string,
+        description: PropTypes.string
+      })
+    }),
+    allMarkdownRemark: PropTypes.shape({
+      posts: PropTypes.arrayOf(PropTypes.object),
+      // wrong, but don't know what it wants from me!!
+      node: PropTypes.shape({
+        fields: PropTypes.shape({
+          slug: PropTypes.string.isRequired
+        }),
+        frontmatter: PropTypes.object
+      })
+    })
+  })
+}
+
+export default WebDesignPage

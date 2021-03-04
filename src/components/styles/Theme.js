@@ -1,5 +1,7 @@
-import { css } from '@emotion/react'
+import { Global, css } from '@emotion/react'
 import { darken } from 'polished'
+
+import React, { memo } from 'react'
 
 import actions from './css/actions'
 import animations from './css/animations'
@@ -142,6 +144,6 @@ export const globalCss = css`
   }
 `
 
-// const GlobalStyles = () => <Global styles={globalCss} />
-
-// export default GlobalStyles
+const GlobalStylesMemo = memo(() => <Global styles={globalCss} />)
+GlobalStylesMemo.displayName = `GlobalStyles`
+export default GlobalStylesMemo

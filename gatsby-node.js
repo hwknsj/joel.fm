@@ -29,7 +29,7 @@ exports.createPages = async ({ graphql, actions }) => {
     if (result.errors) {
       throw result.errors
     }
-
+    // const resumeUrl = result.data.resumeUrl.publicURL
     const posts = result.data.allMarkdownRemark.edges
 
     posts.forEach((post, index) => {

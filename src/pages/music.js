@@ -1,50 +1,57 @@
-import { graphql, useStaticQuery } from 'gatsby'
+import { graphql } from 'gatsby'
+import PropTypes from 'prop-types'
 import React from 'react'
 
 import PostCard from '../components/PostCard'
 import SEO from '../components/SEO'
 
-const MusicPage = () => {
+const MusicPage = ({
+  data: {
+    site,
+    allMarkdownRemark: { posts }
+  }
+}) => {
   let postCounter = 0
-  const indexQuery = graphql`
-    query {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-      allMarkdownRemark(
-        filter: { fileAbsolutePath: { regex: "/music/" } }
-        sort: { fields: [frontmatter___date], order: DESC }
-      ) {
-        edges {
-          node {
-            excerpt
-            fields {
-              slug
-            }
-            frontmatter {
-              date(formatString: "MMMM DD, YYYY")
-              title
-              description
-              thumbnail {
-                childImageSharp {
-                  fluid(maxWidth: 1600, quality: 100) {
-                    ...GatsbyImageSharpFluid
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  `
-  const { site, allMarkdownRemark } = useStaticQuery(indexQuery)
-  const posts = allMarkdownRemark.edges
+  // const indexQuery = graphql`
+  //   query {
+  //     site {
+  //       siteMetadata {
+  //         title
+  //       }
+  //     }
+  //     allMarkdownRemark(
+  //       filter: { fileAbsolutePath: { regex: "/music/" } }
+  //       sort: { fields: [frontmatter___date], order: DESC }
+  //     ) {
+  //       edges {
+  //         node {
+  //           excerpt
+  //           fields {
+  //             slug
+  //           }
+  //           frontmatter {
+  //             date(formatString: "MMMM DD, YYYY")
+  //             title
+  //             description
+  //             thumbnail {
+  //               childImageSharp {
+  //                 fluid(maxWidth: 1600, quality: 100) {
+  //                   ...GatsbyImageSharpFluid
+  //                 }
+  //               }
+  //             }
+  //           }
+  //         }
+  //       }
+  //     }
+  //   }
+  // `
+  // const { site, allMarkdownRemark } = useStaticQuery(indexQuery)
+
+  const { title } = site.siteMetadata
 
   return (
-    <div>
+    <>
       <SEO
         title='Music'
         keywords={[
@@ -89,28 +96,85 @@ const MusicPage = () => {
         </div>
       </article>
 
-      {site.siteMetadata.description && (
+      {title && (
         <header className='page-head'>
-          <h2 className='page-head-title'>{site.siteMetadata.description}</h2>
+          <h2 className='page-head-title'>{title}</h2>
         </header>
       )}
       <div className='post-feed'>
-        {posts.map(({ node }) => {
-          postCounter++
-          return (
-            <PostCard
-              key={node.fields.slug}
-              count={postCounter}
-              node={node}
-              postClass={'post'}
-            />
-          )
-        })}
+        {posts.map(
+          ({
+            node: {
+              frontmatter,
+              fields: { slug }
+            }
+          }) => {
+            postCounter++
+            return (
+              <PostCard
+                key={slug}
+                count={postCounter}
+                frontmatter={frontmatter}
+                slug={slug}
+                postClass={'post'}
+              />
+            )
+          }
+        )}
       </div>
-    </div>
+    </>
   )
 }
 
-MusicPage.propTypes = {}
+export const musicPageQuery = graphql`
+  query {
+    site: site {
+      siteMetadata {
+        title
+      }
+    }
+    allMarkdownRemark(
+      filter: { fileAbsolutePath: { regex: "/music/" } }
+      sort: { fields: [frontmatter___date], order: DESC }
+    ) {
+      posts: edges {
+        node {
+          excerpt
+          fields {
+            slug
+          }
+          frontmatter {
+            date(formatString: "MMMM DD, YYYY")
+            title
+            description
+            thumbnail {
+              childImageSharp {
+                fluid(maxWidth: 1600, quality: 100) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`
+
+MusicPage.propTypes = {
+  data: PropTypes.shape({
+    site: PropTypes.shape({
+      siteMetadata: PropTypes.shape({
+        title: PropTypes.string,
+        description: PropTypes.string
+      })
+    }),
+    allMarkdownRemark: PropTypes.shape({
+      posts: PropTypes.object
+    })
+  })
+  // slug: PropTypes.string,
+  // frontmatter: PropTypes.object
+}
 
 export default MusicPage

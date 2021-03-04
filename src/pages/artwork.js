@@ -1,55 +1,18 @@
-import { graphql, useStaticQuery } from 'gatsby'
+import { graphql } from 'gatsby'
+import PropTypes from 'prop-types'
 import React from 'react'
 
 import PostCard from '../components/PostCard'
 import SEO from '../components/SEO'
 
-const ArtworkPage = () => {
+const ArtworkPage = ({
+  data: {
+    site,
+    allMarkdownRemark: { posts },
+    metagramImage
+  }
+}) => {
   let postCounter = 0
-  const indexQuery = graphql`
-    query {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-      metagramImage: file(relativePath: { eq: "metagram.jpg" }) {
-        childImageSharp {
-          fluid(maxWidth: 1360) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-      allMarkdownRemark(
-        filter: { fileAbsolutePath: { regex: "/artwork/" } }
-        sort: { fields: [frontmatter___date], order: DESC }
-      ) {
-        edges {
-          node {
-            excerpt
-            fields {
-              slug
-            }
-            frontmatter {
-              date(formatString: "MMMM DD, YYYY")
-              title
-              description
-              thumbnail {
-                childImageSharp {
-                  fluid(maxWidth: 1360) {
-                    ...GatsbyImageSharpFluid
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  `
-  const { site, allMarkdownRemark, metagramImage } = useStaticQuery(indexQuery)
-  const posts = allMarkdownRemark.edges
-
   return (
     <div>
       <SEO
@@ -98,36 +61,97 @@ const ArtworkPage = () => {
         <PostCard
           key={`/artwork/metagram`}
           count={postCounter}
-          node={{
-            excerpt: `Continuous digital art piece presented via Instagram.`,
-            fields: {
-              slug: `/artwork/metagram`
-            },
-            frontmatter: {
-              date: `December 10, 2020`,
-              title: `Metagram`,
-              description: `Continuous digital art piece presented via Instagram.`,
-              thumbnail: {
-                childImageSharp: metagramImage.childImageSharp
-              }
-            }
+          frontmatter={{
+            date: `December 10, 2020`,
+            title: `Metagram`,
+            description: `Continuous digital art piece presented via Instagram.`,
+            thumbnail: metagramImage
           }}
+          slug={
+            // excerpt: `Continuous digital art piece presented via Instagram.`,
+            `/artwork/metagram`
+          }
           postClass={'post'}
         />
-        {posts.map(({ node }) => {
-          postCounter++
-          return (
-            <PostCard
-              key={node.fields.slug}
-              count={postCounter}
-              node={node}
-              postClass={'post'}
-            />
-          )
-        })}
+        {posts.map(
+          ({
+            node: {
+              frontmatter,
+              fields: { slug }
+            }
+          }) => {
+            postCounter++
+            return (
+              <PostCard
+                key={slug}
+                count={postCounter}
+                frontmatter={frontmatter}
+                slug={slug}
+                postClass={'post'}
+              />
+            )
+          }
+        )}
       </div>
     </div>
   )
 }
+
+ArtworkPage.propTypes = {
+  data: PropTypes.shape({
+    site: PropTypes.shape({
+      siteMetadata: PropTypes.shape({
+        title: PropTypes.string,
+        description: PropTypes.string
+      })
+    }),
+    allMarkdownRemark: PropTypes.shape({
+      posts: PropTypes.object
+    }),
+    metagramImage: PropTypes.object
+  })
+}
+
+export const artworkPageQuery = graphql`
+  query {
+    site {
+      siteMetadata {
+        title
+      }
+    }
+    metagramImage: file(relativePath: { eq: "metagram.jpg" }) {
+      childImageSharp {
+        fluid(maxWidth: 1360) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    allMarkdownRemark(
+      filter: { fileAbsolutePath: { regex: "/artwork/" } }
+      sort: { fields: [frontmatter___date], order: DESC }
+    ) {
+      posts: edges {
+        node {
+          excerpt
+          fields {
+            slug
+          }
+          frontmatter {
+            date(formatString: "MMMM DD, YYYY")
+            title
+            description
+            thumbnail {
+              childImageSharp {
+                fluid(maxWidth: 1360) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`
 
 export default ArtworkPage

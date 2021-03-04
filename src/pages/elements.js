@@ -1,44 +1,17 @@
 /* eslint-disable */
-import { graphql, useStaticQuery } from 'gatsby'
-import Img from 'gatsby-image'
+import { graphql } from 'gatsby'
+// import Img from 'gatsby-image'
+import { GatsbyImage } from 'gatsby-plugin-image'
+import PropTypes from 'prop-types'
 import React from 'react'
 
 import SEO from '../components/SEO'
 
-const ElementsPage = () => {
-  const indexQuery = graphql`
-    query {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-      smallPic: file(relativePath: { eq: "plants.jpg" }) {
-        childImageSharp {
-          fluid(maxWidth: 1360) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-      medPic: file(relativePath: { eq: "carabiners_pb.jpg" }) {
-        childImageSharp {
-          fluid(maxWidth: 1360) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-      largePic: file(relativePath: { eq: "whitetech.jpg" }) {
-        childImageSharp {
-          fluid(maxWidth: 1360) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-    }
-  `
-  const data = useStaticQuery(indexQuery)
+const ElementsPage = ({ data }) => {
+  const { smallPic, medPic, largePic } = data
+
   return (
-    <div>
+    <>
       <SEO
         title='All posts'
         keywords={[
@@ -172,22 +145,22 @@ const ElementsPage = () => {
           <hr />
           <h2 id='images'>Images</h2>
           <figure className='kg-card kg-image-card'>
-            <Img
-              fluid={data.smallPic.childImageSharp.fluid}
+            <GatsbyImage
+              image={smallPic.childImageSharp.gatsbyImageData}
               className='kg-image'
             />
             <figcaption>Regular image</figcaption>
           </figure>
           <figure className='kg-card kg-image-card kg-width-wide'>
-            <Img
-              fluid={data.medPic.childImageSharp.fluid}
+            <GatsbyImage
+              image={medPic.childImageSharp.gatsbyImageData}
               className='kg-image'
             />
             <figcaption>Large image</figcaption>
           </figure>
           <figure className='kg-card kg-image-card kg-width-full'>
-            <Img
-              fluid={data.largePic.childImageSharp.fluid}
+            <GatsbyImage
+              image={largePic.childImageSharp.gatsbyImageData}
               className='kg-image'
             />
             <figcaption>Full bleed image</figcaption>
@@ -557,8 +530,37 @@ const ElementsPage = () => {
           </div>
         </div>
       </article>
-    </div>
+    </>
   )
+}
+
+export const elementsPageQuery = graphql`
+  query {
+    site {
+      siteMetadata {
+        title
+      }
+    }
+    smallPic: file(relativePath: { eq: "plants.jpg" }) {
+      childImageSharp {
+        gatsbyImageData(layout: CONSTRAINED)
+      }
+    }
+    medPic: file(relativePath: { eq: "carabiners_pb.jpg" }) {
+      childImageSharp {
+        gatsbyImageData(layout: FULL_WIDTH)
+      }
+    }
+    largePic: file(relativePath: { eq: "whitetech.jpg" }) {
+      childImageSharp {
+        gatsbyImageData(layout: FULL_WIDTH)
+      }
+    }
+  }
+`
+
+ElementsPage.propTypes = {
+  data: PropTypes.object.isRequired
 }
 
 export default ElementsPage

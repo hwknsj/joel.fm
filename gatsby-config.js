@@ -38,7 +38,7 @@ module.exports = {
             options: {
               maxWidth: 1360,
               withWebp: true,
-              showCaptions: true,
+              showCaptions: false,
               quality: 75,
               wrapperStyle: `margin: 7vw 0;`
             }
@@ -55,8 +55,9 @@ module.exports = {
         ]
       }
     },
-    `gatsby-transformer-sharp`,
+    `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
     {
       resolve: `gatsby-plugin-purgecss`,
       options: {
