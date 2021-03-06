@@ -376,12 +376,13 @@ const ElementsPage = ({ data }) => {
               i = 0;{'\n'}
               {'\n'}while (!deck.isInOrder()) {'{'}
               {'\n'}
-              {'    '}print 'Iteration ' + i;{'\n'}
+              {'    '}print {`&apos;`}Iteration {`&apos;`} + i;{'\n'}
               {'    '}deck.shuffle();{'\n'}
               {'    '}i++;{'\n'}
               {'}'}
               {'\n'}
-              {'\n'}print 'It took ' + i + ' iterations to sort the deck.';
+              {'\n'}print {`&apos;`}It took {`&apos;`} + i + {`&apos;&nbsp;`}
+              iterations to sort the deck.{`&apos;`};
             </code>
           </pre>
           <h2 id='grid-system'>Grid system</h2>

@@ -42,7 +42,8 @@ const Layout = ({ children }) => {
       }
     }
   `
-  const memoizedQuery = useMemo(() => useStaticQuery(query))
+  const indexQuery = useStaticQuery(query)
+  const memoizedQuery = useMemo(() => indexQuery)
   const {
     logo,
     headerImgs,
@@ -56,7 +57,6 @@ const Layout = ({ children }) => {
 
   return (
     <ThemeProvider theme={theme}>
-      {/* <Global styles={globalCss} /> */}
       <GlobalStylesMemo />
       <div className={`site-wrapper ${toggleNav ? `site-head-open` : ``}`}>
         <HeaderNav
@@ -79,47 +79,7 @@ const Layout = ({ children }) => {
 }
 
 Layout.propTypes = {
-  children: PropTypes.node.isRequired,
-  title: PropTypes.string,
-  logo: PropTypes.object,
-  headerImgs: PropTypes.object
+  children: PropTypes.node.isRequired
 }
-
-// export const layoutQuery = graphql`
-//   query layoutQuery {
-//     # resumeUrl: file(relativePath: { eq: "files/joel-hawkins-resume.pdf" }) {
-//     #   publicURL
-//     # }
-//     title: site {
-//       siteMetadata {
-//         title
-//       }
-//     }
-//     logo: file(relativePath: { eq: "jhlogo.png" }) {
-//       childImageSharp {
-//         fixed(height: 100, quality: 100) {
-//           ...GatsbyImageSharpFixed
-//         }
-//       }
-//     }
-//     headerImgs: allFile(
-//       filter: {
-//         extension: { regex: "/(jpg)|(jpeg)|(png)/" }
-//         relativeDirectory: { eq: "headers" }
-//       }
-//     ) {
-//       totalCount
-//       edges {
-//         node {
-//           childImageSharp {
-//             fluid(quality: 100, maxWidth: 1380) {
-//               ...GatsbyImageSharpFluid
-//             }
-//           }
-//         }
-//       }
-//     }
-//   }
-// `
 
 export default Layout

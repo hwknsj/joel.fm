@@ -3,10 +3,8 @@ title: Rap Store React App
 date: "2018"
 description: Rap Music on the Internet
 thumbnail: './rap-store.jpg'
+url: "https://rap.joel.fm/store/RapCaviar"
 ---
-
-[https://rap.joel.fm/store/RapCaviar](https://rap.joel.fm/store/RapCaviar)
-
 ## *Rap Store* React App
 ### built with React.js
 

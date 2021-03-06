@@ -7,16 +7,17 @@ import SEO from '../components/SEO'
 
 const WebDesignPage = ({
   data: {
-    site,
+    site: {
+      siteMetadata: { title, description }
+    },
     allMarkdownRemark: { posts }
   }
 }) => {
   let postCounter = 0
-  const { title, description } = site.siteMetadata
   return (
     <>
       <SEO
-        title='Web Design'
+        title={`Web Design | ${title}`}
         keywords={[
           'blog',
           'joel',

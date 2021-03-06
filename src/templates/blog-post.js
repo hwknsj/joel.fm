@@ -19,57 +19,62 @@ const BlogPostTemplateStyles = styled.div`
   }
 `
 
-const BlogPostTemplate = props => {
-  const post = props.data.markdownRemark
-  // const siteTitle = props.data.site.siteMetadata.title
+const BlogPostTemplate = ({
+  data: {
+    site,
+    post: {
+      excerpt,
+      html,
+      frontmatter: { thumbnail, title, description, url }
+    }
+  }
+}) => {
   return (
-    <div>
+    <>
       <SEO
-        title={post.frontmatter.title}
-        description={post.frontmatter.description || post.excerpt}
+        title={`${title} | ${site.siteMetadata.title}`}
+        description={description || excerpt}
       />
-      <article
-        className={`post-content ${post.frontmatter.thumbnail || 'no-image'}`}
-      >
+      <article className={`post-content ${thumbnail || 'no-image'}`}>
         <BlogPostTemplateStyles>
           <header className='post-content-header'>
-            <h1 className='post-content-title'>{post.frontmatter.title}</h1>
+            <h2 className='post-content-title'>{title}</h2>
           </header>
 
-          {post.frontmatter.description && (
-            <p className='post-content-excerpt'>
-              {post.frontmatter.description}
-            </p>
-          )}
+          <p className='post-content-excerpt px-4 justify mx-4'>
+            {description || excerpt}
+          </p>
 
-          {post.frontmatter.thumbnail && (
+          {thumbnail && (
             <div className='post-content-image'>
               <GatsbyImage
-                image={
-                  post.frontmatter.thumbnail.childImageSharp.gatsbyImageData
-                }
+                image={thumbnail.childImageSharp.gatsbyImageData}
                 className='kg-image'
-                alt={post.frontmatter.title}
+                alt={title}
               />
             </div>
           )}
-
+          {url && (
+            <h6 className='center-text'>
+              <a
+                href={url}
+                target='_blank'
+                rel='noopener noreferrer'
+                alt={title}
+              >
+                {url}
+              </a>
+            </h6>
+          )}
           <div
             className='post-content-body'
-            dangerouslySetInnerHTML={{ __html: post.html }}
+            dangerouslySetInnerHTML={{ __html: html }}
           />
         </BlogPostTemplateStyles>
-
-        <footer className='post-content-footer' />
+        {/* <footer className='post-content-footer' /> */}
       </article>
-    </div>
+    </>
   )
-}
-
-export default BlogPostTemplate
-
-BlogPostTemplate.propTypes = {
-  data: PropTypes.object
 }
 
 export const pageQuery = graphql`
@@ -80,7 +85,7 @@ export const pageQuery = graphql`
         author
       }
     }
-    markdownRemark(fields: { slug: { eq: $slug } }) {
+    post: markdownRemark(fields: { slug: { eq: $slug } }) {
       id
       excerpt(pruneLength: 160)
       html
@@ -88,12 +93,38 @@ export const pageQuery = graphql`
         title
         date(formatString: "MMMM DD, YYYY")
         description
+        url
         thumbnail {
           childImageSharp {
-            gatsbyImageData(quality: 100, layout: FULL_WIDTH)
+            gatsbyImageData(quality: 100, layout: CONSTRAINED)
           }
         }
       }
     }
   }
 `
+
+BlogPostTemplate.propTypes = {
+  data: PropTypes.shape({
+    site: PropTypes.shape({
+      siteMetadata: PropTypes.shape({
+        title: PropTypes.string,
+        author: PropTypes.string
+      })
+    }),
+    post: PropTypes.shape({
+      excerpt: PropTypes.string,
+      html: PropTypes.string,
+      frontmatter: PropTypes.shape({
+        title: PropTypes.string,
+        description: PropTypes.string,
+        url: PropTypes.oneOf(PropTypes.string, PropTypes.any),
+        thumbnail: PropTypes.shape({
+          childImageSharp: PropTypes.object
+        })
+      }).isRequired
+    }).isRequired
+  }).isRequired
+}
+
+export default BlogPostTemplate

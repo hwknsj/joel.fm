@@ -18,7 +18,7 @@ const MusicPage = ({
   return (
     <>
       <SEO
-        title='Music'
+        title={`Music | ${title}`}
         keywords={[
           'blog',
           'joel',

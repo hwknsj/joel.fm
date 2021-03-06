@@ -7,16 +7,18 @@ import SEO from '../components/SEO'
 
 const ArtworkPage = ({
   data: {
-    site,
+    site: {
+      siteMetadata: { title, description }
+    },
     allMarkdownRemark: { posts },
     metagramImage
   }
 }) => {
   let postCounter = 0
   return (
-    <div>
+    <>
       <SEO
-        title='Artwork'
+        title={`Artwork | ${title}`}
         keywords={[
           'blog',
           'joel',
@@ -52,9 +54,9 @@ const ArtworkPage = ({
           </p>
         </div>
       </article>
-      {site.siteMetadata.description && (
+      {description && (
         <header className='page-head'>
-          <h2 className='page-head-title'>{site.siteMetadata.description}</h2>
+          <h2 className='page-head-title'>{description}</h2>
         </header>
       )}
       <div className='post-feed'>
@@ -63,8 +65,8 @@ const ArtworkPage = ({
           count={postCounter}
           frontmatter={{
             date: `December 10, 2020`,
-            title: `Metagram`,
-            description: `Continuous digital art piece presented via Instagram.`,
+            postTitle: `Metagram`,
+            postDescription: `Continuous digital art piece presented via Instagram.`,
             thumbnail: metagramImage
           }}
           slug={
@@ -93,7 +95,7 @@ const ArtworkPage = ({
           }
         )}
       </div>
-    </div>
+    </>
   )
 }
 
@@ -121,7 +123,7 @@ export const artworkPageQuery = graphql`
     }
     metagramImage: file(relativePath: { eq: "metagram.jpg" }) {
       childImageSharp {
-        gatsbyImageData(layout: FULL_WIDTH)
+        gatsbyImageData(layout: CONSTRAINED)
       }
     }
     allMarkdownRemark(
@@ -140,7 +142,7 @@ export const artworkPageQuery = graphql`
             description
             thumbnail {
               childImageSharp {
-                gatsbyImageData(layout: FULL_WIDTH)
+                gatsbyImageData(layout: CONSTRAINED)
               }
             }
           }

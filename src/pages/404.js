@@ -4,13 +4,18 @@ import React from 'react'
 
 import SEO from '../components/SEO'
 
-const NotFoundPage = ({ data, location }) => {
-  const siteTitle = data.site.siteMetadata.title
-
+const NotFoundPage = ({
+  data: {
+    site: {
+      siteMetadata: { title }
+    }
+  },
+  location
+}) => {
   return (
     <>
       <SEO
-        title={`${siteTitle} | 404: Not Found`}
+        title={`Page not found | ${title}`}
         keywords={[
           'blog',
           'joel',
@@ -36,10 +41,14 @@ const NotFoundPage = ({ data, location }) => {
   )
 }
 
-export default NotFoundPage
-
 NotFoundPage.propTypes = {
-  data: PropTypes.object,
+  data: PropTypes.shape({
+    site: PropTypes.shape({
+      siteMetadata: PropTypes.shape({
+        title: PropTypes.string
+      })
+    })
+  }),
   location: PropTypes.string
 }
 
@@ -52,3 +61,5 @@ export const pageQuery = graphql`
     }
   }
 `
+
+export default NotFoundPage

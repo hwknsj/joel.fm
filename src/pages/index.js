@@ -7,49 +7,18 @@ import SEO from '../components/SEO'
 
 const IndexPage = ({
   data: {
-    site,
+    site: {
+      siteMetadata: { title, description }
+    },
     allMarkdownRemark: { posts }
   }
 }) => {
-  // const data = useStaticQuery(graphql`
-  //   query {
-  //     site {
-  //       siteMetadata {
-  //         title
-  //         description
-  //       }
-  //     }
-  //     allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
-  //       edges {
-  //         node {
-  //           excerpt
-  //           fields {
-  //             slug
-  //           }
-  //           frontmatter {
-  //             date(formatString: "MMMM DD, YYYY")
-  //             title
-  //             description
-  //             thumbnail {
-  //               childImageSharp {
-  //                 fluid(maxWidth: 1360) {
-  //                   ...GatsbyImageSharpFluid
-  //                 }
-  //               }
-  //             }
-  //           }
-  //         }
-  //       }
-  //     }
-  //   }
-  // `)
-
   let postCounter = 0
 
   return (
-    <div>
+    <>
       <SEO
-        title='Home'
+        title={`Home | ${title}`}
         keywords={[
           'blog',
           'joel',
@@ -65,9 +34,9 @@ const IndexPage = ({
           'react'
         ]}
       />
-      {site.siteMetadata.description && (
+      {description && (
         <header className='page-head'>
-          <h2 className='page-head-title'>{site.siteMetadata.description}</h2>
+          <h2 className='page-head-title'>{description}</h2>
         </header>
       )}
       <div className='post-feed'>
@@ -91,7 +60,7 @@ const IndexPage = ({
           }
         )}
       </div>
-    </div>
+    </>
   )
 }
 
@@ -104,7 +73,7 @@ IndexPage.propTypes = {
       })
     }),
     allMarkdownRemark: PropTypes.shape({
-      posts: PropTypes.object
+      posts: PropTypes.arrayOf(PropTypes.object)
     })
   })
 }

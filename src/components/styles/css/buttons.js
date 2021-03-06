@@ -76,6 +76,7 @@ const buttons = theme => css`
     color: ${theme.colorPrimary} !important;
     background-color: transparent;
     box-shadow: inset 0 0 0 2px ${theme.colorPrimary};
+    transition: all 0.4s ease;
   }
 
   input[type='submit']:hover,
@@ -86,7 +87,7 @@ const buttons = theme => css`
     text-decoration: none;
     color: ${darken(0.15, theme.colorPrimary)} !important;
     box-shadow: inset 0 0 0 2px ${darken(0.1, theme.colorPrimary)};
-    transition: 0.2s ease;
+    transition: all 0.4s ease;
   }
 
   input[type='submit'].primary,
@@ -97,6 +98,7 @@ const buttons = theme => css`
     color: ${theme.white} !important;
     background-color: ${theme.colorPrimary};
     box-shadow: none;
+    transition: all 0.4s ease;
   }
 
   input[type='submit'].primary:hover,
@@ -105,6 +107,7 @@ const buttons = theme => css`
   button.primary:hover,
   .button.primary:hover {
     background-color: ${darken(0.1, theme.colorPrimary)};
+    transition: background-color 0.4s ease;
   }
 `
 

@@ -6,20 +6,27 @@ import HeaderImage from './HeaderImage'
 import HeaderLogo from './HeaderLogo'
 import SocialLinks from './SocialLinks'
 
-const HeaderNavSocial = ({ toggleNav }) => {
+const HeaderNavSocial = ({ toggleNav, resumeUrl }) => {
   return (
     <div
       className={`${toggleNav ? `site-head-open ` : ``}site-head-right`}
       style={{ display: 'flex' }}
     >
       <div className='nav-right-links' style={{ display: 'flex' }}>
-        <SocialLinks />
+        <SocialLinks resumeUrl={resumeUrl} />
       </div>
     </div>
   )
 }
 
-const HeaderNav = ({ toggleNav, setToggleNav, logo, title, headerImgs }) => {
+const HeaderNav = ({
+  toggleNav,
+  setToggleNav,
+  logo,
+  title,
+  headerImgs,
+  resumeUrl
+}) => {
   const navLinks = [
     { text: 'Home', slug: '' },
     { text: 'About', slug: 'about' },
@@ -68,7 +75,7 @@ const HeaderNav = ({ toggleNav, setToggleNav, logo, title, headerImgs }) => {
           </ul>
         </nav>
         <HeaderLogo logo={logo} title={title} />
-        <HeaderNavSocial toggleNav={toggleNav} />
+        <HeaderNavSocial toggleNav={toggleNav} resumeUrl={resumeUrl} />
       </div>
       <HeaderImage headerImg={randomHeaderImg} />
     </header>
@@ -80,9 +87,13 @@ HeaderNav.propTypes = {
   setToggleNav: PropTypes.func.isRequired,
   logo: PropTypes.object,
   title: PropTypes.string,
-  headerImgs: PropTypes.object
+  headerImgs: PropTypes.object,
+  resumeUrl: PropTypes.string.isRequired
 }
 
-HeaderNavSocial.propTypes = HeaderNav.propTypes.toggleNav
+HeaderNavSocial.propTypes = {
+  ...HeaderNav.propTypes.toggleNav,
+  ...HeaderNav.propTypes.resumeUrl
+}
 
 export default HeaderNav

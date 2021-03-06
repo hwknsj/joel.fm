@@ -61,5 +61,10 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
       node,
       value
     })
+    createNodeField({
+      name: `url`,
+      node,
+      value
+    })
   }
 }

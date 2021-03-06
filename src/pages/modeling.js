@@ -15,9 +15,9 @@ const ModelingPage = ({
   let postCounter = 0
 
   return (
-    <div>
+    <>
       <SEO
-        title='Modeling'
+        title={`Modeling | ${title}`}
         keywords={[
           'blog',
           'joel',
@@ -133,7 +133,7 @@ const ModelingPage = ({
           }
         )}
       </div>
-    </div>
+    </>
   )
 }
 

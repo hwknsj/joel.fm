@@ -10,13 +10,11 @@ const helpers = theme => css`
     background-size: cover;
     border-radius: 100%;
   }
-
   .hidden {
     visibility: hidden;
     position: absolute;
     text-indent: -9999px;
   }
-
   .bold {
     font-weight: ${theme.fontHeavy} !important;
   }
@@ -52,17 +50,14 @@ const helpers = theme => css`
   .justify-text {
     text-align: justify !important;
   }
-
   .inline {
     display: inline-flex !important;
     list-style: none;
   }
-
   .inline li {
     display: inline !important;
     list-style: none;
   }
-
   .inline-list {
     display: 'flex';
     padding: 0;
@@ -70,23 +65,19 @@ const helpers = theme => css`
     flex-flow: row nowrap;
     justify-content: space-between;
   }
-
   .inline-list.center {
     text-align: center;
   }
-
   .inline-list .inline-item {
     flex: 0 1 auto;
     margin-right: 1rem;
   }
-
   /* .inline-list .inline-item:nth-of-type(1n + 1) {
     border-right: 1px solid ${theme.colorBase};
   } */
   .inline-list .inline-item::after {
     content: '';
   }
-
   .inline-list .inline-item:last-of-type {
     border-right: none;
     margin-right: 0;
@@ -134,9 +125,45 @@ const helpers = theme => css`
     padding-top: 1rem !important;
     padding-bottom: 1rem !important;
   }
+  .px-0 {
+    padding-left: 0rem !important;
+    padding-right: 0rem !important;
+  }
   .px-1 {
     padding-left: 1rem !important;
     padding-right: 1rem !important;
+  }
+  .px-2 {
+    padding-left: 2rem !important;
+    padding-right: 2rem !important;
+  }
+  .px-3 {
+    padding-left: 3rem !important;
+    padding-right: 3rem !important;
+  }
+  .px-4 {
+    padding-left: 4rem !important;
+    padding-right: 4rem !important;
+  }
+  .py-0 {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
+  .py-1 {
+    padding-top: 1rem !important;
+    padding-bottom: 1rem !important;
+  }
+  .py-2 {
+    padding-top: 2rem !important;
+    padding-bottom: 2rem !important;
+  }
+  .py-3 {
+    padding-top: 3rem !important;
+    padding-bottom: 3rem !important;
+  }
+  .py-4 {
+    padding-top: 4rem !important;
+    padding-bottom: 4rem !important;
   }
   .pb-0 {
     padding-bottom: 0 !important;
@@ -153,6 +180,30 @@ const helpers = theme => css`
   .pb-4 {
     padding-bottom: 4rem !important;
   }
+  .mx-0 {
+    margin-left: 0rem !important;
+    margin-right: 0rem !important;
+  }
+  .mx-1 {
+    margin-left: 1rem !important;
+    margin-right: 1rem !important;
+  }
+  .mx-2 {
+    margin-left: 2rem !important;
+    margin-right: 2rem !important;
+  }
+  .mx-3 {
+    margin-left: 3rem !important;
+    margin-right: 3rem !important;
+  }
+  .mx-4 {
+    margin-left: 4rem !important;
+    margin-right: 4rem !important;
+  }
+  .my-0 {
+    margin-top: 0rem !important;
+    margin-bottom: 0rem !important;
+  }
   .my-1 {
     margin-top: 1rem !important;
     margin-bottom: 1rem !important;
@@ -164,6 +215,10 @@ const helpers = theme => css`
   .my-3 {
     margin-top: 3rem !important;
     margin-bottom: 3rem !important;
+  }
+  .my-4 {
+    margin-top: 4rem !important;
+    margin-bottom: 4rem !important;
   }
   .mt-0 {
     margin-top: 0 !important;
@@ -200,7 +255,6 @@ const helpers = theme => css`
     left: 50%;
     transform: translate(-50%, 0);
   }
-
   .center-el-xy {
     margin: 0 auto;
     left: 50%;

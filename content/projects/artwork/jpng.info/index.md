@@ -3,6 +3,7 @@ title: jpng.info
 date: "2020"
 description:
 thumbnail: './jpng.info.jpg'
+url: 'https://jpng.info'
 ---
 ## jpng.info
 

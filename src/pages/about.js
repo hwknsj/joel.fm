@@ -5,11 +5,19 @@ import React from 'react'
 import SEO from '../components/SEO'
 import SocialLinks from '../components/SocialLinks'
 
-const AboutPage = ({ data: { resumeUrl } }) => {
+const AboutPage = ({
+  data: {
+    site: {
+      siteMetadata: { title }
+    },
+    resumePublicUrl: { publicURL }
+  }
+}) => {
+  const resumeUrl = publicURL
   return (
     <>
       <SEO
-        title='About'
+        title={`About | ${title}`}
         keywords={[
           'blog',
           'joel',
@@ -53,9 +61,10 @@ const AboutPage = ({ data: { resumeUrl } }) => {
             <p>Also find me on the socials:</p>
             <SocialLinks resumeUrl={resumeUrl} />
           </div>
-          <div>
-            <h4>Introduction</h4>
-            <p className='serif'>
+          <hr />
+          <div className='serif'>
+            <h3>Introduction</h3>
+            <p>
               I’m a web developer specializing in JavaScript, front & back. With
               5+ experience, a background in physics, data
               analysis/visualization, & 4 years of professional JS web
@@ -64,7 +73,7 @@ const AboutPage = ({ data: { resumeUrl } }) => {
               and with my own clients, I prioritize delivering efficient,
               optimized apps. utilizing the latest tech/best practices.
             </p>
-            <p className='serif'>
+            <p>
               My skills may be described as ‘full stack’–though I find this term
               minimizes my emphasis aesthetic design & user experience. By
               continuously expanding my knowledge of front & back-end
@@ -75,7 +84,7 @@ const AboutPage = ({ data: { resumeUrl } }) => {
               and digital art, my multi-disciplinary approach to problem-solving
               delivers creative solutions to complexity.
             </p>
-            <p className='serif'>
+            <p>
               I graduated from Reed College (B.A. Physics, 2015) and authored
               thesis over the entirety of my senior year. I sought to quantify
               subjective visual characteristics (e.g. ‘naturalness’) of
@@ -87,7 +96,7 @@ const AboutPage = ({ data: { resumeUrl } }) => {
               mathematically complex research in a clear & engaging way
               presented a challenge.
             </p>
-            <p className='serif'>
+            <p>
               I looked to the web as an interactive canvas–I built a webpage to
               present the computer generated graphics alongside interactive JS
               data visualizations. The satisfying reward of seeing those with no
@@ -108,79 +117,81 @@ const AboutPage = ({ data: { resumeUrl } }) => {
             </p>
           </div>
           <hr />
-          <div>
+          <div className='serif'>
             <h3>About this site</h3>
             <p>
               I developed this website using the following technologies and
               tools:
-              <ul>
-                <li>
-                  <a
-                    href='https://www.gatsbyjs.com/'
-                    rel='noopener noreferrer'
-                    target='_blank'
-                    alt='Gatsby.js'
-                    title='Gatsby.js'
-                  >
-                    Gatsby.js v3
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href='https://reactjs.org/'
-                    rel='noopener noreferrer'
-                    target='_blank'
-                    alt='React.js'
-                    title='React.js'
-                  >
-                    React.js
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href='https://nodejs.org/'
-                    rel='noopener noreferrer'
-                    target='_blank'
-                    alt='Node.js'
-                    title='Node.js'
-                  >
-                    Node.js
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href='https://emotion.sh/'
-                    rel='noopener noreferrer'
-                    target='_blank'
-                    alt='emotion'
-                    title='emotion'
-                  >
-                    emotion
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href='https://polished.js.org/'
-                    rel='noopener noreferrer'
-                    target='_blank'
-                    alt='polished'
-                    title='polished'
-                  >
-                    polished
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href='https://graphql.org/'
-                    rel='noopener noreferrer'
-                    target='_blank'
-                    alt='GraphQL'
-                    title='GraphQL'
-                  >
-                    GraphQL
-                  </a>
-                </li>
-              </ul>
+            </p>
+            <ul>
+              <li>
+                <a
+                  href='https://www.gatsbyjs.com/'
+                  rel='noopener noreferrer'
+                  target='_blank'
+                  alt='Gatsby.js'
+                  title='Gatsby.js'
+                >
+                  Gatsby.js v3
+                </a>
+              </li>
+              <li>
+                <a
+                  href='https://reactjs.org/'
+                  rel='noopener noreferrer'
+                  target='_blank'
+                  alt='React.js'
+                  title='React.js'
+                >
+                  React.js
+                </a>
+              </li>
+              <li>
+                <a
+                  href='https://nodejs.org/'
+                  rel='noopener noreferrer'
+                  target='_blank'
+                  alt='Node.js'
+                  title='Node.js'
+                >
+                  Node.js
+                </a>
+              </li>
+              <li>
+                <a
+                  href='https://emotion.sh/'
+                  rel='noopener noreferrer'
+                  target='_blank'
+                  alt='emotion'
+                  title='emotion'
+                >
+                  emotion
+                </a>
+              </li>
+              <li>
+                <a
+                  href='https://polished.js.org/'
+                  rel='noopener noreferrer'
+                  target='_blank'
+                  alt='polished'
+                  title='polished'
+                >
+                  polished
+                </a>
+              </li>
+              <li>
+                <a
+                  href='https://graphql.org/'
+                  rel='noopener noreferrer'
+                  target='_blank'
+                  alt='GraphQL'
+                  title='GraphQL'
+                >
+                  GraphQL
+                </a>
+              </li>
+            </ul>
+            <p>
               The source code for which is available on{' '}
               <a
                 href='https://github.com/hwknsj/joel.fm'
@@ -192,7 +203,7 @@ const AboutPage = ({ data: { resumeUrl } }) => {
               </a>{' '}
               (<span className='italic'>for now...</span>).
             </p>
-            <p className='serif'>
+            <p>
               For the curious, the heading typeface is{' '}
               <a
                 href='https://www.type-together.com/eskapade-font/'
@@ -215,7 +226,7 @@ const AboutPage = ({ data: { resumeUrl } }) => {
               </a>
               .
             </p>
-            <p className='serif italic'>
+            <p className='italic'>
               All images that appear on this site are my own work{' '}
               <span className='text-light'>(unless stated otherwise)</span>.
             </p>
@@ -228,7 +239,14 @@ const AboutPage = ({ data: { resumeUrl } }) => {
 
 export const resumeUrlQuery = graphql`
   query {
-    resumeUrl: file(relativePath: { eq: "files/joel-hawkins-resume.pdf" }) {
+    site {
+      siteMetadata {
+        title
+      }
+    }
+    resumePublicUrl: file(
+      relativePath: { eq: "files/joel-hawkins-resume.pdf" }
+    ) {
       publicURL
     }
   }
@@ -236,7 +254,14 @@ export const resumeUrlQuery = graphql`
 
 AboutPage.propTypes = {
   data: PropTypes.shape({
-    resumeUrl: PropTypes.string.isRequired
+    site: PropTypes.shape({
+      siteMetadata: PropTypes.shape({
+        title: PropTypes.string
+      })
+    }),
+    resumePublicUrl: PropTypes.shape({
+      publicURL: PropTypes.string.isRequired
+    }).isRequired
   })
 }
 

@@ -1,7 +1,7 @@
 import styled from '@emotion/styled'
 import { graphql, useStaticQuery } from 'gatsby'
 import { GatsbyImage } from 'gatsby-plugin-image'
-import React from 'react'
+import React, { useMemo } from 'react'
 
 const ImageGridStyles = styled.div`
   display: grid;
@@ -34,12 +34,16 @@ const ImageGrid = () => {
           childImageSharp {
             gatsbyImageData(width: 400, layout: FIXED)
           }
+          name
         }
       }
     }
   `
   const data = useStaticQuery(query)
-  const images = data.images.nodes || []
+
+  const memoizedData = useMemo(() => data)
+
+  const images = memoizedData.images.nodes || []
 
   return (
     <ImageGridStyles>
@@ -49,7 +53,8 @@ const ImageGrid = () => {
             node.childImageSharp && (
               <GatsbyImage
                 image={node.childImageSharp.gatsbyImageData}
-                key={`${Date.now() * Math.random()}`}
+                key={`${node.name}`}
+                alt={`Metagram image number ${node.name}`}
               />
             )
         )}

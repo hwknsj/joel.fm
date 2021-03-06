@@ -15,19 +15,21 @@ const MetaGramIndex = () => {
     }
   `
 
+  const postTitle = `Metagram`
+  const postDescription = `Continuous digital art piece presented via Instagram.`
+  const postClass = `post`
+  const url = `https://instagram.com/joel.biz`
+
   const {
     site: {
       siteMetadata: { title }
     }
   } = useStaticQuery(indexQuery)
-  const pageTitle = `Metagram`
-  const siteDescription = `just a stupid thing on i've been doing on instagram for years to try to impress
-  people.`
 
   return (
     <>
       <SEO
-        title={`${title} | ${pageTitle}`}
+        title={`${postTitle} | ${title}`}
         keywords={[
           'blog',
           'instagram',
@@ -43,31 +45,34 @@ const MetaGramIndex = () => {
           'hawkins'
         ]}
       />
-      {pageTitle && (
-        <header className='page-head'>
-          <h2 className='page-head-title'>{`${pageTitle}`}</h2>
+      <article className={`post-content ${postClass} page-template no-image`}>
+        <header className='post-content-header'>
+          <h2 className='post-content-title'>{`${postTitle}`}</h2>
         </header>
-      )}
-      <article className='post-content page-template no-image'>
+        <p className='post-content-excerpt px-4 justify mx-4'>
+          {`${postDescription} `}
+          See the real thing{' '}
+          <a
+            href={url}
+            target='_blank'
+            title='@joel.biz'
+            alt='@joel.biz on Instagram'
+            rel='noopener noreferrer'
+          >
+            @joel.biz
+          </a>
+          .
+        </p>
+        <h6 className='center-text'>
+          <a href={url} target='_blank' rel='noopener noreferrer' alt={title}>
+            {url}
+          </a>
+        </h6>
         <div className='post-content-body'>
-          <div className='center-text'>
-            <p className='center-text'>{`${siteDescription}`}</p>
-            <p className='center-text'>
-              see the real thing{' '}
-              <a
-                href='https://instagram.com/joel.biz/'
-                target='_blank'
-                title='@joel.biz'
-                rel='noopener noreferrer'
-              >
-                here
-              </a>
-              .
-            </p>
-            <p className='italic center-text'>~ @joel.biz</p>
-            <p className='italic center-text'>இڿڰۣ-ڰۣ—</p>
-            <hr />
-          </div>
+          <blockquote>
+            I spend a lot of time on Instagram.<p>~ @joel.biz</p>
+          </blockquote>
+          <hr />
           <ImageGrid />
         </div>
       </article>
