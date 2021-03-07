@@ -37,7 +37,7 @@ module.exports = {
     'array-callback-return': [
       'error',
       {
-        allowImplicit: false,
+        allowImplicit: true,
         checkForEach: false
       }
     ],

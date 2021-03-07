@@ -21,7 +21,7 @@ My artist website, an ongoing project since 2014, showcasing some of my digital 
   <a href='https://web.jpng.info' target='_blank' rel='noopener noreferrer' alt='web.jpng.info' class='my-2'>https://web.jpng.info</a>
 </div>
 
-<video class='center' style='max-width: 100%;' autoplay loop class='fluid-width-video-wrapper'>
+<video class='center' alt='web.jpng.info video' title='web.jpng.info video' style='max-width: 100%;' autoplay loop class='fluid-width-video-wrapper'>
       <source src='./jpng_1080p.mp4' type="video/mp4" />
 </video>
 

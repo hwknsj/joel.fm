@@ -545,32 +545,34 @@ const screen = theme => css`
     opacity: 0;
   }
   @media (max-width: ${theme.maxWidthMd}) {
-    .post-card.with-image .post-card-content {
-      opacity: 1;
-      background: transparent;
+    .post-card.with-image {
+      .post-card-content {
+        opacity: 1;
+        background: transparent;
+        &:hover {
+          background: rgba(0, 0, 0, 0.1);
+          transition: background 0.5s cubic-bezier(0.33, 0, 0.2, 1);
+        }
+      }
+      .post-card-title {
+        font-size: 5rem;
+        opacity: 1;
+        transition: opacity 0.5s cubic-bezier(0.33, 0, 0.2, 1);
+      }
     }
-    .post-card.with-image .post-card-content:hover {
-      background: rgba(0, 0, 0, 0.1);
-      transition: background 0.5s cubic-bezier(0.33, 0, 0.2, 1);
-    }
-    /* .post-card-title {
-    opacity: 0;
-  } */
-    /* .post-card-title:hover {
-    opacity: 1;
-    transition: opacity 0.5s cubic-bezier(0.33, 0, 0.2, 1);
-  } */
   }
 
-  .post-card-link:hover .post-card-content {
-    opacity: 1;
-    transition: opacity 0.3s cubic-bezier(0.33, 0, 0.2, 1);
+  .post-card-link:hover {
+    .post-card-content {
+      opacity: 1;
+      transition: opacity 0.3s cubic-bezier(0.33, 0, 0.2, 1);
+    }
   }
 
   .post-card-title {
     margin: 0;
     display: inline-block;
-    font-size: 4.2rem;
+    font-size: 5rem;
     max-width: 70%;
     text-align: center;
     transition: all 0.3s cubic-bezier(0.33, 0, 0.2, 1);
@@ -592,36 +594,44 @@ const screen = theme => css`
 
   .post-card.no-image {
     background: transparent !important;
+    .post-card-content {
+      justify-content: flex-start;
+      align-items: flex-start;
+      padding: 4vw;
+    }
+    .post-card-title {
+      font-size: 5rem;
+      line-height: 1.15em;
+      text-align: center;
+      margin: auto;
+      color: #111;
+      opacity: 0.5;
+    }
+    &:hover {
+      .post-card-title {
+        color: #111;
+        opacity: 1;
+      }
+    }
   }
 
-  .post-card.no-image .post-card-content {
-    justify-content: flex-start;
-    align-items: flex-start;
-    padding: 4vw;
-  }
-
-  .post-card.no-image .post-card-title {
-    font-size: 5rem;
-    line-height: 1.15em;
-    text-align: center;
-    margin: auto;
-    color: #111;
-    opacity: 0.5;
-  }
-
-  .post-card.no-image:hover .post-card-title {
-    color: #111;
-    opacity: 1;
-  }
-
-  @media (max-width: ${theme.maxWidthLg}) {
-    .post-card.no-image .post-card-title {
-      font-size: 3.4rem;
+  @media (max-width: ${theme.maxWidthXl}) {
+    .post-card {
+      .post-card-title {
+        font-size: 5rem;
+      }
+      &.no-image {
+        .post-card-title {
+          font-size: 3.4rem;
+        }
+      }
     }
   }
   @media (max-width: ${theme.maxWidthMd}) {
-    .post-card.no-image:before {
-      font-size: 50vw;
+    .post-card {
+      &.no-image:before {
+        font-size: 50vw;
+      }
     }
   }
 
