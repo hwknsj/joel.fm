@@ -74,7 +74,7 @@ theme.navbbh = `${theme.colorBase} 2px solid`
 export { theme }
 
 export const globalCss = css`
-  ${fontDefs};
+  ${css(fontDefs).styles};
   ${helpers(theme)};
   ${reset(theme)};
   ${ghost(theme)};
