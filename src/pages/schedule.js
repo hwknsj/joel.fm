@@ -1,47 +1,16 @@
-import styled from '@emotion/styled'
 import { graphql } from 'gatsby'
 import PropTypes from 'prop-types'
 import React from 'react'
-import { InlineWidget } from 'react-calendly'
 
 import SEO from '../components/SEO'
 
-const CalendlyContainerStyles = styled.div`
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-  /* max-width: 100%; */
-  width: 100%;
-  justify-content: center;
-  box-sizing: border-box;
-  overflow-y: visible;
-  iframe {
-    box-sizing: border-box;
-    overflow-y: visible;
-    height: 100vh;
-  }
-  .calendly-inline-widget {
-    margin: 0;
-    padding: 0;
-    z-index: 999;
-    min-height: 100%;
-    width: 100%;
-    flex: 1 0 auto;
-    html,
-    body {
-      margin: 0;
-      padding: 0;
-    }
-  }
-`
-
-const SchedulePage = ({ data, query }) => {
-  // const { title, description } = data.site.siteMetadata
+const SchedulePage = ({ data }) => {
+  const { title } = data.site.siteMetadata
 
   return (
     <>
       <SEO
-        title='Schedule & Booking'
+        title={`Schedule & Booking | ${title}`}
         keywords={[
           'blog',
           'joel',
@@ -90,16 +59,16 @@ const SchedulePage = ({ data, query }) => {
           <h2 className='page-head-title'>Schedule</h2>
           <h3 className='subtitle'>to get in touch, use the menu below</h3>
         </div>
-        <div>
-          <InlineWidget
-            className='calendly-inline-widget my-0 mx-0'
-            url={`https://calendly.com/joel-fm`}
-            styles={{
-              // minHeight: '1000px',
-              height: 'inherit',
-              overflowY: 'visible'
-            }}
-          />
+        <div className='center-text'>
+          <a
+            href='https://calendly.com/joel-fm'
+            className='button primary large'
+            target='_blank'
+            alt={`joél's calendly`}
+            rel='noopener noreferrer'
+          >
+            joél&apos;s calendly
+          </a>
         </div>
       </article>
     </>
@@ -119,7 +88,14 @@ export const schedulePageQuery = graphql`
 
 SchedulePage.propTypes = {
   query: PropTypes.string.isRequired,
-  data: PropTypes.object.isRequired
+  data: PropTypes.shape({
+    site: PropTypes.shape({
+      siteMetadata: PropTypes.shape({
+        title: PropTypes.string,
+        description: PropTypes.string
+      })
+    })
+  })
 }
 
 export default SchedulePage

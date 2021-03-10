@@ -76,14 +76,14 @@ const AboutPage = ({
             </p>
             <p>
               My skills may be described as ‘full stack’–though I find this term
-              minimizes my emphasis aesthetic design & user experience. By
-              continuously expanding my knowledge of front & back-end
-              development I have the unique ability to create intuitive,
-              cohesive applications that take full advantage of the interactive
-              nature of the web—always elegant, efficient, & engaging. Formally
-              educated in physics, mathematics, computation, music composition,
-              and digital art, my multi-disciplinary approach to problem-solving
-              delivers creative solutions to complexity.
+              minimizes my emphasis on aesthetic design & the importance of the
+              user experience. By continuously expanding my knowledge of front &
+              back-end development I have the unique ability to create
+              intuitive, cohesive applications that take full advantage of the
+              interactive nature of the web—always elegant, efficient, &
+              engaging. Formally educated in physics, mathematics, computation,
+              music composition, and digital art, my multi-disciplinary approach
+              to problem-solving delivers creative solutions to complexity.
             </p>
             <p>
               I graduated from Reed College (B.A. Physics, 2015) and authored

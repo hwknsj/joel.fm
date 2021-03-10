@@ -92,6 +92,7 @@ export const globalCss = css`
     font-size: 10px;
     padding: 0;
     margin: 0;
+    scroll-behavior: smooth;
   }
   *,
   *:before,
@@ -104,6 +105,12 @@ export const globalCss = css`
   }
   a {
     text-decoration: none;
+  }
+  :target:before {
+    content: '';
+    display: block;
+    height: 200px;
+    margin-top: -200px;
   }
   .post-content {
     a {

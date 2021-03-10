@@ -3,9 +3,6 @@
 
 .dropboxignore
 
-# old junk
-src/utils
-
 # Logs
 logs
 *.log

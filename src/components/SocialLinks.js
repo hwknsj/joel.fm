@@ -3,6 +3,7 @@ import { IoLogoBehance } from '@react-icons/all-files/io5/IoLogoBehance'
 import { IoLogoGithub } from '@react-icons/all-files/io5/IoLogoGithub'
 import { IoLogoInstagram } from '@react-icons/all-files/io5/IoLogoInstagram'
 import { IoLogoLinkedin } from '@react-icons/all-files/io5/IoLogoLinkedin'
+import { IoCalendar } from '@react-icons/all-files/io5/IoCalendar'
 // import { graphql, useStaticQuery } from 'gatsby'
 import PropTypes from 'prop-types'
 import React from 'react'
@@ -38,6 +39,11 @@ const SocialLinks = ({ resumeUrl }) => {
       name: 'Behance',
       url: 'https://www.behance.net/hwknsj',
       icon: <IoLogoBehance />
+    },
+    {
+      name: 'Calendly',
+      url: 'https://calendly.com/joel-fm',
+      icon: <IoCalendar />
     },
     {
       name: 'Résumé',

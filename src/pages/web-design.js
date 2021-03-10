@@ -19,11 +19,15 @@ const WebDesignPage = ({
       <SEO
         title={`Web Design | ${title}`}
         keywords={[
+          'portfolio',
           'blog',
           'joel',
           'hawkins',
           'joel hawkins',
+          'joel.fm',
           'joel.biz',
+          'web design',
+          'web developer',
           'gatsby',
           'javascript',
           'react'

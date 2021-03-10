@@ -71,7 +71,10 @@ const BlogPostTemplate = ({
             dangerouslySetInnerHTML={{ __html: html }}
           />
         </BlogPostTemplateStyles>
-        {/* <footer className='post-content-footer' /> */}
+        {/*
+          TODO: add post 'tags' feature
+          <footer className='post-content-footer' />
+        */}
       </article>
     </>
   )
