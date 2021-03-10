@@ -48,6 +48,7 @@ const AboutPage = ({
             <h4 className='center-text'>
               First, have a look at &nbsp;
               <a
+                id='resume'
                 className='button primary large fit mt-4 mb-0'
                 href={resumeUrl}
                 target='_blank'
