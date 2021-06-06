@@ -4,6 +4,8 @@ import React from 'react'
 import ImageGrid from '../../../components/ImageGrid'
 import SEO from '../../../components/SEO'
 
+// TODO: update with latest posts, if you can find them...
+
 const MetaGramIndex = () => {
   const indexQuery = graphql`
     query {
@@ -41,6 +43,7 @@ const MetaGramIndex = () => {
           'photoshop',
           'joel.biz',
           'joel hawkins',
+          'torres',
           'joel',
           'hawkins'
         ]}

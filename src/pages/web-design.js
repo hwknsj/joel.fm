@@ -55,23 +55,23 @@ const WebDesignPage = ({
               I&apos;ve developed are unfortunately quite difficult to
               demonstrate in any satisfying way.{' '}
               <span className='text-light center-text'>
-                My my{' '}
+                Check
                 <a
                   href='https://github.com/hwknsj'
                   target='_blank'
                   rel='noopener noreferrer'
                   alt='Github @hwknsj'
                 >
-                  Github (@hwknsj)
+                  Github @hwknsj
                 </a>{' '}
-                has more recent works-in-progress.
+                for a whole mess of random work.
               </span>
             </p>
             <p className='serif'>
               However, I can share some information about the technologies used
               and the high-level functions of the applications. If you would
-              like more information on my back-end development experience,
-              please contact me at joel@joel.fm or use the Contact form page.
+              like more information on my back-end development experience, drop
+              me a message at joel (at) joel.fm.
             </p>
             <p className='serif subtitle'>
               All works below are shown with the expressed permission of the

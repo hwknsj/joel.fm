@@ -12,6 +12,7 @@ const ModelingPage = ({
   }
 }) => {
   const { title } = site.siteMetadata
+  // eslint-disable-next-line no-unused-vars
   let postCounter = 0
 
   return (
