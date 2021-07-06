@@ -3,7 +3,7 @@ import { darken, lighten } from 'polished'
 
 const screen = theme => css`
   body {
-    font-family: 'EskapadeFraktur', serif;
+    font-family: ${theme.fontFraktur};
     background: ${theme.colorBg};
     transition: background 0.3s ease-out;
     transition-delay: 0.25;
@@ -54,7 +54,7 @@ const screen = theme => css`
       margin: 0;
       font-size: 7rem;
       line-height: 1.1em;
-      font-weight: ${theme.fontHeavy};
+      font-weight: ${theme.fontBold};
       letter-spacing: 10px;
     }
     p {

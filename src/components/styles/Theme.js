@@ -35,13 +35,13 @@ const theme = {
   // altBlack: '#333',
   colorBg: '#ffffff',
   colorLight: '#9e9e9e',
-  fontFraktur: `'EskapadeFraktur', serif`,
-  fontSans: `'CorporateS', sans-serif`,
-  fontSerif: `'CorporateA', Georgia, Times, serif`,
+  fontFraktur: `'EskapadeFraktur', eskapade-fraktur, serif`,
+  fontSans: `'CorporateS', corporate-s, sans-serif`,
+  fontSerif: `'CorporateA', corporate-a, Georgia, Times, 'Times New Roman', serif`,
   fontMono: `Menlo, Courier, monospace`,
   fontLight: '200',
   fontNormal: '400',
-  fontBold: '700',
+  fontBold: '500',
   fontHeavy: '800',
   lineHeight: '2',
   xlarge: '1680px',
@@ -73,8 +73,23 @@ theme.navbbh = `${theme.colorBase} 2px solid`
 
 export { theme }
 
+// console.log({...fontDefs})
+
+// const fonts = fontDefs.map(font => css({...font}))
+// const fonts = fontDefs.reduce((acc, font) => acc.concat(css({...font}).styles), '')
+const fonts = fontDefs.map((font) => ({...font}))
+console.log(fonts)
+
+console.log({ ...fontDefs[0] })
+
+// const globalFonts = createGlobalStyle`
+//   ${{...fontDefs}}
+// `
+
+// console.log({ globalFonts })
+
 export const globalCss = css`
-  ${css(fontDefs).styles};
+  ${fonts}
   ${helpers(theme)};
   ${reset(theme)};
   ${ghost(theme)};
@@ -93,6 +108,7 @@ export const globalCss = css`
     padding: 0;
     margin: 0;
     scroll-behavior: smooth;
+    font-size: 62.5%;
   }
   *,
   *:before,
