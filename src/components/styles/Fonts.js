@@ -66,9 +66,7 @@ export const fontDefs = [
     localFonts: ['Corporate A', 'Corporate A Pro'],
     fileFormats: ['ttf']
   }
-].map(font => ({...fontFace(font)}))
-
-console.log({fontDefs})
+].map(font => ({ ...fontFace(font) }))
 
 // For code splitting purposes, separate font-face definitions
 const fonts = String.raw`

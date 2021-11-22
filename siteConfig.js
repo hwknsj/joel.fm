@@ -3,7 +3,11 @@ module.exports = {
   shortName: 'joél',
   description: 'web design & development, etc.',
   url: 'https://joel.fm',
-  favicon: { ico: `/favicon.ico`, png: `content/assets/jhlogo.png`, svg: `static/favicon.svg` },
+  favicon: {
+    ico: `/favicon.ico`,
+    png: `content/assets/logo.png`,
+    svg: `static/favicon.svg`
+  },
   prefix: '/',
   author: 'joél hawkins torres <joel@joel.fm>',
   instagram: '@joel.biz',

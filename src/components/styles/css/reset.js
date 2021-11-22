@@ -248,11 +248,9 @@ const reset = theme => css`
   th {
     padding: 0;
   }
-
   /* ==========================================================================
    Base styles: opinionated defaults
    ========================================================================== */
-
   html {
     overflow-x: hidden;
     overflow-y: scroll;
@@ -278,12 +276,10 @@ const reset = theme => css`
     -moz-osx-font-smoothing: grayscale;
     -moz-font-feature-settings: 'liga' on;
   }
-
   ::selection {
     text-shadow: none;
     background: #cbeafb;
   }
-
   hr {
     position: relative;
     display: block;
@@ -294,7 +290,6 @@ const reset = theme => css`
     border: 0;
     border-top: 1px solid ${lighten(0.2, theme.colorBase)};
   }
-
   audio,
   canvas,
   iframe,
@@ -303,24 +298,20 @@ const reset = theme => css`
   video {
     vertical-align: middle;
   }
-
   p,
   blockquote {
     margin: 0 0 1.5em 0;
   }
-
   blockquote {
     margin: 1.5em 0;
     padding: 0 1.6em 0 1.6em;
     border-left: ${theme.colorBase} 0.5em solid;
   }
-
   blockquote p {
     margin: 0.8em 0;
     font-size: 1.2em;
     font-weight: 300;
   }
-
   blockquote small {
     display: inline-block;
     margin: 0.8em 0 0.8em 1.5em;
@@ -331,25 +322,21 @@ const reset = theme => css`
   blockquote small:before {
     content: '\2014 \00A0';
   }
-
   blockquote cite {
     font-weight: bold;
   }
   blockquote cite a {
     font-weight: normal;
   }
-
   a {
     color: ${darken(0.05, theme.colorPrimary)};
     text-decoration: none;
     transition: 0.4s ease;
   }
-
   a:hover {
     text-decoration: underline;
     transition: 0.2s ease;
   }
-
   h1,
   h2,
   h3,
@@ -361,7 +348,6 @@ const reset = theme => css`
     font-weight: 700;
     text-rendering: optimizeLegibility;
   }
-
   h1 {
     margin: 0 0 0.5em 0;
     font-size: 5.7rem;
@@ -372,7 +358,6 @@ const reset = theme => css`
       font-size: 2.7rem;
     }
   }
-
   h2 {
     margin: 1.5em 0 0.5em 0;
     font-size: 4rem;
@@ -382,7 +367,6 @@ const reset = theme => css`
       font-size: 2rem;
     }
   }
-
   h3 {
     margin: 1.5em 0 1em 0;
     font-size: 3.2rem;
@@ -392,17 +376,14 @@ const reset = theme => css`
       font-size: 1.8rem;
     }
   }
-
   h4 {
     margin: 1.5em 0 1em 0;
     font-size: 2.6rem;
   }
-
   h5 {
     margin: 1.5em 0 1em 0;
     font-size: 2.4rem;
   }
-
   h6 {
     margin: 1.5em 0 1em 0;
     font-size: 2.2rem;

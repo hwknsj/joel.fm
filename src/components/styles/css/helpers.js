@@ -72,9 +72,6 @@ const helpers = theme => css`
     flex: 0 1 auto;
     margin-right: 1rem;
   }
-  /* .inline-list .inline-item:nth-of-type(1n + 1) {
-    border-right: 1px solid ${theme.colorBase};
-  } */
   .inline-list .inline-item::after {
     content: '';
   }

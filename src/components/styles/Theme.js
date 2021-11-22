@@ -16,29 +16,39 @@ import screen from './css/screen'
 import tables from './css/tables'
 import { fontDefs } from './Fonts'
 
-const theme = {
+export const fontFraktur = `'EskapadeFraktur', eskapade-fraktur, serif`
+export const fontSerif = `'CorporateA', corporate-a, Georgia, Times, 'Times New Roman', serif`
+const fontSans = `'CorporateS', corporate-s, sans-serif`
+const fontMono = `Menlo, Courier, monospace`
+
+// eslint-disable-next-line no-unused-vars
+const [fontTitle, fontBody, fontCode] = [fontFraktur, fontSerif, fontMono]
+
+let theme = {
   bodyPadding: '3vw',
   bodyPaddingSm: '6vw',
   blue: '#0A48DD',
   colorPrimary: '#0A48DD',
   colorBase: '#131313',
   colorBorder: '#ddd',
-  /* color-bg: '#f8f8f8', */
   white: '#ffffff',
   lightGrey: '#E1E1E1',
   offWhite: '#FAFAFA',
   color: '#1f1f1f',
   black: '#1E1E1F',
   altBlack: '#393939',
+  nikeBlack: '#111111',
   trueBlack: '#000000',
   transparent: 'rgba(0, 0, 0, 0)',
-  // altBlack: '#333',
   colorBg: '#ffffff',
   colorLight: '#9e9e9e',
-  fontFraktur: `'EskapadeFraktur', eskapade-fraktur, serif`,
-  fontSans: `'CorporateS', corporate-s, sans-serif`,
-  fontSerif: `'CorporateA', corporate-a, Georgia, Times, 'Times New Roman', serif`,
-  fontMono: `Menlo, Courier, monospace`,
+  fontFraktur,
+  fontTitle: fontFraktur,
+  fontSans,
+  fontSerif,
+  fontBody: fontSerif,
+  fontMono,
+  fontCode: fontMono,
   fontLight: '200',
   fontNormal: '400',
   fontBold: '500',
@@ -60,33 +70,23 @@ const theme = {
 }
 
 // just make some 'aliases'
-theme.maxWidthXs = theme.xsmall
-theme.maxWidthSm = theme.small
-theme.maxWidthMd = theme.medium
-theme.maxWidthLg = theme.large
-theme.maxWidthXl = theme.xlarge
-theme.bgColor = theme.colorBg
-theme.blue = theme.colorPrimary
-theme.radius = theme.borderRadius
-theme.navbb = `${theme.transparent} 2px solid`
-theme.navbbh = `${theme.colorBase} 2px solid`
+theme = {
+  ...theme,
+  maxWidthXs: theme.xsmall,
+  maxWidthSm: theme.small,
+  maxWidthMd: theme.medium,
+  maxWidthLg: theme.large,
+  maxWidthXl: theme.xlarge,
+  bgColor: theme.colorBg,
+  blue: theme.colorPrimary,
+  radius: theme.borderRadius,
+  navbb: `${theme.transparent} 2px solid`,
+  navbbh: `${theme.colorBase} 2px solid`
+}
 
 export { theme }
 
-// console.log({...fontDefs})
-
-// const fonts = fontDefs.map(font => css({...font}))
-// const fonts = fontDefs.reduce((acc, font) => acc.concat(css({...font}).styles), '')
-const fonts = fontDefs.map((font) => ({...font}))
-console.log(fonts)
-
-console.log({ ...fontDefs[0] })
-
-// const globalFonts = createGlobalStyle`
-//   ${{...fontDefs}}
-// `
-
-// console.log({ globalFonts })
+const fonts = fontDefs.map(font => ({ ...font }))
 
 export const globalCss = css`
   ${fonts}

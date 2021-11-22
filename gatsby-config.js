@@ -98,7 +98,8 @@ module.exports = {
       resolve: `gatsby-plugin-web-font-loader`,
       options: {
         typekit: {
-          id: process.env.TYPEKIT_ID
+          id: process.env.TYPEKIT_ID,
+          families: ['eskapade-fraktur', 'corporate-s', 'corporate-a']
         }
       }
     },
