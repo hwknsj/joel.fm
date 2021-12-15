@@ -4,21 +4,10 @@ import { IoLogoBehance } from '@react-icons/all-files/io5/IoLogoBehance'
 import { IoLogoGithub } from '@react-icons/all-files/io5/IoLogoGithub'
 import { IoLogoInstagram } from '@react-icons/all-files/io5/IoLogoInstagram'
 import { IoLogoLinkedin } from '@react-icons/all-files/io5/IoLogoLinkedin'
-// import { graphql, useStaticQuery } from 'gatsby'
 import PropTypes from 'prop-types'
 import React from 'react'
 
 const SocialLinks = ({ resumeUrl }) => {
-  // const query = graphql`
-  //   {
-  //     file(relativePath: { eq: "files/joel-hawkins-resume.pdf" }) {
-  //       publicURL
-  //     }
-  //   }
-  // `
-
-  // const resumePublicUrl = useStaticQuery(query)
-
   const links = [
     {
       name: 'LinkedIn',

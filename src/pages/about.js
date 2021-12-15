@@ -45,7 +45,7 @@ const AboutPage = ({
               padding: '3rem 0'
             }}
           >
-            <h4 className='center-text'>
+            <h4 className='text-center'>
               First, have a look at &nbsp;
               <a
                 id='resume'
@@ -67,12 +67,14 @@ const AboutPage = ({
             <h3>Introduction</h3>
             <p>
               I’m a web developer specializing in JavaScript, front & back. With
-              5+ experience, a background in physics, data
-              analysis/visualization, & 4 years of professional JS web
-              development, I’ve cultivated a diverse skill set. Working in
-              diverse agile teams of designers, artists, engineers, executives,
-              and with my own clients, I prioritize delivering efficient,
-              optimized apps. utilizing the latest tech/best practices.
+              6+ experience, a background in physics, data
+              analysis/visualization, & 5+ years of professional web
+              development–specializing in JavaScript–I’ve cultivated a diverse
+              skill set. Working among some of the most talented designers,
+              artists, engineers, executives, as well as my own clients, I
+              prioritize delivering efficient, optimized applications,
+              emphasizing beauty and style, as well as accessibility,
+              implementation of the latest web technologies, and best practices.
             </p>
             <p>
               My skills may be described as ‘full stack’–though I find this term
@@ -246,7 +248,7 @@ export const resumeUrlQuery = graphql`
       }
     }
     resumePublicUrl: file(
-      relativePath: { eq: "files/joel-hawkins-resume.pdf" }
+      relativePath: { eq: "files/joel-hawkins-torres-resume.pdf" }
     ) {
       publicURL
     }

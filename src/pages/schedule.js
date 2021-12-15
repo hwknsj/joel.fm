@@ -59,7 +59,7 @@ const SchedulePage = ({ data }) => {
           <h2 className='page-head-title'>Schedule</h2>
           <h3 className='subtitle'>to get in touch, use the menu below</h3>
         </div>
-        <div className='center-text'>
+        <div className='text-center'>
           <a
             href='https://calendly.com/joel-fm'
             className='button primary large'

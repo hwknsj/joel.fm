@@ -16,21 +16,18 @@ const hamburger = theme => css`
     cursor: pointer;
     transition: opacity 0.15s linear, filter 0.15s linear;
   }
-
   .hamburger-box {
     position: relative;
     display: inline-block;
     width: 24px;
     height: 16px;
   }
-
   .hamburger-inner {
     top: 50%;
     display: block;
     margin-top: -2px;
     left: 2rem;
   }
-
   .hamburger-inner,
   .hamburger-inner::before,
   .hamburger-inner::after {
@@ -52,7 +49,6 @@ const hamburger = theme => css`
   .hamburger-inner::after {
     bottom: -6px;
   }
-
   /*
  * Collapse
  */
@@ -72,19 +68,16 @@ const hamburger = theme => css`
     transition: top 0.12s 0.3s cubic-bezier(0.33333, 0.66667, 0.66667, 1),
       transform 0.15s cubic-bezier(0.55, 0.055, 0.675, 0.19);
   }
-
   .site-head-open .hamburger-inner,
   .site-head-open .hamburger-inner::before,
   .site-head-open .hamburger-inner::after {
-    background-color: ${theme.colorBase};
+    background-color: ${theme.colors.base};
   }
-
   .site-head-open .hamburger-inner {
     transition-delay: 0.32s;
     transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
     transform: translate3d(0, -6px, 0) rotate(-45deg);
   }
-
   .site-head-open .hamburger-inner::after {
     top: 0;
     opacity: 0;

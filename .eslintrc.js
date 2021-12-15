@@ -23,8 +23,21 @@ module.exports = {
     node: true
   },
   plugins: ['import', 'node', 'promise', '@emotion'],
+  settings: {
+    'import/resolver': {
+      alias: [
+        ['@/components', 'src/components'],
+        ['@/lib', 'src/lib'],
+        ['@/pages', 'src/pages'],
+        ['@/images', 'src/images'],
+        ['@/templates', 'src/templates'],
+        ['@/assets', 'content/assets'],
+        ['@/projects', 'content/projects']
+      ]
+    }
+  },
   rules: {
-    '@emotion/jsx-import': 'error',
+    // '@emotion/jsx-import': 'error',
     'no-var': 'warn',
     'accessor-pairs': [
       'error',

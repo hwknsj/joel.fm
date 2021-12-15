@@ -81,7 +81,6 @@ module.exports = {
         trackingId: `UA-104153508-1`
       }
     },
-    `gatsby-plugin-feed`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -91,7 +90,16 @@ module.exports = {
         background_color: `#ffffff`,
         theme_color: `#efefef`,
         display: `minimal-ui`,
-        icon: siteConfig.favicon.png
+        icon: siteConfig.favicon.svg
+      }
+    },
+    {
+      resolve: `gatsby-plugin-web-font-loader`,
+      options: {
+        typekit: {
+          id: process.env.TYPEKIT_ID,
+          families: ['eskapade-fraktur', 'corporate-s', 'corporate-a']
+        }
       }
     },
     `gatsby-plugin-offline`,

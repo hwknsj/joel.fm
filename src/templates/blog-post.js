@@ -6,7 +6,7 @@ import React from 'react'
 
 import SEO from '../components/SEO'
 
-const BlogPostTemplateStyles = styled.div`
+const BlogPostTemplateStyles = styled.article`
   max-width: 90vw;
   @media (max-width: ${({ theme }) => theme.maxWidthLg}) {
     max-width: ${({ theme }) => theme.maxWidthLg};
@@ -35,47 +35,43 @@ const BlogPostTemplate = ({
         title={`${title} | ${site.siteMetadata.title}`}
         description={description || excerpt}
       />
-      <article className={`post-content ${thumbnail || 'no-image'}`}>
-        <BlogPostTemplateStyles>
-          <header className='post-content-header'>
-            <h2 className='post-content-title'>{title}</h2>
-          </header>
+      {/* <article className={`post-content ${thumbnail || 'no-image'}`}> */}
+      <BlogPostTemplateStyles
+        className={`page-template post-content ${thumbnail || 'no-image'}`}
+      >
+        <header className='post-content-header'>
+          <h2 className='post-content-title'>{title}</h2>
+        </header>
 
-          <p className='post-content-excerpt px-4 justify mx-4'>
-            {description || excerpt}
-          </p>
+        <p className='post-content-excerpt px-4 justify mx-4'>
+          {description || excerpt}
+        </p>
 
-          {thumbnail && (
-            <div className='post-content-image'>
-              <GatsbyImage
-                image={thumbnail.childImageSharp.gatsbyImageData}
-                className='kg-image'
-                alt={title}
-              />
-            </div>
-          )}
-          {url && (
-            <h6 className='center-text'>
-              <a
-                href={url}
-                target='_blank'
-                rel='noopener noreferrer'
-                alt={title}
-              >
-                {url}
-              </a>
-            </h6>
-          )}
-          <div
-            className='post-content-body'
-            dangerouslySetInnerHTML={{ __html: html }}
-          />
-        </BlogPostTemplateStyles>
-        {/*
+        {thumbnail && (
+          <section className='post-content-image'>
+            <GatsbyImage
+              image={thumbnail.childImageSharp.gatsbyImageData}
+              className='kg-image'
+              alt={title}
+            />
+          </section>
+        )}
+        {url && (
+          <h6 className='text-center'>
+            <a href={url} target='_blank' rel='noopener noreferrer' alt={title}>
+              {url}
+            </a>
+          </h6>
+        )}
+        <section
+          className='post-content-body'
+          dangerouslySetInnerHTML={{ __html: html }}
+        />
+      </BlogPostTemplateStyles>
+      {/*
           TODO: add post 'tags' feature
           <footer className='post-content-footer' />
         */}
-      </article>
     </>
   )
 }
@@ -90,8 +86,7 @@ export const pageQuery = graphql`
     }
     post: markdownRemark(fields: { slug: { eq: $slug } }) {
       id
-      excerpt(pruneLength: 160)
-      html
+      excerpt(format: HTML, pruneLength: 160)
       frontmatter {
         title
         date(formatString: "MMMM DD, YYYY")
@@ -103,6 +98,7 @@ export const pageQuery = graphql`
           }
         }
       }
+      html
     }
   }
 `

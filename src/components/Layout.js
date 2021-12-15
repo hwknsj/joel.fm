@@ -15,13 +15,13 @@ const Layout = ({ children }) => {
           title
         }
       }
-      logo: file(relativePath: { eq: "jhlogo.png" }) {
+      logo: file(relativePath: { eq: "logo.png" }) {
         childImageSharp {
           gatsbyImageData(height: 100, quality: 80, layout: FIXED)
         }
       }
       resumePublicUrl: file(
-        relativePath: { eq: "files/joel-hawkins-resume.pdf" }
+        relativePath: { eq: "files/joel-hawkins-torres-resume.pdf" }
       ) {
         publicURL
       }

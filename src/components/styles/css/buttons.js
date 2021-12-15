@@ -13,9 +13,9 @@ const buttons = theme => css`
     border: 0;
     border-radius: ${theme.radius};
     cursor: pointer;
-    font-family: ${theme.fontFraktur};
+    font-family: ${theme.typeography.fraktur};
     font-size: 1.4rem;
-    font-weight: ${theme.fontNormal};
+    font-weight: ${theme.typeography.weight.normal};
     line-height: ${theme.height};
     text-align: center;
     text-decoration: none;
@@ -23,7 +23,6 @@ const buttons = theme => css`
     appearance: none;
     transition: 0.4s ease;
   }
-
   input[type='submit'].fit,
   input[type='reset'].fit,
   input[type='button'].fit,
@@ -31,7 +30,6 @@ const buttons = theme => css`
   .button.fit {
     width: 100%;
   }
-
   input[type='submit'].small,
   input[type='reset'].small,
   input[type='button'].small,
@@ -42,7 +40,6 @@ const buttons = theme => css`
     padding: 0 1.5rem;
     font-size: 1.2rem;
   }
-
   input[type='submit'].large,
   input[type='reset'].large,
   input[type='button'].large,
@@ -53,7 +50,6 @@ const buttons = theme => css`
     padding: 0 3rem;
     font-size: 1.6rem;
   }
-
   input[type='submit'].disabled,
   input[type='submit']:disabled,
   input[type='reset'].disabled,
@@ -67,7 +63,6 @@ const buttons = theme => css`
     pointer-events: none;
     opacity: 0.4;
   }
-
   input[type='submit'],
   input[type='reset'],
   input[type='button'],
@@ -78,7 +73,6 @@ const buttons = theme => css`
     box-shadow: inset 0 0 0 2px ${theme.colorPrimary};
     transition: all 0.4s ease;
   }
-
   input[type='submit']:hover,
   input[type='reset']:hover,
   input[type='button']:hover,
@@ -89,7 +83,6 @@ const buttons = theme => css`
     box-shadow: inset 0 0 0 2px ${darken(0.1, theme.colorPrimary)};
     transition: all 0.4s ease;
   }
-
   input[type='submit'].primary,
   input[type='reset'].primary,
   input[type='button'].primary,
@@ -100,7 +93,6 @@ const buttons = theme => css`
     box-shadow: none;
     transition: all 0.4s ease;
   }
-
   input[type='submit'].primary:hover,
   input[type='reset'].primary:hover,
   input[type='button'].primary:hover,

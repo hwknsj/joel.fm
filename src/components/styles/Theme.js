@@ -16,32 +16,135 @@ import screen from './css/screen'
 import tables from './css/tables'
 import { fontDefs } from './Fonts'
 
-const theme = {
+export const fontFraktur = `'EskapadeFraktur', eskapade-fraktur, serif`
+export const fontSerif = `'CorporateA', corporate-a, Times, 'Times New Roman', Georgia, serif`
+const fontSans = `'CorporateS', corporate-s, 'Helvetica Neue', Helvetica, sans-serif`
+const fontMono = `Menlo, Courier, monospace`
+
+const [sans, serif, mono] = [fontSans, fontSerif, fontMono]
+// eslint-disable-next-line no-unused-vars
+const [fontTitle, fontBody, fontCode] = [fontFraktur, fontSerif, fontMono]
+const [fraktur, body, code] = [fontFraktur, serif, mono]
+const title = fraktur
+
+const bp = [480, 740, 980, 1280, 1680]
+// eslint-disable-next-line no-unused-vars
+const breakpoints = {
+  xsmall: '480px',
+  small: '740px',
+  medium: '980px',
+  large: '1280px',
+  xlarge: '1680px',
+  maxWidthXs: `${bp[0]}px`,
+  maxWidthSm: `${bp[1]}px`,
+  maxWidthMd: `${bp[2]}px`,
+  maxWidthLg: `${bp[3]}px`,
+  maxWidthXl: `${bp[4]}px`
+}
+// eslint-disable-next-line no-unused-vars
+const colors = {
+  primary: '#0A48DD',
+  secondary: '#6A6A6A',
+  base: '#131313',
+  colorBase: '#131313',
+  border: '#ddd',
+  colorBorder: '#ddd',
+  text: {
+    primary: '#131313',
+    secondary: '#9e9e9e',
+    light: '#9e9e9e',
+    alt: '#E1E1E1'
+  },
+  white: '#ffffff',
+  lightGrey: '#E1E1E1',
+  offWhite: '#FAFAFA',
+  black: '#1E1E1F',
+  altBlack: '#393939',
+  nikeBlack: '#111111',
+  trueBlack: '#000000',
+  transparent: 'rgba(0, 0, 0, 0)',
+  bg: '#ffffff',
+  colorBg: '#ffffff',
+  background: '#ffffff',
+  light: '#9e9e9e',
+  colorLight: '#9e9e9e'
+}
+// eslint-disable-next-line no-unused-vars
+const layout = {
+  body: {
+    padding: {
+      xs: '0vw',
+      sm: '6vw',
+      md: '3vw',
+      lg: '3vw',
+      xl: '3vw'
+    }
+  }
+}
+// eslint-disable-next-line no-unused-vars
+const typeography = {
+  fraktur,
+  fontFraktur: fraktur,
+  title,
+  fontTitle: title,
+  sans,
+  fontSans: sans,
+  serif,
+  fontSerif,
+  body,
+  fontBody: body,
+  mono,
+  fontMono: mono,
+  code,
+  fontCode: code,
+  fontLight: '200',
+  fontNormal: '400',
+  fontBold: '500',
+  fontHeavy: '800',
+  weight: {
+    light: '200',
+    normal: '400',
+    bold: '500',
+    heavy: '800'
+  },
+  lineHeight: '2'
+}
+
+let theme = {
   bodyPadding: '3vw',
   bodyPaddingSm: '6vw',
   blue: '#0A48DD',
   colorPrimary: '#0A48DD',
   colorBase: '#131313',
   colorBorder: '#ddd',
-  /* color-bg: '#f8f8f8', */
   white: '#ffffff',
   lightGrey: '#E1E1E1',
   offWhite: '#FAFAFA',
   color: '#1f1f1f',
   black: '#1E1E1F',
   altBlack: '#393939',
+  nikeBlack: '#111111',
   trueBlack: '#000000',
   transparent: 'rgba(0, 0, 0, 0)',
-  // altBlack: '#333',
   colorBg: '#ffffff',
   colorLight: '#9e9e9e',
-  fontFraktur: `'EskapadeFraktur', serif`,
-  fontSans: `'CorporateS', sans-serif`,
-  fontSerif: `'CorporateA', Georgia, Times, serif`,
-  fontMono: `Menlo, Courier, monospace`,
+  fraktur,
+  fontFraktur,
+  title,
+  fontTitle,
+  sans,
+  fontSans,
+  serif,
+  fontSerif,
+  body,
+  fontBody: serif,
+  mono,
+  fontMono,
+  code,
+  fontCode: mono,
   fontLight: '200',
   fontNormal: '400',
-  fontBold: '700',
+  fontBold: '500',
   fontHeavy: '800',
   lineHeight: '2',
   xlarge: '1680px',
@@ -56,25 +159,33 @@ const theme = {
   bbh: `#1E1E1F 2px solid`, // border-bottom hover
   bs: '0 12px 24px 0 rgba(0, 0, 0, 0.09)', // box-shadow
   bsh: '0 12px 24px 0 rgba(0, 0, 0, 0.2)', // box-shadow:hover
-  cubicBezier: 'cubic-bezier(0.4, 0.01, 0.165, 0.99)'
+  cubicBezier: 'cubic-bezier(0.4, 0.01, 0.165, 0.99)',
+  colors,
+  layout,
+  typeography
 }
 
 // just make some 'aliases'
-theme.maxWidthXs = theme.xsmall
-theme.maxWidthSm = theme.small
-theme.maxWidthMd = theme.medium
-theme.maxWidthLg = theme.large
-theme.maxWidthXl = theme.xlarge
-theme.bgColor = theme.colorBg
-theme.blue = theme.colorPrimary
-theme.radius = theme.borderRadius
-theme.navbb = `${theme.transparent} 2px solid`
-theme.navbbh = `${theme.colorBase} 2px solid`
+theme = {
+  ...theme,
+  maxWidthXs: theme.xsmall,
+  maxWidthSm: theme.small,
+  maxWidthMd: theme.medium,
+  maxWidthLg: theme.large,
+  maxWidthXl: theme.xlarge,
+  bgColor: theme.colors.background,
+  blue: theme.colorPrimary,
+  radius: theme.borderRadius,
+  navbb: `${theme.transparent} 2px solid`,
+  navbbh: `${theme.colors.base} 2px solid`
+}
 
 export { theme }
 
+const fonts = fontDefs.map(font => ({ ...font }))
+
 export const globalCss = css`
-  ${css(fontDefs).styles};
+  ${fonts}
   ${helpers(theme)};
   ${reset(theme)};
   ${ghost(theme)};
@@ -93,6 +204,7 @@ export const globalCss = css`
     padding: 0;
     margin: 0;
     scroll-behavior: smooth;
+    font-size: 62.5%;
   }
   *,
   *:before,
@@ -101,7 +213,7 @@ export const globalCss = css`
   }
   body {
     font-size: 1.6rem;
-    background: ${theme.colorBg};
+    background: ${theme.colors.background};
   }
   a {
     text-decoration: none;
@@ -129,7 +241,7 @@ export const globalCss = css`
   h3,
   h4,
   h5 {
-    font-family: ${theme.fontFraktur};
+    font-family: ${theme.typeography.fraktur};
     color: ${theme.black};
   }
   input,
@@ -138,7 +250,7 @@ export const globalCss = css`
   select,
   textarea {
     color: ${theme.altBlack};
-    font-family: ${theme.fontFraktur};
+    font-family: ${theme.typeography.fraktur};
   }
   blockquote,
   q {
