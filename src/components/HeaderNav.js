@@ -1,3 +1,5 @@
+import { css } from '@emotion/react'
+import cx from 'classnames'
 import { Link } from 'gatsby'
 import PropTypes from 'prop-types'
 import React from 'react'
@@ -8,14 +10,17 @@ import SocialLinks from './SocialLinks'
 
 const HeaderNavSocial = ({ toggleNav, resumeUrl }) => {
   return (
-    <div
-      className={`${toggleNav ? `site-head-open ` : ``}site-head-right`}
+    <aside
+      className={cx({
+        'site-head-open': toggleNav,
+        'site-head-right': true
+      })}
       style={{ display: 'flex' }}
     >
-      <div className='nav-right-links' style={{ display: 'flex' }}>
+      <nav className='nav-right-links' style={{ display: 'flex' }}>
         <SocialLinks resumeUrl={resumeUrl} />
-      </div>
-    </div>
+      </nav>
+    </aside>
   )
 }
 
@@ -42,32 +47,49 @@ const HeaderNav = ({
   return (
     <header className='site-head'>
       <div className='site-head-container'>
-        <a
+        <button
+          aria-controls='swup'
+          aria-expanded={false}
           className='nav-burger'
-          href={'#'}
           onClick={() => setToggleNav(!toggleNav)}
           alt='navigation'
           aria-label='navigation'
+          css={css`
+            border: 0;
+            box-shadow: none;
+            &:hover {
+              box-shadow: none;
+            }
+          `}
         >
           <div
             className='hamburger hamburger--collapse'
-            aria-label='Menu'
             role='button'
-            aria-controls='navigation'
+            aria-label='Menu'
           >
             <div className='hamburger-box'>
-              <div className='hamburger-inner' />
+              <i className='hamburger-inner' />
             </div>
           </div>
-        </a>
+        </button>
         <nav
           id='swup'
-          className={`${toggleNav ? `site-head-open ` : ``}site-head-left`}
+          className={cx({
+            'site-head-open': toggleNav,
+            'site-head-left': true
+          })}
+          role='navigation'
+          aria-label='Main navigation'
         >
           <ul className='nav' role='menu'>
-            {navLinks.map(({ text, slug }) => (
+            {navLinks.map(({ text, slug }, i) => (
               <li className={`nav-${slug}`} role='menuitem' key={slug}>
-                <Link to={`/${slug}`} onClick={() => setToggleNav(!toggleNav)}>
+                <Link
+                  to={`/${slug}`}
+                  onClick={() => setToggleNav(!toggleNav)}
+                  accessKey={`${i}`}
+                  tabIndex={i}
+                >
                   {text}
                 </Link>
               </li>

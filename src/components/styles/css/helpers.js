@@ -1,7 +1,59 @@
 import { css } from '@emotion/react'
 import { darken, lighten } from 'polished'
 
-const helpers = theme => css`
+const rem = [0, 1, 2, 3, 4, 5]
+const pmClasses = rem.map(
+  x => `
+  .p-${x} {
+    padding: ${x}rem !important;
+  }
+  .pl-${x} {
+    padding-left: ${x}rem !important;
+  }
+  .pr-${x} {
+    padding-right: ${x}rem !important;
+  }
+  .pt-${x} {
+    padding-top: ${x}rem !important;
+  }
+  .pb-${x} {
+    padding-bottom: ${x}rem !important;
+  }
+  .px-${x} {
+    padding-left: ${x}rem !important;
+    padding-right: ${x}rem !important;
+  }
+  .py-${x} {
+    padding-top: ${x}rem !important;
+    padding-bottom: ${x}rem !important;
+  }
+  .m-${x} {
+    margin: ${x}rem !important;
+  }
+  .ml-${x} {
+    margin-left: ${x}rem !important;
+  }
+  .mr-${x} {
+    margin-right: ${x}rem !important;
+  }
+  .mt-${x} {
+    margin-top: ${x}rem !important;
+  }
+  .mb-${x} {
+    margin-bottom: ${x}rem !important;
+  }
+  .mx-${x} {
+    margin-left: ${x}rem !important;
+    margin-right: ${x}rem !important;
+  }
+  .my-${x} {
+    margin-top: ${x}rem !important;
+    margin-bottom: ${x}rem !important;
+  }
+`
+)
+
+export const helpers = theme => css`
   .img {
     display: block;
     width: 100%;
@@ -16,25 +68,25 @@ const helpers = theme => css`
     text-indent: -9999px;
   }
   .bold {
-    font-weight: ${theme.fontHeavy} !important;
+    font-weight: ${theme.typeography.weight.heavy} !important;
   }
   .italic {
     font-style: italic !important;
   }
   .fraktur {
-    font-family: ${theme.fontFraktur} !important;
+    font-family: ${theme.typeography.fraktur} !important;
   }
   .serif {
-    font-family: ${theme.fontSerif} !important;
+    font-family: ${theme.typeography.serif} !important;
   }
   .sans-serif {
-    font-family: ${theme.fontSans} !important;
+    font-family: ${theme.typeography.sans} !important;
   }
   .light {
     font-weight: 200 !important;
   }
   .text-light {
-    color: ${theme.colorLight} !important;
+    color: ${theme.colors.secondary} !important;
     a {
       color: ${lighten(0.2, theme.colorPrimary)} !important;
       &:hover {
@@ -42,21 +94,24 @@ const helpers = theme => css`
       }
     }
   }
+  .text-center {
+    text-align: center !important;
+  }
   .subtitle {
-    color: ${theme.colorLight};
+    color: ${theme.colors.secondary};
     font-style: italic;
     display: block;
   }
-  .justify-text {
+  .text-justify {
     text-align: justify !important;
   }
   .inline {
     display: inline-flex !important;
     list-style: none;
-  }
-  .inline li {
-    display: inline !important;
-    list-style: none;
+    li {
+      display: inline !important;
+      list-style: none;
+    }
   }
   .inline-list {
     display: 'flex';
@@ -78,9 +133,6 @@ const helpers = theme => css`
   .inline-list .inline-item:last-of-type {
     border-right: none;
     margin-right: 0;
-  }
-  .center-text {
-    text-align: center !important;
   }
   .block {
     display: block !important;
@@ -112,7 +164,23 @@ const helpers = theme => css`
   .alt-black {
     color: ${theme.altBlack} !important;
   }
-  .p0 {
+  ${css(pmClasses)};
+  .center-el-x {
+    margin: 0 auto;
+    left: 50%;
+    transform: translate(-50%, 0);
+  }
+  .center-el-xy {
+    margin: 0 auto;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, 50%);
+  }
+  .rose {
+    direction: rtl;
+    font-variant-ligatures: common-ligatures;
+  }
+  /* .p0 {
     padding: 0 !important;
   }
   .p2 {
@@ -246,21 +314,7 @@ const helpers = theme => css`
   }
   .mb-4 {
     margin-bottom: 4rem !important;
-  }
-  .center-el-x {
-    margin: 0 auto;
-    left: 50%;
-    transform: translate(-50%, 0);
-  }
-  .center-el-xy {
-    margin: 0 auto;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, 50%);
-  }
-  .rose {
-    direction: rtl;
-    font-variant-ligatures: common-ligatures;
-  }
+  } */
 `
+
 export default helpers

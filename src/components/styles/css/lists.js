@@ -34,7 +34,7 @@ const lists = theme => css`
   }
   dt {
     display: block;
-    font-weight: ${theme.fontBold};
+    font-weight: ${theme.typeography.weight.bold};
     margin: 0 0 calc(${theme.margin} * 0.5) 0;
   }
   dd {

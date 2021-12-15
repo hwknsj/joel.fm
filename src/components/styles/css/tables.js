@@ -8,9 +8,9 @@ const tables = theme => css`
     font-size: 0.8em;
   }
   th {
-    color: ${theme.colorBase};
+    color: ${theme.colors.base};
     font-size: 0.9em;
-    font-weight: ${theme.fontBold};
+    font-weight: ${theme.typeography.weight.bold};
     padding: 0 0.7em 0.4em 0.7em;
     text-align: left;
   }
@@ -31,7 +31,7 @@ const tables = theme => css`
     border-top-width: 1px;
   }
   tbody tr:nth-of-type(2n + 1) {
-    background-color: ${theme.colorBg};
+    background-color: ${theme.colors.background};
   }
   tbody td {
     border: solid 1px ${theme.colorBorder};

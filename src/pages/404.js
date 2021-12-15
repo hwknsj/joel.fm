@@ -31,7 +31,7 @@ const NotFoundPage = ({
       <article className='post-content page-template no-image'>
         <div className='post-content-body'>
           <h2>404: no page {location.toString() || `here`}, cuz</h2>
-          <p className='center-text'>
+          <p className='text-center'>
             you{`&apos;`}re in the wrong place <br />i{`&apos;`}d just{' '}
             <Link to='/'>go home</Link>
           </p>

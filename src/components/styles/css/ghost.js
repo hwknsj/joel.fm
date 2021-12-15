@@ -22,7 +22,7 @@ const ghost = theme => css`
     font-size: 1.3rem;
     line-height: 1.4em;
     font-weight: 600;
-    color: ${theme.colorBase};
+    color: ${theme.colors.base};
     text-align: center;
     opacity: 0.4;
   }

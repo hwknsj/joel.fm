@@ -3,8 +3,8 @@ import { darken, lighten } from 'polished'
 
 const screen = theme => css`
   body {
-    font-family: ${theme.fontFraktur};
-    background: ${theme.colorBg};
+    font-family: ${theme.typeography.fraktur};
+    background: ${theme.colors.background};
     transition: background 0.3s ease-out;
     transition-delay: 0.25;
   }
@@ -48,14 +48,14 @@ const screen = theme => css`
       margin: 0;
       font-size: 7rem;
       line-height: 1.1em;
-      font-weight: ${theme.fontBold};
+      font-weight: ${theme.typeography.weight.bold};
       letter-spacing: 10px;
     }
     p {
       font-size: 1.4rem;
       text-transform: uppercase;
       letter-spacing: 1px;
-      color: ${lighten(0.5, theme.colorBase)};
+      color: ${lighten(0.5, theme.colors.base)};
     }
   }
   .error-link {
@@ -67,7 +67,7 @@ const screen = theme => css`
     margin: 0;
     padding: 0;
     font-size: 3.8rem;
-    color: ${theme.colorBase};
+    color: ${theme.colors.base};
   }
   @media (max-width: ${theme.maxWidthXs}) {
     .page-head-title {
@@ -98,7 +98,7 @@ const screen = theme => css`
       }
     }
     a {
-      color: ${theme.colorBase};
+      color: ${theme.colors.base};
       opacity: 1;
     }
   }
@@ -115,7 +115,7 @@ const screen = theme => css`
       margin: 0;
       padding: 0;
       a[aria-current='page'] {
-        color: ${theme.colorBase};
+        color: ${theme.colors.base};
         opacity: 1;
       }
     }
@@ -149,8 +149,8 @@ const screen = theme => css`
       display: block;
       margin: 0;
       padding: 10px 12px;
-      color: ${theme.colorBase};
-      font-weight: ${theme.fontHeavy};
+      color: ${theme.colors.base};
+      font-weight: ${theme.typeography.weight.heavy};
       opacity: 0.4;
     }
   }
@@ -176,11 +176,11 @@ const screen = theme => css`
     width: 100%;
     margin-top: -10px;
     overflow: visible;
-    color: ${theme.colorBase};
+    color: ${theme.colors.base};
     font-size: 3rem;
     line-height: 1em;
     a {
-      color: ${theme.colorBase};
+      color: ${theme.colors.base};
       text-decoration: none;
     }
     &:hover {
@@ -219,8 +219,8 @@ const screen = theme => css`
   .subscribe-button {
     display: block;
     padding: 4px 10px;
-    border: ${theme.colorBase} 1px solid;
-    color: ${theme.colorBase};
+    border: ${theme.colors.base} 1px solid;
+    color: ${theme.colors.base};
     font-size: 1.2rem;
     line-height: 1em;
     border-radius: 10px;
@@ -509,7 +509,7 @@ const screen = theme => css`
     right: 5vw;
     font-size: 28vw;
     line-height: 1em;
-    font-weight: ${theme.fontHeavy};
+    font-weight: ${theme.typeography.weight.heavy};
     letter-spacing: -0.1em;
     color: rgba(0, 0, 0, 0.2);
   }
@@ -575,14 +575,14 @@ const screen = theme => css`
   }
   .post-content-title {
     margin: 0 0 3vw;
-    color: ${theme.colorBase};
+    color: ${theme.colors.base};
     text-align: center;
   }
   .post-content-excerpt {
     margin: -2vw 0 3vw;
     font-size: 2.2rem;
     line-height: 1.6em;
-    color: ${theme.colorBase};
+    color: ${theme.colors.base};
     text-align: center;
     opacity: 0.5;
   }
@@ -601,10 +601,14 @@ const screen = theme => css`
     max-width: ${theme.maxWidthLg};
   }
   .post-content-body {
-    font-size: 1.9rem;
+    margin: 0 auto;
+    font-size: 1.8rem;
     line-height: 1.65em;
+    max-width: 960px;
+    color: ${theme.colors.base};
     p {
       text-align: justify;
+      font-family: ${theme.typeography.serif};
       code {
         word-break: break-all;
       }
@@ -615,7 +619,7 @@ const screen = theme => css`
     h4,
     h5,
     h6 {
-      color: ${theme.colorBase};
+      color: ${theme.colors.base};
     }
     li {
       word-break: break-word;
@@ -629,10 +633,11 @@ const screen = theme => css`
     blockquote {
       margin: 0 0 1.5em;
       padding: 0 1.5em;
-      border-left: ${lighten(0.2, theme.colorPrimary)} 3px solid;
+      border-left: ${theme.colors.border} 3px solid;
+      font-family: ${theme.typeography.serif};
       p {
         margin: 0 0 1em 0;
-        color: ${theme.colorBase};
+        color: ${theme.colors.text.secondary};
         font-size: inherit;
         line-height: inherit;
         font-style: normal;
@@ -646,7 +651,7 @@ const screen = theme => css`
       font-size: 0.8em;
       line-height: 1em;
       font-weight: 400 !important;
-      background: ${theme.colorBg};
+      background: ${theme.colors.background};
       border-radius: 3px;
     }
     pre {
@@ -654,11 +659,11 @@ const screen = theme => css`
       margin: 1.5em 0 3em;
       padding: 20px;
       max-width: 100%;
-      border: ${darken(0.1, theme.colorBase)} 1px solid;
-      color: ${theme.colorBg};
+      border: ${darken(0.1, theme.colors.base)} 1px solid;
+      color: ${theme.colors.background};
       font-size: 1.4rem;
       line-height: 1.5em;
-      background: ${darken(0.03, theme.colorBase)};
+      background: ${darken(0.03, theme.colors.base)};
       border-radius: 5px;
       code {
         padding: 0;
@@ -692,7 +697,7 @@ const screen = theme => css`
   }
   @media (max-width: ${theme.maxWidthXs}) {
     .post-content-body {
-      font-size: 1.7rem;
+      font-size: 1.6rem;
     }
   }
   .footnotes-sep {
@@ -728,7 +733,7 @@ const screen = theme => css`
     a {
       display: block;
       margin: 0;
-      color: ${theme.colorBase};
+      color: ${theme.colors.base};
       opacity: 0.4;
       transition: opacity 0.4s ${theme.cubicBezier};
       figcaption,

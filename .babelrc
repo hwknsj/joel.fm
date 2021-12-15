@@ -21,7 +21,7 @@
     ]
   ],
   "plugins": [
-    "@emotion/babel-plugin",
+    "@emotion",
     [
       "@babel/plugin-proposal-decorators",
       {

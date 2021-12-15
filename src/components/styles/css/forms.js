@@ -13,7 +13,7 @@ const forms = theme => css`
     color: ${theme.colorPrimary};
     display: block;
     font-size: 0.9em;
-    font-weight: ${theme.fontBold};
+    font-weight: ${theme.typeography.weight.bold};
     margin: 0 0 calc(${theme.margin} * 0.5) 0;
   }
   input[type='text'],
@@ -24,7 +24,7 @@ const forms = theme => css`
   input[type='url'],
   select,
   textarea {
-    background: ${theme.colorBg};
+    background: ${theme.colors.background};
     border-radius: ${theme.radius};
     border: none;
     border: solid 1px ${theme.colorBorder};
@@ -63,7 +63,7 @@ const forms = theme => css`
   }
   select option {
     color: ${theme.colorPrimary};
-    background: ${theme.colorBg};
+    background: ${theme.colors.background};
   }
   select:focus::-ms-value {
     background-color: transparent;
@@ -96,10 +96,10 @@ const forms = theme => css`
   input[type='radio'] + label {
     display: flex;
     align-items: center;
-    color: ${theme.colorBase};
+    color: ${theme.colors.base};
     cursor: pointer;
     font-size: 1em;
-    font-weight: ${theme.fontNormal};
+    font-weight: ${theme.typeography.weight.normal};
     padding-left: calc((${theme.height} * 0.6) + 0.75em);
     padding-right: 2rem;
     position: relative;
@@ -107,7 +107,7 @@ const forms = theme => css`
   }
   input[type='checkbox'] + label:before,
   input[type='radio'] + label:before {
-    background: ${theme.colorBg};
+    background: ${theme.colors.background};
     border-radius: ${theme.radius};
     border: solid 1px ${theme.colorBorder};
     content: '';
@@ -122,7 +122,7 @@ const forms = theme => css`
   input[type='radio']:checked + label:before {
     background: ${theme.colorPrimary};
     border-color: ${theme.colorPrimary};
-    color: ${theme.colorBg};
+    color: ${theme.colors.background};
     content: '✓';
   }
   input[type='checkbox']:focus + label:before,

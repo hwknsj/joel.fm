@@ -13,6 +13,6 @@ One of the greatest challenges was to integrate a new WordPress “widget” int
 
 > The terms of our agreement prevent me from displaying a live version of this theme, however I have provided a video to demonstrate the basic functionality.
 
-<video class='center-text' style='max-width: 100%;' autoplay loop class='fluid-width-video-wrapper'>
+<video class='text-center' style='max-width: 100%;' autoplay loop class='fluid-width-video-wrapper'>
       <source src='./small-biz-video.mp4' type="video/mp4" />
 </video>

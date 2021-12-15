@@ -13,7 +13,7 @@ Built primarily using Bootstrap 4, AOS (Animate on Scroll), and Jekyll. Based on
 
 I led the web design through the first major milestone: the delivery of the homepage. After an unfortunate and untimely car accident while on my bike, I handed off the project. Under the circumstances, I could not perform my best work while recovering from mild head trauma and concussion. I’m glad to say that after two to three weeks of recovery, I’m back on my feet and fully recovered.
 
-<div class='center-text'>
+<div class='text-center'>
       <video style='max-width: 100%;' autoplay loop class='fluid-width-video-wrapper'>
             <source src='./mission-video.webm' type="video/mp4" />
       </video>

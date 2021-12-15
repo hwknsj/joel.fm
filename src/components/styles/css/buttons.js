@@ -13,9 +13,9 @@ const buttons = theme => css`
     border: 0;
     border-radius: ${theme.radius};
     cursor: pointer;
-    font-family: ${theme.fontFraktur};
+    font-family: ${theme.typeography.fraktur};
     font-size: 1.4rem;
-    font-weight: ${theme.fontNormal};
+    font-weight: ${theme.typeography.weight.normal};
     line-height: ${theme.height};
     text-align: center;
     text-decoration: none;

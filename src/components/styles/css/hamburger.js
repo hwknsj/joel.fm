@@ -71,7 +71,7 @@ const hamburger = theme => css`
   .site-head-open .hamburger-inner,
   .site-head-open .hamburger-inner::before,
   .site-head-open .hamburger-inner::after {
-    background-color: ${theme.colorBase};
+    background-color: ${theme.colors.base};
   }
   .site-head-open .hamburger-inner {
     transition-delay: 0.32s;

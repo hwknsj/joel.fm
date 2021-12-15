@@ -45,7 +45,7 @@ const AboutPage = ({
               padding: '3rem 0'
             }}
           >
-            <h4 className='center-text'>
+            <h4 className='text-center'>
               First, have a look at &nbsp;
               <a
                 id='resume'

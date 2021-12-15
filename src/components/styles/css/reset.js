@@ -260,7 +260,7 @@ const reset = theme => css`
   }
   body {
     overflow-x: hidden;
-    color: ${lighten(0.2, theme.colorBase)};
+    color: ${lighten(0.2, theme.colors.base)};
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell,
       'Open Sans', 'Helvetica Neue', sans-serif;
     font-size: 1.5rem;
@@ -288,7 +288,7 @@ const reset = theme => css`
     padding: 0;
     height: 1px;
     border: 0;
-    border-top: 1px solid ${lighten(0.2, theme.colorBase)};
+    border-top: 1px solid ${lighten(0.2, theme.colors.base)};
   }
   audio,
   canvas,
@@ -305,7 +305,7 @@ const reset = theme => css`
   blockquote {
     margin: 1.5em 0;
     padding: 0 1.6em 0 1.6em;
-    border-left: ${theme.colorBase} 0.5em solid;
+    border-left: ${theme.colors.base} 0.5em solid;
   }
   blockquote p {
     margin: 0.8em 0;

@@ -113,13 +113,11 @@ export const colorSchema = {
   }
 }
 // eslint-disable-next-line no-unused-vars
-const colorPalette = (dark = false) => {
-  if (dark) return colorSchema.dark
-  return colorSchema.light
-}
+const colorPalette = (dark = false) =>
+  dark ? colorSchema.dark : colorSchema.light
 // eslint-disable-next-line no-unused-vars
 const typeographySchema = colors => ({
-  fontFamily: theme.fontSerif,
+  fontFamily: theme.typeography.serif,
   bodyFontSize: '1.6rem',
   displayFont: fontFraktur,
   color: colors.textPrimary,

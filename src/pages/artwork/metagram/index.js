@@ -1,8 +1,7 @@
+import ImageGrid from '@/components/ImageGrid'
+import SEO from '@/components/SEO'
 import { graphql, useStaticQuery } from 'gatsby'
 import React from 'react'
-
-import ImageGrid from '../../../components/ImageGrid'
-import SEO from '../../../components/SEO'
 
 // TODO: update with latest posts, if you can find them...
 
@@ -61,23 +60,30 @@ const MetaGramIndex = () => {
             title='@joel.biz'
             alt='@joel.biz on Instagram'
             rel='noopener noreferrer'
+            aria-label={`@joel.biz on Instagram`}
           >
             @joel.biz
           </a>
           .
         </p>
-        <h6 className='center-text'>
-          <a href={url} target='_blank' rel='noopener noreferrer' alt={title}>
+        <h6 className='text-center'>
+          <a
+            href={url}
+            target='_blank'
+            rel='noopener noreferrer'
+            alt={title}
+            aria-label={title}
+          >
             {url}
           </a>
         </h6>
-        <div className='post-content-body'>
+        <section className='post-content-body'>
           <blockquote>
             I spend a lot of time on Instagram.<p>~ @joel.biz</p>
           </blockquote>
           <hr />
           <ImageGrid />
-        </div>
+        </section>
       </article>
     </>
   )
