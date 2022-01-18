@@ -1,9 +1,8 @@
+import ProjectItem from '@/components/ProjectItem'
+import SEO from '@/components/SEO'
 import { graphql } from 'gatsby'
 import PropTypes from 'prop-types'
 import React from 'react'
-
-import ProjectItem from '../components/ProjectItem'
-import SEO from '../components/SEO'
 
 const WebDesignPage = ({
   data: {

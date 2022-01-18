@@ -1,9 +1,8 @@
+import PostCard from '@/components/PostCard'
+import SEO from '@/components/SEO'
 import { graphql } from 'gatsby'
 import PropTypes from 'prop-types'
 import React from 'react'
-
-import PostCard from '../components/PostCard'
-import SEO from '../components/SEO'
 
 const ArtworkPage = ({
   data: {

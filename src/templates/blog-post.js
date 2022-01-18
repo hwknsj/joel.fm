@@ -1,10 +1,9 @@
+import SEO from '@/components/SEO'
 import styled from '@emotion/styled'
 import { graphql } from 'gatsby'
 import { GatsbyImage } from 'gatsby-plugin-image'
 import PropTypes from 'prop-types'
 import React from 'react'
-
-import SEO from '../components/SEO'
 
 const BlogPostTemplateStyles = styled.article`
   max-width: 90vw;

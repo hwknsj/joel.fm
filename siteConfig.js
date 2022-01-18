@@ -1,6 +1,6 @@
 module.exports = {
   name: 'joél hawkins torres',
-  shortName: 'joél',
+  shortName: 'joél.fm',
   description: 'web design & development, etc.',
   url: 'https://joel.fm',
   favicon: {

@@ -1,10 +1,9 @@
+import SEO from '@/components/SEO'
 // This page is a showcase/reference for various elements/styles available via emotion
 import { graphql } from 'gatsby'
 import { GatsbyImage } from 'gatsby-plugin-image'
 import PropTypes from 'prop-types'
 import React from 'react'
-
-import SEO from '../components/SEO'
 
 const ElementsPage = ({ data }) => {
   const { smallPic, medPic, largePic } = data

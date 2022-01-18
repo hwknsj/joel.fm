@@ -1,9 +1,8 @@
+import SEO from '@/components/SEO'
+import SocialLinks from '@/components/SocialLinks'
 import { graphql } from 'gatsby'
 import PropTypes from 'prop-types'
 import React from 'react'
-
-import SEO from '../components/SEO'
-import SocialLinks from '../components/SocialLinks'
 
 const AboutPage = ({
   data: {

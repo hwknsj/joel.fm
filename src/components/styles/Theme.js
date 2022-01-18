@@ -14,7 +14,7 @@ import lists from './css/lists'
 import reset from './css/reset'
 import screen from './css/screen'
 import tables from './css/tables'
-import { fontDefs } from './Fonts'
+import { fontFaces } from './Fonts'
 
 export const fontFraktur = `'EskapadeFraktur', eskapade-fraktur, serif`
 export const fontSerif = `'CorporateA', corporate-a, Times, 'Times New Roman', Georgia, serif`
@@ -182,7 +182,7 @@ theme = {
 
 export { theme }
 
-const fonts = fontDefs.map(font => ({ ...font }))
+const fonts = fontFaces.map(font => css(font))
 
 export const globalCss = css`
   ${fonts}
@@ -200,10 +200,10 @@ export const globalCss = css`
   ${screen(theme)};
   html {
     box-sizing: border-box;
-    font-size: 10px;
     padding: 0;
     margin: 0;
     scroll-behavior: smooth;
+    font-size: 10px;
     font-size: 62.5%;
   }
   *,

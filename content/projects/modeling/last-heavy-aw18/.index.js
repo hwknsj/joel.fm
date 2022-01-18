@@ -1,19 +1,22 @@
 import { graphql, useStaticQuery } from 'gatsby'
 import React from 'react'
 
-import Layout from '../../../../src/components/Layout'
+import Layout from '@/components/Layout'
 
 const LastHeavyModelingPage = props => {
-  const query = graphql`{
-  images: allFile(filter: {relativePath: {eq: "./"}, extension: {eq: "jpg"}}) {
-    nodes {
-      childImageSharp {
-        gatsbyImageData(placeholder: BLURRED, layout: FULL_WIDTH)
+  const query = graphql`
+    {
+      images: allFile(
+        filter: { relativePath: { eq: "./" }, extension: { eq: "jpg" } }
+      ) {
+        nodes {
+          childImageSharp {
+            gatsbyImageData(placeholder: BLURRED, layout: FULL_WIDTH)
+          }
+        }
       }
     }
-  }
-}
-`
+  `
   const data = useStaticQuery(query)
   return (
     <Layout>
@@ -61,7 +64,7 @@ const LastHeavyModelingPage = props => {
         <img src={node.childImageSharp.gatsbyImageData.src} />
       ))}
     </Layout>
-  );
+  )
 }
 
 export default LastHeavyModelingPage
