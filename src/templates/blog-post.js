@@ -116,7 +116,7 @@ BlogPostTemplate.propTypes = {
       frontmatter: PropTypes.shape({
         title: PropTypes.string,
         description: PropTypes.string,
-        url: PropTypes.oneOf(PropTypes.string, PropTypes.any),
+        url: PropTypes.oneOf([PropTypes.string, PropTypes.any]),
         thumbnail: PropTypes.shape({
           childImageSharp: PropTypes.object
         })

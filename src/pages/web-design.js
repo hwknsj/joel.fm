@@ -159,7 +159,7 @@ WebDesignPage.propTypes = {
       })
     }),
     allMarkdownRemark: PropTypes.shape({
-      posts: PropTypes.object
+      posts: PropTypes.arrayOf(PropTypes.object)
     })
   })
 }

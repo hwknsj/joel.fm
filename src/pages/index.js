@@ -38,7 +38,7 @@ const IndexPage = ({
           <h2 className='page-head-title'>{description}</h2>
         </header>
       )}
-      <div className='post-feed'>
+      <section className='post-feed'>
         {posts.map(
           ({
             node: {
@@ -58,7 +58,7 @@ const IndexPage = ({
             )
           }
         )}
-      </div>
+      </section>
     </>
   )
 }
