@@ -3,7 +3,7 @@ import { fontFace } from 'polished'
 export const fontFaces = [
   {
     fontFamily: 'EskapadeFraktur',
-    fontFilePath: '@/lib/fonts/EskapadeFraktur-Regular',
+    fontFilePath: '../../lib/fonts/EskapadeFraktur-Regular',
     fontDisplay: 'swap',
     localFonts: [
       'Eskapade Fraktur',
@@ -16,7 +16,7 @@ export const fontFaces = [
   },
   {
     fontFamily: 'EskapadeFraktur',
-    fontFilePath: '@/lib/fonts/EskapadeFraktur-Italic.otf',
+    fontFilePath: '../../lib/fonts/EskapadeFraktur-Italic',
     fontDisplay: 'swap',
     localFonts: ['Eskapade Fraktur Italic', 'EskapadeFraktur Italic'],
     fontVariant: 'tabular-nums',
@@ -25,7 +25,7 @@ export const fontFaces = [
   },
   {
     fontFamily: 'CorporateS',
-    fontFilePath: '@/lib/fonts/CorporateS-ProRegular',
+    fontFilePath: '../../lib/fonts/CorporateS-ProRegular',
     fontDisplay: 'swap',
     localFonts: ['Corporate S', 'Corporate S Pro'],
     fontStyle: 'normal',
@@ -33,7 +33,7 @@ export const fontFaces = [
   },
   {
     fontFamily: 'CorporateS',
-    fontFilePath: '@/lib/fonts/CorporateSMedium',
+    fontFilePath: '../../lib/fonts/CorporateSMedium',
     fontDisplay: 'swap',
     localFonts: ['Corporate S', 'Corporate S Pro'],
     fontWeight: '600',
@@ -41,7 +41,7 @@ export const fontFaces = [
   },
   {
     fontFamily: 'CorporateS',
-    fontFilePath: '@/lib/fonts/CorporateSBold',
+    fontFilePath: '../../lib/fonts/CorporateSBold',
     fontDisplay: 'swap',
     localFonts: ['Corporate S', 'Corporate S Pro'],
     fontWeight: 'bold',
@@ -49,7 +49,7 @@ export const fontFaces = [
   },
   {
     fontFamily: 'CorporateS',
-    fontFilePath: '@/lib/fonts/CorporateSItalic',
+    fontFilePath: '../../lib/fonts/CorporateSItalic',
     fontDisplay: 'swap',
     localFonts: ['Corporate S', 'Corporate S Pro'],
     fontStyle: 'italic',
@@ -57,7 +57,7 @@ export const fontFaces = [
   },
   {
     fontFamily: 'CorporateS',
-    fontFilePath: '@/lib/fonts/CorporateSLight',
+    fontFilePath: '../../lib/fonts/CorporateSLight',
     fontDisplay: 'swap',
     localFonts: ['Corporate S', 'Corporate S Pro'],
     fontWeight: '200',
@@ -65,7 +65,7 @@ export const fontFaces = [
   },
   {
     fontFamily: 'CorporateA',
-    fontFilePath: '@/lib/fonts/CorporateARegular',
+    fontFilePath: '../../lib/fonts/CorporateARegular',
     fontDisplay: 'swap',
     localFonts: ['Corporate A', 'Corporate A Pro'],
     fileFormats: ['ttf']

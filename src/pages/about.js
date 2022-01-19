@@ -1,3 +1,5 @@
+import { InfoBox } from '@/components/InfoBox'
+import { SectionSerif } from '@/components/SectionSerif'
 import SEO from '@/components/SEO'
 import SocialLinks from '@/components/SocialLinks'
 import { graphql } from 'gatsby'
@@ -31,19 +33,9 @@ const AboutPage = ({
       />
 
       <article className='post-content page-template no-image'>
-        <div className='post-content-body'>
+        <main className='post-content-body'>
           <h2>About Joél</h2>
-          <div
-            style={{
-              backgroundColor: '#efefef',
-              borderRadius: '4px',
-              display: 'flex',
-              alignItems: 'center',
-              alignContent: 'center',
-              flexDirection: 'column',
-              padding: '3rem 0'
-            }}
-          >
+          <InfoBox>
             <h4 className='text-center'>
               First, have a look at &nbsp;
               <a
@@ -60,9 +52,9 @@ const AboutPage = ({
             <hr />
             <p>Also find me on the socials:</p>
             <SocialLinks resumeUrl={resumeUrl} />
-          </div>
+          </InfoBox>
           <hr />
-          <div className='serif'>
+          <SectionSerif className='serif'>
             <h3>Introduction</h3>
             <p>
               I’m a web developer specializing in JavaScript, front & back. With
@@ -106,20 +98,21 @@ const AboutPage = ({
               understanding of my work ultimately led me to pursue a career in
               the web. The accessibility of my work has inspired continuing
               research on this topic by successive Reed students. The full text
-              & interactive visualization are available at{` `}
+              & interactive visualization are available at&nbsp;
               <a
-                href='https://thesis.joel.fm/'
+                href='https://info.joel.fm/thesis'
                 rel='noopener noreferrer'
                 target='_blank'
-                alt="Joél's Thesis"
+                alt={`Joél's Thesis`}
+                aria-label={`Joel's thesis at info.joel.fm/thesis`}
               >
-                thesis.joel.fm
+                info.joel.fm/thesis
               </a>
               .
             </p>
-          </div>
+          </SectionSerif>
           <hr />
-          <div className='serif'>
+          <SectionSerif className='serif'>
             <h3>About this site</h3>
             <p>
               I developed this website using the following technologies and
@@ -232,8 +225,8 @@ const AboutPage = ({
               All images that appear on this site are my own work{' '}
               <span className='text-light'>(unless stated otherwise)</span>.
             </p>
-          </div>
-        </div>
+          </SectionSerif>
+        </main>
       </article>
     </>
   )
