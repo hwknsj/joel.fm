@@ -25,15 +25,18 @@ module.exports = {
   plugins: ['import', 'node', 'promise', '@emotion'],
   settings: {
     'import/resolver': {
-      alias: [
-        ['@/components', 'src/components'],
-        ['@/lib', 'src/lib'],
-        ['@/pages', 'src/pages'],
-        ['@/images', 'src/images'],
-        ['@/templates', 'src/templates'],
-        ['@/assets', 'content/assets'],
-        ['@/projects', 'content/projects']
-      ]
+      alias: {
+        map: [
+          ['@/components', './src/components'],
+          ['@/lib', './src/lib'],
+          ['@/pages', './src/pages'],
+          ['@/images', './src/images'],
+          ['@/templates', './src/templates'],
+          ['@/assets', './content/assets'],
+          ['assets', './content/assets'],
+          ['@/projects', './content/projects']
+        ]
+      }
     }
   },
   rules: {

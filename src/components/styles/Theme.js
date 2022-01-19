@@ -182,10 +182,8 @@ theme = {
 
 export { theme }
 
-const fonts = fontFaces.map(font => css(font))
-
 export const globalCss = css`
-  ${fonts}
+  ${fontFaces}
   ${helpers(theme)};
   ${reset(theme)};
   ${ghost(theme)};
@@ -221,8 +219,8 @@ export const globalCss = css`
   :target:before {
     content: '';
     display: block;
-    height: 200px;
-    margin-top: -200px;
+    height: 20rem;
+    margin-top: -20rem;
   }
   .post-content {
     a {
