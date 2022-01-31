@@ -21,7 +21,7 @@ const Layout = ({ children }) => {
         }
       }
       resumePublicUrl: file(
-        relativePath: { eq: "files/joel-hawkins-torres-resume.pdf" }
+        relativePath: { eq: "files/joel-hawkins-torres-resume-2022.pdf" }
       ) {
         publicURL
       }
