@@ -1,4 +1,5 @@
 import { ThemeProvider } from '@emotion/react'
+import cx from 'classnames'
 import { graphql, useStaticQuery } from 'gatsby'
 import PropTypes from 'prop-types'
 import React, { useMemo, useState } from 'react'
@@ -58,7 +59,11 @@ const Layout = ({ children }) => {
   return (
     <ThemeProvider theme={theme}>
       <GlobalStylesMemo />
-      <div className={`site-wrapper ${toggleNav ? `site-head-open` : ``}`}>
+      <div
+        className={cx('site-wrapper', {
+          'site-head-open': toggleNav
+        })}
+      >
         <HeaderNav
           toggleNav={toggleNav}
           setToggleNav={setToggleNav}
