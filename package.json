@@ -1,9 +1,13 @@
 {
   "name": "joel.fm",
   "private": true,
-  "description": "joél hawkins torres portfolio website, designed with gatsby.js",
-  "version": "1.2.1",
-  "author": "joél <joel@joel.fm> (https://joel.fm)",
+  "description": "joél hawkins torres portfolio website",
+  "version": "1.3",
+  "author": {
+    "name": "joél hawkins torres",
+    "email": "joel@joel.fm",
+    "url": "https://joel.fm"
+  },
   "dependencies": {
     "@emotion/react": "^11.7.1",
     "@emotion/styled": "^11.6.0",
@@ -140,5 +144,6 @@
     "@typescript-eslint/parser": "^4.26.0",
     "typescript": "^4.3.2",
     "webpack": "^5.38.1"
-  }
+  },
+  "packageManager": "yarn@4.0.0-rc.14"
 }
