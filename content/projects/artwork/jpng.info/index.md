@@ -1,7 +1,7 @@
 ---
-title: jpng.info
-date: "2020"
-description:
+title: 'jpng'
+date: '2020'
+description: 'art.jpg'
 thumbnail: './jpng.info.jpg'
 url: 'https://jpng.info'
 ---
@@ -13,7 +13,7 @@ url: 'https://jpng.info'
 
 My artist website, an ongoing project since 2014, showcasing some of my digital multi-media artwork which seeks to explore the interaction between Internet technology and contemporary design, marketing, and media production to highlight the lurid, often peculiar methods employed to appeal to consumers. Still a work-in-progress.
 
-<blockquote>jpng.info is intended to exploit the mediums of digital collage, HTML, CSS, social media, and code to render these forms with beauty and meaning.</blockquote>
+<blockquote>jpng.info is a project utilizing the mediums digital collage, HTML, CSS, JavaScript, drawing upon stock imagery, 'future-tech', contemporary internet art, post-internet art, advertising & product culture, social media, and ditital representations of organic elements. Abstraction and juxtaposition of these elements amplifies their most extreme visual properties, rendering them lurid.</blockquote>
 
 ## web.jpng.info
 
@@ -22,7 +22,7 @@ My artist website, an ongoing project since 2014, showcasing some of my digital 
 </div>
 
 <video class='center' alt='web.jpng.info video' title='web.jpng.info video' style='max-width: 100%;' autoplay loop class='fluid-width-video-wrapper'>
-      <source src='./jpng_1080p.mp4' type="video/mp4" />
+  <source src='./jpng_1080p.mp4' type="video/mp4" />
 </video>
 
 
