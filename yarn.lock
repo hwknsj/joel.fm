@@ -13138,10 +13138,8 @@ __metadata:
     react-dom: "npm:^18.3.0-next-e61fd91f5-20220630"
     react-helmet: "npm:^6.1.0"
     sharp: "npm:^0.30.7"
+    typescript: "npm:^4.8.0-dev.20220806"
     yarn-run-all: "npm:^3.1.1"
-  peerDependencies:
-    typescript: ^4.7.4
-    webpack: ^5.38.1
   languageName: unknown
   linkType: soft
 
@@ -19784,6 +19782,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"typescript@npm:^4.8.0-dev.20220806":
+  version: 4.8.0-dev.20220806
+  resolution: "typescript@npm:4.8.0-dev.20220806"
+  bin:
+    tsc: bin/tsc
+    tsserver: bin/tsserver
+  checksum: b7e40070681ad2b04f10cdd67137996f4792a3440a55ef13f4d96fe293ce1e57346f95f2fdb8cf02042180363e57246ddfd3073674357bbad1399023c4c7c76c
+  languageName: node
+  linkType: hard
+
 "typescript@patch:typescript@npm%3A^4.5.4#optional!builtin<compat/typescript>":
   version: 4.7.4
   resolution: "typescript@patch:typescript@npm%3A4.7.4#optional!builtin<compat/typescript>::version=4.7.4&hash=f456af"
@@ -19791,6 +19799,16 @@ __metadata:
     tsc: bin/tsc
     tsserver: bin/tsserver
   checksum: 19bcd9153bbacaabed753b39fbd6adb5417690230b07db63f02e22588865b444b7504da9b9fcdcca5b4ac34be19904271a266bfa54d75fcfb0f5d699cb1e2314
+  languageName: node
+  linkType: hard
+
+"typescript@patch:typescript@npm%3A^4.8.0-dev.20220806#optional!builtin<compat/typescript>":
+  version: 4.8.0-dev.20220806
+  resolution: "typescript@patch:typescript@npm%3A4.8.0-dev.20220806#optional!builtin<compat/typescript>::version=4.8.0-dev.20220806&hash=f456af"
+  bin:
+    tsc: bin/tsc
+    tsserver: bin/tsserver
+  checksum: e43250e3cb3fb1cfe159ec19ce57741b83650cbc91f25009d359167d82143712b339d19198a44022c920af1192493c089ce52338b5977a40d8e79199adb3ca90
   languageName: node
   linkType: hard
 
