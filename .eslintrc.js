@@ -12,7 +12,7 @@ module.exports = {
   ],
   parser: '@babel/eslint-parser',
   parserOptions: {
-    ecmaVersion: 2021,
+    ecmaVersion: 2022,
     ecmaFeatures: {
       jsx: true
     },
@@ -24,6 +24,9 @@ module.exports = {
   },
   plugins: ['import', 'node', 'promise', '@emotion'],
   settings: {
+    react: {
+      version: 'detect'
+    },
     'import/resolver': {
       alias: {
         map: [
