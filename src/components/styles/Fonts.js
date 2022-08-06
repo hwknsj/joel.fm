@@ -5,12 +5,7 @@ export const fontFaces = [
     fontFamily: 'EskapadeFraktur',
     fontFilePath: 'fonts/EskapadeFraktur-Regular',
     fontDisplay: 'swap',
-    localFonts: ['ESKAP'],
-    // localFonts: [
-    //   'Eskapade Fraktur',
-    //   'EskapadeFraktur',
-    //   'Eskapade Fraktur Regular'
-    // ],
+    localFonts: ['Eskapade Fraktur', 'Eskapade Fraktur Regular'],
     fontVariant: 'tabular-nums',
     fontStyle: 'normal',
     fileFormats: ['otf']
@@ -19,7 +14,7 @@ export const fontFaces = [
     fontFamily: 'EskapadeFraktur',
     fontFilePath: 'fonts/EskapadeFraktur-Italic',
     fontDisplay: 'swap',
-    localFonts: ['Eskapade Fraktur Italic', 'EskapadeFraktur Italic'],
+    localFonts: ['Eskapade Fraktur Italic'],
     fontVariant: 'tabular-nums',
     fontStyle: 'italic',
     fileFormats: ['otf']
