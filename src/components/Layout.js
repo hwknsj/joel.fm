@@ -21,7 +21,7 @@ const Layout = ({ children }) => {
           gatsbyImageData(height: 100, quality: 80, layout: FIXED)
         }
       }
-      resumePublicUrl: file(
+      resumeFile: file(
         relativePath: { eq: "files/joel-hawkins-torres-resume-2022.pdf" }
       ) {
         publicURL
@@ -51,9 +51,8 @@ const Layout = ({ children }) => {
     site: {
       siteMetadata: { title }
     },
-    resumePublicUrl: { publicURL }
+    resumeFile: { publicURL: resumeUrl }
   } = memoizedQuery
-  const resumeUrl = publicURL
   const [toggleNav, setToggleNav] = useState(false)
 
   return (
