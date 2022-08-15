@@ -1,7 +1,13 @@
-const path = require(`path`)
-const { createFilePath } = require(`gatsby-source-filesystem`)
+// const path = require(`path`)
+// const { createFilePath } = require(`gatsby-source-filesystem`)
 
-exports.onCreateWebpackConfig = ({ actions }) => {
+import path from 'path'
+import { createFilePath } from 'gatsby-source-filesystem'
+import type { GatsbyNode } from 'gatsby'
+
+export const onCreateWebpackConfig: GatsbyNode['onCreateWebpackConfig'] = ({
+  actions
+}) => {
   actions.setWebpackConfig({
     resolve: {
       alias: {
@@ -18,7 +24,10 @@ exports.onCreateWebpackConfig = ({ actions }) => {
   })
 }
 
-exports.createPages = async ({ graphql, actions }) => {
+export const createPages: GatsbyNode['createPages'] = async ({
+  graphql,
+  actions
+}) => {
   const { createPage } = actions
 
   const blogPost = path.resolve(`./src/templates/blog-post.js`)
@@ -67,7 +76,11 @@ exports.createPages = async ({ graphql, actions }) => {
   })
 }
 
-exports.onCreateNode = ({ node, actions, getNode }) => {
+export const onCreateNode: GatsbyNode['onCreateNode'] = ({
+  node,
+  actions,
+  getNode
+}) => {
   const { createNodeField } = actions
 
   if (node.internal.type === `MarkdownRemark`) {

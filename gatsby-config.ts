@@ -1,7 +1,12 @@
-const path = require('path')
-const siteConfig = require('./siteConfig')
+require('dotenv').config({
+  path: `.env`,
+})
+import path from 'path'
+import siteConfig from './siteConfig'
+import type { GatsbyConfig } from 'gatsby'
 
-module.exports = {
+export default {
+  graphqlTypegen: true,
   siteMetadata: {
     title: siteConfig.name,
     author: siteConfig.author,
@@ -104,4 +109,4 @@ module.exports = {
     `gatsby-plugin-offline`,
     `gatsby-plugin-react-helmet`
   ]
-}
+} as GatsbyConfig

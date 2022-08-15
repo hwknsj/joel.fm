@@ -1,0 +1,59 @@
+{
+  "compilerOptions": {
+    "allowJs": true,
+    "allowSyntheticDefaultImports": true,
+    "baseUrl": ".",
+    "checkJs": false,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "incremental": true,
+    "isolatedModules": true,
+    "jsx": "react",
+    "lib": [
+      "dom",
+      "esnext"
+    ],
+    "module": "esnext",
+    "moduleResolution": "node",
+    "noImplicitAny": false,
+    "paths": {
+      "@/*": [
+        "./src/*"
+      ],
+      "@/assets/*": [
+        "./content/assets/*"
+      ],
+      "@/components/*": [
+        "./src/components/*"
+      ],
+      "@/images/*": [
+        "./src/images/*"
+      ],
+      "@/lib/*": [
+        "./src/lib/*"
+      ],
+      "@/pages/*": [
+        "./src/pages/*"
+      ],
+      "@/projects/*": [
+        "./content/projects/*"
+      ],
+      "@/templates/*": [
+        "./src/templates/*"
+      ],
+      "assets/*": [
+        "./content/assets/*"
+      ]
+    },
+    "resolveJsonModule": true,
+    "skipDefaultLibCheck": true,
+    "skipLibCheck": true,
+    "target": "esnext"
+  },
+  "include": [
+    "./src/**/*",
+    "./gatsby-node.ts",
+    "./gatsby-config.ts",
+    "./plugins/**/*"
+  ]
+}
