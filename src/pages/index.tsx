@@ -1,8 +1,21 @@
 import PostCard from '@/components/PostCard'
 import SEO from '@/components/SEO'
 import { graphql } from 'gatsby'
+import type { PageProps } from 'gatsby'
 import PropTypes from 'prop-types'
 import React from 'react'
+
+// export type DataProps = {
+//   site: {
+//     siteMetadata: {
+//       title: string
+//       description: string
+//     }
+//   }
+//   allMarkdownRemark: {
+//     posts: [{}]
+//   }
+// }
 
 const IndexPage = ({
   data: {
@@ -11,7 +24,7 @@ const IndexPage = ({
     },
     allMarkdownRemark: { posts }
   }
-}) => {
+}: PageProps<Queries.IndexPageQuery>) => {
   let postCounter = 0
 
   return (
@@ -78,7 +91,7 @@ IndexPage.propTypes = {
 }
 
 export const indexPageQuery = graphql`
-  {
+  query IndexPage {
     site {
       siteMetadata {
         title

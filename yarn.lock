@@ -4591,6 +4591,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/gatsby-transformer-remark@npm:^2.9.1":
+  version: 2.9.1
+  resolution: "@types/gatsby-transformer-remark@npm:2.9.1"
+  checksum: 4f3482568c62249a86683ca42116e74e5bd8894454f6ec20d2fffe1d86e3523657dce489443a2e8f8db13e4709970587bbe2a951ce85a7c27933a229f85e94c2
+  languageName: node
+  linkType: hard
+
 "@types/get-port@npm:^3.2.0":
   version: 3.2.0
   resolution: "@types/get-port@npm:3.2.0"
@@ -4731,6 +4738,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/node@npm:^18.6.5":
+  version: 18.6.5
+  resolution: "@types/node@npm:18.6.5"
+  checksum: c3ab2fe90e95ea345ff53b8a336a6b9cd5a542fe98e3a066eb9be3a353bd394ab480898d31d003cec224fa9d49b6f5499b1a006e3d0b54c1ced313a6de668f35
+  languageName: node
+  linkType: hard
+
 "@types/node@npm:^8.5.7":
   version: 8.10.66
   resolution: "@types/node@npm:8.10.66"
@@ -4759,6 +4773,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/prismjs@npm:^1.26.0":
+  version: 1.26.0
+  resolution: "@types/prismjs@npm:1.26.0"
+  checksum: 0a91ecd9b82108eb23616f86420389271d2c12d4219e0a0bfaf50b93ebb5837c18e0fa60819686f05710b260b4470835690c9d101feb7092e6a31980f2bb7684
+  languageName: node
+  linkType: hard
+
 "@types/prop-types@npm:*":
   version: 15.7.4
   resolution: "@types/prop-types@npm:15.7.4"
@@ -4782,6 +4803,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/react-helmet@npm:^6.1.5":
+  version: 6.1.5
+  resolution: "@types/react-helmet@npm:6.1.5"
+  dependencies:
+    "@types/react": "npm:*"
+  checksum: ffd9d68659972633e8773229eb7de8808086d247e1b78ee0710783d27d73629c24d9eccdd71f8d40a6bc1f937394b48e4881a247f4cfbb798dd5403caace6d48
+  languageName: node
+  linkType: hard
+
 "@types/react@npm:*":
   version: 17.0.37
   resolution: "@types/react@npm:17.0.37"
@@ -4790,6 +4820,17 @@ __metadata:
     "@types/scheduler": "npm:*"
     csstype: "npm:^3.0.2"
   checksum: e9987654dd3d35f644fed12a99bda8924fe5a177bc5aec814af92cdfb1a711a28d7024fdfbbdd7dc70ecc1071718a9710be0e02e93f6fa1fb49b86788b058b32
+  languageName: node
+  linkType: hard
+
+"@types/react@npm:^18.0.17":
+  version: 18.0.17
+  resolution: "@types/react@npm:18.0.17"
+  dependencies:
+    "@types/prop-types": "npm:*"
+    "@types/scheduler": "npm:*"
+    csstype: "npm:^3.0.2"
+  checksum: 78990f0c1ecfa69a76bd41ca27d997310516033d52005d5b2669ac1f30fdfe179a38df9e2753bb32c2b810584f5e15e5f4c6b8a2c6933bdd9fa46c0f32f939d3
   languageName: node
   linkType: hard
 
@@ -4825,6 +4866,15 @@ __metadata:
   dependencies:
     "@types/node": "npm:*"
   checksum: 4e6172cae1e12a868b71a7e5cbd55ee27297e614731d9ebab71223769209882071e81672c831cbc349c29dbe5ea6cddc4859380c20d42706c74c75ad2a974db1
+  languageName: node
+  linkType: hard
+
+"@types/sharp@npm:^0.30.5":
+  version: 0.30.5
+  resolution: "@types/sharp@npm:0.30.5"
+  dependencies:
+    "@types/node": "npm:*"
+  checksum: 10077a35607e4ed36dace9f2e33ecb45a18d495ca14e0091641114986f70a88749a141698f74bb9644c0c18ccec121fd0e1f6862908c26217e1a6284706bf21a
   languageName: node
   linkType: hard
 
@@ -5807,24 +5857,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"autoprefixer@npm:^10.4.8":
-  version: 10.4.8
-  resolution: "autoprefixer@npm:10.4.8"
-  dependencies:
-    browserslist: "npm:^4.21.3"
-    caniuse-lite: "npm:^1.0.30001373"
-    fraction.js: "npm:^4.2.0"
-    normalize-range: "npm:^0.1.2"
-    picocolors: "npm:^1.0.0"
-    postcss-value-parser: "npm:^4.2.0"
-  peerDependencies:
-    postcss: ^8.1.0
-  bin:
-    autoprefixer: bin/autoprefixer
-  checksum: a4f6e2954e5d74c8bc82035c1229bfcce0b8dfae7adc42d5bfbdebe0cb0f447ba9a4540722e735e3851ba3d4921b444e1f0a6964e99d31f777517ed5887f6dc3
-  languageName: node
-  linkType: hard
-
 "axe-core@npm:^4.3.5":
   version: 4.3.5
   resolution: "axe-core@npm:4.3.5"
@@ -6332,7 +6364,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"browserslist@npm:^4.20.2, browserslist@npm:^4.21.3, browserslist@npm:^4.6.6":
+"browserslist@npm:^4.20.2, browserslist@npm:^4.6.6":
   version: 4.21.3
   resolution: "browserslist@npm:4.21.3"
   dependencies:
@@ -6600,7 +6632,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"caniuse-lite@npm:^1.0.0, caniuse-lite@npm:^1.0.30001272, caniuse-lite@npm:^1.0.30001280, caniuse-lite@npm:^1.0.30001370, caniuse-lite@npm:^1.0.30001373":
+"caniuse-lite@npm:^1.0.0, caniuse-lite@npm:^1.0.30001272, caniuse-lite@npm:^1.0.30001280, caniuse-lite@npm:^1.0.30001370":
   version: 1.0.30001373
   resolution: "caniuse-lite@npm:1.0.30001373"
   checksum: a08c182c0afc9f34f252f3ff4919a5a95f697f39ff1c636745659b788460e46564bf975cf81b39914c2bf86247ae95bd994648a638ee7ced1daf186f63dc852a
@@ -10015,13 +10047,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fraction.js@npm:^4.2.0":
-  version: 4.2.0
-  resolution: "fraction.js@npm:4.2.0"
-  checksum: b9136779dc6442d15595bf29c9cdec784968645711a6df0e62bfffc669d9d895a79d760b1a95f0a58adf5893037bf91a0e7ef0b68f105526d3418c5a77cd115b
-  languageName: node
-  linkType: hard
-
 "fragment-cache@npm:^0.2.1":
   version: 0.2.1
   resolution: "fragment-cache@npm:0.2.1"
@@ -13088,7 +13113,12 @@ __metadata:
     "@emotion/styled": "npm:^11.10.0"
     "@react-icons/all-files": "npm:^4.1.0"
     "@types/babylon": "npm:^6.16.6"
-    autoprefixer: "npm:^10.4.8"
+    "@types/gatsby-transformer-remark": "npm:^2.9.1"
+    "@types/node": "npm:^18.6.5"
+    "@types/prismjs": "npm:^1.26.0"
+    "@types/react": "npm:^18.0.17"
+    "@types/react-helmet": "npm:^6.1.5"
+    "@types/sharp": "npm:^0.30.5"
     babel-preset-gatsby: "npm:^2.20.0"
     classnames: "npm:^2.3.1"
     cross-env: "npm:^7.0.3"
@@ -13138,7 +13168,7 @@ __metadata:
     react-dom: "npm:^18.3.0-next-e61fd91f5-20220630"
     react-helmet: "npm:^6.1.0"
     sharp: "npm:^0.30.7"
-    typescript: "npm:^4.8.0-dev.20220806"
+    typescript: "npm:^4.8.0-dev.20220809"
     yarn-run-all: "npm:^3.1.1"
   languageName: unknown
   linkType: soft
@@ -16621,7 +16651,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"postcss-value-parser@npm:^4.0.2, postcss-value-parser@npm:^4.1.0, postcss-value-parser@npm:^4.2.0":
+"postcss-value-parser@npm:^4.0.2, postcss-value-parser@npm:^4.1.0":
   version: 4.2.0
   resolution: "postcss-value-parser@npm:4.2.0"
   checksum: edc490e9f11336a2efb136d8a52350b5c680ca9a91ee64285732e796177eb888f559a4eafc94cdbf7ce065a388e65b3cc21a32c92458a90efc445f30e8a679dc
@@ -19782,13 +19812,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@npm:^4.8.0-dev.20220806":
-  version: 4.8.0-dev.20220806
-  resolution: "typescript@npm:4.8.0-dev.20220806"
+"typescript@npm:^4.8.0-dev.20220809":
+  version: 4.8.0-dev.20220809
+  resolution: "typescript@npm:4.8.0-dev.20220809"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: b7e40070681ad2b04f10cdd67137996f4792a3440a55ef13f4d96fe293ce1e57346f95f2fdb8cf02042180363e57246ddfd3073674357bbad1399023c4c7c76c
+  checksum: d3d2bda2e49937647cca5659fcc88e5567dcf2d35227403f7cbdcd44be35231437169178ece14f4d0fd8335151c35f1b6512c00398a30ff619efa449da315fbe
   languageName: node
   linkType: hard
 
@@ -19802,13 +19832,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@npm%3A^4.8.0-dev.20220806#optional!builtin<compat/typescript>":
-  version: 4.8.0-dev.20220806
-  resolution: "typescript@patch:typescript@npm%3A4.8.0-dev.20220806#optional!builtin<compat/typescript>::version=4.8.0-dev.20220806&hash=f456af"
+"typescript@patch:typescript@npm%3A^4.8.0-dev.20220809#optional!builtin<compat/typescript>":
+  version: 4.8.0-dev.20220809
+  resolution: "typescript@patch:typescript@npm%3A4.8.0-dev.20220809#optional!builtin<compat/typescript>::version=4.8.0-dev.20220809&hash=f456af"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: e43250e3cb3fb1cfe159ec19ce57741b83650cbc91f25009d359167d82143712b339d19198a44022c920af1192493c089ce52338b5977a40d8e79199adb3ca90
+  checksum: a99cd23673d11337266aa58aa200cd6290a384a1bbdf3d038ac05da42a93c2a1b3808cc8cbdc7501b32cf05fd4d52fb4e99a9ea3925333367f8dbba188dbba11
   languageName: node
   linkType: hard
 
