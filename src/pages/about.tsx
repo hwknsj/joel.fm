@@ -23,12 +23,18 @@ const AboutPage = ({
           'blog',
           'joel',
           'hawkins',
+          'torres',
+          'joel torres',
           'joel.fm',
           'joel hawkins',
           'joel.biz',
           'gatsby',
           'javascript',
-          'react'
+          'typescript',
+          'jtor',
+          'nike',
+          'react',
+          'web development'
         ]}
       />
 
@@ -44,7 +50,7 @@ const AboutPage = ({
                 href={resumeUrl}
                 target='_blank'
                 rel='noopener noreferrer'
-                alt="joél's resume"
+                aria-label="joél's resume"
               >
                 my resume
               </a>
@@ -100,13 +106,13 @@ const AboutPage = ({
               research on this topic by successive Reed students. The full text
               & interactive visualization are available at&nbsp;
               <a
-                href='https://info.joel.fm/thesis'
+                href='https://thesis.joel.fm/'
                 rel='noopener noreferrer'
                 target='_blank'
                 alt={`Joél's Thesis`}
-                aria-label={`Joel's thesis at info.joel.fm/thesis`}
+                aria-label={`Joel's thesis at thesis.joel.fm/`}
               >
-                info.joel.fm/thesis
+                thesis.joel.fm
               </a>
               .
             </p>
@@ -124,10 +130,9 @@ const AboutPage = ({
                   href='https://www.gatsbyjs.com/'
                   rel='noopener noreferrer'
                   target='_blank'
-                  alt='Gatsby.js'
                   title='Gatsby.js'
                 >
-                  Gatsby.js v3
+                  Gatsby.js
                 </a>
               </li>
               <li>
@@ -135,7 +140,6 @@ const AboutPage = ({
                   href='https://reactjs.org/'
                   rel='noopener noreferrer'
                   target='_blank'
-                  alt='React.js'
                   title='React.js'
                 >
                   React.js
@@ -146,7 +150,6 @@ const AboutPage = ({
                   href='https://nodejs.org/'
                   rel='noopener noreferrer'
                   target='_blank'
-                  alt='Node.js'
                   title='Node.js'
                 >
                   Node.js
@@ -157,7 +160,6 @@ const AboutPage = ({
                   href='https://emotion.sh/'
                   rel='noopener noreferrer'
                   target='_blank'
-                  alt='emotion'
                   title='emotion'
                 >
                   emotion
@@ -168,7 +170,6 @@ const AboutPage = ({
                   href='https://polished.js.org/'
                   rel='noopener noreferrer'
                   target='_blank'
-                  alt='polished'
                   title='polished'
                 >
                   polished
@@ -179,7 +180,6 @@ const AboutPage = ({
                   href='https://graphql.org/'
                   rel='noopener noreferrer'
                   target='_blank'
-                  alt='GraphQL'
                   title='GraphQL'
                 >
                   GraphQL
@@ -187,34 +187,31 @@ const AboutPage = ({
               </li>
             </ul>
             <p>
-              The source code for which is available on{' '}
+              The
               <a
                 href='https://github.com/hwknsj/joel.fm'
                 target='_blank'
                 rel='noopener noreferrer'
-                alt='joel.fm source code'
               >
-                Github
-              </a>{' '}
+                source code for which is available on Github
+              </a>
               (<span className='italic'>for now...</span>).
             </p>
             <p>
-              For the curious, the heading typeface is{' '}
+              For the curious, the heading typeface is
               <a
                 href='https://www.type-together.com/eskapade-font/'
                 rel='noopener noreferrer'
                 target='_blank'
-                alt='Eskapade Fraktur'
                 className='fraktur'
               >
                 Eskapade Fraktur
               </a>
-              , the body text is{' '}
+              and the body text is
               <a
                 href='https://www.myfonts.com/fonts/urw/corporate-a/'
                 rel='noopener noreferrer'
                 target='_blank'
-                alt='Corporate A Standard'
                 className='serif'
               >
                 Corporate A Std
@@ -222,7 +219,7 @@ const AboutPage = ({
               .
             </p>
             <p className='italic'>
-              All images that appear on this site are my own work{' '}
+              All images that appear on this site are my own work
               <span className='text-light'>(unless stated otherwise)</span>.
             </p>
           </SectionSerif>
@@ -240,7 +237,7 @@ export const resumeUrlQuery = graphql`
       }
     }
     resumePublicUrl: file(
-      relativePath: { eq: "files/joel-hawkins-torres-resume-2022.pdf" }
+      relativePath: { eq: "files/joel-hawkins-torres-resume.pdf" }
     ) {
       publicURL
     }
