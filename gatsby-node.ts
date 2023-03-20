@@ -1,9 +1,36 @@
-// const path = require(`path`)
-// const { createFilePath } = require(`gatsby-source-filesystem`)
-
 import path from 'path'
 import { createFilePath } from 'gatsby-source-filesystem'
 import type { GatsbyNode } from 'gatsby'
+import { IGatsbyImageData } from 'gatsby-plugin-image'
+
+type Fields = {
+  slug: string
+}
+
+type ChildImageSharp = {
+  gatsbyImageData: IGatsbyImageData
+}
+
+type Thumbnail = {
+  childImageSharp?: ChildImageSharp
+}
+
+type Frontmatter = {
+  date?: string | null,
+      title?: string | null,
+      description?: string | null,
+      thumbnail?: Thumbnail
+}
+
+interface Post {
+  node: {
+    excerpt?: string | null
+    fields?: Fields
+    frontmatter?: Frontmatter
+  }
+}
+
+interface PostsArray extends ReadonlyArray<Post> {}
 
 export const onCreateWebpackConfig: GatsbyNode['onCreateWebpackConfig'] = ({
   actions
@@ -51,13 +78,13 @@ export const createPages: GatsbyNode['createPages'] = async ({
         }
       }
     `
-  ).then(result => {
+  ).then((result: { data: { allMarkdownRemark: { edges: PostsArray }}, errors: unknown }) => {
     if (result.errors) {
       throw result.errors
     }
     const posts = result.data.allMarkdownRemark.edges
 
-    posts.forEach((post, index) => {
+    posts?.forEach((post: Post, index: number) => {
       const previous = index === posts.length - 1 ? null : posts[index + 1].node
       const next = index === 0 ? null : posts[index - 1].node
 

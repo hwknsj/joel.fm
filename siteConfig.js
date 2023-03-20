@@ -3,7 +3,7 @@ const path = require('path')
 module.exports = {
   name: 'joel.fm',
   shortName: 'joel.fm',
-  description: 'web design & development, etc.',
+  description: 'web design & development, portfolio, etc.',
   url: 'https://joel.fm',
   favicon: {
     ico: path.resolve(__dirname, `static/favicon.ico`),
