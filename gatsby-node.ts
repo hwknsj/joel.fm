@@ -17,17 +17,17 @@ type Thumbnail = {
 
 type Frontmatter = {
   date?: string | null,
-      title?: string | null,
-      description?: string | null,
-      thumbnail?: Thumbnail
+  title?: string | null,
+  description?: string | null,
+  thumbnail?: Thumbnail
 }
 
 interface Post {
   node: {
-    excerpt?: string | null
-    fields?: Fields
+    excerpt?: string | null,
+    fields?: Fields,
     frontmatter?: Frontmatter
-  }
+  };
 }
 
 interface PostsArray extends ReadonlyArray<Post> {}
@@ -78,29 +78,35 @@ export const createPages: GatsbyNode['createPages'] = async ({
         }
       }
     `
-  ).then((result: { data: { allMarkdownRemark: { edges: PostsArray }}, errors: unknown }) => {
-    if (result.errors) {
-      throw result.errors
-    }
-    const posts = result.data.allMarkdownRemark.edges
+  ).then(
+    (result: {
+      data: { allMarkdownRemark: { edges: PostsArray } },
+      errors: unknown
+    }) => {
+      if (result.errors) {
+        throw result.errors
+      }
+      const posts = result.data.allMarkdownRemark.edges
 
-    posts?.forEach((post: Post, index: number) => {
-      const previous = index === posts.length - 1 ? null : posts[index + 1].node
-      const next = index === 0 ? null : posts[index - 1].node
+      posts?.forEach((post: Post, index: number) => {
+        const previous =
+          index === posts.length - 1 ? null : posts[index + 1].node
+        const next = index === 0 ? null : posts[index - 1].node
 
-      createPage({
-        path: post.node.fields.slug,
-        component: blogPost,
-        context: {
-          slug: post.node.fields.slug,
-          previous,
-          next
-        }
+        createPage({
+          path: post.node.fields.slug,
+          component: blogPost,
+          context: {
+            slug: post.node.fields.slug,
+            previous,
+            next
+          }
+        })
       })
-    })
 
-    return null
-  })
+      return null
+    }
+  )
 }
 
 export const onCreateNode: GatsbyNode['onCreateNode'] = ({
