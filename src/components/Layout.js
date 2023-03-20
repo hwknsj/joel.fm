@@ -22,7 +22,7 @@ const Layout = ({ children }) => {
         }
       }
       resumeFile: file(
-        relativePath: { eq: "files/joel-hawkins-torres-resume-2022.pdf" }
+        relativePath: { eq: "files/joel-hawkins-torres-resume-2023.pdf" }
       ) {
         publicURL
       }
