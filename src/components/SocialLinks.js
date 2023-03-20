@@ -41,6 +41,7 @@ const SocialLinks = ({ resumeUrl }) => {
     }
   ]
 
+  // TODO: make this accessible
   return (
     <ul className='inline-list'>
       {links.map(({ name, url, icon }) => (
