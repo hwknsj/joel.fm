@@ -25,11 +25,11 @@ jobs:
     - name: Node shit
       uses: actions/setup-node@v3.6.0
       with:
-        node-version: 19
-      run: npm i -g yarn@latest
-      run: yarn set version canary
-      run: yarn
-      run: yarn build
+        node-version: latest
+    - run: npm i -g yarn@latest
+    - run: yarn set version canary
+    - run: yarn
+    - run: yarn build
 
     - name: Executing remote command
       uses: appleboy/ssh-action@master
