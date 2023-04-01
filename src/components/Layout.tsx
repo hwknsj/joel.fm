@@ -2,11 +2,11 @@ import { ThemeProvider } from '@emotion/react'
 import cx from 'classnames'
 import { graphql, useStaticQuery } from 'gatsby'
 import PropTypes from 'prop-types'
-import React, { useMemo, useState } from 'react'
+import React, { useState } from 'react'
 
 import Footer from './Footer'
 import HeaderNav from './HeaderNav'
-import GlobalStylesMemo, { theme } from './styles/Theme'
+import GlobalStylesMemo, { theme } from './styles/theme'
 
 const Layout = ({ children }) => {
   const query = graphql`
@@ -44,7 +44,6 @@ const Layout = ({ children }) => {
     }
   `
   const indexQuery = useStaticQuery(query)
-  const memoizedQuery = useMemo(() => indexQuery)
   const {
     logo,
     headerImgs,
@@ -52,7 +51,7 @@ const Layout = ({ children }) => {
       siteMetadata: { title }
     },
     resumeFile: { publicURL: resumeUrl }
-  } = memoizedQuery
+  } = indexQuery
   const [toggleNav, setToggleNav] = useState(false)
 
   return (

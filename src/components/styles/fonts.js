@@ -1,5 +1,21 @@
 import { fontFace } from 'polished'
 
+export const fontFraktur = `'EskapadeFraktur', eskapade-fraktur, serif`
+export const fontSerif = `'CorporateA', corporate-a, Times, 'Times New Roman', Georgia, serif`
+export const fontSans = `'CorporateS', corporate-s, 'Helvetica Neue', Helvetica, sans-serif`
+export const fontMono = `Menlo, Courier, monospace`
+
+export const [sans, serif, mono] = [fontSans, fontSerif, fontMono]
+// eslint-disable-next-line no-unused-vars
+export const [fontTitle, fontBody, fontCode] = [
+  fontFraktur,
+  fontSerif,
+  fontMono
+]
+export const [fraktur, body, code, title] = [fontFraktur, serif, mono, fraktur]
+
+// export { fraktur, body, code, title }
+
 export const fontFaces = [
   {
     fontFamily: 'EskapadeFraktur',

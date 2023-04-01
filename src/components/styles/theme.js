@@ -14,18 +14,23 @@ import lists from './css/lists'
 import reset from './css/reset'
 import screen from './css/screen'
 import tables from './css/tables'
-import { fontFaces } from './Fonts'
-
-export const fontFraktur = `'EskapadeFraktur', eskapade-fraktur, serif`
-export const fontSerif = `'CorporateA', corporate-a, Times, 'Times New Roman', Georgia, serif`
-const fontSans = `'CorporateS', corporate-s, 'Helvetica Neue', Helvetica, sans-serif`
-const fontMono = `Menlo, Courier, monospace`
-
-const [sans, serif, mono] = [fontSans, fontSerif, fontMono]
-// eslint-disable-next-line no-unused-vars
-const [fontTitle, fontBody, fontCode] = [fontFraktur, fontSerif, fontMono]
-const [fraktur, body, code] = [fontFraktur, serif, mono]
-const title = fraktur
+import {
+  fontFaces,
+  fontFraktur,
+  fontSerif,
+  fontSans,
+  fontMono,
+  fontTitle,
+  fraktur,
+  body,
+  code,
+  title,
+  sans,
+  serif,
+  mono
+  // fontBody,
+  // fontCode
+} from './fonts'
 
 const bp = [480, 740, 980, 1280, 1680]
 // eslint-disable-next-line no-unused-vars

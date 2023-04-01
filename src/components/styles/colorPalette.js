@@ -1,6 +1,6 @@
 // TODO: add a 'dark theme' switch
 
-import { fontFraktur, fontSerif, theme } from './Theme'
+import { fontFraktur, fontSerif, theme } from './theme'
 
 export const colorSchema = {
   light: {
