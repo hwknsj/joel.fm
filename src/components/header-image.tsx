@@ -1,3 +1,4 @@
+import type { Theme } from './styles/theme'
 import styled from '@emotion/styled'
 import { GatsbyImage } from 'gatsby-plugin-image'
 import PropTypes from 'prop-types'
@@ -8,7 +9,7 @@ const HeaderImageStyles = styled.header`
   grid-template-columns: 1fr;
   gap: 1rem;
   justify-content: center;
-  max-width: ${({ theme }) => theme.maxWidthLg};
+  max-width: ${({ theme }: { theme: Theme }) => theme.maxWidthLg};
   width: 100%;
   text-align: center;
   margin: 0 auto;

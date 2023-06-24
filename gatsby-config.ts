@@ -2,7 +2,7 @@ require('dotenv').config({
   path: `.env`,
 })
 import path from 'path'
-import siteConfig from './siteConfig'
+import siteConfig from './site-config'
 import type { GatsbyConfig } from 'gatsby'
 
 export default {
@@ -19,6 +19,14 @@ export default {
     }
   },
   plugins: [
+    {
+      resolve: `gatsby-plugin-typescript`,
+      options: {
+        isTSX: true,
+        jsxPragma: `jsx`,
+        allExtensions: true
+      }
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {

@@ -1,11 +1,21 @@
 import { Link } from 'gatsby'
-import { getSrc } from 'gatsby-plugin-image'
+import { ImageDataLike, getSrc } from 'gatsby-plugin-image'
 import PropTypes from 'prop-types'
 import React from 'react'
 
 // this provides a full width "post-card"
 
-const ProjectItem = ({ count, postClass, frontmatter, slug }) => (
+export interface ProjectItemProps {
+  count: number,
+  postClass: string,
+  frontmatter: {
+    title: string,
+    thumbnail?: ImageDataLike
+  }
+  slug: string
+}
+
+const ProjectItem = ({ count, postClass, frontmatter, slug }: ProjectItemProps) => (
   <article
     className={`post-card post-card-large ${postClass} ${
       frontmatter.thumbnail ? `with-image` : `no-image`

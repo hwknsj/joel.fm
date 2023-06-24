@@ -1,7 +1,7 @@
 import { css } from '@emotion/react'
 import { darken } from 'polished'
 
-const hamburger = theme => css`
+export const hamburger = theme => css`
   .hamburger {
     display: flex;
     overflow: visible;

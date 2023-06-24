@@ -1,6 +1,6 @@
 import { css } from '@emotion/react'
 
-const actions = theme => css`
+export const actions = theme => css`
   .actions {
     display: flex;
     cursor: default;

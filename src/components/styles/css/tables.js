@@ -1,6 +1,6 @@
 import { css } from '@emotion/react'
 
-const tables = theme => css`
+export const tables = theme => css`
   table {
     border-collapse: separate;
     margin: 0 0 ${theme.margin} 0;

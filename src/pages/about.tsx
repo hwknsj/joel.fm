@@ -1,7 +1,7 @@
 import { InfoBox } from '@/components/InfoBox'
 import { SectionSerif } from '@/components/SectionSerif'
 import SEO from '@/components/SEO'
-import SocialLinks from '@/components/SocialLinks'
+import SocialLinks from '@/components/social-links'
 import { graphql } from 'gatsby'
 import PropTypes from 'prop-types'
 import React from 'react'
@@ -109,7 +109,6 @@ const AboutPage = ({
                 href='https://thesis.joel.fm/'
                 rel='noopener noreferrer'
                 target='_blank'
-                alt={`Joél's Thesis`}
                 aria-label={`Joel's thesis at thesis.joel.fm/`}
               >
                 thesis.joel.fm
@@ -118,11 +117,10 @@ const AboutPage = ({
             </p>
           </SectionSerif>
           <hr />
-          <SectionSerif className='serif'>
+          <section className='serif'>
             <h3>About this site</h3>
             <p>
-              I developed this website using the following technologies and
-              tools:
+              I developed this website with these tools:
             </p>
             <ul>
               <li>
@@ -222,7 +220,7 @@ const AboutPage = ({
               All images that appear on this site are my own work
               <span className='text-light'>(unless stated otherwise)</span>.
             </p>
-          </SectionSerif>
+          </section>
         </main>
       </article>
     </>

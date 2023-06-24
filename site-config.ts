@@ -1,6 +1,6 @@
-const path = require('path')
+import path from 'path'
 
-module.exports = {
+export default {
   name: 'joel.fm',
   shortName: 'joel.fm',
   description: 'web design & development, portfolio, etc.',

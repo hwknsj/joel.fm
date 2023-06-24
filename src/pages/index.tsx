@@ -1,7 +1,6 @@
 import PostCard from '@/components/PostCard'
 import SEO from '@/components/SEO'
-import { graphql } from 'gatsby'
-import type { PageProps } from 'gatsby'
+import { graphql, PageProps } from 'gatsby'
 import PropTypes from 'prop-types'
 import React from 'react'
 
@@ -30,9 +29,8 @@ const IndexPage = ({
   return (
     <>
       <SEO
-        title={`Home | ${title}`}
+        title={`${title} | joel.fm`}
         keywords={[
-          'blog',
           'joel',
           'hawkins',
           'torres',
@@ -90,7 +88,7 @@ IndexPage.propTypes = {
   })
 }
 
-export const indexPageQuery = graphql`
+export const query = graphql`
   query IndexPage {
     site {
       siteMetadata {

@@ -1,7 +1,7 @@
 import path from 'path'
 import { createFilePath } from 'gatsby-source-filesystem'
 import type { GatsbyNode } from 'gatsby'
-import { IGatsbyImageData } from 'gatsby-plugin-image'
+import type { IGatsbyImageData } from 'gatsby-plugin-image'
 
 type Fields = {
   slug: string
@@ -16,21 +16,21 @@ type Thumbnail = {
 }
 
 type Frontmatter = {
-  date?: string | null,
-  title?: string | null,
-  description?: string | null,
+  date?: string | null
+  title?: string | null
+  description?: string | null
   thumbnail?: Thumbnail
 }
 
 interface Post {
   node: {
-    excerpt?: string | null,
-    fields?: Fields,
+    excerpt?: string | null
+    fields: Fields
     frontmatter?: Frontmatter
-  };
+  }
 }
 
-interface PostsArray extends ReadonlyArray<Post> {}
+type PostsArray = ReadonlyArray<Post>
 
 export const onCreateWebpackConfig: GatsbyNode['onCreateWebpackConfig'] = ({
   actions
@@ -38,17 +38,24 @@ export const onCreateWebpackConfig: GatsbyNode['onCreateWebpackConfig'] = ({
   actions.setWebpackConfig({
     resolve: {
       alias: {
+        '@/': path.resolve(__dirname, 'src/'),
+        '@/assets': path.resolve(__dirname, 'content/assets'),
         '@/components': path.resolve(__dirname, 'src/components'),
         '@/lib': path.resolve(__dirname, 'src/lib'),
-        '@/pages': path.resolve(__dirname, 'src/pages'),
         '@/images': path.resolve(__dirname, 'src/images'),
+        '@/pages': path.resolve(__dirname, 'src/pages'),
+        '@/projects': path.resolve(__dirname, 'content/projects'),
+        '@/styles': path.resolve(__dirname, 'src/components/styles'),
         '@/templates': path.resolve(__dirname, 'src/templates'),
-        '@/assets': path.resolve(__dirname, 'content/assets'),
-        assets: path.resolve(__dirname, 'content/assets'),
-        '@/projects': path.resolve(__dirname, 'content/projects')
+        assets: path.resolve(__dirname, 'content/assets')
       }
     }
   })
+}
+
+type PostQueryResult = {
+  data: { allMarkdownRemark: { edges: PostsArray } }
+  errors?: any
 }
 
 export const createPages: GatsbyNode['createPages'] = async ({
@@ -78,15 +85,13 @@ export const createPages: GatsbyNode['createPages'] = async ({
         }
       }
     `
-  ).then(
-    (result: {
-      data: { allMarkdownRemark: { edges: PostsArray } },
-      errors: unknown
-    }) => {
+  )
+    // @ts-expect-error incompatible types
+    .then((result: PostQueryResult) => {
       if (result.errors) {
         throw result.errors
       }
-      const posts = result.data.allMarkdownRemark.edges
+      const posts = result?.data?.allMarkdownRemark.edges
 
       posts?.forEach((post: Post, index: number) => {
         const previous =
@@ -103,10 +108,7 @@ export const createPages: GatsbyNode['createPages'] = async ({
           }
         })
       })
-
-      return null
-    }
-  )
+    })
 }
 
 export const onCreateNode: GatsbyNode['onCreateNode'] = ({

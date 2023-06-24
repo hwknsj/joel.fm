@@ -2,7 +2,6 @@ import ProjectItem from '@/components/ProjectItem'
 import SEO from '@/components/SEO'
 import { graphql } from 'gatsby'
 import PropTypes from 'prop-types'
-import React from 'react'
 
 const WebDesignPage = ({
   data: {
@@ -99,8 +98,8 @@ const WebDesignPage = ({
               frontmatter,
               fields: { slug }
             }
-          }) => {
-            postCounter++
+          }, index) => {
+            postCounter === index ? postCounter++ : postCounter = postCounter;
             return (
               <ProjectItem
                 key={slug}

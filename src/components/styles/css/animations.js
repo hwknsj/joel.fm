@@ -8,7 +8,7 @@ const slideUp = keyframes`
     transform: translate3d(0, 0, 0);
   }
 `
-const animations = css`
+export const animations = css`
   .transition-fade {
     transition: 0.25s;
     opacity: 1;

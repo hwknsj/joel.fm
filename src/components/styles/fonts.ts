@@ -3,7 +3,7 @@ import { fontFace } from 'polished'
 export const fontFraktur = `'EskapadeFraktur', eskapade-fraktur, serif`
 export const fontSerif = `'CorporateA', corporate-a, Times, 'Times New Roman', Georgia, serif`
 export const fontSans = `'CorporateS', corporate-s, 'Helvetica Neue', Helvetica, sans-serif`
-export const fontMono = `Menlo, Courier, monospace`
+export const fontMono = `'SF Mono', Menlo, Courier, monospace`
 
 export const [sans, serif, mono] = [fontSans, fontSerif, fontMono]
 // eslint-disable-next-line no-unused-vars
@@ -12,9 +12,12 @@ export const [fontTitle, fontBody, fontCode] = [
   fontSerif,
   fontMono
 ]
-export const [fraktur, body, code, title] = [fontFraktur, serif, mono, fraktur]
-
-// export { fraktur, body, code, title }
+export const [fraktur, body, code, title] = [
+  fontFraktur,
+  serif,
+  mono,
+  fontFraktur
+]
 
 export const fontFaces = [
   {
@@ -85,7 +88,7 @@ export const fontFaces = [
 ].map(font => fontFace(font))
 
 // For code splitting purposes, separate font-face definitions
-const fonts = String.raw`
+export const fonts = String.raw`
   @font-face {
     font-family: 'EskapadeFraktur';
     src: url('fonts/EskapadeFraktur-Regular.otf');
@@ -132,6 +135,43 @@ const fonts = String.raw`
     font-family: 'CorporateA';
     src: url('fonts/CorporateARegular.ttf');
     font-weight: 400;
+  }
+
+  .serif {
+    font-family: ${serif};
+    p {
+      font-family: ${serif};
+    }
+  }
+  .font-serif {
+    font-family: ${serif};
+    p {
+      font-family: ${serif};
+    }
+  }
+  .sans {
+    font-family: ${sans};
+    p {
+      font-family: ${sans};
+    }
+  }
+  .font-sans {
+    font-family: ${sans};
+    p {
+      font-family: ${sans};
+    }
+  }
+  .fraktur {
+    font-family: ${fraktur};
+  }
+  .font-fraktur {
+    font-family: ${fraktur};
+  }
+  .mono {
+    font-family: ${mono}
+  }
+  .font-mono {
+    font-family: ${mono}
   }
 `
 

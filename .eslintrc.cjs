@@ -1,3 +1,4 @@
+/* eslint-env node */
 module.exports = {
   globals: {
     __PATH_PREFIX__: true,
@@ -7,10 +8,13 @@ module.exports = {
   },
   extends: [
     'eslint:recommended',
+    'plugin:@typescript-eslint/recommended',
     'plugin:react/recommended',
     'plugin:prettier/recommended'
   ],
-  parser: '@babel/eslint-parser',
+  parser: '@typescript-eslint/parser',
+  plugins: ['@typescript-eslint', 'import', 'node', 'promise', '@emotion'],
+  root: true,
   parserOptions: {
     ecmaVersion: 2022,
     ecmaFeatures: {
@@ -22,24 +26,22 @@ module.exports = {
     es2021: true,
     node: true
   },
-  plugins: ['import', 'node', 'promise', '@emotion'],
   settings: {
     react: {
       version: 'detect'
     },
     'import/resolver': {
-      alias: {
-        map: [
-          ['@/components', './src/components'],
-          ['@/lib', './src/lib'],
-          ['@/pages', './src/pages'],
-          ['@/images', './src/images'],
-          ['@/templates', './src/templates'],
-          ['@/assets', './content/assets'],
-          ['assets', './content/assets'],
-          ['@/projects', './content/projects']
-        ]
-      }
+      alias: [
+        ['@/assets', './content/assets'],
+        ['@/components', './src/components'],
+        ['@/lib', './src/lib'],
+        ['@/images', './src/images'],
+        ['@/pages', './src/pages'],
+        ['@/projects', './content/projects']
+        ['@/templates', './src/templates'],
+        ['@/styles', './src/components/styles']
+        ['assets', './content/assets']
+      ]
     }
   }
   // rules: {

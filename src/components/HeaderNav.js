@@ -4,9 +4,9 @@ import { Link } from 'gatsby'
 import PropTypes from 'prop-types'
 import React from 'react'
 
-import HeaderImage from './HeaderImage'
+import HeaderImage from './header-image'
 import HeaderLogo from './HeaderLogo'
-import SocialLinks from './SocialLinks'
+import SocialLinks from './social-links'
 
 const HeaderNavSocial = ({ toggleNav, resumeUrl }) => {
   return (

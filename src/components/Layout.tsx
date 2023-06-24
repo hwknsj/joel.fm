@@ -1,14 +1,16 @@
-import { ThemeProvider } from '@emotion/react'
+import { Global, ThemeProvider } from '@emotion/react'
 import cx from 'classnames'
 import { graphql, useStaticQuery } from 'gatsby'
 import PropTypes from 'prop-types'
-import React, { useState } from 'react'
+import React, { memo, useState } from 'react'
 
-import Footer from './Footer'
+import Footer from './footer'
 import HeaderNav from './HeaderNav'
-import GlobalStylesMemo, { theme } from './styles/theme'
+import { theme, globalCss } from './styles/theme'
 
-const Layout = ({ children }) => {
+const GlobalStyles = memo(() => <Global styles={globalCss} />)
+
+const Layout: React.FC<React.PropsWithChildren> = ({ children }) => {
   const query = graphql`
     {
       site {
@@ -56,7 +58,7 @@ const Layout = ({ children }) => {
 
   return (
     <ThemeProvider theme={theme}>
-      <GlobalStylesMemo />
+      <GlobalStyles />
       <div
         className={cx('site-wrapper', {
           'site-head-open': toggleNav

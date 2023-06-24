@@ -5,9 +5,9 @@ import { IoLogoGithub } from '@react-icons/all-files/io5/IoLogoGithub'
 import { IoLogoInstagram } from '@react-icons/all-files/io5/IoLogoInstagram'
 import { IoLogoLinkedin } from '@react-icons/all-files/io5/IoLogoLinkedin'
 import PropTypes from 'prop-types'
-import React from 'react'
+import React, { type FC } from 'react'
 
-const SocialLinks = ({ resumeUrl }) => {
+export const SocialLinks: FC<{ resumeUrl: string }> = ({ resumeUrl }) => {
   const links = [
     {
       name: 'LinkedIn',
@@ -44,18 +44,18 @@ const SocialLinks = ({ resumeUrl }) => {
   // TODO: make this accessible
   return (
     <ul className='inline-list'>
-      {links.map(({ name, url, icon }) => (
-        <li className='inline inline-item author-links' key={url}>
+      {links.map(({ name, url, icon }, i) => (
+        <li className='inline inline-item social-links' key={url}>
           <a
             href={url}
             title={name}
             target='_blank'
             rel='noopener noreferrer'
-            alt={name}
             className=''
+            tabIndex={i - 1}
           >
-            <div>{name}</div>
-            {icon}
+            <label htmlFor={name}>{name}</label>
+            <span id={name}>{icon}</span>
           </a>
         </li>
       ))}

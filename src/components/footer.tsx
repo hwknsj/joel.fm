@@ -1,13 +1,12 @@
+import SocialLinks from './social-links'
 import { Link } from 'gatsby'
 import PropTypes from 'prop-types'
-import React from 'react'
+import React, { ReactElement } from 'react'
 
-import SocialLinks from './SocialLinks'
 
 const rose = String(`இـــڰ-ۣڰڿ`)
 
-const Footer = ({ toggleNav, title, resumeUrl }) => {
-  return (
+export const Footer = ({ toggleNav, title, resumeUrl }: { toggleNav: boolean, title: string, resumeUrl: string }): ReactElement => (
     <footer className={`site-foot${toggleNav ? ` hidden` : ``}`}>
       {/* <div className='center my-0'> */}
       <SocialLinks resumeUrl={resumeUrl} />
@@ -22,7 +21,6 @@ const Footer = ({ toggleNav, title, resumeUrl }) => {
       </p>
     </footer>
   )
-}
 
 Footer.propTypes = {
   toggleNav: PropTypes.bool.isRequired,

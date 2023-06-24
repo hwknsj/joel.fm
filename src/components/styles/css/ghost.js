@@ -1,6 +1,6 @@
 import { css } from '@emotion/react'
 
-const ghost = theme => css`
+export const ghost = theme => css`
   /* Styling for Ghost-specific elements
 /* ---------------------------------------------------------- */
 
