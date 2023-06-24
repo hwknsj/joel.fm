@@ -1,6 +1,7 @@
 import { css } from '@emotion/react'
+import type { Theme } from '../theme'
 
-export const grid = theme => css`
+export const grid = (theme: Theme) => css`
   .row {
     display: flex;
     flex: 0 1 auto;

@@ -1,6 +1,7 @@
 import { css } from '@emotion/react'
+import type { Theme } from '../theme'
 
-export const lists = theme => css`
+export const lists = (theme: Theme) => css`
   ul,
   ol,
   dl {

@@ -1,7 +1,8 @@
 import { css } from '@emotion/react'
 import { darken, lighten } from 'polished'
+import type { Theme } from '../theme'
 
-export const screen = theme => css`
+export const screen = (theme: Theme) => css`
   body {
     font-family: ${theme.typeography.fraktur};
     background: ${theme.colors.background};
@@ -737,7 +738,8 @@ export const screen = theme => css`
       opacity: 0.4;
       transition: opacity 0.4s ${theme.cubicBezier};
       figcaption,
-      div, label {
+      div,
+      label {
         opacity: 0;
         position: absolute;
         margin-top: calc(-1 * ${theme.height});
@@ -753,7 +755,8 @@ export const screen = theme => css`
         text-decoration: none;
         opacity: 1;
         figcaption,
-        div, label {
+        div,
+        label {
           opacity: 0.9;
         }
       }

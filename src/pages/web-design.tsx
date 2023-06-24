@@ -1,7 +1,26 @@
-import ProjectItem from '@/components/ProjectItem'
+import ProjectItem from '@/components/project-item'
 import SEO from '@/components/SEO'
 import { graphql } from 'gatsby'
 import PropTypes from 'prop-types'
+import React from 'react'
+
+type PageProps = {
+  data: {
+    site: {
+      siteMetadata: { title: string; description: string }
+    }
+    allMarkdownRemark: {
+      posts: [
+        {
+          node: {
+            frontmatter: string
+            fields: { slug: string }
+          }
+        }
+      ]
+    }
+  }
+}
 
 const WebDesignPage = ({
   data: {
@@ -10,7 +29,7 @@ const WebDesignPage = ({
     },
     allMarkdownRemark: { posts }
   }
-}) => {
+}: PageProps) => {
   let postCounter = 0
   return (
     <>
@@ -93,13 +112,16 @@ const WebDesignPage = ({
       )}
       <section className='post-feed'>
         {posts.map(
-          ({
-            node: {
-              frontmatter,
-              fields: { slug }
-            }
-          }, index) => {
-            postCounter === index ? postCounter++ : postCounter = postCounter;
+          (
+            {
+              node: {
+                frontmatter,
+                fields: { slug }
+              }
+            },
+            index
+          ) => {
+            postCounter === index ? postCounter++ : false
             return (
               <ProjectItem
                 key={slug}

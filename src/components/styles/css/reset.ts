@@ -1,7 +1,8 @@
 import { css } from '@emotion/react'
 import { darken, lighten } from 'polished'
+import type { Theme } from '../theme'
 
-export const reset = theme => css`
+export const reset = (theme: Theme)e => css`
   html,
   body,
   div,

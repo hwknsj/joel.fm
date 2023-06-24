@@ -48,7 +48,7 @@ const breakpoints = {
   maxWidthXl: `${bp[4]}px`
 }
 
-type Breakpoints = typeof breakpoints
+export type Breakpoints = typeof breakpoints
 
 // eslint-disable-next-line no-unused-vars
 const colors = {
@@ -125,113 +125,58 @@ const typeography = {
 
 type Typeography = typeof typeography
 
-// interface InitialTheme {
-//   bodyPadding: string;
-//   bodyPaddingSm: string;
-//   blue: string;
-//   colorPrimary: string;
-//   colorBase: string;
-//   colorBorder: string;
-//   white: string;
-//   lightGrey: string;
-//   offWhite: string;
-//   color: string;
-//   black: string;
-//   altBlack: string;
-//   nikeBlack: string;
-//   trueBlack: string;
-//   transparent: string;
-//   colorBg: string;
-//   colorLight: string;
-//   fraktur: string;
-//   fontFraktur: string;
-//   title: string;
-//   fontTitle: string;
-//   sans: string;
-//   fontSans: string;
-//   serif: string;
-//   fontSerif: string;
-//   body: string;
-//   fontBody: string;
-//   mono: string;
-//   fontMono: string;
-//   code: string;
-//   fontCode: string;
-//   fontLight: string;
-//   fontNormal: string;
-//   fontBold: string;
-//   fontHeavy: string;
-//   lineHeight: string;
-//   xlarge: string;
-//   large: string;
-//   medium: string;
-//   small: string;
-//   xsmall: string;
-//   height: string;
-//   margin: string;
-//   borderRadius: string;
-//   bb: string;
-//   bbh: string;
-//   bs: string;
-//   bsh: string;
-//   cubicBezier: string;
-//   colors: Colors;
-//   layout: Layout;
-//   typeography: Typeography;
-// }
-
 interface InitialTheme {
-  bodyPadding: '3vw',
-  bodyPaddingSm: '6vw',
-  blue: '#0A48DD',
-  colorPrimary: '#0A48DD',
-  colorBase: '#131313',
-  colorBorder: '#ddd',
-  white: '#ffffff',
-  lightGrey: '#E1E1E1',
-  offWhite: '#FAFAFA',
-  color: '#1f1f1f',
-  black: '#1E1E1F',
-  altBlack: '#393939',
-  nikeBlack: '#111111',
-  trueBlack: '#000000',
-  transparent: 'rgba(0, 0, 0, 0)',
-  colorBg: '#ffffff',
-  colorLight: '#9e9e9e',
-  fraktur: typeof fraktur,
-  fontFraktur: typeof fontFraktur,
-  title: typeof title,
-  fontTitle: typeof fontTitle,
-  sans: typeof sans,
-  fontSans: typeof fontSans,
-  serif: typeof serif,
-  fontSerif: typeof fontSerif,
-  body: typeof body,
-  fontBody: typeof serif,
-  mono: typeof mono,
-  fontMono: typeof fontMono,
-  code: typeof mono,
-  fontCode: typeof mono,
-  fontLight: '200',
-  fontNormal: '400',
-  fontBold: '500',
-  fontHeavy: '800',
-  lineHeight: '2',
-  xlarge: '1680px',
-  large: '1280px',
-  medium: '980px',
-  small: '740px',
-  xsmall: '480px',
-  height: '4rem',
-  margin: '2rem',
-  borderRadius: '0.5rem',
-  bb: `#131313 2px solid`, // border-bottom hover
-  bbh: `#1E1E1F 2px solid`, // border-bottom hover
-  bs: '0 12px 24px 0 rgba(0, 0, 0, 0.09)', // box-shadow
-  bsh: '0 12px 24px 0 rgba(0, 0, 0, 0.2)', // box-shadow:hover
-  cubicBezier: 'cubic-bezier(0.4, 0.01, 0.165, 0.99)',
-  colors: Colors,
-  layout: Layout,
+  bodyPadding: '3vw'
+  bodyPaddingSm: '6vw'
+  blue: '#0A48DD'
+  colorPrimary: '#0A48DD'
+  colorBase: '#131313'
+  colorBorder: '#ddd'
+  white: '#ffffff'
+  lightGrey: '#E1E1E1'
+  offWhite: '#FAFAFA'
+  color: '#1f1f1f'
+  black: '#1E1E1F'
+  altBlack: '#393939'
+  nikeBlack: '#111111'
+  trueBlack: '#000000'
+  transparent: 'rgba(0, 0, 0, 0)'
+  colorBg: '#ffffff'
+  colorLight: '#9e9e9e'
+  fraktur: typeof fraktur
+  fontFraktur: typeof fontFraktur
+  title: typeof title
+  fontTitle: typeof fontTitle
+  sans: typeof sans
+  fontSans: typeof fontSans
+  serif: typeof serif
+  fontSerif: typeof fontSerif
+  body: typeof body
+  fontBody: typeof serif
+  mono: typeof mono
+  fontMono: typeof fontMono
+  code: typeof mono
+  fontCode: typeof mono
+  fontLight: '200'
+  fontNormal: '400'
+  fontBold: '500'
+  fontHeavy: '800'
+  lineHeight: '2'
+  xlarge: '1680px'
+  large: '1280px'
+  medium: '980px'
+  small: '740px'
+  xsmall: '480px'
+  height: '4rem'
+  margin: '2rem'
+  borderRadius: '0.5rem'
+  bb: `#131313 2px solid` // border-bottom hover
+  bbh: `#1E1E1F 2px solid` // border-bottom hover
+  bs: '0 12px 24px 0 rgba(0, 0, 0, 0.09)' // box-shadow
+  bsh: '0 12px 24px 0 rgba(0, 0, 0, 0.2)' // box-shadow:hover
+  cubicBezier: 'cubic-bezier(0.4, 0.01, 0.165, 0.99)'
+  colors: Colors
+  layout: Layout
   typeography: Typeography
 }
 
@@ -293,16 +238,16 @@ const initialTheme: InitialTheme = {
 // extending InitialTheme with some 'aliases'
 // because i am stupid & forget property names sometimes
 export interface Theme extends InitialTheme {
-  maxWidthXs: typeof initialTheme.xsmall;
-  maxWidthSm: typeof initialTheme.small;
-  maxWidthMd: typeof initialTheme.medium;
-  maxWidthLg: typeof initialTheme.large;
-  maxWidthXl: typeof initialTheme.xlarge;
-  bgColor: typeof initialTheme.colors.background;
-  blue: typeof initialTheme.colorPrimary;
-  radius: typeof initialTheme.borderRadius;
-  navbb: string;
-  navbbh: string;
+  maxWidthXs: typeof initialTheme.xsmall
+  maxWidthSm: typeof initialTheme.small
+  maxWidthMd: typeof initialTheme.medium
+  maxWidthLg: typeof initialTheme.large
+  maxWidthXl: typeof initialTheme.xlarge
+  bgColor: typeof initialTheme.colors.background
+  blue: typeof initialTheme.colorPrimary
+  radius: typeof initialTheme.borderRadius
+  navbb: string
+  navbbh: string
 }
 
 // extending initialTheme with some 'aliases'
@@ -322,82 +267,82 @@ export const theme: Theme = {
 
 // IDEA: there ought to be (possibly is) a better way to achieve this
 export const globalCss = css`
-html {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-  scroll-behavior: smooth;
-  font-size: 10px;
-  font-size: 62.5%;
-}
-*,
-*:before,
-*:after {
-  box-sizing: inherit;
-}
-body {
-  font-size: 1.6rem;
-  background: ${theme.colors.background};
-}
-a {
-  text-decoration: none;
-}
-:target:before {
-  content: '';
-  display: block;
-  height: 20rem;
-  margin-top: -20rem;
-}
-.post-content {
+  html {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    scroll-behavior: smooth;
+    font-size: 10px;
+    font-size: 62.5%;
+  }
+  *,
+  *:before,
+  *:after {
+    box-sizing: inherit;
+  }
+  body {
+    font-size: 1.6rem;
+    background: ${theme.colors.background};
+  }
   a {
     text-decoration: none;
-    color: ${theme.colorPrimary};
-    transition: color 0.4s ${theme.cubicBezier},
-    opacity 0.4s ${theme.cubicBezier},
-    text-decoration 0.3s ${theme.cubicBezier} !important;
-    &:hover {
-      color: ${darken(0.2, theme.colorPrimary)};
+  }
+  :target:before {
+    content: '';
+    display: block;
+    height: 20rem;
+    margin-top: -20rem;
+  }
+  .post-content {
+    a {
+      text-decoration: none;
+      color: ${theme.colorPrimary};
+      transition: color 0.4s ${theme.cubicBezier},
+        opacity 0.4s ${theme.cubicBezier},
+        text-decoration 0.3s ${theme.cubicBezier} !important;
+      &:hover {
+        color: ${darken(0.2, theme.colorPrimary)};
+      }
     }
   }
-}
-h1,
-h2,
-h3,
-h4,
-h5 {
-  font-family: ${theme.typeography.fraktur};
-  color: ${theme.black};
-}
-input,
-button,
-option,
-select,
-textarea {
-  color: ${theme.altBlack};
-  font-family: ${theme.typeography.fraktur};
-}
-blockquote,
-q {
-  font-style: italic;
-  span,
-  a {
-    font-style: normal;
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    font-family: ${theme.typeography.fraktur};
+    color: ${theme.black};
   }
-}
-${fontFaces}
-${helpers(theme)};
-${reset(theme)};
-${ghost(theme)};
-${lists(theme)};
-${nav(theme)};
-${grid(theme)};
-${tables(theme)};
-${forms(theme)};
-${buttons(theme)};
-${actions(theme)};
-${hamburger(theme)};
-${animations};
-${screen(theme)};
+  input,
+  button,
+  option,
+  select,
+  textarea {
+    color: ${theme.altBlack};
+    font-family: ${theme.typeography.fraktur};
+  }
+  blockquote,
+  q {
+    font-style: italic;
+    span,
+    a {
+      font-style: normal;
+    }
+  }
+  ${fontFaces}
+  ${helpers(theme)};
+  ${reset(theme)};
+  ${ghost(theme)};
+  ${lists(theme)};
+  ${nav(theme)};
+  ${grid(theme)};
+  ${tables(theme)};
+  ${forms(theme)};
+  ${buttons(theme)};
+  ${actions(theme)};
+  ${hamburger(theme)};
+  ${animations};
+  ${screen(theme)};
 `
 
 // const GlobalStylesMemo = memo(() => <Global styles={globalCss} />)
