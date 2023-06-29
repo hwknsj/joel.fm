@@ -2,7 +2,7 @@ import { css } from '@emotion/react'
 import { darken, lighten } from 'polished'
 import type { Theme } from '../theme'
 
-export const reset = (theme: Theme)e => css`
+export const reset = (theme: Theme) => css`
   html,
   body,
   div,
@@ -262,8 +262,8 @@ export const reset = (theme: Theme)e => css`
   body {
     overflow-x: hidden;
     color: ${lighten(0.2, theme.colors.base)};
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell,
-      'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+      Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-size: 1.5rem;
     line-height: 1.6em;
     font-weight: 400;

@@ -1,7 +1,8 @@
 import { css } from '@emotion/react'
 import { darken } from 'polished'
+import type { Theme } from '../theme'
 
-export const buttons = theme => css`
+export const buttons = (theme: Theme) => css`
   input[type='submit'],
   input[type='reset'],
   input[type='button'],

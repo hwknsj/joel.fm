@@ -1,6 +1,7 @@
 import ProjectItem from '@/components/project-item'
 import SEO from '@/components/SEO'
 import { graphql } from 'gatsby'
+import { ImageDataLike } from 'gatsby-plugin-image'
 import PropTypes from 'prop-types'
 import React from 'react'
 
@@ -13,7 +14,10 @@ type PageProps = {
       posts: [
         {
           node: {
-            frontmatter: string
+            frontmatter: {
+              title: string
+              thumbnail?: ImageDataLike
+            }
             fields: { slug: string }
           }
         }
@@ -76,7 +80,7 @@ const WebDesignPage = ({
                 href='https://github.com/hwknsj'
                 target='_blank'
                 rel='noopener noreferrer'
-                alt='Github @hwknsj'
+                aria-label='Github @hwknsj'
               >
                 Github @hwknsj
               </a>
@@ -85,7 +89,7 @@ const WebDesignPage = ({
                 href='https://github.com/hwknsj/joel.fm'
                 target='_blank'
                 rel='noopener noreferrer'
-                alt='joel.fm source code on Github'
+                aria-label='joel.fm source code on Github'
               >
                 the source code for this website
               </a>

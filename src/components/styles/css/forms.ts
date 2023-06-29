@@ -1,6 +1,7 @@
 import { css } from '@emotion/react'
+import type { Theme } from '../theme'
 
-export const forms = theme => css`
+export const forms = (theme: Theme) => css`
   form {
     margin: 0 0 ${theme.margin} 0;
   }
