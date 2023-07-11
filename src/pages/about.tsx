@@ -1,6 +1,6 @@
-import { InfoBox } from '@/components/InfoBox'
-import { SectionSerif } from '@/components/SectionSerif'
-import SEO from '@/components/SEO'
+import { InfoBox } from '@/components/info-box'
+import { SectionSerif } from '@/components/section-serif'
+import SEO from '@/components/seo-component'
 import SocialLinks from '@/components/social-links'
 import { graphql } from 'gatsby'
 import PropTypes from 'prop-types'
@@ -119,9 +119,7 @@ const AboutPage = ({
           <hr />
           <section className='serif'>
             <h3>About this site</h3>
-            <p>
-              I developed this website with these tools:
-            </p>
+            <p>I developed this website with these tools:</p>
             <ul>
               <li>
                 <a

@@ -1,5 +1,5 @@
 import ProjectItem from '@/components/project-item'
-import SEO from '@/components/SEO'
+import SEO from '@/components/seo-component'
 import { graphql } from 'gatsby'
 import { ImageDataLike } from 'gatsby-plugin-image'
 import PropTypes from 'prop-types'
