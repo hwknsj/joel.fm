@@ -1,18 +1,32 @@
-/* eslint-disable */
+// NOTE: this code assumes there is a 'dark' or 'light' theme which i've yet to implement
 import { theme } from '@/styles/theme'
 import { ThemeProvider as EmotionThemeProvider } from '@emotion/react'
-import { createContext, useContext, useEffect, useState } from 'react'
+import React, { createContext, useContext, useEffect, useState } from 'react'
 
-const defaultContextData = {
+type ThemeContextState = {
+  dark: boolean
+  hasThemeMounted: boolean
+  toggle?: VoidFunction
+}
+
+const defaultContextData: ThemeContextState = {
   dark: false,
-  toggle: () => {}
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
+  toggle: () => {},
+  hasThemeMounted: false
 }
 
 const ThemeContext = createContext(defaultContextData)
 const useTheme = () => useContext(ThemeContext)
 
-const useEffectDarkMode = () => {
-  const [themeState, setThemeState] = useState({
+const useEffectDarkMode = (): [
+  ThemeContextState,
+  React.Dispatch<ThemeContextState>
+] => {
+  const [themeState, setThemeState] = useState<{
+    dark: boolean
+    hasThemeMounted: boolean
+  }>({
     dark: false,
     hasThemeMounted: false
   })
@@ -24,7 +38,7 @@ const useEffectDarkMode = () => {
   return [themeState, setThemeState]
 }
 
-const ThemeProvider = ({ children }) => {
+const ThemeProvider = ({ children }: { children: React.ReactElement }) => {
   const [themeState, setThemeState] = useEffectDarkMode()
 
   if (!themeState.hasThemeMounted) {
@@ -37,12 +51,14 @@ const ThemeProvider = ({ children }) => {
     setThemeState({ ...themeState, dark })
   }
 
-  const computedTheme = theme(themeState.dark)
+  // TODO: make theme switchable
+  // const computedTheme = theme(themeState.dark)
 
   return (
-    <EmotionThemeProvider theme={computedTheme}>
+    <EmotionThemeProvider theme={theme}>
       <ThemeContext.Provider
         value={{
+          hasThemeMounted: true,
           dark: themeState.dark,
           toggle
         }}
