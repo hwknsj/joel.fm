@@ -1,6 +1,6 @@
 import { InfoBox } from '@/components/info-box'
 import { SectionSerif } from '@/components/section-serif'
-import SEO from '@/components/seo-component'
+import SEO from '@/components/seo'
 import SocialLinks from '@/components/social-links'
 import { graphql } from 'gatsby'
 import PropTypes from 'prop-types'

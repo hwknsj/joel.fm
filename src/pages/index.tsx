@@ -1,5 +1,5 @@
 import PostCard from '@/components/post-card'
-import SEO from '@/components/seo-component'
+import SEO from '@/components/seo'
 import { graphql, PageProps } from 'gatsby'
 import PropTypes from 'prop-types'
 import React from 'react'
