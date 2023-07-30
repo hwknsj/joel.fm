@@ -7,7 +7,7 @@ thumbnail: './para-ti-cover.jpg'
 
 ## Para ti
 
-This mixtape was made (in haste–pardon the mess-ups) *para ti*. Available on <a href='https://soundcloud.com/joelbiz/para-ti' target='_blank' rel='noopener noreferrer'>soundcloud</a>.
+Hastily slopped-together mixtape *para ti*: not suitable for human consumption. Available on <a href='https://soundcloud.com/joelbiz/para-ti' target='_blank' rel='noopener noreferrer'>soundcloud</a>.
 
 <blockquote><p>
   𝔢𝔰𝔱𝔬 𝔢𝔰 𝔭𝔞𝔯𝔞 𝔱𝔦 <br/>

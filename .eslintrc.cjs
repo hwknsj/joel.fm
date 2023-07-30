@@ -37,12 +37,15 @@ module.exports = {
         ['@/lib', './src/lib'],
         ['@/images', './src/images'],
         ['@/pages', './src/pages'],
-        ['@/projects', './content/projects']
+        ['@/projects', './content/projects'],
         ['@/templates', './src/templates'],
-        ['@/styles', './src/components/styles']
+        ['@/styles', './src/components/styles'],
         ['assets', './content/assets']
       ]
     }
+  },
+  rules: {
+    'react/jsx-pascal-case': 0
   }
   // rules: {
   //   // '@emotion/jsx-import': 'error',

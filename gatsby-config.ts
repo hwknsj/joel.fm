@@ -1,6 +1,3 @@
-require('dotenv').config({
-  path: `.env`,
-})
 import path from 'path'
 import siteConfig from './site-config'
 import type { GatsbyConfig } from 'gatsby'

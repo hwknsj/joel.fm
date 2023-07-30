@@ -93,7 +93,7 @@ export const screen = (theme: Theme) => css`
     font-size: 2rem;
     transition: opacity 0.4s ${theme.cubicBezier};
     p {
-      margin-bottom: ${theme.margin * 2};
+      margin-bottom: calc(${theme.margin} * 2};
       &:last-of-type {
         margin-bottom: 0;
       }

@@ -1,9 +1,19 @@
 import { Link } from 'gatsby'
-import { getSrc } from 'gatsby-plugin-image'
+import { ImageDataLike, getSrc } from 'gatsby-plugin-image'
 import PropTypes from 'prop-types'
 import React from 'react'
 
-const PostCard = ({ count, postClass, frontmatter, slug }) => {
+interface PostCardProps {
+  count: number
+  postClass?: string
+  frontmatter: {
+    title: string
+    thumbnail?: ImageDataLike
+  }
+  slug: string
+}
+
+const PostCard = ({ count, postClass, frontmatter, slug }: PostCardProps) => {
   return (
     <article
       className={`post-card ${

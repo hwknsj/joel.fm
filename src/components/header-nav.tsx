@@ -1,14 +1,27 @@
+import HeaderImage from './header-image'
+import HeaderLogo from './header-logo'
+import SocialLinks from './social-links'
 import { css } from '@emotion/react'
 import cx from 'classnames'
 import { Link } from 'gatsby'
+import type { GatsbyImageProps } from 'gatsby-image'
+import type { IGatsbyImageData, ImageDataLike } from 'gatsby-plugin-image'
 import PropTypes from 'prop-types'
 import React from 'react'
 
-import HeaderImage from './header-image'
-import HeaderLogo from './HeaderLogo'
-import SocialLinks from './social-links'
+interface HeaderNavSocialProps {
+  toggleNav: boolean
+  resumeUrl: string
+}
 
-const HeaderNavSocial = ({ toggleNav, resumeUrl }) => {
+interface HeaderNavProps extends HeaderNavSocialProps {
+  setToggleNav: (value: boolean) => void
+  logo: ImageDataLike
+  title: string
+  headerImgs: Queries.FileConnection
+}
+
+const HeaderNavSocial = ({ toggleNav, resumeUrl }: HeaderNavSocialProps) => {
   return (
     <aside
       className={cx({
@@ -31,7 +44,7 @@ const HeaderNav = ({
   title,
   headerImgs,
   resumeUrl
-}) => {
+}: HeaderNavProps) => {
   const navLinks = [
     { text: 'Home', slug: '' },
     { text: 'About', slug: 'about' },
@@ -42,8 +55,8 @@ const HeaderNav = ({
   ]
 
   const randomIndex = (Math.random() * headerImgs.totalCount) | 0
-  const randomHeaderImg =
-    headerImgs.edges[randomIndex].node.childImageSharp.gatsbyImageData
+  const randomHeaderImg = headerImgs?.edges[randomIndex]?.node?.childImageSharp
+    ?.gatsbyImageData as IGatsbyImageData
   return (
     <header className='site-head'>
       <div className='site-head-container'>
@@ -52,7 +65,7 @@ const HeaderNav = ({
           aria-expanded={false}
           className='nav-burger'
           onClick={() => setToggleNav(!toggleNav)}
-          alt='navigation'
+          role='navigation'
           aria-label='navigation'
           css={css`
             border: 0;

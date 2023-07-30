@@ -4,13 +4,46 @@ import Helmet, { HelmetProps } from 'react-helmet'
 import React from 'react'
 
 interface SEOProps extends HelmetProps {
-  title: string
-  keywords: string[]
-  description: string
-  lang: string
+  title?: string
+  keywords?: string[]
+  description?: string
+  lang?: string
 }
 
-const SEO = ({ description, lang, meta, keywords, title }: SEOProps) => {
+const defaultKeywords = [
+  'joel.biz',
+  '@joel.biz',
+  'joel.fm',
+  'joel hawkins',
+  'joél',
+  'hawkins',
+  'torres',
+  'hwknsj',
+  'web design',
+  'web developer',
+  'web development',
+  'web designer',
+  'portland',
+  'pdx',
+  'javascript',
+  'typescript',
+  'reed college',
+  'jtor',
+  'nike',
+  'apple',
+  'react',
+  'software engineer',
+  'los angeles',
+  'LA',
+  'designer'
+]
+
+const SEO = ({
+  description = 'web design & development',
+  lang = 'en',
+  keywords = [],
+  title = 'joel.fm'
+}: SEOProps) => {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -64,16 +97,10 @@ const SEO = ({ description, lang, meta, keywords, title }: SEOProps) => {
           property: 'og:type',
           content: 'website'
         }
-      ]
-        .concat(
-          keywords.length > 0
-            ? {
-                name: 'keywords',
-                content: keywords.join(', ')
-              }
-            : []
-        )
-        .concat(meta)}
+      ].concat({
+        name: 'keywords',
+        content: [...keywords, ...defaultKeywords].join(', ')
+      })}
     >
       <html lang='en' />
       <title>{metaTitle}</title>
@@ -89,28 +116,13 @@ const SEO = ({ description, lang, meta, keywords, title }: SEOProps) => {
 SEO.defaultProps = {
   title: 'joel.fm',
   lang: 'en',
-  meta: [],
-  keywords: [
-    'blog',
-    'joel',
-    'hawkins',
-    'joel hawkins',
-    'joél hawkins torres',
-    'hwknsj',
-    'joel.fm',
-    'joel.biz',
-    '@joel.biz',
-    'gatsby',
-    'javascript',
-    'react'
-  ],
+  keywords: [],
   description: 'web design & development'
 }
 
 SEO.propTypes = {
   description: PropTypes.string,
   lang: PropTypes.string,
-  meta: PropTypes.arrayOf(PropTypes.object),
   keywords: PropTypes.arrayOf(PropTypes.string),
   title: PropTypes.string.isRequired
 }

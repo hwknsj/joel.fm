@@ -9,13 +9,13 @@ thumbnail: ./10.jpg
 
 ## Last Heavy AW18
 
-I designed the *Last Heavy* fashion microsite for the Autumn/Winter 2018 lookbook–Last Heavy's first season. It began as a personal project, combining my interests in fashion and internet art. As a model for the lookbook, I found myself extremely inspired by the carefully curated and meticulously detailed aesthetic that designer & art director, [Caesy Oney](http://caesyoney.com/), had cultivated.
+In late 2017, I designed a [promotional website for the *Last Heavy* Autumn/Winter 2018 collection lookbook](https://lastheavy.net)&mdash;Last Heavy's first season. It began as a personal project, combining my interests in fashion and internet art. As a model for the fashion line's first season, I identified closely with the unique aesthetic of the collection cultivated by designer & art director [Caesy Oney](https://caesyoney.com/)&mdash;drawing influence from esoteric pop-culture icons, hip-hop, skater culture&mdash;not taking itself too seriously.
 
-The [official website](https://lastheavy.com) for the Last Heavy fashion collection has many great design elements; the unique typeface and scrolling marquee text is an intriguing and novel element not often utilized in contemporary web design. Similarly, the urban/hip-hop inspired pieces are daringly juxtaposed against the rugged and rural wilderness environment, yet this contrast successfully highlights the bold design of the garments.
+The gothic typeface and scrolling marquee text are novel elements not often utilized in contemporary web design but harken back to the early Internet. The urban/hip-hop/punk-inspired pieces starkly contrast the rural wilderness backdrop in bold colors while the rugged, durable construction (reminiscient of workwear) feels appropriate in the environment.
 
 > See the lookbook at <a href='https://lastheavy.net' rel='noopener noreferrer' target='_blank'>lastheavy.net</a> or the official site at <a href='https://lastheavy.com' rel='noopener noreferrer' target='_blank'>lastheavy.com</a>.
 
-<div class='kg-gallery-container' >
+<section class='kg-gallery-container' >
   <div class="kg-gallery-row">
     <div class="col-12 kg-card">
       <img src='./1.jpg' alt='last heavy image 1' />
@@ -91,7 +91,7 @@ The [official website](https://lastheavy.com) for the Last Heavy fashion collect
   <div class="col-12 kg-card">
       <img src='./22.jpg' alt='last heavy image 22' />
   </div>
-    <div class="col-12 kg-card">
-        <img src='./23.jpg' alt='last heavy image 23' />
-    </div>
-</div>
+  <div class="col-12 kg-card">
+      <img src='./23.jpg' alt='last heavy image 23' />
+  </div>
+</section>

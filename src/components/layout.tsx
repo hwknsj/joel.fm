@@ -11,7 +11,7 @@ import { theme, globalCss } from './styles/theme'
 const GlobalStyles = memo(() => <Global styles={globalCss} />)
 GlobalStyles.displayName = `GlobalStyles`
 
-const Layout: React.FC<React.PropsWithChildren> = ({ children }) => {
+export const Layout: React.FC<React.PropsWithChildren> = ({ children }) => {
   const query = graphql`
     {
       site {

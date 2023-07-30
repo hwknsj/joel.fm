@@ -1,8 +1,7 @@
 import 'normalize.css'
-
-import React from 'react'
+import { Layout } from '@/components/index'
 import type { GatsbyBrowser } from 'gatsby'
-import Layout from '@/components/Layout'
+import React from 'react'
 
 export const wrapPageElement: GatsbyBrowser['wrapPageElement'] = ({
   element,

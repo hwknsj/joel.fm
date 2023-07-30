@@ -1,4 +1,4 @@
-import ImageGrid from '@/components/ImageGrid'
+import ImageGrid from '@/components/image-grid'
 import SEO from '@/components/SEO'
 import { graphql, useStaticQuery } from 'gatsby'
 import React from 'react'

@@ -1,9 +1,37 @@
-import SEO from '@/components/SEO'
+import { SEO } from '@/components/index'
 import styled from '@emotion/styled'
+import cx from 'classnames'
 import { graphql } from 'gatsby'
-import { GatsbyImage } from 'gatsby-plugin-image'
+import { GatsbyImage, IGatsbyImageData } from 'gatsby-plugin-image'
 import PropTypes from 'prop-types'
 import React from 'react'
+
+interface BlogPostQuery {
+  data: {
+    site: {
+      siteMetadata: {
+        title: string
+        author: string
+      }
+    }
+    post: {
+      id: string | number
+      excerpt?: string
+      frontmatter: {
+        title: string
+        date: string
+        description?: string
+        url: string
+        thumbnail?: {
+          childImageSharp?: {
+            gatsbyImageData?: IGatsbyImageData
+          }
+        }
+      }
+      html: string
+    }
+  }
+}
 
 const BlogPostTemplateStyles = styled.article`
   max-width: 90vw;
@@ -27,16 +55,17 @@ const BlogPostTemplate = ({
       frontmatter: { thumbnail, title, description, url }
     }
   }
-}) => {
+}: BlogPostQuery) => {
   return (
     <>
       <SEO
         title={`${title} | ${site.siteMetadata.title}`}
         description={description || excerpt}
       />
-      {/* <article className={`post-content ${thumbnail || 'no-image'}`}> */}
       <BlogPostTemplateStyles
-        className={`page-template post-content ${thumbnail || 'no-image'}`}
+        className={cx(`page-template`, `post-content`, {
+          [`no-image`]: !thumbnail
+        })}
       >
         <header className='post-content-header'>
           <h2 className='post-content-title'>{title}</h2>
@@ -46,10 +75,10 @@ const BlogPostTemplate = ({
           {description || excerpt}
         </p>
 
-        {thumbnail && (
+        {thumbnail?.childImageSharp?.gatsbyImageData && (
           <section className='post-content-image'>
             <GatsbyImage
-              image={thumbnail.childImageSharp.gatsbyImageData}
+              image={thumbnail?.childImageSharp?.gatsbyImageData}
               className='kg-image'
               alt={title}
             />
@@ -57,7 +86,12 @@ const BlogPostTemplate = ({
         )}
         {url && (
           <h6 className='text-center'>
-            <a href={url} target='_blank' rel='noopener noreferrer' alt={title}>
+            <a
+              href={url}
+              target='_blank'
+              rel='noopener noreferrer'
+              aria-label={title}
+            >
               {url}
             </a>
           </h6>

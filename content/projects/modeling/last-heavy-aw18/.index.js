@@ -1,7 +1,6 @@
+import { Layout } from '@/components/index'
 import { graphql, useStaticQuery } from 'gatsby'
 import React from 'react'
-
-import Layout from '@/components/Layout'
 
 const LastHeavyModelingPage = props => {
   const query = graphql`
@@ -27,7 +26,7 @@ const LastHeavyModelingPage = props => {
         combining my interests in fashion and internet art. As a model for the
         lookbook, I found myself extremely inspired by the carefully curated and
         meticulously detailed aesthetic that designer & art director, [Caesy
-        Oney](http://caesyoney.com/), had cultivated. The [official
+        Oney](https://caesyoney.com/), had cultivated. The [official
         website](https://lastheavy.com) for the Last Heavy fashion collection
         has many great design elements; the unique typeface and scrolling
         marquee text is an intriguing and novel element not often utilized in

@@ -1,6 +1,6 @@
 import type { Theme } from './styles/theme'
 import styled from '@emotion/styled'
-import { GatsbyImage } from 'gatsby-plugin-image'
+import { GatsbyImage, IGatsbyImageData } from 'gatsby-plugin-image'
 import PropTypes from 'prop-types'
 import React from 'react'
 
@@ -20,7 +20,7 @@ const HeaderImageStyles = styled.header`
   }
 `
 
-const HeaderImage = ({ headerImg }) => {
+const HeaderImage = ({ headerImg }: { headerImg: IGatsbyImageData }) => {
   return (
     <HeaderImageStyles>
       <GatsbyImage image={headerImg} alt='artsy header image' />

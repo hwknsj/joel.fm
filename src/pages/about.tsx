@@ -2,7 +2,7 @@ import { InfoBox } from '@/components/info-box'
 import { SectionSerif } from '@/components/section-serif'
 import SEO from '@/components/seo'
 import SocialLinks from '@/components/social-links'
-import { graphql } from 'gatsby'
+import { graphql, PageProps } from 'gatsby'
 import PropTypes from 'prop-types'
 import React from 'react'
 
@@ -13,30 +13,11 @@ const AboutPage = ({
     },
     resumePublicUrl: { publicURL }
   }
-}) => {
+}: PageProps<Queries.AboutPageQuery>) => {
   const resumeUrl = publicURL
   return (
     <>
-      <SEO
-        title={`About | ${title}`}
-        keywords={[
-          'blog',
-          'joel',
-          'hawkins',
-          'torres',
-          'joel torres',
-          'joel.fm',
-          'joel hawkins',
-          'joel.biz',
-          'gatsby',
-          'javascript',
-          'typescript',
-          'jtor',
-          'nike',
-          'react',
-          'web development'
-        ]}
-      />
+      <SEO title={`about | ${title}`} />
 
       <article className='post-content page-template no-image'>
         <main className='post-content-body'>
@@ -225,8 +206,8 @@ const AboutPage = ({
   )
 }
 
-export const resumeUrlQuery = graphql`
-  query {
+export const query = graphql`
+  query AboutPageQuery {
     site {
       siteMetadata {
         title

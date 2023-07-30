@@ -10,6 +10,7 @@ export default {
     png: path.resolve(__dirname, `content/assets/logo.png`),
     svg: path.resolve(__dirname, `static/favicon.svg`)
   },
+  resumeFilename: 'joel-hawkins-torres-resume.pdf',
   prefix: '/',
   author: 'joél hawkins torres <joel@joel.fm>',
   email: 'joel@joel.fm',
