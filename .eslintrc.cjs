@@ -45,7 +45,8 @@ module.exports = {
     }
   },
   rules: {
-    'react/jsx-pascal-case': 0
+    'react/jsx-pascal-case': ['error', 'never', 'warn', 'never'],
+    'jsx-a11y/anchor-is-valid': ['error', 'never', 'warn', 'never']
   }
   // rules: {
   //   // '@emotion/jsx-import': 'error',

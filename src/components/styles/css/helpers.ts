@@ -1,59 +1,60 @@
 import { css } from '@emotion/react'
 import { darken, lighten } from 'polished'
+import type { Theme } from '../theme'
 
 const rem = [0, 1, 2, 3, 4, 5]
 const pmClasses = rem.map(
-  x => `
-  .p-${x} {
-    padding: ${x}rem !important;
-  }
-  .pl-${x} {
-    padding-left: ${x}rem !important;
-  }
-  .pr-${x} {
-    padding-right: ${x}rem !important;
-  }
-  .pt-${x} {
-    padding-top: ${x}rem !important;
-  }
-  .pb-${x} {
-    padding-bottom: ${x}rem !important;
-  }
-  .px-${x} {
-    padding-left: ${x}rem !important;
-    padding-right: ${x}rem !important;
-  }
-  .py-${x} {
-    padding-top: ${x}rem !important;
-    padding-bottom: ${x}rem !important;
-  }
-  .m-${x} {
-    margin: ${x}rem !important;
-  }
-  .ml-${x} {
-    margin-left: ${x}rem !important;
-  }
-  .mr-${x} {
-    margin-right: ${x}rem !important;
-  }
-  .mt-${x} {
-    margin-top: ${x}rem !important;
-  }
-  .mb-${x} {
-    margin-bottom: ${x}rem !important;
-  }
-  .mx-${x} {
-    margin-left: ${x}rem !important;
-    margin-right: ${x}rem !important;
-  }
-  .my-${x} {
-    margin-top: ${x}rem !important;
-    margin-bottom: ${x}rem !important;
-  }
-`
+  x => css`
+    .p-${x} {
+      padding: ${x}rem !important;
+    }
+    .pl-${x} {
+      padding-left: ${x}rem !important;
+    }
+    .pr-${x} {
+      padding-right: ${x}rem !important;
+    }
+    .pt-${x} {
+      padding-top: ${x}rem !important;
+    }
+    .pb-${x} {
+      padding-bottom: ${x}rem !important;
+    }
+    .px-${x} {
+      padding-left: ${x}rem !important;
+      padding-right: ${x}rem !important;
+    }
+    .py-${x} {
+      padding-top: ${x}rem !important;
+      padding-bottom: ${x}rem !important;
+    }
+    .m-${x} {
+      margin: ${x}rem !important;
+    }
+    .ml-${x} {
+      margin-left: ${x}rem !important;
+    }
+    .mr-${x} {
+      margin-right: ${x}rem !important;
+    }
+    .mt-${x} {
+      margin-top: ${x}rem !important;
+    }
+    .mb-${x} {
+      margin-bottom: ${x}rem !important;
+    }
+    .mx-${x} {
+      margin-left: ${x}rem !important;
+      margin-right: ${x}rem !important;
+    }
+    .my-${x} {
+      margin-top: ${x}rem !important;
+      margin-bottom: ${x}rem !important;
+    }
+  `
 )
 
-export const helpers = theme => css`
+export const helpers = (theme: Theme) => css`
   .img {
     display: block;
     width: 100%;
@@ -164,7 +165,7 @@ export const helpers = theme => css`
   .alt-black {
     color: ${theme.altBlack} !important;
   }
-  ${css(pmClasses)};
+  ${pmClasses}
   .center-el-x {
     margin: 0 auto;
     left: 50%;
@@ -180,7 +181,9 @@ export const helpers = theme => css`
     direction: rtl;
     font-variant-ligatures: common-ligatures;
   }
-  /* .p0 {
+`
+
+/* .p0 {
     padding: 0 !important;
   }
   .p2 {
@@ -315,6 +318,5 @@ export const helpers = theme => css`
   .mb-4 {
     margin-bottom: 4rem !important;
   } */
-`
 
 export default helpers

@@ -19,6 +19,7 @@ import {
 
 import {
   fontFaces,
+  fonts,
   fontFraktur,
   fontSerif,
   fontSans,
@@ -267,6 +268,7 @@ export const theme: Theme = {
 
 // IDEA: there ought to be (possibly is) a better way to achieve this
 export const globalCss = css`
+  ${fontFaces}
   html {
     box-sizing: border-box;
     padding: 0;
@@ -329,7 +331,6 @@ export const globalCss = css`
       font-style: normal;
     }
   }
-  ${fontFaces}
   ${helpers(theme)};
   ${reset(theme)};
   ${ghost(theme)};
@@ -344,7 +345,3 @@ export const globalCss = css`
   ${animations};
   ${screen(theme)};
 `
-
-// const GlobalStylesMemo = memo(() => <Global styles={globalCss} />)
-// GlobalStylesMemo.displayName = `GlobalStyles`
-// export default GlobalStylesMemo

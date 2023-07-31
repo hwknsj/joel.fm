@@ -1,4 +1,4 @@
-import path from 'path'
+import path from 'node:path'
 import siteConfig from './site-config'
 import type { GatsbyConfig } from 'gatsby'
 
@@ -36,6 +36,20 @@ export default {
       options: {
         path: path.resolve(__dirname, 'content', 'assets'),
         name: `assets`
+      }
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: path.resolve(__dirname, 'content', 'assets', 'files'),
+        name: `files`
+      }
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: path.resolve(__dirname, 'content', 'assets', 'fonts'),
+        name: `fonts`
       }
     },
     {
@@ -103,11 +117,117 @@ export default {
       }
     },
     {
-      resolve: `gatsby-plugin-web-font-loader`,
+      resolve: `gatsby-plugin-webfonts`,
       options: {
-        typekit: {
-          id: process.env.TYPEKIT_ID,
-          families: ['eskapade-fraktur', 'corporate-s', 'corporate-a']
+        fonts: {
+          selfHosted: [
+            {
+              family: 'EskapadeFraktur',
+              urls: {
+                ttf: path.join(
+                  './content',
+                  'assets',
+                  'fonts',
+                  'EskapadeFraktur-Regular.otf'
+                )
+              },
+              fontDisplay: 'swap',
+              fontVariant: 'tabular-nums',
+              fontStyle: 'normal'
+            },
+            {
+              family: 'EskapadeFraktur',
+              urls: {
+                ttf: path.join(
+                  './content',
+                  'assets',
+                  'fonts',
+                  'EskapadeFraktur-Italic.otf'
+                )
+              },
+              fontStyle: 'italic',
+              fontDisplay: 'swap',
+              fontVariant: 'tabular-nums'
+            },
+            {
+              family: 'CorporateS',
+              urls: {
+                ttf: path.join(
+                  './content',
+                  'assets',
+                  'fonts',
+                  'CorporateS-ProRegular.ttf'
+                )
+              },
+              fontStyle: 'normal',
+              fontDisplay: 'swap'
+            },
+            {
+              family: 'CorporateS',
+              urls: {
+                ttf: path.join(
+                  './content',
+                  'assets',
+                  'fonts',
+                  'CorporateSMedium.ttf'
+                )
+              },
+              fontWeight: '600',
+              fontDisplay: 'swap'
+            },
+            {
+              family: 'CorporateS',
+              urls: {
+                ttf: path.join(
+                  './content',
+                  'assets',
+                  'fonts',
+                  'CorporateSBold.ttf'
+                )
+              },
+              fontWeight: 'bold',
+              fontDisplay: 'swap'
+            },
+            {
+              family: 'CorporateS',
+              urls: {
+                ttf: path.join(
+                  './content',
+                  'assets',
+                  'fonts',
+                  'CorporateSItalic.ttf'
+                )
+              },
+              fontStyle: 'italic',
+              fontDisplay: 'swap'
+            },
+            {
+              family: 'CorporateS',
+              urls: {
+                ttf: path.join(
+                  './content',
+                  'assets',
+                  'fonts',
+                  'CorporateSLight.ttf'
+                )
+              },
+              fontWeight: '200',
+              fontDisplay: 'swap'
+            },
+            {
+              family: 'CorporateA',
+              urls: {
+                ttf: path.join(
+                  './content',
+                  'assets',
+                  'fonts',
+                  'CorporateARegular.ttf'
+                )
+              },
+              fontFilePath: 'fonts/CorporateARegular',
+              fontDisplay: 'swap'
+            }
+          ]
         }
       }
     },

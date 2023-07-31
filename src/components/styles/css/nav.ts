@@ -3,8 +3,6 @@ import { darken, lighten } from 'polished'
 import type { Theme } from '../theme'
 
 export const nav = (theme: Theme) => css`
-  /* Site Navigation */
-  /* ---------------------------------------------------------- */
   .site-head {
     position: relative;
     z-index: 300;
@@ -131,8 +129,6 @@ export const nav = (theme: Theme) => css`
       opacity: 1;
     }
   }
-  /* Modeling last-heavy page */
-  /* --------------------------------------------------------- */
   .img-container {
     display: grid;
     grid-template-columns: auto;
@@ -147,8 +143,6 @@ export const nav = (theme: Theme) => css`
       max-width: 50%;
     }
   }
-  /* Mobile Nav Menu */
-  /* ---------------------------------------------------------- */
   .nav-burger {
     display: none;
     position: absolute;
@@ -313,8 +307,6 @@ export const nav = (theme: Theme) => css`
       transform: translateY(-4vw);
     }
   }
-  /* Post Feed */
-  /* ---------------------------------------------------------- */
   .post-feed {
     display: flex;
     align-items: center;
@@ -401,7 +393,6 @@ export const nav = (theme: Theme) => css`
     text-align: center;
     transition: all 0.3s cubic-bezier(0.33, 0, 0.2, 1);
   }
-  /* Posts without images */
   .post-card.no-image:before {
     display: block;
     /* content: counter(posts); */
@@ -455,8 +446,6 @@ export const nav = (theme: Theme) => css`
       }
     }
   }
-  /* Post Content */
-  /* ---------------------------------------------------------- */
   .post-content {
     max-width: ${theme.maxWidthMd};
     margin: 0 auto;
@@ -617,9 +606,6 @@ export const nav = (theme: Theme) => css`
     text-decoration: none !important;
     box-shadow: none !important;
   }
-  /* Social Links Nav
-/* ---------------------------------------------------------- */
-
   .social-links {
     display: flex;
     align-items: center;
@@ -631,7 +617,8 @@ export const nav = (theme: Theme) => css`
       opacity: 0.4;
       transition: opacity 0.4s ${theme.cubicBezier};
       figcaption,
-      div, label {
+      div,
+      label {
         opacity: 0;
         position: absolute;
         margin-top: calc(-1 * ${theme.height});
@@ -647,7 +634,8 @@ export const nav = (theme: Theme) => css`
         text-decoration: none;
         opacity: 1;
         figcaption,
-        div, label {
+        div,
+        label {
           opacity: 0.9;
         }
       }

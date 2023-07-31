@@ -1,8 +1,9 @@
+import { css } from '@emotion/react'
 import { fontFace } from 'polished'
 
-export const fontFraktur = `'EskapadeFraktur', eskapade-fraktur, serif`
-export const fontSerif = `'CorporateA', corporate-a, Times, 'Times New Roman', Georgia, serif`
-export const fontSans = `'CorporateS', corporate-s, 'Helvetica Neue', Helvetica, sans-serif`
+export const fontFraktur = `'EskapadeFraktur', 'Eskapade Fraktur', serif`
+export const fontSerif = `'CorporateA', 'Corporate A', Times, 'Times New Roman', Georgia, serif`
+export const fontSans = `'CorporateS', 'Corporate S', 'Helvetica Neue', Helvetica, sans-serif`
 export const fontMono = `'SF Mono', Menlo, Courier, monospace`
 
 export const [sans, serif, mono] = [fontSans, fontSerif, fontMono]
@@ -88,53 +89,59 @@ export const fontFaces = [
 ].map(font => fontFace(font))
 
 // For code splitting purposes, separate font-face definitions
-export const fonts = String.raw`
+export const fonts = css`
   @font-face {
     font-family: 'EskapadeFraktur';
     src: url('fonts/EskapadeFraktur-Regular.otf');
-    font-weight: 400;
+    font-display: swap;
   }
 
   @font-face {
     font-family: 'EskapadeFraktur';
     src: url('fonts/EskapadeFraktur-Italic.otf');
     font-style: italic;
+    font-display: swap;
   }
 
   @font-face {
     font-family: 'CorporateS';
     src: url('fonts/CorporateS-ProRegular.ttf');
-    font-weight: 400;
+    font-display: swap;
   }
 
   @font-face {
     font-family: 'CorporateS';
     src: url('fonts/CorporateSBold.ttf');
     font-weight: bold;
+    font-display: swap;
   }
 
   @font-face {
     font-family: 'CorporateS';
     src: url('fonts/CorporateSItalic.ttf');
     font-style: italic;
+    font-display: swap;
   }
 
   @font-face {
     font-family: 'CorporateS';
     src: url('fonts/CorporateSLight.ttf');
     font-weight: 200;
+    font-display: swap;
   }
 
   @font-face {
     font-family: 'CorporateS';
     src: url('fonts/CorporateSMedium.ttf');
     font-weight: 600;
+    font-display: swap;
   }
 
   @font-face {
     font-family: 'CorporateA';
     src: url('fonts/CorporateARegular.ttf');
     font-weight: 400;
+    font-display: swap;
   }
 
   .serif {
@@ -168,11 +175,9 @@ export const fonts = String.raw`
     font-family: ${fraktur};
   }
   .mono {
-    font-family: ${mono}
+    font-family: ${mono};
   }
   .font-mono {
-    font-family: ${mono}
+    font-family: ${mono};
   }
 `
-
-export default fonts

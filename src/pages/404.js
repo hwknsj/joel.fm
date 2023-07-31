@@ -1,4 +1,4 @@
-import SEO from '@/components/SEO'
+import SEO from '@/components/seo'
 import { Link, graphql } from 'gatsby'
 import PropTypes from 'prop-types'
 import React from 'react'
