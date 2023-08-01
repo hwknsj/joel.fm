@@ -18,22 +18,23 @@ jobs:
         source: "."
         target: "/var/www/joel.fm/src"
 
-    # - name: Node
-    #   uses: actions/setup-node@v3.6.0
-    #   env:
-    #     host: ${{ secrets.HOST }}
-    #     username: ${{ secrets.USERNAME }}
-    #     port: ${{ secrets.PORT }}
-    #     key: ${{ secrets.SSH_KEY }}
-    #   with:
-    #     host: ${{ secrets.HOST }}
-    #     username: ${{ secrets.USERNAME }}
-    #     port: ${{ secrets.PORT }}
-    #     key: ${{ secrets.SSH_KEY }}
-    #     node-version: latest
-    # - run: yarn set version canary
-    # - run: yarn
-    # - run: yarn build
+    - name: Node
+      uses: actions/setup-node@v3.6.0
+      env:
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USERNAME }}
+        port: ${{ secrets.PORT }}
+        key: ${{ secrets.SSH_KEY }}
+      with:
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USERNAME }}
+        port: ${{ secrets.PORT }}
+        key: ${{ secrets.SSH_KEY }}
+        node-version: latest
+    - run: npm i -g yarn@latest
+    - run: yarn set version canary
+    - run: yarn
+    - run: yarn build
 
     - name: Executing remote command
       uses: appleboy/ssh-action@master
