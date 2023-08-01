@@ -146,7 +146,7 @@ export const modelingPageQuery = graphql`
     }
     allMarkdownRemark(
       filter: { fileAbsolutePath: { regex: "/modeling/" } }
-      sort: { fields: [frontmatter___date], order: DESC }
+      sort: [{ frontmatter: { date: DESC } }]
     ) {
       posts: edges {
         node {

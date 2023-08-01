@@ -67,9 +67,9 @@ export const createPages: GatsbyNode['createPages'] = async ({
   const blogPost = path.resolve(`./src/templates/blog-post.tsx`)
   return await graphql(
     `
-      {
+      query allMarkdownPosts {
         allMarkdownRemark(
-          sort: { fields: [frontmatter___date], order: DESC }
+          sort: [{ frontmatter: { date: DESC } }]
           limit: 1000
         ) {
           edges {

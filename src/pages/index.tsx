@@ -28,22 +28,7 @@ const IndexPage = ({
 
   return (
     <>
-      <SEO
-        title={`${title} | joel.fm`}
-        keywords={[
-          'joel',
-          'hawkins',
-          'torres',
-          'joel hawkins',
-          'joel hawkins torres',
-          'joel.biz',
-          '@joel.biz',
-          'joel.fm',
-          'gatsby',
-          'javascript',
-          'react'
-        ]}
-      />
+      <SEO title={title} />
       {description && (
         <header className='page-head'>
           <h2 className='page-head-title'>{description}</h2>
@@ -96,7 +81,7 @@ export const query = graphql`
         description
       }
     }
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+    allMarkdownRemark(sort: [{ frontmatter: { date: DESC } }]) {
       posts: edges {
         node {
           excerpt

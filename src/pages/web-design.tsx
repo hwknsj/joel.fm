@@ -1,30 +1,30 @@
 import ProjectItem from '@/components/project-item'
 import SEO from '@/components/seo'
-import { graphql } from 'gatsby'
+import { graphql, PageProps } from 'gatsby'
 import { ImageDataLike } from 'gatsby-plugin-image'
 import PropTypes from 'prop-types'
 import React from 'react'
 
-type PageProps = {
-  data: {
-    site: {
-      siteMetadata: { title: string; description: string }
-    }
-    allMarkdownRemark: {
-      posts: [
-        {
-          node: {
-            frontmatter: {
-              title: string
-              thumbnail?: ImageDataLike
-            }
-            fields: { slug: string }
-          }
-        }
-      ]
-    }
-  }
-}
+// type PageProps = {
+//   data: {
+//     site: {
+//       siteMetadata: { title: string; description: string }
+//     }
+//     allMarkdownRemark: {
+//       posts: [
+//         {
+//           node: {
+//             frontmatter: {
+//               title: string
+//               thumbnail?: ImageDataLike
+//             }
+//             fields: { slug: string }
+//           }
+//         }
+//       ]
+//     }
+//   }
+// }
 
 const WebDesignPage = ({
   data: {
@@ -33,27 +33,11 @@ const WebDesignPage = ({
     },
     allMarkdownRemark: { posts }
   }
-}: PageProps) => {
+}: PageProps<Queries.WebDesignPageQuery>) => {
   let postCounter = 0
   return (
     <>
-      <SEO
-        title={`Web Design | ${title}`}
-        keywords={[
-          'portfolio',
-          'blog',
-          'joel',
-          'hawkins',
-          'joel hawkins',
-          'joel.fm',
-          'joel.biz',
-          'web design',
-          'web developer',
-          'gatsby',
-          'javascript',
-          'react'
-        ]}
-      />
+      <SEO title={`Web Design | ${title}`} />
 
       <article className='post-content page-template no-image'>
         <section className='post-content-body'>
@@ -142,8 +126,8 @@ const WebDesignPage = ({
   )
 }
 
-export const webDesignPageQuery = graphql`
-  {
+export const query = graphql`
+  query WebDesignPage {
     site: site {
       siteMetadata {
         title
@@ -151,7 +135,7 @@ export const webDesignPageQuery = graphql`
     }
     allMarkdownRemark(
       filter: { fileAbsolutePath: { regex: "/web-design/" } }
-      sort: { fields: [frontmatter___date], order: DESC }
+      sort: [{ frontmatter: { date: DESC } }]
     ) {
       posts: edges {
         node {

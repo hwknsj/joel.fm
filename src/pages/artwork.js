@@ -127,7 +127,7 @@ export const artworkPageQuery = graphql`
     }
     allMarkdownRemark(
       filter: { fileAbsolutePath: { regex: "/artwork/" } }
-      sort: { fields: [frontmatter___date], order: DESC }
+      sort: [{ frontmatter: { date: DESC } }]
     ) {
       posts: edges {
         node {

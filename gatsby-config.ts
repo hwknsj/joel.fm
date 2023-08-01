@@ -224,7 +224,6 @@ export default {
                   'CorporateARegular.ttf'
                 )
               },
-              fontFilePath: 'fonts/CorporateARegular',
               fontDisplay: 'swap'
             }
           ]

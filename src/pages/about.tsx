@@ -207,7 +207,7 @@ const AboutPage = ({
 }
 
 export const query = graphql`
-  query AboutPageQuery {
+  query AboutPage {
     site {
       siteMetadata {
         title

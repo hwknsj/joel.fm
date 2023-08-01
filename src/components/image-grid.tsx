@@ -1,7 +1,7 @@
 import styled from '@emotion/styled'
 import { graphql, useStaticQuery } from 'gatsby'
 import { GatsbyImage } from 'gatsby-plugin-image'
-import React, { useMemo } from 'react'
+import React from 'react'
 
 const ImageGridStyles = styled.div`
   display: grid;
@@ -28,7 +28,7 @@ const ImageGrid = () => {
           relativeDirectory: { eq: "ig" }
           extension: { regex: "/(jpg)|(jpeg)|(png)/" }
         }
-        sort: { fields: name, order: DESC }
+        sort: { name: DESC }
       ) {
         nodes {
           childImageSharp {
@@ -41,15 +41,11 @@ const ImageGrid = () => {
   `
   const data = useStaticQuery(query)
 
-  const memoizedData = useMemo(() => data)
-
-  const images = memoizedData.images.nodes || []
-
   return (
     <ImageGridStyles>
-      {images &&
-        images.map(
-          node =>
+      {data?.images?.nodes &&
+        data?.images?.nodes.map(
+          (node: (typeof data.images.nodes)[0]) =>
             node.childImageSharp && (
               <GatsbyImage
                 image={node.childImageSharp.gatsbyImageData}

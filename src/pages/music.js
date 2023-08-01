@@ -99,7 +99,7 @@ export const musicPageQuery = graphql`
     }
     allMarkdownRemark(
       filter: { fileAbsolutePath: { regex: "/music/" } }
-      sort: { fields: [frontmatter___date], order: DESC }
+      sort: [{ frontmatter: { date: DESC } }]
     ) {
       posts: edges {
         node {
