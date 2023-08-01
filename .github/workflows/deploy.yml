@@ -4,26 +4,28 @@ on: [push]
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
     environment: vps
-
     steps:
     - uses: actions/checkout@v1
-
     - name: Copy repository contents via scp
       uses: appleboy/scp-action@master
       env:
         HOST: ${{ secrets.HOST }}
         USERNAME: ${{ secrets.USERNAME }}
         PORT: ${{ secrets.PORT }}
-        KEY: ${{ secrets.SSHKEY }}
+        KEY: ${{ secrets.SSH_KEY }}
       with:
         source: "."
         target: "/var/www/joel.fm/src"
 
-    - name: Node shit
+    - name: Node
       uses: actions/setup-node@v3.6.0
+      env:
+        HOST: ${{ secrets.HOST }}
+        USERNAME: ${{ secrets.USERNAME }}
+        PORT: ${{ secrets.PORT }}
+        KEY: ${{ secrets.SSH_KEY }}
       with:
         node-version: latest
     - run: yarn set version canary
@@ -34,9 +36,9 @@ jobs:
       uses: appleboy/ssh-action@master
       with:
         host: ${{ secrets.HOST }}
-        USERNAME: ${{ secrets.USERNAME }}
-        PORT: ${{ secrets.PORT }}
-        KEY: ${{ secrets.SSHKEY }}
+        username: ${{ secrets.USERNAME }}
+        port: ${{ secrets.PORT }}
+        key: ${{ secrets.SSH_KEY }}
         script: |
           cd /var/www/joel.fm/src
           yarn run clean
