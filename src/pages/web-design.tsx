@@ -29,6 +29,7 @@ import React from 'react'
 const WebDesignPage = ({
   data: {
     site: {
+      // @ts-expect-error bullshit
       siteMetadata: { title, description }
     },
     allMarkdownRemark: { posts }

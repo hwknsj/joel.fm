@@ -8,8 +8,8 @@ import Footer from './footer'
 import HeaderNav from './header-nav'
 import { theme, globalCss } from './styles/theme'
 
-const GlobalStyles = memo(() => <Global styles={globalCss} />)
-GlobalStyles.displayName = `GlobalStyles`
+// const GlobalStyles = memo(() => <Global styles={globalCss} />)
+// GlobalStyles.displayName = `GlobalStyles`
 
 export const Layout: React.FC<React.PropsWithChildren> = ({ children }) => {
   const query = graphql`
@@ -59,7 +59,7 @@ export const Layout: React.FC<React.PropsWithChildren> = ({ children }) => {
 
   return (
     <ThemeProvider theme={theme}>
-      <GlobalStyles />
+      <Global styles={globalCss} />
       <div
         className={cx('site-wrapper', {
           'site-head-open': toggleNav

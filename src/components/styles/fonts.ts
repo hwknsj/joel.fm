@@ -23,67 +23,67 @@ export const [fraktur, body, code, title] = [
 export const fontFaces = [
   {
     fontFamily: 'EskapadeFraktur',
-    fontFilePath: '/fonts/EskapadeFraktur-Regular',
+    fontFilePath: '/static/fonts/EskapadeFraktur-Regular',
     fontDisplay: 'swap',
-    localFonts: ['Eskapade Fraktur', 'Eskapade Fraktur Regular'],
+    // localFonts: ['Eskapade Fraktur', 'Eskapade Fraktur Regular'],
     fontVariant: 'tabular-nums',
     fontStyle: 'normal',
     fileFormats: ['otf']
   },
   {
     fontFamily: 'EskapadeFraktur',
-    fontFilePath: '/fonts/EskapadeFraktur-Italic',
+    fontFilePath: '/static/fonts/EskapadeFraktur-Italic',
     fontDisplay: 'swap',
-    localFonts: ['Eskapade Fraktur Italic'],
+    // localFonts: ['Eskapade Fraktur Italic'],
     fontVariant: 'tabular-nums',
     fontStyle: 'italic',
     fileFormats: ['otf']
   },
   {
     fontFamily: 'CorporateS',
-    fontFilePath: '/fonts/CorporateS-ProRegular',
+    fontFilePath: '/static/fonts/CorporateS-ProRegular',
     fontDisplay: 'swap',
-    localFonts: ['Corporate S', 'Corporate S Pro'],
+    // localFonts: ['Corporate S', 'Corporate S Pro'],
     fontStyle: 'normal',
     fileFormats: ['ttf']
   },
   {
     fontFamily: 'CorporateS',
-    fontFilePath: '/fonts/CorporateSMedium',
+    fontFilePath: '/static/fonts/CorporateSMedium',
     fontDisplay: 'swap',
-    localFonts: ['Corporate S', 'Corporate S Pro'],
+    // localFonts: ['Corporate S', 'Corporate S Pro'],
     fontWeight: '600',
     fileFormats: ['ttf']
   },
   {
     fontFamily: 'CorporateS',
-    fontFilePath: '/fonts/CorporateSBold',
+    fontFilePath: '/static/fonts/CorporateSBold',
     fontDisplay: 'swap',
-    localFonts: ['Corporate S', 'Corporate S Pro'],
+    // localFonts: ['Corporate S', 'Corporate S Pro'],
     fontWeight: 'bold',
     fileFormats: ['ttf']
   },
   {
     fontFamily: 'CorporateS',
-    fontFilePath: '/fonts/CorporateSItalic',
+    fontFilePath: '/static/fonts/CorporateSItalic',
     fontDisplay: 'swap',
-    localFonts: ['Corporate S', 'Corporate S Pro'],
+    // localFonts: ['Corporate S', 'Corporate S Pro'],
     fontStyle: 'italic',
     fileFormats: ['ttf']
   },
   {
     fontFamily: 'CorporateS',
-    fontFilePath: '/fonts/CorporateSLight',
+    fontFilePath: '/static/fonts/CorporateSLight',
     fontDisplay: 'swap',
-    localFonts: ['Corporate S', 'Corporate S Pro'],
+    // localFonts: ['Corporate S', 'Corporate S Pro'],
     fontWeight: '200',
     fileFormats: ['ttf']
   },
   {
     fontFamily: 'CorporateA',
-    fontFilePath: '/fonts/CorporateARegular',
+    fontFilePath: '/static/fonts/CorporateARegular',
     fontDisplay: 'swap',
-    localFonts: ['Corporate A', 'Corporate A Pro'],
+    // localFonts: ['Corporate A', 'Corporate A Pro'],
     fileFormats: ['ttf']
   }
 ].map(font => fontFace(font))
@@ -92,49 +92,49 @@ export const fontFaces = [
 export const fonts = css`
   @font-face {
     font-family: 'EskapadeFraktur';
-    src: url('/fonts/EskapadeFraktur-Regular.otf');
+    src: url('/static/fonts/EskapadeFraktur-Regular.otf');
     font-style: normal;
     font-display: swap;
   }
   @font-face {
     font-family: 'EskapadeFraktur';
-    src: url('/fonts/EskapadeFraktur-Italic.otf');
+    src: url('/static/fonts/EskapadeFraktur-Italic.otf');
     font-style: italic;
     font-display: swap;
   }
   @font-face {
     font-family: 'CorporateS';
-    src: url('/fonts/CorporateS-ProRegular.ttf');
+    src: url('/static/fonts/CorporateS-ProRegular.ttf');
     font-display: swap;
     font-style: normal;
   }
   @font-face {
     font-family: 'CorporateS';
-    src: url('/fonts/CorporateSBold.ttf');
+    src: url('/static/fonts/CorporateSBold.ttf');
     font-weight: bold;
     font-display: swap;
   }
   @font-face {
     font-family: 'CorporateS';
-    src: url('/fonts/CorporateSItalic.ttf');
+    src: url('/static/fonts/CorporateSItalic.ttf');
     font-style: italic;
     font-display: swap;
   }
   @font-face {
     font-family: 'CorporateS';
-    src: url('/fonts/CorporateSLight.ttf');
+    src: url('/static/fonts/CorporateSLight.ttf');
     font-weight: 200;
     font-display: swap;
   }
   @font-face {
     font-family: 'CorporateS';
-    src: url('/fonts/CorporateSMedium.ttf');
+    src: url('/static/fonts/CorporateSMedium.ttf');
     font-weight: 600;
     font-display: swap;
   }
   @font-face {
     font-family: 'CorporateA';
-    src: url('/fonts/CorporateARegular.ttf');
+    src: url('/static/fonts/CorporateARegular.ttf');
     font-style: normal;
     font-display: swap;
   }

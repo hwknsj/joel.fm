@@ -269,6 +269,7 @@ export const theme: Theme = {
 // IDEA: there ought to be (possibly is) a better way to achieve this
 export const globalCss = css`
   ${fontFaces}
+  ${fonts}
   html {
     box-sizing: border-box;
     padding: 0;

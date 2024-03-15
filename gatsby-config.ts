@@ -124,12 +124,7 @@ export default {
             {
               family: 'EskapadeFraktur',
               urls: {
-                ttf: path.join(
-                  './content',
-                  'assets',
-                  'fonts',
-                  'EskapadeFraktur-Regular.otf'
-                )
+                otf: '/static/fonts/EskapadeFraktur-Regular.otf'
               },
               fontDisplay: 'swap',
               fontVariant: 'tabular-nums',
@@ -138,12 +133,7 @@ export default {
             {
               family: 'EskapadeFraktur',
               urls: {
-                ttf: path.join(
-                  './content',
-                  'assets',
-                  'fonts',
-                  'EskapadeFraktur-Italic.otf'
-                )
+                otf: '/static/fonts/EskapadeFraktur-Italic.otf'
               },
               fontStyle: 'italic',
               fontDisplay: 'swap',
@@ -152,12 +142,7 @@ export default {
             {
               family: 'CorporateS',
               urls: {
-                ttf: path.join(
-                  './content',
-                  'assets',
-                  'fonts',
-                  'CorporateS-ProRegular.ttf'
-                )
+                ttf: '/static/fonts/CorporateS-ProRegular.ttf'
               },
               fontStyle: 'normal',
               fontDisplay: 'swap'
@@ -165,12 +150,7 @@ export default {
             {
               family: 'CorporateS',
               urls: {
-                ttf: path.join(
-                  './content',
-                  'assets',
-                  'fonts',
-                  'CorporateSMedium.ttf'
-                )
+                ttf: '/static/fonts/CorporateSMedium.ttf'
               },
               fontWeight: '600',
               fontDisplay: 'swap'
@@ -178,12 +158,7 @@ export default {
             {
               family: 'CorporateS',
               urls: {
-                ttf: path.join(
-                  './content',
-                  'assets',
-                  'fonts',
-                  'CorporateSBold.ttf'
-                )
+                ttf: '/static/fonts/CorporateSBold.ttf'
               },
               fontWeight: 'bold',
               fontDisplay: 'swap'
@@ -191,12 +166,7 @@ export default {
             {
               family: 'CorporateS',
               urls: {
-                ttf: path.join(
-                  './content',
-                  'assets',
-                  'fonts',
-                  'CorporateSItalic.ttf'
-                )
+                ttf: '/static/fonts/CorporateSItalic.ttf'
               },
               fontStyle: 'italic',
               fontDisplay: 'swap'
@@ -204,12 +174,7 @@ export default {
             {
               family: 'CorporateS',
               urls: {
-                ttf: path.join(
-                  './content',
-                  'assets',
-                  'fonts',
-                  'CorporateSLight.ttf'
-                )
+                ttf: '/static/fonts/CorporateSLight.ttf'
               },
               fontWeight: '200',
               fontDisplay: 'swap'
@@ -217,12 +182,7 @@ export default {
             {
               family: 'CorporateA',
               urls: {
-                ttf: path.join(
-                  './content',
-                  'assets',
-                  'fonts',
-                  'CorporateARegular.ttf'
-                )
+                ttf: '/static/fonts/CorporateARegular.ttf'
               },
               fontDisplay: 'swap'
             }

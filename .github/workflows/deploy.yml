@@ -50,5 +50,4 @@ jobs:
           yarn run build
           rm -rf /var/www/joel.fm/html-test
           cd ..
-          ln -s src/public html-test
-          ln -s /var/www/thesis.joel.fm/html /var/www/joel.fm/html-test/thesis
+          ./scripts/symlinks.sh
