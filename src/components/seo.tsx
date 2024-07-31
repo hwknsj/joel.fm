@@ -1,115 +1,60 @@
-import { graphql, useStaticQuery } from 'gatsby'
+import { useSiteMetadata } from '@/lib/use-site-metadata'
 import PropTypes from 'prop-types'
-import Helmet, { HelmetProps } from 'react-helmet'
-import React from 'react'
+import * as React from 'react'
 
-interface SEOProps extends HelmetProps {
+interface SEOProps {
   title?: string
-  keywords?: string[]
   description?: string
   lang?: string
+  pathname?: string
+  type?: string
 }
 
-const defaultKeywords = [
-  'joel.biz',
-  '@joel.biz',
-  'joel.fm',
-  'joel hawkins',
-  'joél',
-  'hawkins',
-  'torres',
-  'hwknsj',
-  'web design',
-  'web developer',
-  'web development',
-  'web designer',
-  'portland',
-  'pdx',
-  'javascript',
-  'typescript',
-  'reed college',
-  'jtor',
-  'nike',
-  'apple',
-  'react',
-  'software engineer',
-  'los angeles',
-  'LA',
-  'designer'
-]
-
-const SEO = ({
+export const SEO = ({
   description = 'web design & development',
   lang = 'en',
-  keywords = [],
-  title = 'joel.fm'
+  title = 'joel.fm',
+  pathname = '/',
+  type = 'website'
 }: SEOProps) => {
-  const { site } = useStaticQuery(
-    graphql`
-      query {
-        site {
-          siteMetadata {
-            title
-            social {
-              instagram
-              twitter
-            }
-            description
-            author
-            siteUrl
-          }
-        }
-      }
-    `
-  )
+  const {
+    title: defaultTitle,
+    description: defaultDescription,
+    favicon,
+    siteUrl,
+    image,
+    social,
+    author
+  } = useSiteMetadata()
 
-  const metaTitle = title || site.siteMetadata.title
-  const metaDescription = description || site.siteMetadata.description
+  const seo = {
+    title: title || defaultTitle,
+    description: description || defaultDescription,
+    url: `${siteUrl}${pathname}`,
+    type: type,
+    favicon: favicon,
+    image: image
+  }
   return (
-    <Helmet
-      htmlAttributes={{
-        lang
-      }}
-      title={title || metaTitle}
-      titleTemplate={`%s | ${site.siteMetadata.title}`}
-      meta={[
-        {
-          name: 'description',
-          content: metaDescription
-        },
-        {
-          property: 'og:url',
-          content: site.siteMetadata.siteUrl
-        },
-        {
-          property: 'og:title',
-          content: title || metaTitle
-        },
-        {
-          property: 'og:site_name',
-          content: title || metaTitle
-        },
-        {
-          property: 'og:description',
-          content: metaDescription
-        },
-        {
-          property: 'og:type',
-          content: 'website'
-        }
-      ].concat({
-        name: 'keywords',
-        content: [...keywords, ...defaultKeywords].join(', ')
-      })}
-    >
-      <html lang='en' />
-      <title>{metaTitle}</title>
-      <link rel='icon' type='image/svg+xml' href='/favicon.svg' />
-      <link rel='alternate icon' href='/favicon.ico' />
-      <meta name='viewport' content='width=device-width, initial-scale=1.0' />
-      <meta charSet='utf-8' />
+    <>
+      <html lang={lang} />
+      <title>{seo.title}</title>
+      <link rel='icon' type='image/svg+xml' href={seo.favicon.svg} />
+      <link rel='alternate icon' href={seo.favicon.ico} />
       <meta httpEquiv='Content-Type' content='text/html;charset=UTF-8' />
-    </Helmet>
+      <meta charSet='utf-8' />
+      <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+      <meta name='description' content={seo.description} />
+      <meta name='image' content={seo.image} />
+      <meta name='og:description' content={seo.description} />
+      <meta name='og:url' content={seo.url} />
+      <meta name='og:site_name' content={seo.title} />
+      <meta name='og:type' content={`website`} />
+      <meta name='og:image' content={seo.image} />
+      <meta name='og:image:type' content='image/png' />
+      <meta name='og:image' content={seo.favicon.svg} />
+      <meta name='og:image:type' content='image/svg+xml' />
+    </>
   )
 }
 
@@ -126,5 +71,3 @@ SEO.propTypes = {
   keywords: PropTypes.arrayOf(PropTypes.string),
   title: PropTypes.string.isRequired
 }
-
-export default SEO

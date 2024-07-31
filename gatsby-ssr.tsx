@@ -1,5 +1,4 @@
 import 'normalize.css'
-import * as React from 'react'
 import type { GatsbySSR } from 'gatsby'
 import { Layout } from '@/components/index'
 
@@ -34,7 +33,7 @@ export const onRenderBody: GatsbySSR['onRenderBody'] = ({
       as='font'
       type='font/ttf'
       crossOrigin='anonymous'
-      key='CorporateS-ProRegular'
+      key='CorporateSRegular'
     />,
     <link
       rel='preload'

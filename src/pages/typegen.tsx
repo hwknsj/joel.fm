@@ -4,7 +4,7 @@ import { graphql, PageProps } from 'gatsby'
 const TypegenPage = ({ data }: PageProps<Queries.TypegenPageQuery>) => {
   return (
     <main>
-      <p>Site title: TODO</p>
+      <p>Site title: {data.site?.siteMetadata.title}</p>
       <hr />
       <p>Query Result:</p>
       <pre>
@@ -21,6 +21,33 @@ export const query = graphql`
     site {
       siteMetadata {
         title
+        author
+        siteUrl
+        social {
+          github {
+            url
+            user
+          }
+          instagram
+          linkedIn {
+            url
+            user
+          }
+          twitter
+        }
+        url
+        description
+        siteUrl
+        email
+        favicon {
+          ico
+          png
+          svg
+        }
+        image
+        logo
+        resumeFilename
+        shortName
       }
     }
   }

@@ -1,9 +1,14 @@
 /* eslint-disable */
-import { useCallback, useEffect, useRef } from 'react'
-
+import React, { useCallback, useEffect, useLayoutEffect, useRef } from 'react'
+let useSSREffect
+if (!window) {
+  useSSREffect = useLayoutEffect
+} else {
+  useSSREffect = useEffect
+}
 export const useIsMounted = () => {
   const ref = useRef(true)
-  useEffect(() => {
+  useSSREffect(() => {
     return () => {
       ref.current = false
     }

@@ -1,20 +1,8 @@
 import PostCard from '@/components/post-card'
-import SEO from '@/components/seo'
+import { SEO } from '@/components/seo'
 import { graphql, PageProps } from 'gatsby'
 import PropTypes from 'prop-types'
-import React from 'react'
-
-// export type DataProps = {
-//   site: {
-//     siteMetadata: {
-//       title: string
-//       description: string
-//     }
-//   }
-//   allMarkdownRemark: {
-//     posts: [{}]
-//   }
-// }
+import * as React from 'react'
 
 const IndexPage = ({
   data: {

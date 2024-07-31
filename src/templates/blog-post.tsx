@@ -1,7 +1,8 @@
 import { SEO } from '@/components/index'
+import { useSiteMetadata } from '@/lib/use-site-metadata'
 import styled from '@emotion/styled'
 import cx from 'classnames'
-import { graphql } from 'gatsby'
+import { graphql, PageProps } from 'gatsby'
 import { GatsbyImage, IGatsbyImageData } from 'gatsby-plugin-image'
 import PropTypes from 'prop-types'
 import React from 'react'
@@ -56,10 +57,11 @@ const BlogPostTemplate = ({
     }
   }
 }: BlogPostQuery) => {
+  const { title: siteTitle } = useSiteMetadata()
   return (
     <>
       <SEO
-        title={`${title} | ${site.siteMetadata.title}`}
+        title={`${title} | ${siteTitle}`}
         description={description || excerpt}
       />
       <BlogPostTemplateStyles
@@ -109,8 +111,8 @@ const BlogPostTemplate = ({
   )
 }
 
-export const pageQuery = graphql`
-  query BlogPostBySlug($slug: String!) {
+export const query = graphql`
+  query BlogPostTemplate($slug: String!) {
     site {
       siteMetadata {
         title

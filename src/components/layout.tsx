@@ -2,8 +2,9 @@ import { Global, ThemeProvider } from '@emotion/react'
 import cx from 'classnames'
 import { graphql, useStaticQuery } from 'gatsby'
 import PropTypes from 'prop-types'
-import React, { memo, useState } from 'react'
+import React, { useState } from 'react'
 
+// import { ThemeProvider } from '@/lib/theme-context'
 import Footer from './footer'
 import HeaderNav from './header-nav'
 import { theme, globalCss } from './styles/theme'
@@ -11,42 +12,43 @@ import { theme, globalCss } from './styles/theme'
 // const GlobalStyles = memo(() => <Global styles={globalCss} />)
 // GlobalStyles.displayName = `GlobalStyles`
 
-export const Layout: React.FC<React.PropsWithChildren> = ({ children }) => {
-  const query = graphql`
-    {
-      site {
-        siteMetadata {
-          title
-        }
+export const query = graphql`
+  query LayoutQuery {
+    site {
+      siteMetadata {
+        title
       }
-      logo: file(relativePath: { eq: "logo.png" }) {
-        childImageSharp {
-          gatsbyImageData(height: 100, quality: 80, layout: FIXED)
-        }
+    }
+    logo: file(relativePath: { eq: "logo.png" }) {
+      childImageSharp {
+        gatsbyImageData(height: 100, quality: 80, layout: FIXED)
       }
-      resumeFile: file(
-        relativePath: { eq: "files/joel-hawkins-torres-resume.pdf" }
-      ) {
-        publicURL
+    }
+    resumeFile: file(
+      relativePath: { eq: "files/joel-hawkins-torres-resume.pdf" }
+    ) {
+      publicURL
+    }
+    headerImgs: allFile(
+      filter: {
+        extension: { regex: "/(jpg)|(jpeg)|(png)/" }
+        relativeDirectory: { eq: "headers" }
       }
-      headerImgs: allFile(
-        filter: {
-          extension: { regex: "/(jpg)|(jpeg)|(png)/" }
-          relativeDirectory: { eq: "headers" }
-        }
-      ) {
-        totalCount
-        edges {
-          node {
-            childImageSharp {
-              gatsbyImageData(quality: 80, layout: FULL_WIDTH)
-            }
+    ) {
+      totalCount
+      edges {
+        node {
+          childImageSharp {
+            gatsbyImageData(quality: 80, layout: FULL_WIDTH)
           }
         }
       }
     }
-  `
-  const indexQuery = useStaticQuery(query)
+  }
+`
+
+export const Layout: React.FC<React.PropsWithChildren> = ({ children }) => {
+  const layoutQuery = useStaticQuery(query)
   const {
     logo,
     headerImgs,
@@ -54,7 +56,7 @@ export const Layout: React.FC<React.PropsWithChildren> = ({ children }) => {
       siteMetadata: { title }
     },
     resumeFile: { publicURL: resumeUrl }
-  } = indexQuery
+  } = layoutQuery
   const [toggleNav, setToggleNav] = useState(false)
 
   return (
@@ -85,7 +87,7 @@ export const Layout: React.FC<React.PropsWithChildren> = ({ children }) => {
 }
 
 Layout.propTypes = {
-  children: PropTypes.node.isRequired
+  children: PropTypes.node
 }
 
 export default Layout

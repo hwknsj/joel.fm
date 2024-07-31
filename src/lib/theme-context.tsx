@@ -1,6 +1,10 @@
 // NOTE: this code assumes there is a 'dark' or 'light' theme which i've yet to implement
-import { theme } from '@/styles/theme'
-import { ThemeProvider as EmotionThemeProvider } from '@emotion/react'
+// import { theme } from '@/styles/theme'
+import { theme } from '../components/styles/theme'
+import {
+  ThemeProvider as EmotionThemeProvider,
+  ThemeProviderProps
+} from '@emotion/react'
 import React, { createContext, useContext, useEffect, useState } from 'react'
 
 type ThemeContextState = {
@@ -31,14 +35,14 @@ const useEffectDarkMode = (): [
     hasThemeMounted: false
   })
   useEffect(() => {
-    const lsDark = localStorage.getItem('dark') === 'true'
+    const lsDark = localStorage?.getItem('dark') === 'true'
     setThemeState(t => ({ ...themeState, dark: lsDark, hasThemeMounted: true }))
   }, [])
 
   return [themeState, setThemeState]
 }
 
-const ThemeProvider = ({ children }: { children: React.ReactElement }) => {
+const ThemeProvider = ({ children }: ThemeProviderProps) => {
   const [themeState, setThemeState] = useEffectDarkMode()
 
   if (!themeState.hasThemeMounted) {

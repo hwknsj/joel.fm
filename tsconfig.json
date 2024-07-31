@@ -4,7 +4,7 @@
     "baseUrl": ".",
     "checkJs": false,
     "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
+    "forceConsistentCasingInFileNames": false,
     "incremental": true,
     "isolatedModules": true,
     "jsx": "react-jsx",
@@ -13,8 +13,8 @@
       "dom",
       "esnext"
     ],
-    "module": "esnext",
-    "moduleResolution": "node",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
     "noImplicitAny": true,
     "noEmit": true,
     "paths": {
@@ -56,13 +56,12 @@
     "target": "esnext"
   },
   "include": [
-    "./src/**/*.ts",
-    "./src/**/*.tsx",
+    "./src/gatsby-types.d.ts",
+    "./src/**/*",
     "./gatsby-node.ts",
     "./gatsby-config.ts",
     "./gatsby-browser.tsx",
     "./gatsby-ssr.tsx",
-    "./src/gatsby-types.d.ts",
     "./emotion.d.ts",
     "./plugins/**/*"
   ]

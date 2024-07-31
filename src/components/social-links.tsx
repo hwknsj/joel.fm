@@ -1,3 +1,4 @@
+import { useSiteMetadata } from '@/lib/use-site-metadata'
 import { IoCalendar } from '@react-icons/all-files/io5/IoCalendar'
 import { IoDocumentAttachSharp } from '@react-icons/all-files/io5/IoDocumentAttachSharp'
 import { IoLogoBehance } from '@react-icons/all-files/io5/IoLogoBehance'
@@ -8,10 +9,15 @@ import PropTypes from 'prop-types'
 import React, { type FC } from 'react'
 
 export const SocialLinks: FC<{ resumeUrl: string }> = ({ resumeUrl }) => {
+  const {
+    social: {
+      linkedIn: { url: linkedInUrl }
+    }
+  } = useSiteMetadata()
   const links = [
     {
       name: 'LinkedIn',
-      url: 'https://www.linkedin.com/in/hwknsj/',
+      url: linkedInUrl,
       icon: <IoLogoLinkedin />
     },
     {
@@ -30,8 +36,8 @@ export const SocialLinks: FC<{ resumeUrl: string }> = ({ resumeUrl }) => {
       icon: <IoLogoBehance />
     },
     {
-      name: 'Calendly',
-      url: 'https://calendly.com/joel-fm',
+      name: 'Calendar',
+      url: 'https://cal.com/joel.fm',
       icon: <IoCalendar />
     },
     {

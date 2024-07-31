@@ -4,10 +4,9 @@ import SocialLinks from './social-links'
 import { css } from '@emotion/react'
 import cx from 'classnames'
 import { Link } from 'gatsby'
-import type { GatsbyImageProps } from 'gatsby-image'
 import type { IGatsbyImageData, ImageDataLike } from 'gatsby-plugin-image'
 import PropTypes from 'prop-types'
-import React from 'react'
+import * as React from 'react'
 
 interface HeaderNavSocialProps {
   toggleNav: boolean

@@ -1,10 +1,10 @@
 import { InfoBox } from '@/components/info-box'
 import { SectionSerif } from '@/components/section-serif'
-import SEO from '@/components/seo'
+import { SEO } from '@/components/seo'
 import SocialLinks from '@/components/social-links'
 import { graphql, PageProps } from 'gatsby'
 import PropTypes from 'prop-types'
-import React from 'react'
+import * as React from 'react'
 
 const AboutPage = ({
   data: {
@@ -16,9 +16,7 @@ const AboutPage = ({
 }: PageProps<Queries.AboutPageQuery>) => {
   const resumeUrl = publicURL
   return (
-    <>
-      <SEO title={`about | ${title}`} />
-
+    <React.Fragment>
       <article className='post-content page-template no-image'>
         <main className='post-content-body'>
           <h2>About Joél</h2>
@@ -44,15 +42,15 @@ const AboutPage = ({
           <SectionSerif className='serif'>
             <h3>Introduction</h3>
             <p>
-              I’m a web developer specializing in JavaScript, front & back. With
-              6+ experience, a background in physics, data
-              analysis/visualization, & 5+ years of professional web
-              development–specializing in JavaScript–I’ve cultivated a diverse
-              skill set. Working among some of the most talented designers,
-              artists, engineers, executives, as well as my own clients, I
-              prioritize delivering efficient, optimized applications,
-              emphasizing beauty and style, as well as accessibility,
-              implementation of the latest web technologies, and best practices.
+              I’m a web developer specializing in JavaScript, front & back, with
+              9+ years of professional experience. My academic background is in
+              physics, mathematics, data analysis/visualization, music
+              composition, and visual art–I’ve cultivated a diverse skill set.
+              Working among some of the most talented designers, artists,
+              engineers, executives, as well as my own clients, I prioritize
+              delivering efficient, optimized applications, emphasizing beauty
+              and style, as well as accessibility, implementation of the latest
+              web technologies, and best practices.
             </p>
             <p>
               My skills may be described as ‘full stack’–though I find this term
@@ -107,7 +105,6 @@ const AboutPage = ({
                   href='https://www.gatsbyjs.com/'
                   rel='noopener noreferrer'
                   target='_blank'
-                  title='Gatsby.js'
                 >
                   Gatsby.js
                 </a>
@@ -117,7 +114,6 @@ const AboutPage = ({
                   href='https://reactjs.org/'
                   rel='noopener noreferrer'
                   target='_blank'
-                  title='React.js'
                 >
                   React.js
                 </a>
@@ -127,7 +123,6 @@ const AboutPage = ({
                   href='https://nodejs.org/'
                   rel='noopener noreferrer'
                   target='_blank'
-                  title='Node.js'
                 >
                   Node.js
                 </a>
@@ -137,7 +132,6 @@ const AboutPage = ({
                   href='https://emotion.sh/'
                   rel='noopener noreferrer'
                   target='_blank'
-                  title='emotion'
                 >
                   emotion
                 </a>
@@ -147,7 +141,6 @@ const AboutPage = ({
                   href='https://polished.js.org/'
                   rel='noopener noreferrer'
                   target='_blank'
-                  title='polished'
                 >
                   polished
                 </a>
@@ -157,7 +150,6 @@ const AboutPage = ({
                   href='https://graphql.org/'
                   rel='noopener noreferrer'
                   target='_blank'
-                  title='GraphQL'
                 >
                   GraphQL
                 </a>
@@ -202,7 +194,7 @@ const AboutPage = ({
           </section>
         </main>
       </article>
-    </>
+    </React.Fragment>
   )
 }
 
@@ -235,3 +227,5 @@ AboutPage.propTypes = {
 }
 
 export default AboutPage
+
+export const Head = () => <SEO title={`about`} />

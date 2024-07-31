@@ -18,6 +18,7 @@ import {
 } from './css/index'
 
 import {
+  fontsQuery,
   fontFaces,
   fonts,
   fontFraktur,
@@ -300,7 +301,8 @@ export const globalCss = css`
     a {
       text-decoration: none;
       color: ${theme.colorPrimary};
-      transition: color 0.4s ${theme.cubicBezier},
+      transition:
+        color 0.4s ${theme.cubicBezier},
         opacity 0.4s ${theme.cubicBezier},
         text-decoration 0.3s ${theme.cubicBezier} !important;
       &:hover {

@@ -1,4 +1,4 @@
-import SEO from '@/components/seo'
+import { SEO } from '@/components/seo'
 // This page is a showcase/reference for various elements/styles available via emotion
 import { graphql } from 'gatsby'
 import { GatsbyImage } from 'gatsby-plugin-image'

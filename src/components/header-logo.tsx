@@ -1,9 +1,18 @@
 import { Link } from 'gatsby'
-import { GatsbyImage } from 'gatsby-plugin-image'
+import { GatsbyImage, type IGatsbyImageData } from 'gatsby-plugin-image'
 import PropTypes from 'prop-types'
-import React from 'react'
+import * as React from 'react'
 
-const HeaderLogo = ({ logo, title }) => {
+interface HeaderLogoProps {
+  logo: {
+    childImageSharp: {
+      gatsbyImageData: IGatsbyImageData
+    }
+  }
+  title: string
+}
+
+const HeaderLogo = ({ logo, title }: HeaderLogoProps) => {
   return (
     <div className='center center-el-x site-head-center'>
       <div className='site-head-logo'>
