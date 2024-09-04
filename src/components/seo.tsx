@@ -1,6 +1,6 @@
 import { useSiteMetadata } from '@/lib/use-site-metadata'
 import PropTypes from 'prop-types'
-import * as React from 'react'
+import React from 'react'
 
 interface SEOProps {
   title?: string
@@ -11,9 +11,9 @@ interface SEOProps {
 }
 
 export const SEO = ({
-  description = 'web design & development',
-  lang = 'en',
   title = 'joel.fm',
+  description = 'web design & development',
+  lang = 'en-US',
   pathname = '/',
   type = 'website'
 }: SEOProps) => {
@@ -38,9 +38,12 @@ export const SEO = ({
   return (
     <>
       <html lang={lang} />
-      <title>{seo.title}</title>
+      <title>
+        {seo.title} | {seo.description}
+      </title>
       <link rel='icon' type='image/svg+xml' href={seo.favicon.svg} />
       <link rel='alternate icon' href={seo.favicon.ico} />
+      <link rel='stylesheet' href='https://use.typekit.net/ctg8wag.css' />
       <meta httpEquiv='Content-Type' content='text/html;charset=UTF-8' />
       <meta charSet='utf-8' />
       <meta name='viewport' content='width=device-width, initial-scale=1.0' />
@@ -60,14 +63,16 @@ export const SEO = ({
 
 SEO.defaultProps = {
   title: 'joel.fm',
-  lang: 'en',
-  keywords: [],
-  description: 'web design & development'
+  description: 'web design & development',
+  lang: 'en-US',
+  pathname: '/',
+  type: 'website'
 }
 
 SEO.propTypes = {
+  title: PropTypes.string,
   description: PropTypes.string,
   lang: PropTypes.string,
-  keywords: PropTypes.arrayOf(PropTypes.string),
-  title: PropTypes.string.isRequired
+  pathname: PropTypes.string,
+  type: PropTypes.string
 }

@@ -18,22 +18,21 @@ import {
 } from './css/index'
 
 import {
-  fontsQuery,
   fontFaces,
   fonts,
+  typefaces,
   fontFraktur,
   fontSerif,
   fontSans,
   fontMono,
   fontTitle,
-  fraktur,
   body,
   code,
-  title,
-  sans,
-  serif,
-  mono
+  title
 } from './fonts'
+
+const { fraktur, serif, sans, mono, eskapade, corporateA, corporateS } =
+  typefaces
 
 const bp = [480, 740, 980, 1280, 1680]
 // eslint-disable-next-line no-unused-vars
@@ -79,7 +78,7 @@ const colors = {
   background: '#ffffff',
   light: '#9e9e9e',
   colorLight: '#9e9e9e'
-}
+} as const
 
 type Colors = typeof colors
 
@@ -93,7 +92,7 @@ const layout = {
       xl: '3vw'
     }
   }
-}
+} as const
 
 type Layout = typeof layout
 
@@ -112,18 +111,37 @@ const typeography = {
   fontMono: mono,
   code,
   fontCode: code,
+  typefaces,
+  family: {
+    fraktur,
+    eskapade,
+    title,
+    mono,
+    sans,
+    serif,
+    body,
+    code
+  },
+  style: {
+    italic: 'italic',
+    normal: 'normal'
+  },
   fontLight: '200',
   fontNormal: '400',
-  fontBold: '500',
+  fontBold: 'bold 600',
   fontHeavy: '800',
   weight: {
     light: '200',
+    '200': '200',
     normal: '400',
-    bold: '500',
-    heavy: '800'
+    '400': '400',
+    bold: 'bold 600',
+    '600': '600',
+    heavy: '800',
+    '800': '800'
   },
   lineHeight: '2'
-}
+} as const
 
 type Typeography = typeof typeography
 
@@ -269,8 +287,8 @@ export const theme: Theme = {
 
 // IDEA: there ought to be (possibly is) a better way to achieve this
 export const globalCss = css`
-  ${fontFaces}
-  ${fonts}
+  ${fontFaces};
+  ${fonts};
   html {
     box-sizing: border-box;
     padding: 0;
@@ -300,13 +318,13 @@ export const globalCss = css`
   .post-content {
     a {
       text-decoration: none;
-      color: ${theme.colorPrimary};
+      color: ${theme.colors.primary};
       transition:
         color 0.4s ${theme.cubicBezier},
         opacity 0.4s ${theme.cubicBezier},
         text-decoration 0.3s ${theme.cubicBezier} !important;
       &:hover {
-        color: ${darken(0.2, theme.colorPrimary)};
+        color: ${darken(0.2, theme.colors.primary)};
       }
     }
   }
@@ -316,14 +334,14 @@ export const globalCss = css`
   h4,
   h5 {
     font-family: ${theme.typeography.fraktur};
-    color: ${theme.black};
+    color: ${theme.colors.black};
   }
   input,
   button,
   option,
   select,
   textarea {
-    color: ${theme.altBlack};
+    color: ${theme.colors.altBlack};
     font-family: ${theme.typeography.fraktur};
   }
   blockquote,

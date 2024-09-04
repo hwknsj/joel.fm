@@ -4,9 +4,9 @@ import SocialLinks from './social-links'
 import { css } from '@emotion/react'
 import cx from 'classnames'
 import { Link } from 'gatsby'
-import type { IGatsbyImageData, ImageDataLike } from 'gatsby-plugin-image'
+import type { IGatsbyImageData } from 'gatsby-plugin-image'
 import PropTypes from 'prop-types'
-import * as React from 'react'
+import { useMemo } from 'react'
 
 interface HeaderNavSocialProps {
   toggleNav: boolean
@@ -15,7 +15,9 @@ interface HeaderNavSocialProps {
 
 interface HeaderNavProps extends HeaderNavSocialProps {
   setToggleNav: (value: boolean) => void
-  logo: ImageDataLike
+  logo: {
+    childImageSharp: Queries.ImageSharp
+  }
   title: string
   headerImgs: Queries.FileConnection
 }
@@ -53,9 +55,16 @@ const HeaderNav = ({
     { text: 'Music', slug: 'music' }
   ]
 
-  const randomIndex = (Math.random() * headerImgs.totalCount) | 0
-  const randomHeaderImg = headerImgs?.edges[randomIndex]?.node?.childImageSharp
-    ?.gatsbyImageData as IGatsbyImageData
+  const randomIndex = useMemo(
+    () => (Math.random() * headerImgs.totalCount) | 0,
+    [headerImgs.totalCount]
+  )
+  const randomHeaderImg = useMemo(
+    () =>
+      headerImgs?.edges[randomIndex]?.node?.childImageSharp
+        ?.gatsbyImageData as IGatsbyImageData,
+    [randomIndex]
+  )
   return (
     <header className='site-head'>
       <div className='site-head-container'>
@@ -86,16 +95,23 @@ const HeaderNav = ({
         </button>
         <nav
           id='swup'
-          className={cx({
-            'site-head-open': toggleNav,
-            'site-head-left': true
-          })}
+          className={cx(
+            {
+              'site-head-open': toggleNav
+            },
+            'site-head-left'
+          )}
           role='navigation'
           aria-label='Main navigation'
         >
           <ul className='nav' role='menu'>
             {navLinks.map(({ text, slug }, i) => (
-              <li className={`nav-${slug}`} role='menuitem' key={slug}>
+              <li
+                className={`nav-li`}
+                id={`nav-li-${slug}`}
+                role='menuitem'
+                key={`nav-li-${slug}`}
+              >
                 <Link
                   to={`/${slug}`}
                   onClick={() => setToggleNav(!toggleNav)}

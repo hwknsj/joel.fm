@@ -1,4 +1,4 @@
-import { css } from '@emotion/react'
+import { css, SerializedStyles } from '@emotion/react'
 import { actions } from './actions'
 import { animations } from './animations'
 import { buttons } from './buttons'
@@ -12,6 +12,7 @@ import { nav } from './nav'
 import { reset } from './reset'
 import { screen } from './screen'
 import { tables } from './tables'
+import type { Theme } from '../theme'
 
 export {
   actions,
@@ -29,34 +30,19 @@ export {
   tables
 }
 
-// export const styleSheet = theme => css`
-//   ${actions(theme)}
-// ${animations}
-// ${buttons(theme)}
-// ${forms(theme)}
-// ${ghost(theme)}
-// ${grid(theme)}
-// ${hamburger(theme)}
-// ${helpers(theme)}
-// ${lists(theme)}
-// ${nav(theme)}
-// ${reset(theme)}
-// ${screen(theme)}
-// ${tables(theme)}
-// `
-
-export default theme => ({
-  ...actions(theme),
-  ...animations,
-  ...buttons(theme),
-  ...forms(theme),
-  ...ghost(theme),
-  ...grid(theme),
-  ...hamburger(theme),
-  ...helpers(theme),
-  ...lists(theme),
-  ...nav(theme),
-  ...reset(theme),
-  ...screen(theme),
-  ...tables(theme)
-})
+export default (theme: Theme) =>
+  ({
+    ...actions(theme),
+    ...animations,
+    ...buttons(theme),
+    ...forms(theme),
+    ...ghost(theme),
+    ...grid(theme),
+    ...hamburger(theme),
+    ...helpers(theme),
+    ...lists(theme),
+    ...nav(theme),
+    ...reset(theme),
+    ...screen(theme),
+    ...tables(theme)
+  }) as SerializedStyles

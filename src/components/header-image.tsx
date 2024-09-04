@@ -2,7 +2,6 @@ import type { Theme } from './styles/theme'
 import styled from '@emotion/styled'
 import { GatsbyImage, IGatsbyImageData } from 'gatsby-plugin-image'
 import PropTypes from 'prop-types'
-import React from 'react'
 
 const HeaderImageStyles = styled.header`
   display: grid;

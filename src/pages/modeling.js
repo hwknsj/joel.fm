@@ -16,20 +16,6 @@ const ModelingPage = ({
 
   return (
     <>
-      <SEO
-        title={`Modeling | ${title}`}
-        keywords={[
-          'blog',
-          'joel',
-          'hawkins',
-          'joel hawkins',
-          'joel.biz',
-          'gatsby',
-          'javascript',
-          'react'
-        ]}
-      />
-
       <article className='post-content page-template no-image'>
         <div className='post-content-body'>
           <h2>Modeling</h2>
@@ -137,8 +123,8 @@ const ModelingPage = ({
   )
 }
 
-export const modelingPageQuery = graphql`
-  {
+export const query = graphql`
+  query ModelingPageQuery {
     site {
       siteMetadata {
         title
@@ -185,3 +171,5 @@ ModelingPage.propTypes = {
 }
 
 export default ModelingPage
+
+export const Head = () => <SEO title={`modeling`} />

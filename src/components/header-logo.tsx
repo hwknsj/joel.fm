@@ -1,13 +1,10 @@
 import { Link } from 'gatsby'
-import { GatsbyImage, type IGatsbyImageData } from 'gatsby-plugin-image'
+import { GatsbyImage } from 'gatsby-plugin-image'
 import PropTypes from 'prop-types'
-import * as React from 'react'
 
 interface HeaderLogoProps {
   logo: {
-    childImageSharp: {
-      gatsbyImageData: IGatsbyImageData
-    }
+    childImageSharp: Queries.ImageSharp
   }
   title: string
 }

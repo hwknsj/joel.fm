@@ -1,15 +1,6 @@
 import { SEO } from '@/components/seo'
-import { Link, graphql, type PageProps } from 'gatsby'
-import PropTypes from 'prop-types'
+import { Link } from 'gatsby'
 import * as React from 'react'
-
-// type DataProps = {
-//   site: {
-//     siteMetaData: {
-//       title
-//     }
-//   }
-// }
 
 const NotFoundPage = () => {
   return (
@@ -25,27 +16,6 @@ const NotFoundPage = () => {
   )
 }
 
-NotFoundPage.propTypes = {
-  data: PropTypes.shape({
-    site: PropTypes.shape({
-      siteMetadata: PropTypes.shape({
-        title: PropTypes.string
-      })
-    })
-  })
-  // location: PropTypes.object
-}
-
 export default NotFoundPage
 
-// export const query = graphql`
-//   query NotFoundPage {
-//     site {
-//       siteMetadata {
-//         title
-//       }
-//     }
-//   }
-// `
-
-export const Head = () => <SEO title={`Page not found`} />
+export const Head = () => <SEO title={`page not found`} />

@@ -16,20 +16,6 @@ const ArtworkPage = ({
   let postCounter = 0
   return (
     <>
-      <SEO
-        title={`Artwork | ${title}`}
-        keywords={[
-          'blog',
-          'joel',
-          'hawkins',
-          'joel hawkins',
-          'joel.biz',
-          'gatsby',
-          'javascript',
-          'react'
-        ]}
-      />
-
       <article className='post-content page-template no-image'>
         <div className='post-content-body'>
           <h2>Artwork</h2>
@@ -113,8 +99,8 @@ ArtworkPage.propTypes = {
   })
 }
 
-export const artworkPageQuery = graphql`
-  {
+export const query = graphql`
+  query ArtworkPageQuery {
     site {
       siteMetadata {
         title
@@ -152,3 +138,5 @@ export const artworkPageQuery = graphql`
 `
 
 export default ArtworkPage
+
+export const Head = () => <SEO title={`Artwork`} />

@@ -6,19 +6,6 @@ export default {
   graphqlTypegen: true,
   siteMetadata: {
     ...siteConfig
-    // name: siteConfig.name,
-    // shortName: siteConfig.shortName,
-    // description: siteConfig.description,
-    // siteUrl: siteConfig.siteUrl,
-    // title: siteConfig.title,
-    // favicon: siteConfig.favicon,
-    // logo: siteConfig.logo,
-    // image: siteConfig.image,
-    // resumeFilename: siteConfig.resumeFilename,
-    // prefix: siteConfig.prefix,
-    // author: siteConfig.author,
-    // email: siteConfig.email,
-    // social: siteConfig.social
   },
   plugins: [
     {
@@ -56,10 +43,17 @@ export default {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        path: path.resolve('./content/assets/fonts'),
-        name: `fonts`
+        path: path.resolve('./content/assets/files'),
+        name: siteConfig.resumeFilename
       }
     },
+    // {
+    //   resolve: `gatsby-source-filesystem`,
+    //   options: {
+    //     path: path.resolve(`./content/assets/fonts/`),
+    //     name: `fonts`
+    //   }
+    // },
     {
       resolve: `gatsby-transformer-remark`,
       options: {
@@ -103,12 +97,6 @@ export default {
         cssPropOptimization: true
       }
     },
-    // {
-    //   resolve: `gatsby-plugin-google-analytics`,
-    //   options: {
-    //     trackingId: `UA-104153508-1`
-    //   }
-    // },
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -135,13 +123,13 @@ export default {
         fonts: {
           selfHosted: [
             {
-              family: 'EskapadeFraktur',
+              family: 'eskapade-fraktur',
               urls: {
-                otf: './content/assets/fonts/EskapadeFraktur-Regular.otf',
-                woff2: './content/assets/fonts/EskapadeFraktur-Regular.woff2',
-                woff: './content/assets/fonts/EskapadeFraktur-Regular.woff',
-                ttf: './content/assets/fonts/EskapadeFraktur-Regular.ttf',
-                eot: './content/assets/fonts/EskapadeFraktur-Regular.eot'
+                otf: './static/fonts/EskapadeFraktur-Regular.otf',
+                woff2: './static/fonts/EskapadeFraktur-Regular.woff2',
+                woff: './static/fonts/EskapadeFraktur-Regular.woff',
+                ttf: './static/fonts/EskapadeFraktur-Regular.ttf',
+                eot: './static/fonts/EskapadeFraktur-Regular.eot'
               },
               fontWeight: 'normal',
               fontStyle: 'normal',
@@ -149,14 +137,13 @@ export default {
               fontVariant: 'tabular-nums'
             },
             {
-              family: 'EskapadeFraktur',
+              family: 'eskapade-fraktur',
               urls: {
-                otf: './content/assets/fonts/EskapadeFraktur-Italic.otf',
-                woff2:
-                  './content/assets/fonts/EskapadeFraktur-RegularItalic.woff2',
-                woff: './content/assets/fonts/EskapadeFraktur-RegularItalic.woff',
-                ttf: './content/assets/fonts/EskapadeFraktur-RegularItalic.ttf',
-                eot: './content/assets/fonts/EskapadeFraktur-RegularItalic.eot'
+                otf: './static/fonts/EskapadeFraktur-Italic.otf',
+                woff2: './static/fonts/EskapadeFraktur-RegularItalic.woff2',
+                woff: './static/fonts/EskapadeFraktur-RegularItalic.woff',
+                ttf: './static/fonts/EskapadeFraktur-RegularItalic.ttf',
+                eot: './static/fonts/EskapadeFraktur-RegularItalic.eot'
               },
               fontWeight: 'normal',
               fontStyle: 'italic',
@@ -164,12 +151,12 @@ export default {
               fontVariant: 'tabular-nums'
             },
             {
-              family: 'EskapadeFraktur',
+              family: 'eskapade-fraktur',
               urls: {
-                woff2: './content/assets/fonts/EskapadeFraktur-Thin.woff2',
-                woff: './content/assets/fonts/EskapadeFraktur-Thin.woff',
-                ttf: './content/assets/fonts/EskapadeFraktur-Thin.ttf',
-                eot: './content/assets/fonts/EskapadeFraktur-Thin.eot'
+                woff2: './static/fonts/EskapadeFraktur-Thin.woff2',
+                woff: './static/fonts/EskapadeFraktur-Thin.woff',
+                ttf: './static/fonts/EskapadeFraktur-Thin.ttf',
+                eot: './static/fonts/EskapadeFraktur-Thin.eot'
               },
               fontWeight: '200',
               fontStyle: 'normal',
@@ -177,13 +164,12 @@ export default {
               fontVariant: 'tabular-nums'
             },
             {
-              family: 'EskapadeFraktur',
+              family: 'eskapade-fraktur',
               urls: {
-                woff2:
-                  './content/assets/fonts/EskapadeFraktur-ThinItalic.woff2',
-                woff: './content/assets/fonts/EskapadeFraktur-ThinItalic.woff',
-                ttf: './content/assets/fonts/EskapadeFraktur-ThinItalic.ttf',
-                eot: './content/assets/fonts/EskapadeFraktur-ThinItalic.eot'
+                woff2: './static/fonts/EskapadeFraktur-ThinItalic.woff2',
+                woff: './static/fonts/EskapadeFraktur-ThinItalic.woff',
+                ttf: './static/fonts/EskapadeFraktur-ThinItalic.ttf',
+                eot: './static/fonts/EskapadeFraktur-ThinItalic.eot'
               },
               fontWeight: '200',
               fontStyle: 'italic',
@@ -191,12 +177,12 @@ export default {
               fontVariant: 'tabular-nums'
             },
             {
-              family: 'EskapadeFraktur',
+              family: 'eskapade-fraktur',
               urls: {
-                woff2: './content/assets/fonts/EskapadeFraktur-Black.woff2',
-                woff: './content/assets/fonts/EskapadeFraktur-Black.woff',
-                ttf: './content/assets/fonts/EskapadeFraktur-Black.ttf',
-                eot: './content/assets/fonts/EskapadeFraktur-Black.eot'
+                woff2: './static/fonts/EskapadeFraktur-Black.woff2',
+                woff: './static/fonts/EskapadeFraktur-Black.woff',
+                ttf: './static/fonts/EskapadeFraktur-Black.ttf',
+                eot: './static/fonts/EskapadeFraktur-Black.eot'
               },
               fontWeight: 'bold',
               fontStyle: 'normal',
@@ -204,13 +190,12 @@ export default {
               fontVariant: 'tabular-nums'
             },
             {
-              family: 'EskapadeFraktur',
+              family: 'eskapade-fraktur',
               urls: {
-                woff2:
-                  './content/assets/fonts/EskapadeFraktur-BlackItalic.woff2',
-                woff: './content/assets/fonts/EskapadeFraktur-BlackItalic.woff',
-                ttf: './content/assets/fonts/EskapadeFraktur-BlackItalic.ttf',
-                eot: './content/assets/fonts/EskapadeFraktur-BlackItalic.eot'
+                woff2: './static/fonts/EskapadeFraktur-BlackItalic.woff2',
+                woff: './static/fonts/EskapadeFraktur-BlackItalic.woff',
+                ttf: './static/fonts/EskapadeFraktur-BlackItalic.ttf',
+                eot: './static/fonts/EskapadeFraktur-BlackItalic.eot'
               },
               fontWeight: 'bold',
               fontStyle: 'italic',
@@ -218,243 +203,240 @@ export default {
               fontVariant: 'tabular-nums'
             },
             {
-              family: 'CorporateS',
+              family: 'corporate-s',
               urls: {
-                ttf: './content/assets/fonts/CorporateSPro-Light.ttf',
-                eot: './content/assets/fonts/CorporateSPro-Light.eot',
-                woff: './content/assets/fonts/CorporateSPro-Light.woff',
-                woff2: './content/assets/fonts/CorporateSPro-Light.woff2'
+                ttf: './static/fonts/CorporateSPro-Light.ttf',
+                eot: './static/fonts/CorporateSPro-Light.eot',
+                woff: './static/fonts/CorporateSPro-Light.woff',
+                woff2: './static/fonts/CorporateSPro-Light.woff2'
               },
               fontWeight: '300',
               fontStyle: 'normal',
               fontDisplay: 'swap'
             },
             {
-              family: 'CorporateS',
+              family: 'corporate-s',
               urls: {
-                ttf: './content/assets/fonts/CorporateSPro-LightItalic.ttf',
-                eot: './content/assets/fonts/CorporateSPro-LightItalic.eot',
-                woff: './content/assets/fonts/CorporateSPro-LightItalic.woff',
-                woff2: './content/assets/fonts/CorporateSPro-LightItalic.woff2'
+                ttf: './static/fonts/CorporateSPro-LightItalic.ttf',
+                eot: './static/fonts/CorporateSPro-LightItalic.eot',
+                woff: './static/fonts/CorporateSPro-LightItalic.woff',
+                woff2: './static/fonts/CorporateSPro-LightItalic.woff2'
               },
               fontWeight: '300',
               fontStyle: 'italic',
               fontDisplay: 'swap'
             },
             {
-              family: 'CorporateS',
+              family: 'corporate-s',
               urls: {
-                ttf: './content/assets/fonts/CorporateSPro-Regular.ttf',
-                eot: './content/assets/fonts/CorporateSPro-Regular.eot',
-                woff: './content/assets/fonts/CorporateSPro-Regular.woff',
-                woff2: './content/assets/fonts/CorporateSPro-Regular.woff2'
+                ttf: './static/fonts/CorporateSPro-Regular.ttf',
+                eot: './static/fonts/CorporateSPro-Regular.eot',
+                woff: './static/fonts/CorporateSPro-Regular.woff',
+                woff2: './static/fonts/CorporateSPro-Regular.woff2'
               },
               fontWeight: 'normal',
               fontStyle: 'normal',
               fontDisplay: 'swap'
             },
             {
-              family: 'CorporateS',
+              family: 'corporate-s',
               urls: {
-                ttf: './content/assets/fonts/CorporateSPro-RegularItalic.ttf',
-                eot: './content/assets/fonts/CorporateSPro-RegularItalic.eot',
-                woff: './content/assets/fonts/CorporateSPro-RegularItalic.woff',
-                woff2:
-                  './content/assets/fonts/CorporateSPro-RegularItalic.woff2'
+                ttf: './static/fonts/CorporateSPro-RegularItalic.ttf',
+                eot: './static/fonts/CorporateSPro-RegularItalic.eot',
+                woff: './static/fonts/CorporateSPro-RegularItalic.woff',
+                woff2: './static/fonts/CorporateSPro-RegularItalic.woff2'
               },
               fontStyle: 'italic',
               fontWeight: 'normal',
               fontDisplay: 'swap'
             },
             {
-              family: 'CorporateS',
+              family: 'corporate-s',
               urls: {
-                ttf: './content/assets/fonts/CorporateSPro-Demi.ttf',
-                eot: './content/assets/fonts/CorporateSPro-Demi.eot',
-                woff: './content/assets/fonts/CorporateSPro-Demi.woff',
-                woff2: './content/assets/fonts/CorporateSPro-Demi.woff2'
+                ttf: './static/fonts/CorporateSPro-Demi.ttf',
+                eot: './static/fonts/CorporateSPro-Demi.eot',
+                woff: './static/fonts/CorporateSPro-Demi.woff',
+                woff2: './static/fonts/CorporateSPro-Demi.woff2'
               },
               fontWeight: '500',
               fontStyle: 'normal',
               fontDisplay: 'swap'
             },
             {
-              family: 'CorporateS',
+              family: 'corporate-s',
               urls: {
-                ttf: './content/assets/fonts/CorporateSPro-DemiItalic.ttf',
-                eot: './content/assets/fonts/CorporateSPro-DemiItalic.eot',
-                woff: './content/assets/fonts/CorporateSPro-DemiItalic.woff',
-                woff2: './content/assets/fonts/CorporateSPro-DemiItalic.woff2'
+                ttf: './static/fonts/CorporateSPro-DemiItalic.ttf',
+                eot: './static/fonts/CorporateSPro-DemiItalic.eot',
+                woff: './static/fonts/CorporateSPro-DemiItalic.woff',
+                woff2: './static/fonts/CorporateSPro-DemiItalic.woff2'
               },
               fontWeight: '500',
               fontStyle: 'italic',
               fontDisplay: 'swap'
             },
             {
-              family: 'CorporateS',
+              family: 'corporate-s',
               urls: {
-                ttf: '/content/assets/fonts/CorporateSPro-Medium.ttf',
-                eot: '/content/assets/fonts/CorporateSPro-Medium.eot',
-                ttf: './content/assets/fonts/CorporateSPro-Medium.woff',
-                woff2: './content/assets/fonts/CorporateSPro-Medium.woff2'
+                ttf: './static/fonts/CorporateSPro-Medium.ttf',
+                eot: './static/fonts/CorporateSPro-Medium.eot',
+                woff: './static/fonts/CorporateSPro-Medium.woff',
+                woff2: './static/fonts/CorporateSPro-Medium.woff2'
               },
               fontWeight: '600',
               fontStyle: 'normal',
               fontDisplay: 'swap'
             },
             {
-              family: 'CorporateS',
+              family: 'corporate-s',
               urls: {
-                ttf: './content/assets/fonts/CorporateSPro-MediumItalic.ttf',
-                eot: './content/assets/fonts/CorporateSPro-MediumItalic.eot',
-                woff: './content/assets/fonts/CorporateSPro-MediumItalic.woff',
-                woff2: './content/assets/fonts/CorporateSPro-MediumItalic.woff2'
+                ttf: './static/fonts/CorporateSPro-MediumItalic.ttf',
+                eot: './static/fonts/CorporateSPro-MediumItalic.eot',
+                woff: './static/fonts/CorporateSPro-MediumItalic.woff',
+                woff2: './static/fonts/CorporateSPro-MediumItalic.woff2'
               },
               fontWeight: '600',
               fontStyle: 'italic',
               fontDisplay: 'swap'
             },
             {
-              family: 'CorporateS',
+              family: 'corporate-s',
               urls: {
-                ttf: './content/assets/fonts/CorporateSPro-Bold.ttf',
-                eot: './content/assets/fonts/CorporateSPro-Bold.eot',
-                woff: './content/assets/fonts/CorporateSPro-Bold.woff',
-                woff2: './content/assets/fonts/CorporateSPro-Bold.woff2'
+                ttf: './static/fonts/CorporateSPro-Bold.ttf',
+                eot: './static/fonts/CorporateSPro-Bold.eot',
+                woff: './static/fonts/CorporateSPro-Bold.woff',
+                woff2: './static/fonts/CorporateSPro-Bold.woff2'
               },
               fontWeight: 'bold',
               fontStyle: 'normal',
               fontDisplay: 'swap'
             },
             {
-              family: 'CorporateS',
+              family: 'corporate-s',
               urls: {
-                ttf: './content/assets/fonts/CorporateSPro-BoldItalic.ttf',
-                eot: './content/assets/fonts/CorporateSPro-BoldItalic.eot',
-                woff: './content/assets/fonts/CorporateSPro-BoldItalic.woff',
-                woff2: './content/assets/fonts/CorporateSPro-BoldItalic.woff2'
+                ttf: './static/fonts/CorporateSPro-BoldItalic.ttf',
+                eot: './static/fonts/CorporateSPro-BoldItalic.eot',
+                woff: './static/fonts/CorporateSPro-BoldItalic.woff',
+                woff2: './static/fonts/CorporateSPro-BoldItalic.woff2'
               },
               fontWeight: 'bold',
               fontStyle: 'italic',
               fontDisplay: 'swap'
             },
             {
-              family: 'CorporateS',
+              family: 'corporate-s',
               urls: {
-                ttf: './content/assets/fonts/CorporateSPro-ExtraBold.ttf',
-                eot: './content/assets/fonts/CorporateSPro-ExtraBold.eot',
-                woff: './content/assets/fonts/CorporateSPro-ExtraBold.woff',
-                woff2: './content/assets/fonts/CorporateSPro-ExtraBold.woff2'
+                ttf: './static/fonts/CorporateSPro-ExtraBold.ttf',
+                eot: './static/fonts/CorporateSPro-ExtraBold.eot',
+                woff: './static/fonts/CorporateSPro-ExtraBold.woff',
+                woff2: './static/fonts/CorporateSPro-ExtraBold.woff2'
               },
               fontWeight: '800',
               fontStyle: 'normal',
               fontDisplay: 'swap'
             },
             {
-              family: 'CorporateS',
+              family: 'corporate-s',
               urls: {
-                ttf: './content/assets/fonts/CorporateSPro-ExtraBoldItalic.ttf',
-                eot: './content/assets/fonts/CorporateSPro-ExtraBoldItalic.eot',
-                woff: './content/assets/fonts/CorporateSPro-ExtraBoldItalic.woff',
-                woff2:
-                  './content/assets/fonts/CorporateSPro-ExtraBoldItalic.woff2'
+                ttf: './static/fonts/CorporateSPro-ExtraBoldItalic.ttf',
+                eot: './static/fonts/CorporateSPro-ExtraBoldItalic.eot',
+                woff: './static/fonts/CorporateSPro-ExtraBoldItalic.woff',
+                woff2: './static/fonts/CorporateSPro-ExtraBoldItalic.woff2'
               },
               fontWeight: '800',
               fontStyle: 'italic',
               fontDisplay: 'swap'
             },
             {
-              family: 'CorporateA',
+              family: 'corporate-a',
               urls: {
-                ttf: './content/assets/fonts/CorporateAPro-Regular.ttf',
-                eot: './content/assets/fonts/CorporateAPro-Regular.eot',
-                woff: './content/assets/fonts/CorporateAPro-Regular.woff',
-                woff2: './content/assets/fonts/CorporateAPro-Regular.woff2'
+                ttf: './static/fonts/CorporateAPro-Regular.ttf',
+                eot: './static/fonts/CorporateAPro-Regular.eot',
+                woff: './static/fonts/CorporateAPro-Regular.woff',
+                woff2: './static/fonts/CorporateAPro-Regular.woff2'
               },
               fontWeight: 'normal',
               fontStyle: 'normal',
               fontDisplay: 'swap'
             },
             {
-              family: 'CorporateA',
+              family: 'corporate-a',
               urls: {
-                ttf: './content/assets/fonts/CorporateAPro-RegularItalic.ttf',
-                eot: './content/assets/fonts/CorporateAPro-RegularItalic.eot',
-                woff: './content/assets/fonts/CorporateAPro-RegularItalic.woff',
-                woff2:
-                  './content/assets/fonts/CorporateAPro-RegularItalic.woff2'
+                ttf: './static/fonts/CorporateAPro-RegularItalic.ttf',
+                eot: './static/fonts/CorporateAPro-RegularItalic.eot',
+                woff: './static/fonts/CorporateAPro-RegularItalic.woff',
+                woff2: './static/fonts/CorporateAPro-RegularItalic.woff2'
               },
               fontStyle: 'italic',
               fontWeight: 'normal',
               fontDisplay: 'swap'
             },
             {
-              family: 'CorporateA',
+              family: 'corporate-a',
               urls: {
-                ttf: './content/assets/fonts/CorporateAPro-Demi.ttf',
-                eot: './content/assets/fonts/CorporateAPro-Demi.eot',
-                woff: './content/assets/fonts/CorporateAPro-Demi.woff',
-                woff2: './content/assets/fonts/CorporateAPro-Demi.woff2'
+                ttf: './static/fonts/CorporateAPro-Demi.ttf',
+                eot: './static/fonts/CorporateAPro-Demi.eot',
+                woff: './static/fonts/CorporateAPro-Demi.woff',
+                woff2: './static/fonts/CorporateAPro-Demi.woff2'
               },
               fontWeight: '500',
               fontStyle: 'normal',
               fontDisplay: 'swap'
             },
             {
-              family: 'CorporateA',
+              family: 'corporate-a',
               urls: {
-                ttf: './content/assets/fonts/CorporateAPro-DemiItalic.ttf',
-                eot: './content/assets/fonts/CorporateAPro-DemiItalic.eot',
-                woff: './content/assets/fonts/CorporateAPro-DemiItalic.woff',
-                woff2: './content/assets/fonts/CorporateAPro-DemiItalic.woff2'
+                ttf: './static/fonts/CorporateAPro-DemiItalic.ttf',
+                eot: './static/fonts/CorporateAPro-DemiItalic.eot',
+                woff: './static/fonts/CorporateAPro-DemiItalic.woff',
+                woff2: './static/fonts/CorporateAPro-DemiItalic.woff2'
               },
               fontWeight: '500',
               fontStyle: 'italic',
               fontDisplay: 'swap'
             },
             {
-              family: 'CorporateA',
+              family: 'corporate-a',
               urls: {
-                ttf: '/content/assets/fonts/CorporateAPro-Medium.ttf',
-                eot: '/content/assets/fonts/CorporateAPro-Medium.eot',
-                ttf: './content/assets/fonts/CorporateAPro-Medium.woff',
-                woff2: './content/assets/fonts/CorporateAPro-Medium.woff2'
+                ttf: './static/fonts/CorporateAPro-Medium.ttf',
+                eot: './static/fonts/CorporateAPro-Medium.eot',
+                woff: './static/fonts/CorporateAPro-Medium.woff',
+                woff2: './static/fonts/CorporateAPro-Medium.woff2'
               },
               fontWeight: '600',
               fontStyle: 'normal',
               fontDisplay: 'swap'
             },
             {
-              family: 'CorporateA',
+              family: 'corporate-a',
               urls: {
-                ttf: './content/assets/fonts/CorporateAPro-MediumItalic.ttf',
-                eot: './content/assets/fonts/CorporateAPro-MediumItalic.eot',
-                woff: './content/assets/fonts/CorporateAPro-MediumItalic.woff',
-                woff2: './content/assets/fonts/CorporateAPro-MediumItalic.woff2'
+                ttf: './static/fonts/CorporateAPro-MediumItalic.ttf',
+                eot: './static/fonts/CorporateAPro-MediumItalic.eot',
+                woff: './static/fonts/CorporateAPro-MediumItalic.woff',
+                woff2: './static/fonts/CorporateAPro-MediumItalic.woff2'
               },
               fontWeight: '600',
               fontStyle: 'italic',
               fontDisplay: 'swap'
             },
             {
-              family: 'CorporateA',
+              family: 'corporate-a',
               urls: {
-                ttf: './content/assets/fonts/CorporateAPro-Bold.ttf',
-                eot: './content/assets/fonts/CorporateAPro-Bold.eot',
-                woff: './content/assets/fonts/CorporateAPro-Bold.woff',
-                woff2: './content/assets/fonts/CorporateAPro-Bold.woff2'
+                ttf: './static/fonts/CorporateAPro-Bold.ttf',
+                eot: './static/fonts/CorporateAPro-Bold.eot',
+                woff: './static/fonts/CorporateAPro-Bold.woff',
+                woff2: './static/fonts/CorporateAPro-Bold.woff2'
               },
               fontWeight: 'bold',
               fontStyle: 'normal',
               fontDisplay: 'swap'
             },
             {
-              family: 'CorporateA',
+              family: 'corporate-a',
               urls: {
-                ttf: './content/assets/fonts/CorporateAPro-BoldItalic.ttf',
-                eot: './content/assets/fonts/CorporateAPro-BoldItalic.eot',
-                woff: './content/assets/fonts/CorporateAPro-BoldItalic.woff',
-                woff2: './content/assets/fonts/CorporateAPro-BoldItalic.woff2'
+                ttf: './static/fonts/CorporateAPro-BoldItalic.ttf',
+                eot: './static/fonts/CorporateAPro-BoldItalic.eot',
+                woff: './static/fonts/CorporateAPro-BoldItalic.woff',
+                woff2: './static/fonts/CorporateAPro-BoldItalic.woff2'
               },
               fontWeight: 'bold',
               fontStyle: 'italic',

@@ -2744,24 +2744,70 @@ type SiteSiteMetadataFaviconSortInput = {
 };
 
 type SiteSiteMetadataSocial = {
+  readonly behance: Maybe<SiteSiteMetadataSocialBehance>;
+  readonly cal: Maybe<SiteSiteMetadataSocialCal>;
   readonly github: Maybe<SiteSiteMetadataSocialGithub>;
-  readonly instagram: Maybe<Scalars['String']>;
+  readonly instagram: Maybe<SiteSiteMetadataSocialInstagram>;
   readonly linkedIn: Maybe<SiteSiteMetadataSocialLinkedIn>;
-  readonly twitter: Maybe<Scalars['String']>;
+  readonly twitter: Maybe<SiteSiteMetadataSocialTwitter>;
+};
+
+type SiteSiteMetadataSocialBehance = {
+  readonly url: Maybe<Scalars['String']>;
+  readonly user: Maybe<Scalars['String']>;
+};
+
+type SiteSiteMetadataSocialBehanceFieldSelector = {
+  readonly url: InputMaybe<FieldSelectorEnum>;
+  readonly user: InputMaybe<FieldSelectorEnum>;
+};
+
+type SiteSiteMetadataSocialBehanceFilterInput = {
+  readonly url: InputMaybe<StringQueryOperatorInput>;
+  readonly user: InputMaybe<StringQueryOperatorInput>;
+};
+
+type SiteSiteMetadataSocialBehanceSortInput = {
+  readonly url: InputMaybe<SortOrderEnum>;
+  readonly user: InputMaybe<SortOrderEnum>;
+};
+
+type SiteSiteMetadataSocialCal = {
+  readonly url: Maybe<Scalars['String']>;
+  readonly user: Maybe<Scalars['String']>;
+};
+
+type SiteSiteMetadataSocialCalFieldSelector = {
+  readonly url: InputMaybe<FieldSelectorEnum>;
+  readonly user: InputMaybe<FieldSelectorEnum>;
+};
+
+type SiteSiteMetadataSocialCalFilterInput = {
+  readonly url: InputMaybe<StringQueryOperatorInput>;
+  readonly user: InputMaybe<StringQueryOperatorInput>;
+};
+
+type SiteSiteMetadataSocialCalSortInput = {
+  readonly url: InputMaybe<SortOrderEnum>;
+  readonly user: InputMaybe<SortOrderEnum>;
 };
 
 type SiteSiteMetadataSocialFieldSelector = {
+  readonly behance: InputMaybe<SiteSiteMetadataSocialBehanceFieldSelector>;
+  readonly cal: InputMaybe<SiteSiteMetadataSocialCalFieldSelector>;
   readonly github: InputMaybe<SiteSiteMetadataSocialGithubFieldSelector>;
-  readonly instagram: InputMaybe<FieldSelectorEnum>;
+  readonly instagram: InputMaybe<SiteSiteMetadataSocialInstagramFieldSelector>;
   readonly linkedIn: InputMaybe<SiteSiteMetadataSocialLinkedInFieldSelector>;
-  readonly twitter: InputMaybe<FieldSelectorEnum>;
+  readonly twitter: InputMaybe<SiteSiteMetadataSocialTwitterFieldSelector>;
 };
 
 type SiteSiteMetadataSocialFilterInput = {
+  readonly behance: InputMaybe<SiteSiteMetadataSocialBehanceFilterInput>;
+  readonly cal: InputMaybe<SiteSiteMetadataSocialCalFilterInput>;
   readonly github: InputMaybe<SiteSiteMetadataSocialGithubFilterInput>;
-  readonly instagram: InputMaybe<StringQueryOperatorInput>;
+  readonly instagram: InputMaybe<SiteSiteMetadataSocialInstagramFilterInput>;
   readonly linkedIn: InputMaybe<SiteSiteMetadataSocialLinkedInFilterInput>;
-  readonly twitter: InputMaybe<StringQueryOperatorInput>;
+  readonly twitter: InputMaybe<SiteSiteMetadataSocialTwitterFilterInput>;
 };
 
 type SiteSiteMetadataSocialGithub = {
@@ -2780,6 +2826,26 @@ type SiteSiteMetadataSocialGithubFilterInput = {
 };
 
 type SiteSiteMetadataSocialGithubSortInput = {
+  readonly url: InputMaybe<SortOrderEnum>;
+  readonly user: InputMaybe<SortOrderEnum>;
+};
+
+type SiteSiteMetadataSocialInstagram = {
+  readonly url: Maybe<Scalars['String']>;
+  readonly user: Maybe<Scalars['String']>;
+};
+
+type SiteSiteMetadataSocialInstagramFieldSelector = {
+  readonly url: InputMaybe<FieldSelectorEnum>;
+  readonly user: InputMaybe<FieldSelectorEnum>;
+};
+
+type SiteSiteMetadataSocialInstagramFilterInput = {
+  readonly url: InputMaybe<StringQueryOperatorInput>;
+  readonly user: InputMaybe<StringQueryOperatorInput>;
+};
+
+type SiteSiteMetadataSocialInstagramSortInput = {
   readonly url: InputMaybe<SortOrderEnum>;
   readonly user: InputMaybe<SortOrderEnum>;
 };
@@ -2805,10 +2871,32 @@ type SiteSiteMetadataSocialLinkedInSortInput = {
 };
 
 type SiteSiteMetadataSocialSortInput = {
+  readonly behance: InputMaybe<SiteSiteMetadataSocialBehanceSortInput>;
+  readonly cal: InputMaybe<SiteSiteMetadataSocialCalSortInput>;
   readonly github: InputMaybe<SiteSiteMetadataSocialGithubSortInput>;
-  readonly instagram: InputMaybe<SortOrderEnum>;
+  readonly instagram: InputMaybe<SiteSiteMetadataSocialInstagramSortInput>;
   readonly linkedIn: InputMaybe<SiteSiteMetadataSocialLinkedInSortInput>;
-  readonly twitter: InputMaybe<SortOrderEnum>;
+  readonly twitter: InputMaybe<SiteSiteMetadataSocialTwitterSortInput>;
+};
+
+type SiteSiteMetadataSocialTwitter = {
+  readonly url: Maybe<Scalars['String']>;
+  readonly user: Maybe<Scalars['String']>;
+};
+
+type SiteSiteMetadataSocialTwitterFieldSelector = {
+  readonly url: InputMaybe<FieldSelectorEnum>;
+  readonly user: InputMaybe<FieldSelectorEnum>;
+};
+
+type SiteSiteMetadataSocialTwitterFilterInput = {
+  readonly url: InputMaybe<StringQueryOperatorInput>;
+  readonly user: InputMaybe<StringQueryOperatorInput>;
+};
+
+type SiteSiteMetadataSocialTwitterSortInput = {
+  readonly url: InputMaybe<SortOrderEnum>;
+  readonly user: InputMaybe<SortOrderEnum>;
 };
 
 type SiteSortInput = {
@@ -2858,6 +2946,11 @@ type AboutPageQueryVariables = Exact<{ [key: string]: never; }>;
 
 type AboutPageQuery = { readonly site: { readonly siteMetadata: { readonly title: string } } | null, readonly resumePublicUrl: { readonly publicURL: string | null } | null };
 
+type ArtworkPageQueryQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type ArtworkPageQueryQuery = { readonly site: { readonly siteMetadata: { readonly title: string } } | null, readonly metagramImage: { readonly childImageSharp: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } | null, readonly allMarkdownRemark: { readonly posts: ReadonlyArray<{ readonly node: { readonly excerpt: string | null, readonly fields: { readonly slug: string | null } | null, readonly frontmatter: { readonly date: string | null, readonly title: string | null, readonly description: string | null, readonly thumbnail: { readonly childImageSharp: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } | null } | null } }> } };
+
 type BlogPostTemplateQueryVariables = Exact<{
   slug: Scalars['String'];
 }>;
@@ -2901,10 +2994,20 @@ type LayoutQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
 type LayoutQueryQuery = { readonly site: { readonly siteMetadata: { readonly title: string } } | null, readonly logo: { readonly childImageSharp: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } | null, readonly resumeFile: { readonly publicURL: string | null } | null, readonly headerImgs: { readonly totalCount: number, readonly edges: ReadonlyArray<{ readonly node: { readonly childImageSharp: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } }> } };
 
-type TypegenPageQueryVariables = Exact<{ [key: string]: never; }>;
+type ModelingPageQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-type TypegenPageQuery = { readonly site: { readonly siteMetadata: { readonly title: string, readonly author: string | null, readonly siteUrl: string | null, readonly url: string | null, readonly description: string | null, readonly email: string | null, readonly image: string | null, readonly logo: string | null, readonly resumeFilename: string | null, readonly shortName: string | null, readonly social: { readonly instagram: string | null, readonly twitter: string | null, readonly github: { readonly url: string | null, readonly user: string | null } | null, readonly linkedIn: { readonly url: string | null, readonly user: string | null } | null } | null, readonly favicon: { readonly ico: string | null, readonly png: string | null, readonly svg: string | null } | null } } | null };
+type ModelingPageQueryQuery = { readonly site: { readonly siteMetadata: { readonly title: string } } | null, readonly allMarkdownRemark: { readonly posts: ReadonlyArray<{ readonly node: { readonly excerpt: string | null, readonly fields: { readonly slug: string | null } | null, readonly frontmatter: { readonly date: string | null, readonly title: string | null, readonly description: string | null, readonly thumbnail: { readonly childImageSharp: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } | null } | null } }> } };
+
+type MusicPageQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type MusicPageQuery = { readonly site: { readonly siteMetadata: { readonly title: string } } | null, readonly allMarkdownRemark: { readonly posts: ReadonlyArray<{ readonly node: { readonly excerpt: string | null, readonly fields: { readonly slug: string | null } | null, readonly frontmatter: { readonly date: string | null, readonly title: string | null, readonly description: string | null, readonly thumbnail: { readonly childImageSharp: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } | null } | null } }> } };
+
+type SchedulePageQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type SchedulePageQuery = { readonly site: { readonly siteMetadata: { readonly title: string, readonly description: string | null } } | null };
 
 type WebDesignPageQueryVariables = Exact<{ [key: string]: never; }>;
 

@@ -18,9 +18,11 @@ export default {
   author: 'joél hawkins torres',
   email: 'joel@joel.fm',
   social: {
-    instagram: '@joel.biz',
-    twitter: '@joel_biz',
+    instagram: { url: 'https://instagram.com/joel.biz', user: '@joel.biz' },
+    twitter: { url: 'https://twitter.com/joel_biz', user: '@joel_biz' },
     linkedIn: { url: 'https://www.linkedin.com/in/hwknsj', user: '@hwknsj' },
-    github: { url: 'https://github.com/hwknsj', user: '@hwknsj' }
+    github: { url: 'https://github.com/hwknsj', user: '@hwknsj' },
+    cal: { url: 'https://cal.com/joel.fm', user: 'joel.fm' },
+    behance: { url: 'https://www.behance.net/hwknsj', user: '@hwknsj' }
   }
 }

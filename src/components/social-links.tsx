@@ -1,70 +1,114 @@
 import { useSiteMetadata } from '@/lib/use-site-metadata'
-import { IoCalendar } from '@react-icons/all-files/io5/IoCalendar'
-import { IoDocumentAttachSharp } from '@react-icons/all-files/io5/IoDocumentAttachSharp'
-import { IoLogoBehance } from '@react-icons/all-files/io5/IoLogoBehance'
-import { IoLogoGithub } from '@react-icons/all-files/io5/IoLogoGithub'
-import { IoLogoInstagram } from '@react-icons/all-files/io5/IoLogoInstagram'
-import { IoLogoLinkedin } from '@react-icons/all-files/io5/IoLogoLinkedin'
+import { ImLinkedin } from '@react-icons/all-files/im/ImLinkedin'
+import { ImGithub } from '@react-icons/all-files/im/ImGithub'
+import { ImInstagram } from '@react-icons/all-files/im/ImInstagram'
+import { ImBehance } from '@react-icons/all-files/im/ImBehance'
+import { ImCalendar } from '@react-icons/all-files/im/ImCalendar'
+import { ImFilePdf } from '@react-icons/all-files/im/ImFilePdf'
 import PropTypes from 'prop-types'
-import React, { type FC } from 'react'
+import * as React from 'react'
+import { IconBaseProps } from '@react-icons/all-files/lib'
 
-export const SocialLinks: FC<{ resumeUrl: string }> = ({ resumeUrl }) => {
+type SocialLink = {
+  label: string
+  id: string
+  url: string
+  Icon: React.FunctionComponent<IconBaseProps>
+}
+
+export const SocialLinks: React.FC<{ resumeUrl: string }> = ({ resumeUrl }) => {
   const {
     social: {
-      linkedIn: { url: linkedInUrl }
+      linkedIn: { url: linkedInUrl },
+      github: { url: githubUrl },
+      instagram: { url: instagramUrl },
+      behance: { url: behanceUrl },
+      cal: { url: calUrl }
     }
   } = useSiteMetadata()
-  const links = [
+  const links: SocialLink[] = [
     {
-      name: 'LinkedIn',
+      label: 'LinkedIn',
+      id: 'linkedin',
       url: linkedInUrl,
-      icon: <IoLogoLinkedin />
+      Icon: () => (
+        <ImLinkedin title='linkedin' id='linkedin-icon' aria-label='linkedin' />
+      )
     },
     {
-      name: 'Github',
-      url: 'https://github.com/hwknsj',
-      icon: <IoLogoGithub />
+      label: 'Github',
+      id: 'github',
+      url: githubUrl,
+      Icon: () => (
+        <ImGithub title='github' id='github-icon' aria-label='github' />
+      )
     },
     {
-      name: 'Instagram',
-      url: 'https://www.instagram.com/joel.biz/',
-      icon: <IoLogoInstagram />
+      label: 'Instagram',
+      id: 'instagram',
+      url: instagramUrl,
+      Icon: () => (
+        <ImInstagram
+          title='instagram'
+          id='instagram-icon'
+          aria-label='instagram'
+        />
+      )
     },
     {
-      name: 'Behance',
-      url: 'https://www.behance.net/hwknsj',
-      icon: <IoLogoBehance />
+      label: 'Behance',
+      id: 'behance',
+      url: behanceUrl,
+      Icon: () => (
+        <ImBehance title='behance' id='behance-icon' aria-label='behance' />
+      )
     },
     {
-      name: 'Calendar',
-      url: 'https://cal.com/joel.fm',
-      icon: <IoCalendar />
+      label: 'Calendar',
+      id: 'calendar',
+      url: calUrl,
+      Icon: () => (
+        <ImCalendar title='calendar' id='calendar-icon' aria-label='calendar' />
+      )
     },
     {
-      name: 'Résumé',
+      label: 'Résumé',
+      id: 'resume',
       url: resumeUrl,
-      icon: <IoDocumentAttachSharp />
+      Icon: () => (
+        <ImFilePdf title='resume' id='resume-icon' aria-label='resume' />
+      )
     }
   ]
 
   // TODO: make this accessible
   return (
     <ul className='inline-list'>
-      {links.map(({ name, url, icon }, i) => (
-        <li className='inline inline-item social-links' key={url}>
-          <a
-            href={url}
-            title={name}
-            target='_blank'
-            rel='noopener noreferrer'
-            className=''
-            tabIndex={i - 1}
+      {links.map(({ label, id, url, Icon }, i) => {
+        const labelId = `${id}-label`
+        const iconId = `${id}-icon`
+        return (
+          <li
+            className='inline inline-item social-links'
+            key={url}
+            aria-activedescendant={id}
           >
-            <label htmlFor={name}>{name}</label>
-            <span id={name}>{icon}</span>
-          </a>
-        </li>
-      ))}
+            <a
+              href={url}
+              target='_blank'
+              rel='noopener noreferrer'
+              tabIndex={i - 1}
+              aria-flowsto={links[(i + 1) % links.length]}
+              id={id}
+            >
+              <label id={labelId} htmlFor={iconId}>
+                {label}
+              </label>
+              <Icon id={iconId} />
+            </a>
+          </li>
+        )
+      })}
     </ul>
   )
 }

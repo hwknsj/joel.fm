@@ -1,12 +1,31 @@
 import PostCard from '@/components/post-card'
 import { SEO } from '@/components/seo'
 import { graphql, PageProps } from 'gatsby'
+import type { IGatsbyImageData } from 'gatsby-plugin-image'
 import PropTypes from 'prop-types'
 import * as React from 'react'
+
+interface MarkdownPost {
+  readonly node: {
+    readonly excerpt: string | null
+    readonly fields: { readonly slug: string | null } | null
+    readonly frontmatter: {
+      readonly date?: string | null
+      readonly title?: string | null
+      readonly description?: string | null
+      readonly thumbnail?: {
+        readonly childImageSharp?: {
+          readonly gatsbyImageData?: IGatsbyImageData
+        } | null
+      } | null
+    } | null
+  }
+}
 
 const IndexPage = ({
   data: {
     site: {
+      // @ts-ignore
       siteMetadata: { title, description }
     },
     allMarkdownRemark: { posts }
@@ -16,7 +35,6 @@ const IndexPage = ({
 
   return (
     <>
-      <SEO title={title} />
       {description && (
         <header className='page-head'>
           <h2 className='page-head-title'>{description}</h2>
@@ -29,7 +47,7 @@ const IndexPage = ({
               frontmatter,
               fields: { slug }
             }
-          }) => {
+          }: Partial<MarkdownPost>) => {
             postCounter++
             return (
               <PostCard
@@ -93,3 +111,7 @@ export const query = graphql`
 `
 
 export default IndexPage
+
+export const Head = ({ data }: PageProps<Queries.IndexPageQuery>) => (
+  <SEO title={data.site?.siteMetadata.title} />
+)

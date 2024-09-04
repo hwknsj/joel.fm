@@ -16,24 +16,6 @@ const MusicPage = ({
 
   return (
     <>
-      <SEO
-        title={`Music | ${title}`}
-        keywords={[
-          'blog',
-          'joel',
-          'hawkins',
-          'joel hawkins',
-          'joel hawkins torres',
-          'joel.fm',
-          'joel.biz',
-          '@joel.biz',
-          'gatsby',
-          'javascript',
-          'react',
-          'soundcloud'
-        ]}
-      />
-
       <article className='post-content page-template no-image'>
         <div className='post-content-body'>
           <h2>Music</h2>
@@ -90,8 +72,8 @@ const MusicPage = ({
   )
 }
 
-export const musicPageQuery = graphql`
-  {
+export const MusicPageQuery = graphql`
+  query MusicPage {
     site: site {
       siteMetadata {
         title
@@ -138,3 +120,7 @@ MusicPage.propTypes = {
 }
 
 export default MusicPage
+
+export const Head = ({ data }) => (
+  <SEO title={`Music | ${data.site.siteMetadata.title}`} />
+)

@@ -1,4 +1,4 @@
-/* eslint-env node */
+/** @type import('@types/eslint').Linter.Config */
 module.exports = {
   globals: {
     __PATH_PREFIX__: true,
@@ -16,7 +16,7 @@ module.exports = {
   plugins: ['@typescript-eslint', 'import', 'node', 'promise', '@emotion'],
   root: true,
   parserOptions: {
-    ecmaVersion: 2022,
+    ecmaVersion: 'latest',
     ecmaFeatures: {
       jsx: true
     },
@@ -45,7 +45,7 @@ module.exports = {
     }
   },
   rules: {
-    'react/jsx-pascal-case': ['error', 'never', 'warn', 'never'],
+    'react/jsx-pascal-case': 0,
     'jsx-a11y/anchor-is-valid': ['error', 'never', 'warn', 'never']
   }
   // rules: {

@@ -1,6 +1,6 @@
 // TODO: add a 'dark theme' switch
 
-import { fontFraktur, fontSerif } from './fonts'
+import { fraktur, serif, fontSerif } from './fonts'
 import { theme } from './theme'
 
 export const colorSchema = {
@@ -112,7 +112,7 @@ export const colorSchema = {
       border: '#895600'
     }
   }
-}
+} as const
 // eslint-disable-next-line no-unused-vars
 export const colorPalette = (dark = false) =>
   dark ? colorSchema.dark : colorSchema.light
@@ -120,145 +120,145 @@ export const colorPalette = (dark = false) =>
 export const typeographySchema = (colors: typeof colorSchema.light) => ({
   fontFamily: theme.typeography.serif,
   bodyFontSize: '1.6rem',
-  displayFont: fontFraktur,
+  displayFont: fraktur,
   color: colors.textPrimary,
   display1: {
-    fontFamily: fontFraktur,
+    fontFamily: fraktur,
     fontSize: '6.2rem',
     color: colors.textPrimary
   },
   display2: {
-    fontFamily: fontFraktur,
+    fontFamily: fraktur,
     fontSize: '5.6rem',
     color: colors.textPrimary
   },
   display3: {
-    fontFamily: fontFraktur,
+    fontFamily: fraktur,
     fontSize: '4.8rem',
     color: colors.textPrimary
   },
   display4: {
-    fontFamily: fontFraktur,
+    fontFamily: fraktur,
     fontSize: '4.0rem',
     color: colors.textPrimary
   },
   display5: {
-    fontFamily: fontFraktur,
+    fontFamily: fraktur,
     fontSize: '2.4rem',
     color: colors.textPrimary
   },
   title1: {
     fontSize: '4.8rem',
     fontWeight: 500,
-    fontFamily: fontFraktur,
+    fontFamily: fraktur,
     color: colors.textPrimary
   },
   title2: {
     fontSize: '3.2rem',
     fontWeight: 500,
-    fontFamily: fontFraktur,
+    fontFamily: fraktur,
     color: colors.textPrimary
   },
   title3: {
     fontSize: '2.8rem',
     fontWeight: 500,
-    fontFamily: fontFraktur,
+    fontFamily: fraktur,
     color: colors.textPrimary
   },
   title4: {
     fontSize: '2.4rem',
     fontWeight: 500,
-    fontFamily: fontFraktur,
+    fontFamily: fraktur,
     color: colors.textPrimary
   },
   title5: {
     fontSize: '2.0rem',
     fontWeight: 500,
-    fontFamily: fontFraktur,
+    fontFamily: fraktur,
     color: colors.textPrimary
   },
   title6: {
     fontSize: '1.6rem',
     fontWeight: 500,
-    fontFamily: fontFraktur,
+    fontFamily: fraktur,
     color: colors.textPrimary
   },
   subtitle1: {
     fontSize: '1.6rem',
     fontWeight: 500,
     lineHeight: '2.4rem',
-    fontFamily: fontFraktur,
+    fontFamily: fraktur,
     color: colors.textPrimary
   },
   subtitle2: {
     fontSize: '1.4rem',
     fontWeight: 500,
     lineHeight: '2.0rem',
-    fontFamily: fontFraktur,
+    fontFamily: fraktur,
     color: colors.textPrimary
   },
   subtitle3: {
     fontSize: '1.4rem',
     lineHeight: '1.6rem',
-    fontFamily: fontFraktur,
+    fontFamily: fraktur,
     color: colors.textPrimary
   },
   body1: {
     fontSize: '2.0rem',
     lineHeight: '2.8rem',
     fontWeight: 400,
-    fontFamily: fontFraktur,
+    fontFamily: fraktur,
     color: colors.textPrimary
   },
   body2: {
     fontSize: '1.6rem',
     lineHeight: '2.4rem',
     fontWeight: 400,
-    fontFamily: fontFraktur,
+    fontFamily: fraktur,
     color: colors.textPrimary
   },
   body3: {
     fontSize: '1.4rem',
     lineHeight: '2.0rem',
     fontWeight: 400,
-    fontFamily: fontFraktur,
+    fontFamily: fraktur,
     color: colors.textPrimary
   },
   legal: {
     fontSize: '1.2rem',
     lineHeight: '1.8rem',
     fontWeight: 400,
-    fontFamily: fontFraktur,
+    fontFamily: fraktur,
     color: colors.textPrimary
   },
   label: {
     fontSize: '1.0rem',
     lineHeight: '1.2rem',
     fontWeight: 400,
-    fontFamily: fontFraktur,
+    fontFamily: fraktur,
     color: colors.textPrimary
   },
   button1: {
     fontSize: '1.6rem',
     fontWeight: 500,
     lineHeight: '2.4rem',
-    fontFamily: fontFraktur
+    fontFamily: fraktur
   },
   button2: {
     fontSize: '1.4rem',
     fontWeight: 500,
     lineHeight: '2.0rem',
-    fontFamily: fontFraktur
+    fontFamily: fraktur
   },
   button3: {
     fontSize: '1.2rem',
     fontWeight: 500,
     lineHeight: '1.8rem',
-    fontFamily: fontFraktur
+    fontFamily: fraktur
   },
-  titleFont: fontFraktur,
-  subtitleFont: fontFraktur,
-  bodyFont: fontSerif,
-  legalFont: fontSerif,
-  buttonFont: fontFraktur
+  titleFont: fraktur,
+  subtitleFont: fraktur,
+  bodyFont: serif,
+  legalFont: serif,
+  buttonFont: fraktur
 })
