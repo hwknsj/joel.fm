@@ -45,6 +45,9 @@
       "@/templates/*": [
         "src/templates/*"
       ],
+      "@/types/*": [
+        "types/*"
+      ],
       "assets/*": [
         "content/assets/*"
       ]
@@ -63,6 +66,7 @@
     "./gatsby-browser.tsx",
     "./gatsby-ssr.tsx",
     "./emotion.d.ts",
-    "./plugins/**/*"
+    "./plugins/**/*",
+    "./types/**/*.ts"
   ]
 }

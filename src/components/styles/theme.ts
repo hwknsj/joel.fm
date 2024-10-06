@@ -128,17 +128,20 @@ const typeography = {
   },
   fontLight: '200',
   fontNormal: '400',
-  fontBold: 'bold 600',
+  fontBold: 'bold',
   fontHeavy: '800',
   weight: {
     light: '200',
     '200': '200',
+    '300': '300',
     normal: '400',
     '400': '400',
-    bold: 'bold 600',
+    bold: 'bold',
     '600': '600',
+    '700': '700',
     heavy: '800',
-    '800': '800'
+    '800': '800',
+    '900': '900'
   },
   lineHeight: '2'
 } as const
@@ -336,21 +339,11 @@ export const globalCss = css`
     font-family: ${theme.typeography.fraktur};
     color: ${theme.colors.black};
   }
-  input,
-  button,
-  option,
-  select,
-  textarea {
-    color: ${theme.colors.altBlack};
-    font-family: ${theme.typeography.fraktur};
-  }
-  blockquote,
-  q {
-    font-style: italic;
-    span,
-    a {
-      font-style: normal;
-    }
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-weight: ${theme.typeography.weight.normal};
   }
   ${helpers(theme)};
   ${reset(theme)};
@@ -366,3 +359,19 @@ export const globalCss = css`
   ${animations};
   ${screen(theme)};
 `
+
+// input,
+// button,
+// option,
+// select,
+// textarea {
+//   color: ${theme.colors.altBlack};
+// }
+// blockquote,
+// q {
+//   font-style: italic;
+//   span,
+//   a {
+//     font-style: normal;
+//   }
+// }

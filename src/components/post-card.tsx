@@ -1,6 +1,8 @@
 import { Link } from 'gatsby'
-import { ImageDataLike, getSrc } from 'gatsby-plugin-image'
+import { IGatsbyImageData, getSrc } from 'gatsby-plugin-image'
 import PropTypes from 'prop-types'
+import cx from 'classnames'
+import type { Thumbnail } from '@/types/posts'
 import React from 'react'
 
 interface PostCardProps {
@@ -8,7 +10,7 @@ interface PostCardProps {
   postClass?: string
   frontmatter: {
     title: string
-    thumbnail?: ImageDataLike
+    thumbnail?: Thumbnail
   }
   slug: string
 }
@@ -16,9 +18,15 @@ interface PostCardProps {
 const PostCard = ({ count, postClass, frontmatter, slug }: PostCardProps) => {
   return (
     <article
-      className={`post-card ${
-        count % 3 === 0 && `post-card-large`
-      } ${postClass} ${frontmatter.thumbnail ? `with-image` : `no-image`}`}
+      className={cx(
+        `post-card`,
+        {
+          ['post-card-large']: count % 3 === 0,
+          [`no-image`]: !frontmatter.thumbnail,
+          [`with-image`]: frontmatter.thumbnail
+        },
+        postClass
+      )}
       style={
         frontmatter.thumbnail && {
           backgroundImage: `url(${getSrc(frontmatter.thumbnail)})`

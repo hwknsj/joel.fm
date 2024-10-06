@@ -4,23 +4,7 @@ import { graphql, PageProps } from 'gatsby'
 import type { IGatsbyImageData } from 'gatsby-plugin-image'
 import PropTypes from 'prop-types'
 import * as React from 'react'
-
-interface MarkdownPost {
-  readonly node: {
-    readonly excerpt: string | null
-    readonly fields: { readonly slug: string | null } | null
-    readonly frontmatter: {
-      readonly date?: string | null
-      readonly title?: string | null
-      readonly description?: string | null
-      readonly thumbnail?: {
-        readonly childImageSharp?: {
-          readonly gatsbyImageData?: IGatsbyImageData
-        } | null
-      } | null
-    } | null
-  }
-}
+import { Post, MarkdownPost } from 'types/posts'
 
 const IndexPage = ({
   data: {
@@ -47,7 +31,7 @@ const IndexPage = ({
               frontmatter,
               fields: { slug }
             }
-          }: Partial<MarkdownPost>) => {
+          }) => {
             postCounter++
             return (
               <PostCard

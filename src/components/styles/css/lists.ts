@@ -6,6 +6,7 @@ export const lists = (theme: Theme) => css`
   ol,
   dl {
     margin: 0 0 ${theme.margin} 0;
+    font-family: ${theme.typeography.body};
   }
   ol,
   ul {

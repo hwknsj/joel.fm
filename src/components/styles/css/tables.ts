@@ -5,6 +5,7 @@ export const tables = (theme: Theme) => css`
   table {
     border-collapse: separate;
     margin: 0 0 ${theme.margin} 0;
+    font-family: ${theme.typeography.body};
     width: 100%;
     font-size: 0.8em;
   }
@@ -24,7 +25,7 @@ export const tables = (theme: Theme) => css`
     border-left-width: 1px;
   }
   tbody tr {
-    border: solid 1px ${theme.colorBorder};
+    border: solid 1px ${theme.colors.border};
     border-left: 0;
     border-right: 0;
   }
@@ -35,7 +36,7 @@ export const tables = (theme: Theme) => css`
     background-color: ${theme.colors.background};
   }
   tbody td {
-    border: solid 1px ${theme.colorBorder};
+    border: solid 1px ${theme.colors.border};
     border-left-width: 0;
     border-top-width: 0;
   }

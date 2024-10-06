@@ -7,6 +7,9 @@ export default {
   siteMetadata: {
     ...siteConfig
   },
+  flags: {
+    PARTIAL_HYDRATION: true
+  },
   plugins: [
     {
       resolve: `gatsby-plugin-typescript`,
@@ -47,13 +50,13 @@ export default {
         name: siteConfig.resumeFilename
       }
     },
-    // {
-    //   resolve: `gatsby-source-filesystem`,
-    //   options: {
-    //     path: path.resolve(`./content/assets/fonts/`),
-    //     name: `fonts`
-    //   }
-    // },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: path.resolve(`./content/assets/fonts/`),
+        name: `fonts`
+      }
+    },
     {
       resolve: `gatsby-transformer-remark`,
       options: {

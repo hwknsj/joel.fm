@@ -9,6 +9,7 @@ export const buttons = (theme: Theme) => css`
   button,
   .button {
     display: inline-block;
+    text-transform: uppercase;
     height: ${theme.height};
     padding: 0 2rem;
     border: 0;
@@ -16,7 +17,7 @@ export const buttons = (theme: Theme) => css`
     cursor: pointer;
     font-family: ${theme.typeography.fraktur};
     font-size: 1.4rem;
-    font-weight: ${theme.typeography.weight.normal};
+    font-weight: ${theme.typeography.weight.bold};
     line-height: ${theme.height};
     text-align: center;
     text-decoration: none;

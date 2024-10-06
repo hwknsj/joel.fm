@@ -1,8 +1,9 @@
 import PostCard from '@/components/post-card'
 import { SEO } from '@/components/seo'
-import { graphql } from 'gatsby'
+import { graphql, PageProps } from 'gatsby'
 import PropTypes from 'prop-types'
 import React from 'react'
+import type { Post } from '@/types/posts'
 
 const ArtworkPage = ({
   data: {
@@ -12,7 +13,7 @@ const ArtworkPage = ({
     allMarkdownRemark: { posts },
     metagramImage
   }
-}) => {
+}: PageProps<Queries.ArtworkPageQuery>) => {
   let postCounter = 0
   return (
     <>
@@ -100,7 +101,7 @@ ArtworkPage.propTypes = {
 }
 
 export const query = graphql`
-  query ArtworkPageQuery {
+  query ArtworkPage {
     site {
       siteMetadata {
         title
@@ -139,4 +140,4 @@ export const query = graphql`
 
 export default ArtworkPage
 
-export const Head = () => <SEO title={`Artwork`} />
+export const Head = () => <SEO title={`artwork`} />

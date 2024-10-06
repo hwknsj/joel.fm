@@ -1,52 +1,44 @@
 import ImageGrid from '@/components/image-grid'
 import { SEO } from '@/components/seo'
-import { graphql, useStaticQuery } from 'gatsby'
+import { graphql, useStaticQuery, PageProps } from 'gatsby'
 import React from 'react'
 
 // TODO: update with latest posts, if you can find them...
 
-const MetaGramIndex = () => {
-  const indexQuery = graphql`
-    query {
-      site {
-        siteMetadata {
-          title
-        }
+const MetagramPage = ({
+  data: {
+    site: {
+      siteMetadata: {
+        title,
+        social: { instagram }
       }
     }
-  `
+  }
+}: PageProps<Queries.MetagramPageQuery>) => {
+  // const indexQuery = graphql`
+  //   query {
+  //     site {
+  //       siteMetadata {
+  //         title
+  //       }
+  //     }
+  //   }
+  // `
 
   const postTitle = `Metagram`
   const postDescription = `Continuous digital art piece presented via Instagram.`
   const postClass = `post`
-  const url = `https://instagram.com/joel.biz`
+  // const url = `https://instagram.com/joel.biz`
+  const { url, user } = instagram
 
-  const {
-    site: {
-      siteMetadata: { title }
-    }
-  } = useStaticQuery(indexQuery)
+  // const {
+  //   site: {
+  //     siteMetadata: { title }
+  //   }
+  // } = useStaticQuery(indexQuery)
 
   return (
     <>
-      <SEO
-        title={`${postTitle} | ${title}`}
-        keywords={[
-          'blog',
-          'instagram',
-          '#netart',
-          'javascript',
-          'react',
-          'its',
-          'all',
-          'photoshop',
-          'joel.biz',
-          'joel hawkins',
-          'torres',
-          'joel',
-          'hawkins'
-        ]}
-      />
       <article className={`post-content ${postClass} page-template no-image`}>
         <header className='post-content-header'>
           <h2 className='post-content-title'>{`${postTitle}`}</h2>
@@ -57,12 +49,11 @@ const MetaGramIndex = () => {
           <a
             href={url}
             target='_blank'
-            title='@joel.biz'
-            alt='@joel.biz on Instagram'
+            title={user}
             rel='noopener noreferrer'
             aria-label={`@joel.biz on Instagram`}
           >
-            @joel.biz
+            {user}
           </a>
           .
         </p>
@@ -89,4 +80,22 @@ const MetaGramIndex = () => {
   )
 }
 
-export default MetaGramIndex
+export const query = graphql`
+  query MetagramPage {
+    site {
+      siteMetadata {
+        title
+        social {
+          instagram {
+            url
+            user
+          }
+        }
+      }
+    }
+  }
+`
+
+export default MetagramPage
+
+export const Head = () => <SEO title={`artwork/metagram`} />

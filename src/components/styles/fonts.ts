@@ -21,10 +21,10 @@ export const [fontTitle, fontBody, fontCode] = [
   fontMono
 ]
 export const typefaces = {
-  fraktur: fontFraktur,
-  serif: fontSerif,
-  sans: fontSans,
-  mono: fontMono,
+  fraktur,
+  serif,
+  sans,
+  mono,
   eskapade: `'eskapade', 'Eskapade', serif`,
   corporateA: `'corporate-a', 'CorporateAPro', 'Corporate A Pro', serif`,
   corporateS: `'corporate-s', 'CorporateSPro', 'Corporate S Pro', sans-serif`

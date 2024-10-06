@@ -20,12 +20,13 @@ export const ghost = (theme: Theme) => css`
   }
   .kg-card figcaption {
     padding: 1.5rem;
-    font-size: 1.3rem;
+    font-size: 1.6rem;
     line-height: 1.4em;
     font-weight: 600;
     color: ${theme.colors.base};
+    font-family: ${theme.typeography.body};
+    font-style: normal;
     text-align: center;
-    opacity: 0.4;
   }
   .kg-width-wide {
     position: relative;

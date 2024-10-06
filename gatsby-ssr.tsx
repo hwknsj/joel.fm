@@ -2,6 +2,7 @@ import 'normalize.css'
 import type { GatsbySSR } from 'gatsby'
 import { Layout } from '@/components/index'
 import { fontFilenames } from '@/styles/fonts'
+import * as React from 'react'
 
 export const wrapPageElement: GatsbySSR['wrapPageElement'] = ({
   element,
@@ -20,7 +21,7 @@ export const onRenderBody: GatsbySSR['onRenderBody'] = ({
         as='font'
         type='font/woff2'
         crossOrigin='anonymous'
-        key={postScriptName}
+        key={woff2}
       />
     ))
   ])

@@ -11,7 +11,7 @@ export const forms = (theme: Theme) => css`
     border: 0;
   }
   label {
-    color: ${theme.colorPrimary};
+    color: ${theme.colors.primary};
     display: block;
     font-size: 0.9em;
     font-weight: ${theme.typeography.weight.bold};
@@ -24,38 +24,26 @@ export const forms = (theme: Theme) => css`
   input[type='search'],
   input[type='url'],
   select,
-  textarea {
+  textarea,
+  option {
+    font-family: ${theme.typeography.body};
     background: ${theme.colors.background};
     border-radius: ${theme.radius};
     border: none;
-    border: solid 1px ${theme.colorBorder};
+    border: solid 1px ${theme.colors.border};
     color: inherit;
     display: block;
     outline: 0;
     padding: 0 0.6em;
     text-decoration: none;
     width: 100%;
-  }
-  input[type='text']:invalid,
-  input[type='password']:invalid,
-  input[type='email']:invalid,
-  input[type='tel']:invalid,
-  input[type='search']:invalid,
-  input[type='url']:invalid,
-  select:invalid,
-  textarea:invalid {
-    box-shadow: none;
-  }
-  input[type='text']:focus,
-  input[type='password']:focus,
-  input[type='email']:focus,
-  input[type='tel']:focus,
-  input[type='search']:focus,
-  input[type='url']:focus,
-  select:focus,
-  textarea:focus {
-    border-color: ${theme.colorPrimary};
-    box-shadow: 0 0 0 1px ${theme.colorPrimary};
+    &:invalid {
+      box-shadow: none;
+    }
+    &:focus {
+      border-color: ${theme.colorPrimary};
+      box-shadow: 0 0 0 1px ${theme.colorPrimary};
+    }
   }
   select {
     height: ${theme.height};

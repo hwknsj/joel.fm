@@ -2,36 +2,7 @@ import * as React from 'react'
 import path from 'node:path'
 import { createFilePath } from 'gatsby-source-filesystem'
 import type { GatsbyNode } from 'gatsby'
-import type { IGatsbyImageData } from 'gatsby-plugin-image'
-
-type Fields = {
-  slug: string
-}
-
-type ChildImageSharp = {
-  gatsbyImageData: IGatsbyImageData
-}
-
-type Thumbnail = {
-  childImageSharp?: ChildImageSharp
-}
-
-type Frontmatter = {
-  date?: string | null
-  title?: string | null
-  description?: string | null
-  thumbnail?: Thumbnail
-}
-
-interface Post extends Queries.Query_markdownRemarkArgs {
-  node: {
-    excerpt?: string | null
-    fields: Fields
-    frontmatter?: Frontmatter
-  }
-}
-
-type PostsArray = ReadonlyArray<Post>
+import type { Post } from 'types/posts'
 
 export const onCreateWebpackConfig: GatsbyNode['onCreateWebpackConfig'] = ({
   actions
@@ -63,11 +34,6 @@ export const onCreateWebpackConfig: GatsbyNode['onCreateWebpackConfig'] = ({
   })
 }
 
-type PostQueryResult = {
-  data: { allMarkdownRemark: { edges: PostsArray } }
-  errors?: any
-}
-
 export const createPages: GatsbyNode['createPages'] = async ({
   graphql,
   actions
@@ -96,20 +62,26 @@ export const createPages: GatsbyNode['createPages'] = async ({
       if (result.errors) {
         throw result.errors
       }
-      const edges = result?.data?.allMarkdownRemark.edges
+      const { edges } = result?.data?.allMarkdownRemark
 
-      edges?.forEach((edge: Post, index: number) => {
+      edges?.forEach((edge, index: number) => {
         const previous =
           index === edges.length - 1 ? null : edges[index + 1].node
         const next = index === 0 ? null : edges[index - 1].node
-
+        const {
+          node: {
+            fields: { slug },
+            frontmatter: { title }
+          }
+        } = edge as Post
         createPage({
-          path: edge.node.fields.slug,
+          path: slug,
           component: blogPost,
           context: {
-            slug: edge.node.fields.slug,
+            slug,
             previous,
-            next
+            next,
+            title
           }
         })
       })
@@ -154,3 +126,22 @@ export const createSchemaCustomization: GatsbyNode['createSchemaCustomization'] 
     }
   `)
   }
+
+// type Fields {
+//   slug: String
+//   url: String
+// }
+
+// type MarkdownRemark implements Node @dontInfer {
+//   frontmatter: Frontmatter
+//   fields: Fields
+//   excerpt: String
+// }
+// type Frontmatter {
+//   date: Date @dateformat
+//   title: String!
+//   description: String
+//   url: String
+//   tags: [String]
+//   thumbnail: File @fileByRelativePath
+// }
