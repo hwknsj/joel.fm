@@ -2,6 +2,11 @@ name: Deploy
 
 on: [push]
 
+defaults:
+  run:
+    shell: bash
+    working-directory: /var/
+
 jobs:
   build:
     runs-on: self-hosted
@@ -9,30 +14,44 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: node install and build
-        uses: actions/setup-node@v4.0.4
+        uses: actions/setup-node@v4
         with:
           node-version: '20.x'
       - run: yarn install
       - run: yarn build
 
-      - name: Copy repository contents via scp
-        uses: c0c1/scp-action@v1.0
+      - name: docker copy from container to host
+      - uses: tj-actions/docker-cp@v2
         with:
-          host: ${{ secrets.HOST }}
-          user: ${{ secrets.USERNAME }}
-          port: ${{ secrets.PORT }}
-          key: ${{ secrets.SSH_KEY }}
+          # Container name
+          container: ${{ job.container.id }}
+          # Source file or directory
           source: './public'
-          remote: '/var/www/joel.fm/build'
+          # Destination file or directory
+          destination: ${{ vars.output_path }}
+          # Copy from container to local (i.e container to host)
+          local: true
+          # Additional options passed to [docker cp](https://docs.docker.com/engine/reference/commandline/cp/#options)
+          # options:
 
-      - name: SSH action
-        uses: tiyee/action-ssh@v1.0.1
-        with:
-          host: ${{ secrets.HOST }}
-          username: ${{ secrets.USERNAME }}
-          port: ${{ secrets.PORT }}
-          privateKey: ${{ secrets.SSH_KEY }}
-          command: |
-            cd /var/www/joel.fm &&
-            rm -rf /var/www/joel.fm/html-test &&
-            ./scripts/symlinks.sh
+      # - name: Copy repository contents via scp
+      #   uses: c0c1/scp-action@v1.0
+      #   with:
+      #     host: ${{ secrets.HOST }}
+      #     user: ${{ secrets.USERNAME }}
+      #     port: ${{ secrets.PORT }}
+      #     key: ${{ secrets.SSH_KEY }}
+      #     source: './public'
+      #     remote: '/var/www/joel.fm/build'
+
+      # - name: SSH action
+      #   uses: tiyee/action-ssh@v1.0.1
+      #   with:
+      #     host: ${{ secrets.HOST }}
+      #     username: ${{ secrets.USERNAME }}
+      #     port: ${{ secrets.PORT }}
+      #     privateKey: ${{ secrets.SSH_KEY }}
+      #     command: |
+      #       cd /var/www/joel.fm &&
+      #       rm -rf /var/www/joel.fm/html-test &&
+      #       ./scripts/symlinks.sh
