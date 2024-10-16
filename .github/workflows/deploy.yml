@@ -22,11 +22,13 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20.x'
-          cache: 'yarn'
+          cache: 'npm'
+
       - run: |
           echo "${{ job.container.id }}"
           echo "${{ vars }}"
 
+      - run: corepack install -g yarn@latest
       - run: yarn install
       - run: yarn build
 
